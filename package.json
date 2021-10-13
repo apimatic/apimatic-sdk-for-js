@@ -41,11 +41,8 @@
   "bugs": {
     "email": "contactus@apimatic.io"
   },
-   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com/apimatic/apimatic-sdk-for-js.git"
-  }
+  "repository": "git://github.com/apimatic/apimatic-sdk-for-js.git"
 }
