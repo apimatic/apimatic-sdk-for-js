@@ -25,7 +25,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "apimatic-apilib",
+  "name": "apimatic-sdk-for-js",
   "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformers Engine.",
   "author": "Team APIMatic",
   "devDependencies": {
@@ -42,7 +42,7 @@
     "email": "contactus@apimatic.io"
   },
    "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com"
   },
   "repository": {
     "type": "git",
