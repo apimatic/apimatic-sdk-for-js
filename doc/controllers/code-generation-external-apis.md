@@ -10,115 +10,20 @@ const codeGenerationExternalApisController = new CodeGenerationExternalApisContr
 
 ## Methods
 
-* [Generate SDK Via URL](/doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
-* [Generate SDK Via File](/doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
-* [Download SDK](/doc/controllers/code-generation-external-apis.md#download-sdk)
-* [List All Code Generations](/doc/controllers/code-generation-external-apis.md#list-all-code-generations)
-* [Get a Code Generation](/doc/controllers/code-generation-external-apis.md#get-a-code-generation)
+* [Get Download SDK](/doc/controllers/code-generation-external-apis.md#get-download-sdk)
+* [Get List All Code Generations](/doc/controllers/code-generation-external-apis.md#get-list-all-code-generations)
+* [Generate SD Kvia URL](/doc/controllers/code-generation-external-apis.md#generate-sd-kvia-url)
 * [Download Input File](/doc/controllers/code-generation-external-apis.md#download-input-file)
-* [Delete Code Generation](/doc/controllers/code-generation-external-apis.md#delete-code-generation)
+* [Delete Code Generation 1](/doc/controllers/code-generation-external-apis.md#delete-code-generation-1)
+* [Get a Code Generation 1](/doc/controllers/code-generation-external-apis.md#get-a-code-generation-1)
 
 
-# Generate SDK Via URL
-
-Generate an SDK for an API by providing the URL of the API specification file.
-
-This endpoint generates and then uploads the generated SDK to APIMatic's cloud storage. An ID for the generation performed is returned as part of the response.
-
-This endpoint does not import an API into APIMatic.
-
-```ts
-async generateSDKViaURL(
-  body: GenerateSdkViaUrlRequest,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<UserCodeGeneration>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`GenerateSdkViaUrlRequest`](/doc/models/generate-sdk-via-url-request.md) | Body, Required | Request Body |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-[`UserCodeGeneration`](/doc/models/user-code-generation.md)
-
-## Example Usage
-
-```ts
-const body: GenerateSdkViaUrlRequest = {
-  url: 'http://petstore.swagger.io/v2/swagger.json',
-  template: 'CS_UNIVERSAL_WINDOWS_PLATFORM_LIB',
-};
-
-const contentType = null;
-try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaURL(body);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
-```
-
-
-# Generate SDK Via File
-
-Generate an SDK for an API by by uploading the API specification file.
-
-This endpoint generates and then uploads the generated SDK to APIMatic's cloud storage. An ID for the generation performed is returned as part of the response.
-
-This endpoint does not import an API into APIMatic.
-
-```ts
-async generateSDKViaFile(
-  file: FileWrapper,
-  template: Platforms,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<UserCodeGeneration>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
-| `template` | [`Platforms`](/doc/models/platforms.md) | Form, Required | The programming language for which to generate the SDK in. <br>The template can be any of the [supported templates](https://docs.apimatic.io/generate-sdks/overview-sdks/). |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-[`UserCodeGeneration`](/doc/models/user-code-generation.md)
-
-## Example Usage
-
-```ts
-const file = new FileWrapper(fs.createReadStream('dummy_file'));
-const template = 'CS_UNIVERSAL_WINDOWS_PLATFORM_LIB';
-try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaFile(file, template);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
-```
-
-
-# Download SDK
+# Get Download SDK
 
 Download the SDK generated via the Generate SDK endpoints.
 
 ```ts
-async downloadSDK(
+async getDownloadSDK(
   codegenId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
@@ -140,7 +45,7 @@ async downloadSDK(
 ```ts
 const codegenId = 'codegen_id6';
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.downloadSDK(codegenId);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.getDownloadSDK(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -152,12 +57,12 @@ try {
 ```
 
 
-# List All Code Generations
+# Get List All Code Generations
 
 Get a list of all SDK generations performed with external APIs via the Generate SDK endpoints.
 
 ```ts
-async listAllCodeGenerations(
+async getListAllCodeGenerations(
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<UserCodeGeneration[]>>
 ```
@@ -176,7 +81,7 @@ async listAllCodeGenerations(
 
 ```ts
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.listAllCodeGenerations();
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.getListAllCodeGenerations();
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -188,13 +93,17 @@ try {
 ```
 
 
-# Get a Code Generation
+# Generate SD Kvia URL
 
-Get details on an SDK generation performed for an external API via the Generate SDK endpoints.
+Generate an SDK for an API by providing the URL of the API specification file.
+
+This endpoint generates and then uploads the generated SDK to APIMatic's cloud storage. An ID for the generation performed is returned as part of the response.
+
+This endpoint does not import an API into APIMatic.
 
 ```ts
-async getACodeGeneration(
-  codegenId: string,
+async generateSDKviaURL(
+  body: GenerateSdkViaUrlRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<UserCodeGeneration>>
 ```
@@ -203,7 +112,7 @@ async getACodeGeneration(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `codegenId` | `string` | Template, Required | The ID of the code generation to fetch. The code generation ID is received in the response of the [Generate SDK Via File](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-file) or [Generate SDK Via URL ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-url) calls. |
+| `body` | [`GenerateSdkViaUrlRequest`](/doc/models/generate-sdk-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -213,9 +122,13 @@ async getACodeGeneration(
 ## Example Usage
 
 ```ts
-const codegenId = 'codegen_id6';
+const body: GenerateSdkViaUrlRequest = {
+  url: 'http://petstore.swagger.io/v2/swagger.json',
+  template: 'CS_NET_STANDARD_LIB',
+};
+
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.getACodeGeneration(codegenId);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKviaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -266,12 +179,12 @@ try {
 ```
 
 
-# Delete Code Generation
+# Delete Code Generation 1
 
 Delete an SDK generation performed for an API via the Generate SDK endpoints.
 
 ```ts
-async deleteCodeGeneration(
+async deleteCodeGeneration1(
   codegenId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<void>>
@@ -293,7 +206,46 @@ async deleteCodeGeneration(
 ```ts
 const codegenId = 'codegen_id6';
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.deleteCodeGeneration(codegenId);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.deleteCodeGeneration1(codegenId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
+```
+
+
+# Get a Code Generation 1
+
+Get details on an SDK generation performed for an external API via the Generate SDK endpoints.
+
+```ts
+async getACodeGeneration1(
+  codegenId: string,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<UserCodeGeneration>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `codegenId` | `string` | Template, Required | The ID of the code generation to fetch. The code generation ID is received in the response of the [Generate SDK Via File](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-file) or [Generate SDK Via URL ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-url) calls. |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+[`UserCodeGeneration`](/doc/models/user-code-generation.md)
+
+## Example Usage
+
+```ts
+const codegenId = 'codegen_id6';
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.getACodeGeneration1(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

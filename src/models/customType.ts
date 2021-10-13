@@ -21,7 +21,7 @@ export interface CustomType {
   name: string;
   /** Data Format */
   baseType: string;
-  /** How the type is supposed to be implemented */
+  /** The structure helps describes the nature of implementation of a  custom model. A model can be of 3 types. */
   implementationType: ImplementationType;
   /** Type Fields */
   fields: Field[];

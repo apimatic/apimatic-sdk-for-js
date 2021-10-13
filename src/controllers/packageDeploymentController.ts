@@ -33,96 +33,25 @@ export class PackageDeploymentController extends BaseController {
    * To find out more about publishing packages visit: [Publish Packages](https://docs.apimatic.
    * io/developer-experience-portal/adding%20packages%20to%20portal/)
    *
-   * @param updatePackageDeploymentInformation Package Deployment
-   *                                                                                        Information to be updated.
-   *                                                                                        This comprises of the
-   *                                                                                        Platform Template, the
-   *                                                                                        Repository Name and Version.
-   * @param apiEntityId                        Unique API Entity
-   *                                                                                        Identifier
+   * @param apiEntityId   Unique API Entity Identifier
+   * @param body          Package Deployment Information to be updated.
+   *                                                                   This comprises of the Platform Template, the
+   *                                                                   Repository Name and Version.
    * @return Response from the API call
    */
   async updatePackageDeploymentInformation(
-    updatePackageDeploymentInformation: UpdatePackageDeploymentInformation,
     apiEntityId: string,
+    body: UpdatePackageDeploymentInformation,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('PUT');
     const mapped = req.prepareArgs({
-      updatePackageDeploymentInformation: [
-        updatePackageDeploymentInformation,
-        updatePackageDeploymentInformationSchema,
-      ],
       apiEntityId: [apiEntityId, string()],
+      body: [body, updatePackageDeploymentInformationSchema],
     });
-    req.json(mapped.updatePackageDeploymentInformation);
+    req.json(mapped.body);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/docs/package-deployment-information`;
     return req.call(requestOptions);
-  }
-
-  /**
-   * Publish a new package for API by specifying package name and version number.
-   *
-   * To publish packages using this API, you will first need to add package repository credentials to
-   * your APIMatic account.
-   * Check out the [docs](https://docs.apimatic.io/advanced/publishing-a-package/) for a guide on adding
-   * package repository credentials
-   *
-   * @param apiEntityId         Unique API Identifier
-   * @param packagePublishInput
-   * @return Response from the API call
-   */
-  async publishAPackageForAPI(
-    apiEntityId: string,
-    packagePublishInput: PublishPackageInput,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PublishedPackage>> {
-    const req = this.createRequest('POST');
-    const mapped = req.prepareArgs({
-      apiEntityId: [apiEntityId, string()],
-      packagePublishInput: [packagePublishInput, publishPackageInputSchema],
-    });
-    req.json(mapped.packagePublishInput);
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/published-packages/`;
-    return req.callAsJson(publishedPackageSchema, requestOptions);
-  }
-
-  /**
-   * Returns logs for all packages published for the API.
-   *
-   * @param apiEntityId   Unique API Identifier
-   * @return Response from the API call
-   */
-  async getPublishedPackagesForAPI(
-    apiEntityId: string,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PublishedPackage[]>> {
-    const req = this.createRequest('GET');
-    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/published-packages`;
-    return req.callAsJson(array(publishedPackageSchema), requestOptions);
-  }
-
-  /**
-   * Pull details for a certain published package by specifying Published Package Id.
-   *
-   * @param apiEntityId          Unique API Identifier
-   * @param publishedPackageId   Unique Published Package Identifier
-   * @return Response from the API call
-   */
-  async getAPublishedPackage(
-    apiEntityId: string,
-    publishedPackageId: string,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PublishedPackage>> {
-    const req = this.createRequest('GET');
-    req.baseUrl('default');
-    const mapped = req.prepareArgs({
-      apiEntityId: [apiEntityId, string()],
-      publishedPackageId: [publishedPackageId, string()],
-    });
-    req.appendTemplatePath`/api/api-entities/${mapped.apiEntityId}/published-packages/${mapped.publishedPackageId}`;
-    return req.callAsJson(publishedPackageSchema, requestOptions);
   }
 
   /**
@@ -142,5 +71,70 @@ export class PackageDeploymentController extends BaseController {
     const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/docs/package-deployment-information`;
     return req.callAsJson(packageDeploymentInformationSchema, requestOptions);
+  }
+
+  /**
+   * Returns logs for all packages published for the API.
+   *
+   * @param apiEntityId   Unique API Identifier
+   * @return Response from the API call
+   */
+  async getPublishedPackagesforAPI(
+    apiEntityId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<PublishedPackage[]>> {
+    const req = this.createRequest('GET');
+    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/published-packages`;
+    return req.callAsJson(array(publishedPackageSchema), requestOptions);
+  }
+
+  /**
+   * Publish a new package for API by specifying package name and version number.
+   *
+   * To publish packages using this API, you will first need to add package repository credentials to
+   * your APIMatic account.
+   * Check out the [docs](https://docs.apimatic.io/advanced/publishing-a-package/) for a guide on adding
+   * package repository credentials
+   *
+   * @param apiEntityId   Unique API Identifier
+   * @param body
+   * @return Response from the API call
+   */
+  async publishaPackageforAPI(
+    apiEntityId: string,
+    body: PublishPackageInput,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<PublishedPackage>> {
+    const req = this.createRequest('POST');
+    const mapped = req.prepareArgs({
+      apiEntityId: [apiEntityId, string()],
+      body: [body, publishPackageInputSchema],
+    });
+    req.json(mapped.body);
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/published-packages/`;
+    return req.callAsJson(publishedPackageSchema, requestOptions);
+  }
+
+  /**
+   * Pull details for a certain published package by specifying Published Package Id.
+   *
+   * @param apiEntityId          Unique API Identifier
+   * @param publishedPackageId   Unique Published Package Identifier
+   * @return Response from the API call
+   */
+  async getaPublishedPackage(
+    apiEntityId: string,
+    publishedPackageId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<PublishedPackage>> {
+    const req = this.createRequest('GET');
+    req.baseUrl('default');
+    const mapped = req.prepareArgs({
+      apiEntityId: [apiEntityId, string()],
+      publishedPackageId: [publishedPackageId, string()],
+    });
+    req.appendTemplatePath`/api/api-entities/${mapped.apiEntityId}/published-packages/${mapped.publishedPackageId}`;
+    return req.callAsJson(publishedPackageSchema, requestOptions);
   }
 }

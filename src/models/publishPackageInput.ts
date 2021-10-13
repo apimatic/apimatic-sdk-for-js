@@ -13,6 +13,7 @@ import { Platforms, platformsSchema } from './platforms';
 
 export interface PublishPackageInput {
   packageRepository: PackageRepositories;
+  /** The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. */
   template: Platforms;
   packageName: string;
   version: string;

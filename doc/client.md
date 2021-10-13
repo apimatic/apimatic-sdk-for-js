@@ -6,16 +6,16 @@ The following parameters are configurable for the API Client:
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | `timeout` | `number` | Timeout for API calls.<br>*Default*: `0` |
-| `email` | `string` | *Default*: `'yourusername@apimatic.io'` |
-| `password` | `string` | *Default*: `'yourapimaticpassword'` |
+| `email` | `string` |  |
+| `password` | `string` |  |
 
 The API client can be initialized as follows:
 
 ```ts
 const client = new Client({
   timeout: 0,
-  email: 'yourusername@apimatic.io',
-  password: 'yourapimaticpassword',
+  email: 'email',
+  password: 'password',
 })
 ```
 

@@ -12,7 +12,7 @@ import {
 
 /** This structure is used to update package deployment details. */
 export interface UpdatePackageDeploymentInformation {
-  /** Encapsulates Package Deployment Details */
+  /** This structure helps update package deployment details. */
   templatesPackageDeploymentInformation: UpdateTemplatesPackageDeploymentInformation;
 }
 

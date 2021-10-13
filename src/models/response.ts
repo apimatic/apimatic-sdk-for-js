@@ -23,7 +23,7 @@ export interface Response {
   isAttribute: boolean;
   /** Specify if response is collected as map */
   isMap: boolean;
-  /** Specify response attributes */
+  /** The structure contain attribute details of a parameter type. */
   attributes: Attributes;
   /** Specify is response is nullable */
   nullable: boolean;

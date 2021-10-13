@@ -18,7 +18,7 @@ This structure encapsulates all details of a parameter.
 | `isStream` | `boolean` | Required | - |
 | `isAttribute` | `boolean` | Required | - |
 | `isMap` | `boolean` | Required | - |
-| `attributes` | [`Attributes`](/doc/models/attributes.md) | Required | Parameter attributes |
+| `attributes` | [`Attributes`](/doc/models/attributes.md) | Required | The structure contain attribute details of a parameter type. |
 | `nullable` | `boolean` | Required | If Parameter is nullable |
 | `id` | `string` | Required | Unique Parameter identifier |
 | `name` | `string` | Required | Parameter Name |
@@ -37,7 +37,7 @@ This structure encapsulates all details of a parameter.
   "isAttribute": false,
   "isMap": false,
   "attributes": {
-    "id": "5be1603083b41d0b50110553"
+    "id": "5be1603083b41d0b50110551"
   },
   "nullable": false,
   "id": "5a4e8675b724bb198c289f7a",

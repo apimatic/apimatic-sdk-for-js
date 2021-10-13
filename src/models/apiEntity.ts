@@ -37,15 +37,15 @@ export interface ApiEntity {
   version: string;
   /** Header Content */
   additionalHeaders: string[];
-  /** Authentication Details */
+  /** This Structure encapsulates all details of API authentication. */
   authentication: Authentication;
-  /** Code Gen Settings */
+  /** APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration. */
   codeGenSettings: CodeGenSettings;
-  /** Test Generation Settings */
+  /** This structure helps specify additional test configurations which affects how test cases are generated. */
   testGenSettings: TestGenSettings;
   /** API Errors */
   errors: string[];
-  /** Server Settings */
+  /** Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. */
   serverConfiguration: ServerConfiguration;
 }
 

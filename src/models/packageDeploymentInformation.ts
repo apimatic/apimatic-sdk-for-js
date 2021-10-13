@@ -14,7 +14,7 @@ import {
 export interface PackageDeploymentInformation {
   /** Package Deployment Identifier */
   id: string;
-  /** Package Deployment Details */
+  /** This structure encapsulates all package deployment details. */
   templatesPackageDeploymentInformation: TemplatesPackageDeploymentInformation;
 }
 

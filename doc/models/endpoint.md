@@ -18,7 +18,7 @@ This structure encapsulates all the attributes of an API Endpoint.
 | `group` | `string` | Required | The Group Endpoint belongs to |
 | `skipAuthentication` | `boolean` | Required | If Endpoint warrants authentication or not |
 | `route` | `string` | Required | The Endpoint route |
-| `response` | [`Response`](/doc/models/response.md) | Required | Expected Response |
+| `response` | [`Response`](/doc/models/response.md) | Required | The structure encapsulates all details of a request response |
 | `hasOptionalQueryParams` | `boolean` | Required | Enabling this option allows optional query parameters |
 | `hasOptionalFieldParams` | `boolean` | Required | Enabling this option allows optional field parameters |
 | `collectParameters` | `boolean` | Required | Enabling this option collects API endpoint parameters as collections |
@@ -68,7 +68,7 @@ This structure encapsulates all the attributes of an API Endpoint.
     "isAttribute": false,
     "isMap": false,
     "attributes": {
-      "id": "5be1603083b41d0b50110553"
+      "id": "5be1603083b41d0b50110551"
     },
     "nullable": false,
     "id": "5a4e8675b724bb198c289f7a",

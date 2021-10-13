@@ -33,7 +33,7 @@ export interface Endpoint {
   skipAuthentication: boolean;
   /** The Endpoint route */
   route: string;
-  /** Expected Response */
+  /** The structure encapsulates all details of a request response */
   response: Response;
   /** Enabling this option allows optional query parameters */
   hasOptionalQueryParams: boolean;

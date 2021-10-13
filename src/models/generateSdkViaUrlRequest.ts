@@ -10,7 +10,7 @@ import { Platforms, platformsSchema } from './platforms';
 export interface GenerateSdkViaUrlRequest {
   /** The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. */
   url: string;
-  /** The programming language for which to generate the SDK in. <br>The template can be any of the [supported templates](https://docs.apimatic.io/generate-sdks/overview-sdks/). */
+  /** The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. */
   template: Platforms;
 }
 

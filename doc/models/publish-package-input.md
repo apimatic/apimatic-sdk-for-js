@@ -10,7 +10,7 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `packageRepository` | [`PackageRepositories`](/doc/models/package-repositories.md) | Required | - |
-| `template` | [`Platforms`](/doc/models/platforms.md) | Required | - |
+| `template` | [`Platforms`](/doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
 | `packageName` | `string` | Required | - |
 | `version` | `string` | Required | - |
 | `additionalDeploymentInformation` | `unknown` | Required | - |
@@ -20,7 +20,7 @@
 ```json
 {
   "packageRepository": "Npm",
-  "template": "NODE_JAVASCRIPT_LIB",
+  "template": "CS_NET_STANDARD_LIB",
   "packageName": "apimaticcalculatortest",
   "version": "1.0.0",
   "additionalDeploymentInformation": {}

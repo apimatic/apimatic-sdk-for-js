@@ -20,7 +20,7 @@ export interface Field {
   isStream: boolean;
   isAttribute: boolean;
   isMap: boolean;
-  /** Parameter attributes */
+  /** The structure contain attribute details of a parameter type. */
   attributes: Attributes;
   /** If Parameter is nullable */
   nullable: boolean;

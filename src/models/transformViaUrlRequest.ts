@@ -11,7 +11,7 @@ import { ExportFormats, exportFormatsSchema } from './exportFormats';
 export interface TransformViaUrlRequest {
   /** The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. */
   url: string;
-  /** The desired API specification format for the transformation. <br>The format can be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). */
+  /** The structure contains API specification formats that Transformer can convert to. */
   exportFormat: ExportFormats;
 }
 

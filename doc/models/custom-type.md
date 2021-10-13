@@ -15,7 +15,7 @@ This structure helps creates a new complex model type.
 | `apiId` | `string` | Required | Unique  API Entity identifier |
 | `name` | `string` | Required | Custom Type Name |
 | `baseType` | `string` | Required | Data Format |
-| `implementationType` | [`ImplementationType`](/doc/models/implementation-type.md) | Required | How the type is supposed to be implemented |
+| `implementationType` | [`ImplementationType`](/doc/models/implementation-type.md) | Required | The structure helps describes the nature of implementation of a  custom model. A model can be of 3 types. |
 | `fields` | [`Field[]`](/doc/models/field.md) | Required | Type Fields |
 
 ## Example (as JSON)

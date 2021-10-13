@@ -9,7 +9,7 @@ import { CSNETSTANDARDLIB, cSNETSTANDARDLIBSchema } from './cSNETSTANDARDLIB';
 
 /** This structure encapsulates all package deployment details. */
 export interface TemplatesPackageDeploymentInformation {
-  /** Body containing package deployment details */
+  /** This structure contains all details that goes into package deployment. */
   cSNETSTANDARDLIB: CSNETSTANDARDLIB;
 }
 

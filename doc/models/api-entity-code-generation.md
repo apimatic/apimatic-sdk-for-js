@@ -7,14 +7,18 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
 
 `APIEntityCodeGeneration`
 
-## Inherits From
-
-[`CodeGeneration`](/doc/models/code-generation.md)
-
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `id` | `string` | Required | Unique Code Generation Identifier |
+| `template` | [`Platforms`](/doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
+| `generatedFile` | `string` | Required | The generated SDK |
+| `generatedOn` | `string` | Required | Generation Date and Time |
+| `hashCode` | `string` | Required | The md5 hash of the API Description |
+| `codeGenerationSource` | `string` | Required | Generation Source |
+| `codeGenVersion` | `string` | Required | Generation Version |
+| `success` | `boolean` | Required | Generation Status |
 | `apiEntityId` | `string` | Required | Unique API Entity Identifier |
 
 ## Example (as JSON)

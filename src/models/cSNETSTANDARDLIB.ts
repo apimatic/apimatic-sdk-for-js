@@ -5,11 +5,13 @@
  */
 
 import { object, optional, Schema, string, unknown } from '../schema';
+import { Id, idSchema } from './id';
+import { Link, linkSchema } from './link';
 
 /** This structure contains all details that goes into package deployment. */
 export interface CSNETSTANDARDLIB {
   /** Unique package identifier */
-  id?: string;
+  id?: Id;
   /** Package Repository as per platform */
   packageRepository: string;
   /** Package Name */
@@ -18,11 +20,11 @@ export interface CSNETSTANDARDLIB {
   /** Any additional platform specific deployment detail */
   additionalDeploymentInformation?: unknown;
   /** Link of deployed package */
-  link?: string;
+  link?: Link;
 }
 
 export const cSNETSTANDARDLIBSchema: Schema<CSNETSTANDARDLIB> = object({
-  id: ['id', optional(string())],
+  id: ['id', optional(idSchema)],
   packageRepository: ['packageRepository', string()],
   packageName: ['packageName', string()],
   version: ['version', string()],
@@ -30,5 +32,5 @@ export const cSNETSTANDARDLIBSchema: Schema<CSNETSTANDARDLIB> = object({
     'additionalDeploymentInformation',
     unknown(),
   ],
-  link: ['link', optional(string())],
+  link: ['link', optional(linkSchema)],
 });

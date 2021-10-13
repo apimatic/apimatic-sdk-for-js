@@ -11,7 +11,7 @@ This structure is used to update package deployment details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `templatesPackageDeploymentInformation` | [`UpdateTemplatesPackageDeploymentInformation`](/doc/models/update-templates-package-deployment-information.md) | Required | Encapsulates Package Deployment Details |
+| `templatesPackageDeploymentInformation` | [`UpdateTemplatesPackageDeploymentInformation`](/doc/models/update-templates-package-deployment-information.md) | Required | This structure helps update package deployment details. |
 
 ## Example (as JSON)
 

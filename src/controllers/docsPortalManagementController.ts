@@ -5,39 +5,11 @@
  */
 
 import { ApiResponse, RequestOptions } from '../core';
+import { Accept1, accept1Schema } from '../models/accept1';
 import { string } from '../schema';
 import { BaseController } from './baseController';
 
 export class DocsPortalManagementController extends BaseController {
-  /**
-   * Publish artifacts for a Hosted Portal.
-   *
-   * This endpoint regenerates all the artifacts for a hosted portal and uploads them to APIMatic's cloud
-   * storage, from where the Portal fetches them. These artifacts include:
-   *
-   * 1. SDKs
-   * 2. Docs
-   * 3. API Specification files
-   *
-   * Call this endpoint to update your Hosted Portal after you update an API Entity via any of the Import
-   * API Endpoints.
-   *
-   * __**Note: If you have an embedded portal against the same API Entity, artifacts for that portal will
-   * get updated as well.**__
-   *
-   * @param apiEntityId   The ID of the API Entity to update the portal artifacts for.
-   * @return Response from the API call
-   */
-  async publishHostedPortal(
-    apiEntityId: string,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<void>> {
-    const req = this.createRequest('PUT');
-    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/hosted-portal`;
-    return req.call(requestOptions);
-  }
-
   /**
    * Publish artifacts for an Embedded Portal and get the Portal Embed script.
    *
@@ -68,6 +40,35 @@ export class DocsPortalManagementController extends BaseController {
   }
 
   /**
+   * Publish artifacts for a Hosted Portal.
+   *
+   * This endpoint regenerates all the artifacts for a hosted portal and uploads them to APIMatic's cloud
+   * storage, from where the Portal fetches them. These artifacts include:
+   *
+   * 1. SDKs
+   * 2. Docs
+   * 3. API Specification files
+   *
+   * Call this endpoint to update your Hosted Portal after you update an API Entity via any of the Import
+   * API Endpoints.
+   *
+   * __**Note: If you have an embedded portal against the same API Entity, artifacts for that portal will
+   * get updated as well.**__
+   *
+   * @param apiEntityId   The ID of the API Entity to update the portal artifacts for.
+   * @return Response from the API call
+   */
+  async publishHostedPortal(
+    apiEntityId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<void>> {
+    const req = this.createRequest('PUT');
+    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/hosted-portal`;
+    return req.call(requestOptions);
+  }
+
+  /**
    * Generate an On-premise Documentation Portal for an API Entity. This endpoint generates all artifacts
    * for the Portal and packages them together into a zip file along with the required HTML, CSS and JS
    * files. The generated artifacts include:
@@ -79,14 +80,19 @@ export class DocsPortalManagementController extends BaseController {
    * The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
    *
    * @param apiEntityId   The ID of the API Entity to generate the Portal for.
+   * @param accept
    * @return Response from the API call
    */
   async generateOnPremPortal(
     apiEntityId: string,
+    accept: Accept1,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('GET');
-    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
+    const mapped = req.prepareArgs({
+      apiEntityId: [apiEntityId, string()],
+      accept: [accept, accept1Schema],
+    });
     req.header('Accept', mapped.accept);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/on-prem-portal`;
     return req.call(requestOptions);

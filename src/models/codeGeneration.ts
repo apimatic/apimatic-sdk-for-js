@@ -11,7 +11,7 @@ import { Platforms, platformsSchema } from './platforms';
 export interface CodeGeneration {
   /** Unique Code Generation Identifier */
   id: string;
-  /** Desired Language Platform */
+  /** The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. */
   template: Platforms;
   /** The generated SDK */
   generatedFile: string;

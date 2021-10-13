@@ -25,3 +25,9 @@ The structure contains platforms that APIMatic CodeGen can generate SDKs and Doc
 | `gOGENERICLIB` | GO Language |
 | `hTTPCURLV1` | HTTP CURL |
 
+## Example
+
+```
+CS_NET_STANDARD_LIB
+```
+

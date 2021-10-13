@@ -31,3 +31,9 @@ The structure contains API specification formats that Transformer can convert to
 | `postman20` |
 | `graphQlSchema` |
 
+## Example
+
+```
+APIMATIC
+```
+

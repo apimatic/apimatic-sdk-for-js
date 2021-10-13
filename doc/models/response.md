@@ -18,7 +18,7 @@ The structure encapsulates all details of a request response
 | `isStream` | `boolean` | Required | Specify if response is stream |
 | `isAttribute` | `boolean` | Required | Specify  if response has attributes |
 | `isMap` | `boolean` | Required | Specify if response is collected as map |
-| `attributes` | [`Attributes`](/doc/models/attributes.md) | Required | Specify response attributes |
+| `attributes` | [`Attributes`](/doc/models/attributes.md) | Required | The structure contain attribute details of a parameter type. |
 | `nullable` | `boolean` | Required | Specify is response is nullable |
 | `id` | `string` | Required | Unique response identifier |
 | `name` | `string` | Required | Response name |

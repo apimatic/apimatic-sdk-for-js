@@ -11,7 +11,7 @@ This structure helps update package deployment details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cSNETSTANDARDLIB` | [`CSNETSTANDARDLIB`](/doc/models/csnetstandardlib.md) | Required | Package Deployment Details |
+| `cSNETSTANDARDLIB` | [`CSNETSTANDARDLIB`](/doc/models/csnetstandardlib.md) | Required | This structure contains all details that goes into package deployment. |
 
 ## Example (as JSON)
 

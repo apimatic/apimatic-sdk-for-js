@@ -7,14 +7,26 @@ The structure collects API Endpoints and Custom Types to display detailed inform
 
 `ApiEntityDetailed`
 
-## Inherits From
-
-[`ApiEntity`](/doc/models/api-entity.md)
-
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `id` | `string` | Required | Unique API Entity identifier |
+| `encryptedId` | `string` | Required | Enrcypted API Entity Id |
+| `apiKey` | `string` | Required | API Integration Key. Obtain from API Card on Dashboard. |
+| `apiGroupId` | `string` | Required | Unique API Group Identifier |
+| `imageUri` | `string` | Required | Cover Image |
+| `creationDate` | `string` | Required | Entity creation date |
+| `public` | `boolean` | Required | API Status (Deprecated) |
+| `name` | `string` | Required | API Entity  Name |
+| `baseUri` | `string` | Required | Base URI for the Entity |
+| `version` | `string` | Required | Entity Version Number |
+| `additionalHeaders` | `string[]` | Required | Header Content |
+| `authentication` | [`Authentication`](/doc/models/authentication.md) | Required | This Structure encapsulates all details of API authentication. |
+| `codeGenSettings` | [`CodeGenSettings`](/doc/models/code-gen-settings.md) | Required | APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration. |
+| `testGenSettings` | [`TestGenSettings`](/doc/models/test-gen-settings.md) | Required | This structure helps specify additional test configurations which affects how test cases are generated. |
+| `errors` | `string[]` | Required | API Errors |
+| `serverConfiguration` | [`ServerConfiguration`](/doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
 | `endpoints` | [`Endpoint[]`](/doc/models/endpoint.md) | Required | API Endpoints |
 | `customTypes` | [`CustomType[]`](/doc/models/custom-type.md) | Required | Complex Custom Model Types |
 
@@ -129,7 +141,7 @@ The structure collects API Endpoints and Custom Types to display detailed inform
       "isAttribute": false,
       "isMap": false,
       "attributes": {
-        "id": "5be1603083b41d0b50110553"
+        "id": "5be1603083b41d0b50110551"
       },
       "nullable": false,
       "id": "5a4e8675b724bb198c289f7a",
@@ -176,7 +188,7 @@ The structure collects API Endpoints and Custom Types to display detailed inform
       "isAttribute": false,
       "isMap": false,
       "attributes": {
-        "id": "5be1603083b41d0b50110553"
+        "id": "5be1603083b41d0b50110551"
       },
       "nullable": false,
       "id": "5a4e8675b724bb198c289f7a",
