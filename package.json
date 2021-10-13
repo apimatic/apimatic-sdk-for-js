@@ -4,7 +4,7 @@
   "sideEffects": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/apimatic-apilib.esm.js",
+  "module": "dist/apimatic-sdk-for-js.esm.js",
   "files": [
     "dist",
     "src"
@@ -25,7 +25,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "apimatic-sdk-for-js",
+  "name": "@apimatic/apimatic-sdk-for-js",
   "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformers Engine.",
   "author": "Team APIMatic",
   "devDependencies": {
