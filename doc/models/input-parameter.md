@@ -25,7 +25,7 @@ This structure helps specify details of an input parameter.
   "endpointInputPrameterId": "5a4e8675b724bb198c289f7a",
   "id": "5a4e8675b724bb198c289f7c",
   "name": "body",
-  "value": "{\"name\":\"Country\",\"field\":\"NZ\"}"
+  "value": "{\r\n  \"name\": \"Country\",\r\n  \"field\": \"NZ\"\r\n}"
 }
 ```
 

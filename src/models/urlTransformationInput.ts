@@ -11,7 +11,7 @@ import { ExportFormats, exportFormatsSchema } from './exportFormats';
 export interface UrlTransformationInput {
   /** API Specification URL address */
   url: string;
-  /** The structure contains API specification formats that Transformer can convert to. */
+  /** Desired Export Format */
   exportFormat: ExportFormats;
 }
 

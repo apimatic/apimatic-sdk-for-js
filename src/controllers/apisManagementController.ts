@@ -7,6 +7,7 @@
 import { ApiError } from '@apimatic/core';
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
 import { Accept, acceptSchema } from '../models/accept';
+import { Accept2, accept2Schema } from '../models/accept2';
 import { ApiEntity, apiEntitySchema } from '../models/apiEntity';
 import { ExportFormats, exportFormatsSchema } from '../models/exportFormats';
 import {
@@ -41,7 +42,7 @@ export class ApisManagementController extends BaseController {
     file: FileWrapper,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiEntity>> {
-    const req = this.createRequest('POST', '/api-entities/');
+    const req = this.createRequest('POST', '/api-entities/import-via-file');
     req.formData({
       file: file,
     });
@@ -50,49 +51,6 @@ export class ApisManagementController extends BaseController {
     req.throwOn(422, ApiError, 'Unprocessable Entity');
     req.throwOn(500, ApiError, 'Internal Server Error');
     return req.callAsJson(apiEntitySchema, requestOptions);
-  }
-
-  /**
-   * Fetch an API Entity.
-   *
-   * @param apiEntityId   The ID of the API Entity to fetch.
-   * @return Response from the API call
-   */
-  async fetchAPIEntity(
-    apiEntityId: string,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ApiEntity>> {
-    const req = this.createRequest('GET');
-    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}`;
-    return req.callAsJson(apiEntitySchema, requestOptions);
-  }
-
-  /**
-   * Replace an API version of an API Group, by providing the URL of the API specification file that will
-   * replace the current version.
-   *
-   * You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while
-   * importing the API version using this endpoint. When specifying Metadata, the URL provided will be
-   * that of a zip file containing the API specification file and the `APIMATIC-META` json file.
-   *
-   * @param apiEntityId   The ID of the API Entity to replace.
-   * @param body          Request Body
-   * @return Response from the API call
-   */
-  async inplaceAPIImportviaURL(
-    apiEntityId: string,
-    body: InplaceImportApiViaUrlRequest,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<void>> {
-    const req = this.createRequest('PUT');
-    const mapped = req.prepareArgs({
-      apiEntityId: [apiEntityId, string()],
-      body: [body, inplaceImportApiViaUrlRequestSchema],
-    });
-    req.json(mapped.body);
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}`;
-    return req.call(requestOptions);
   }
 
   /**
@@ -109,7 +67,7 @@ export class ApisManagementController extends BaseController {
     body: ImportApiViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiEntity>> {
-    const req = this.createRequest('POST', '/api-entities');
+    const req = this.createRequest('POST', '/api-entities/import-via-url');
     const mapped = req.prepareArgs({
       body: [body, importApiViaUrlRequestSchema],
     });
@@ -118,6 +76,48 @@ export class ApisManagementController extends BaseController {
     req.throwOn(412, ApiError, 'Precondition Failed');
     req.throwOn(422, ApiError, 'Unprocessable Entity');
     req.throwOn(500, ApiError, 'Internal Server Error');
+    return req.callAsJson(apiEntitySchema, requestOptions);
+  }
+
+  /**
+   * Import a new version for an API, against an existing API Group, by uploading the API specification
+   * file.
+   *
+   * You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while
+   * importing the API version using this endpoint. When specifying Metadata, the uploaded file will be a
+   * zip file containing the API specification file and the `APIMATIC-META` json file.
+   *
+   * @param apiGroupId       The ID of the API Group for which to import a new API version.
+   * @param accept
+   * @param versionOverride  The version number with which the new API version will be imported. This
+   *                                        version number will override the version specified in the API specification
+   *                                        file.<br>APIMatic recommends versioning the API with the [versioning
+   *                                        scheme](https://docs.apimatic.io/define-apis/basic-settings/#version)
+   *                                        documented in the docs.
+   * @param file             The API specification file.<br>The type of the specification file should
+   *                                        be any of the [supported formats](https://docs.apimatic.io/api-
+   *                                        transformer/overview-transformer#supported-input-formats).
+   * @return Response from the API call
+   */
+  async importnewAPIVersionviaFile(
+    apiGroupId: string,
+    accept: Accept,
+    versionOverride: string,
+    file: FileWrapper,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<ApiEntity>> {
+    const req = this.createRequest('POST');
+    const mapped = req.prepareArgs({
+      apiGroupId: [apiGroupId, string()],
+      accept: [accept, acceptSchema],
+      versionOverride: [versionOverride, string()],
+    });
+    req.header('Accept', mapped.accept);
+    req.formData({
+      version_override: mapped.versionOverride,
+      file: file,
+    });
+    req.appendTemplatePath`/api-groups/${mapped.apiGroupId}/api-entities/import-via-file`;
     return req.callAsJson(apiEntitySchema, requestOptions);
   }
 
@@ -149,7 +149,84 @@ export class ApisManagementController extends BaseController {
     });
     req.header('Accept', mapped.accept);
     req.json(mapped.body);
-    req.appendTemplatePath`/api-groups/${mapped.apiGroupId}/api-entities`;
+    req.appendTemplatePath`/api-groups/${mapped.apiGroupId}/api-entities/import-via-url`;
+    return req.callAsJson(apiEntitySchema, requestOptions);
+  }
+
+  /**
+   * Replace an API version of an API Group, by uploading the API specification file that will replace
+   * the current version.
+   *
+   * You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while
+   * importing the API version using this endpoint. When specifying Metadata, the uploaded file will be a
+   * zip file containing the API specification file and the `APIMATIC-META` json file.
+   *
+   * @param apiEntityId   The ID of the API Entity to replace.
+   * @param accept
+   * @param file          The API specification file.<br>The type of the specification file should be
+   *                                     any of the [supported formats](https://docs.apimatic.io/api-
+   *                                     transformer/overview-transformer#supported-input-formats).
+   * @return Response from the API call
+   */
+  async inplaceAPIImportviaFile(
+    apiEntityId: string,
+    accept: Accept2,
+    file: FileWrapper,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<void>> {
+    const req = this.createRequest('PUT');
+    const mapped = req.prepareArgs({
+      apiEntityId: [apiEntityId, string()],
+      accept: [accept, accept2Schema],
+    });
+    req.header('Accept', mapped.accept);
+    req.formData({
+      file: file,
+    });
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/import-via-file`;
+    return req.call(requestOptions);
+  }
+
+  /**
+   * Replace an API version of an API Group, by providing the URL of the API specification file that will
+   * replace the current version.
+   *
+   * You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while
+   * importing the API version using this endpoint. When specifying Metadata, the URL provided will be
+   * that of a zip file containing the API specification file and the `APIMATIC-META` json file.
+   *
+   * @param apiEntityId   The ID of the API Entity to replace.
+   * @param body          Request Body
+   * @return Response from the API call
+   */
+  async inplaceAPIImportviaURL(
+    apiEntityId: string,
+    body: InplaceImportApiViaUrlRequest,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<void>> {
+    const req = this.createRequest('PUT');
+    const mapped = req.prepareArgs({
+      apiEntityId: [apiEntityId, string()],
+      body: [body, inplaceImportApiViaUrlRequestSchema],
+    });
+    req.json(mapped.body);
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/import-via-url`;
+    return req.call(requestOptions);
+  }
+
+  /**
+   * Fetch an API Entity.
+   *
+   * @param apiEntityId   The ID of the API Entity to fetch.
+   * @return Response from the API call
+   */
+  async fetchAPIEntity(
+    apiEntityId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<ApiEntity>> {
+    const req = this.createRequest('GET');
+    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}`;
     return req.callAsJson(apiEntitySchema, requestOptions);
   }
 

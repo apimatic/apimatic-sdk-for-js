@@ -72,7 +72,7 @@ function createHttpClientAdapter(client: HttpClient): HttpClientInterface {
 function getBaseUri(server: Server = 'default', config: Configuration): string {
   if (config.environment === Environment.Production) {
     if (server === 'default') {
-      return 'https://www.apimatic.io/api';
+      return 'https://apimaticio-test.azurewebsites.net/api';
     }
   }
   throw new Error('Could not get Base URL. Invalid environment or server.');

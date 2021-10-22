@@ -11,11 +11,12 @@ const transformationController = new TransformationController(client);
 ## Methods
 
 * [Transformvia File](/doc/controllers/transformation.md#transformvia-file)
+* [Transformvia URL](/doc/controllers/transformation.md#transformvia-url)
+* [Download Transformed File](/doc/controllers/transformation.md#download-transformed-file)
+* [Get Download Input File](/doc/controllers/transformation.md#get-download-input-file)
 * [List All Transformations](/doc/controllers/transformation.md#list-all-transformations)
 * [Geta Transformation](/doc/controllers/transformation.md#geta-transformation)
 * [Delete Transformation](/doc/controllers/transformation.md#delete-transformation)
-* [Get Download Input File](/doc/controllers/transformation.md#get-download-input-file)
-* [Download Transformed File](/doc/controllers/transformation.md#download-transformed-file)
 
 
 # Transformvia File
@@ -54,6 +55,128 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 const exportFormat = 'Swagger10';
 try {
   const { result, ...httpResponse } = await transformationController.transformviaFile(contentType, file, exportFormat);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
+```
+
+
+# Transformvia URL
+
+Transform an API into any of the supported API specification formats by providing the URL of the API specification file.
+
+This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud storage. An ID for the transformation performed is returned as part of the response.
+
+```ts
+async transformviaURL(
+  url: string,
+  exportFormat: ExportFormats,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<Transformation>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `url` | `string` | Form, Required | The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. |
+| `exportFormat` | [`ExportFormats`](/doc/models/export-formats.md) | Form, Required | The structure contains API specification formats that Transformer can convert to. |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+[`Transformation`](/doc/models/transformation.md)
+
+## Example Usage
+
+```ts
+const url = 'https://petstore.swagger.io/v2/swagger.json';
+const exportFormat = 'Swagger10';
+try {
+  const { result, ...httpResponse } = await transformationController.transformviaURL(url, exportFormat);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
+```
+
+
+# Download Transformed File
+
+Download the transformed API specification file transformed via the Transformation endpoints.
+
+```ts
+async downloadTransformedFile(
+  transformationId: string,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `transformationId` | `string` | Template, Required | The ID of transformation received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL  ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+`NodeJS.ReadableStream | Blob`
+
+## Example Usage
+
+```ts
+const transformationId = 'transformation_id6';
+try {
+  const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
+```
+
+
+# Get Download Input File
+
+Download the API Specification file used as input for a particular Transformation performed via the Transformation endpoints.
+
+```ts
+async getDownloadInputFile(
+  transformationId: string,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `transformationId` | `string` | Template, Required | The ID of the transformation to download the API specification for. The transformation ID is received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+`NodeJS.ReadableStream | Blob`
+
+## Example Usage
+
+```ts
+const transformationId = 'transformation_id6';
+try {
+  const { result, ...httpResponse } = await transformationController.getDownloadInputFile(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -168,84 +291,6 @@ async deleteTransformation(
 const transformationId = 'transformation_id6';
 try {
   const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
-```
-
-
-# Get Download Input File
-
-Download the API Specification file used as input for a particular Transformation performed via the Transformation endpoints.
-
-```ts
-async getDownloadInputFile(
-  transformationId: string,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `transformationId` | `string` | Template, Required | The ID of the transformation to download the API specification for. The transformation ID is received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-`NodeJS.ReadableStream | Blob`
-
-## Example Usage
-
-```ts
-const transformationId = 'transformation_id6';
-try {
-  const { result, ...httpResponse } = await transformationController.getDownloadInputFile(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch(error) {
-  if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
-  }
-}
-```
-
-
-# Download Transformed File
-
-Download the transformed API specification file transformed via the Transformation endpoints.
-
-```ts
-async downloadTransformedFile(
-  transformationId: string,
-  requestOptions?: RequestOptions
-): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `transformationId` | `string` | Template, Required | The ID of transformation received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL  ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
-| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
-
-## Response Type
-
-`NodeJS.ReadableStream | Blob`
-
-## Example Usage
-
-```ts
-const transformationId = 'transformation_id6';
-try {
-  const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

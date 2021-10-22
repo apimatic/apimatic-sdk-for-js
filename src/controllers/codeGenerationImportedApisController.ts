@@ -15,27 +15,71 @@ import { BaseController } from './baseController';
 
 export class CodeGenerationImportedApisController extends BaseController {
   /**
-   * Delete an SDK generation performed for an API Version via the Generate SDK endpoint.
+   * Generate an SDK for an API Version.
    *
-   * @param apiEntityId   The ID of the API Entity to delete the code generation for.
-   * @param codegenId     The ID of the code generation to delete. The code generation ID is received in the
-   *                                response of the [SDK generation call](https://www.apimatic.io/api-docs-
+   * This endpoint generates and then uploads the generated SDK to APIMatic's cloud storage. An ID for
+   * the generation performed is returned as part of the response.
+   *
+   * @param apiEntityId   The ID of the API Entity to generate the SDK for.
+   * @param template      The structure contains platforms that APIMatic CodeGen can generate SDKs and
+   *                                   Docs in.
+   * @return Response from the API call
+   */
+  async generateSDK(
+    apiEntityId: string,
+    template: Platforms,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<APIEntityCodeGeneration>> {
+    const req = this.createRequest('POST');
+    const mapped = req.prepareArgs({
+      apiEntityId: [apiEntityId, string()],
+      template: [template, platformsSchema],
+    });
+    req.form({
+      template: mapped.template,
+    });
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations/generate`;
+    return req.callAsJson(aPIEntityCodeGenerationSchema, requestOptions);
+  }
+
+  /**
+   * Download the SDK generated via the Generate SDK endpoint.
+   *
+   * @param apiEntityId   The ID of the API Entity for which the SDK was generated.
+   * @param codegenId     The ID of code generation received in the response of the [SDK generation
+   *                                call](https://www.apimatic.io/api-docs-
    *                                preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-
    *                                generation-imported-apis/generate-sdk).
    * @return Response from the API call
    */
-  async deleteCodeGeneration(
+  async downloadSDK(
     apiEntityId: string,
     codegenId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<void>> {
-    const req = this.createRequest('DELETE');
+  ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
+    const req = this.createRequest('GET');
     const mapped = req.prepareArgs({
       apiEntityId: [apiEntityId, string()],
       codegenId: [codegenId, string()],
     });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations/${mapped.codegenId}`;
-    return req.call(requestOptions);
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations/${mapped.codegenId}/generated-sdk`;
+    return req.callAsStream(requestOptions);
+  }
+
+  /**
+   * Get a list of all SDK generations done against an API Version via the Generate SDK endpoint.
+   *
+   * @param apiEntityId   The ID of the API Entity for which to list code generations.
+   * @return Response from the API call
+   */
+  async listAllCodeGenerations(
+    apiEntityId: string,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<APIEntityCodeGeneration[]>> {
+    const req = this.createRequest('GET');
+    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations`;
+    return req.callAsJson(array(aPIEntityCodeGenerationSchema), requestOptions);
   }
 
   /**
@@ -63,70 +107,26 @@ export class CodeGenerationImportedApisController extends BaseController {
   }
 
   /**
-   * Generate an SDK for an API Version.
+   * Delete an SDK generation performed for an API Version via the Generate SDK endpoint.
    *
-   * This endpoint generates and then uploads the generated SDK to APIMatic's cloud storage. An ID for
-   * the generation performed is returned as part of the response.
-   *
-   * @param apiEntityId   The ID of the API Entity to generate the SDK for.
-   * @param template      The structure contains platforms that APIMatic CodeGen can generate SDKs and
-   *                                   Docs in.
-   * @return Response from the API call
-   */
-  async generateSDK(
-    apiEntityId: string,
-    template: Platforms,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<APIEntityCodeGeneration>> {
-    const req = this.createRequest('POST');
-    const mapped = req.prepareArgs({
-      apiEntityId: [apiEntityId, string()],
-      template: [template, platformsSchema],
-    });
-    req.form({
-      template: mapped.template,
-    });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations`;
-    return req.callAsJson(aPIEntityCodeGenerationSchema, requestOptions);
-  }
-
-  /**
-   * Get a list of all SDK generations done against an API Version via the Generate SDK endpoint.
-   *
-   * @param apiEntityId   The ID of the API Entity for which to list code generations.
-   * @return Response from the API call
-   */
-  async listAllCodeGenerations(
-    apiEntityId: string,
-    requestOptions?: RequestOptions
-  ): Promise<ApiResponse<APIEntityCodeGeneration[]>> {
-    const req = this.createRequest('GET');
-    const mapped = req.prepareArgs({ apiEntityId: [apiEntityId, string()] });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations`;
-    return req.callAsJson(array(aPIEntityCodeGenerationSchema), requestOptions);
-  }
-
-  /**
-   * Download the SDK generated via the Generate SDK endpoint.
-   *
-   * @param apiEntityId   The ID of the API Entity for which the SDK was generated.
-   * @param codegenId     The ID of code generation received in the response of the [SDK generation
-   *                                call](https://www.apimatic.io/api-docs-
+   * @param apiEntityId   The ID of the API Entity to delete the code generation for.
+   * @param codegenId     The ID of the code generation to delete. The code generation ID is received in the
+   *                                response of the [SDK generation call](https://www.apimatic.io/api-docs-
    *                                preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-
    *                                generation-imported-apis/generate-sdk).
    * @return Response from the API call
    */
-  async downloadSDK(
+  async deleteCodeGeneration(
     apiEntityId: string,
     codegenId: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
-    const req = this.createRequest('GET');
+  ): Promise<ApiResponse<void>> {
+    const req = this.createRequest('DELETE');
     const mapped = req.prepareArgs({
       apiEntityId: [apiEntityId, string()],
       codegenId: [codegenId, string()],
     });
-    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations/${mapped.codegenId}/generated-sdk`;
-    return req.callAsStream(requestOptions);
+    req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/code-generations/${mapped.codegenId}`;
+    return req.call(requestOptions);
   }
 }

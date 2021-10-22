@@ -9,7 +9,6 @@ import { Platforms, platformsSchema } from './platforms';
 
 export interface UrlCodeGenerationInput {
   url: string;
-  /** The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. */
   template: Platforms;
 }
 

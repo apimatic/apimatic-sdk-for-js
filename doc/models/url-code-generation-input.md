@@ -9,15 +9,15 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `url` | `string` | Required | - |
-| `template` | [`Platforms`](/doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
+| `url` | `string` | Required | **Default**: `'http://petstore.swagger.io/v2/swagger.json'`<br>*Default: `'http://petstore.swagger.io/v2/swagger.json'`* |
+| `template` | [`Platforms`](/doc/models/platforms.md) | Required | - |
 
 ## Example (as JSON)
 
 ```json
 {
   "url": "http://petstore.swagger.io/v2/swagger.json",
-  "template": "CS_NET_STANDARD_LIB"
+  "template": null
 }
 ```
 

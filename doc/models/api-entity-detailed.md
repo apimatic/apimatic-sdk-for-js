@@ -217,7 +217,7 @@ The structure collects API Endpoints and Custom Types to display detailed inform
       "expectedStatus": "200",
       "expectedHeaders": [],
       "expectedHeadersAllowExtra": true,
-      "expectedBody": "{\"passed\":true}",
+      "expectedBody": "{\r\n  \"passed\": true\r\n}",
       "expectedBodyMatchMode": "KEYSANDVALUES",
       "expectedArrayOrderedMatching": false,
       "expectedArrayCheckCount": false,
