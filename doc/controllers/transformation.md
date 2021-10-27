@@ -74,8 +74,7 @@ This endpoint transforms and then uploads the transformed API specification to A
 
 ```ts
 async transformviaURL(
-  url: string,
-  exportFormat: ExportFormats,
+  body: TransformViaUrlRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Transformation>>
 ```
@@ -84,8 +83,7 @@ async transformviaURL(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `url` | `string` | Form, Required | The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. |
-| `exportFormat` | [`ExportFormats`](/doc/models/export-formats.md) | Form, Required | The structure contains API specification formats that Transformer can convert to. |
+| `body` | [`TransformViaUrlRequest`](/doc/models/transform-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -95,10 +93,13 @@ async transformviaURL(
 ## Example Usage
 
 ```ts
-const url = 'https://petstore.swagger.io/v2/swagger.json';
-const exportFormat = 'Swagger10';
+const body: TransformViaUrlRequest = {
+  url: 'https://petstore.swagger.io/v2/swagger.json',
+  exportFormat: 'APIMATIC',
+};
+
 try {
-  const { result, ...httpResponse } = await transformationController.transformviaURL(url, exportFormat);
+  const { result, ...httpResponse } = await transformationController.transformviaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

@@ -8,6 +8,10 @@ import { ApiResponse, FileWrapper, RequestOptions } from '../core';
 import { ContentType, contentTypeSchema } from '../models/contentType';
 import { ExportFormats, exportFormatsSchema } from '../models/exportFormats';
 import { Transformation, transformationSchema } from '../models/transformation';
+import {
+  TransformViaUrlRequest,
+  transformViaUrlRequestSchema,
+} from '../models/transformViaUrlRequest';
 import { array, string } from '../schema';
 import { BaseController } from './baseController';
 
@@ -56,15 +60,11 @@ export class TransformationController extends BaseController {
    * This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud
    * storage. An ID for the transformation performed is returned as part of the response.
    *
-   * @param url           The URL for the API specification file.<br><br>**Note:** This URL should be
-   *                                       publicly accessible.
-   * @param exportFormat  The structure contains API specification formats that Transformer can
-   *                                       convert to.
+   * @param body Request Body
    * @return Response from the API call
    */
   async transformviaURL(
-    url: string,
-    exportFormat: ExportFormats,
+    body: TransformViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transformation>> {
     const req = this.createRequest(
@@ -72,13 +72,9 @@ export class TransformationController extends BaseController {
       '/transformations/transform-via-url'
     );
     const mapped = req.prepareArgs({
-      url: [url, string()],
-      exportFormat: [exportFormat, exportFormatsSchema],
+      body: [body, transformViaUrlRequestSchema],
     });
-    req.form({
-      url: mapped.url,
-      export_format: mapped.exportFormat,
-    });
+    req.json(mapped.body);
     return req.callAsJson(transformationSchema, requestOptions);
   }
 

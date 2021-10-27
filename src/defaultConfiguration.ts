@@ -10,6 +10,5 @@ import { Configuration, Environment } from './configuration';
 export const DEFAULT_CONFIGURATION: Configuration = {
   timeout: 0,
   environment: Environment.Production,
-  email: 'TODO access token',
-  password: 'TODO access token',
+  authorization: 'TODO Authorization value',
 };

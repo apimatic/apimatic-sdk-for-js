@@ -59,7 +59,6 @@ export { Platforms } from './models/platforms';
 export { PublishedPackage } from './models/publishedPackage';
 export { PublishPackageInput } from './models/publishPackageInput';
 export { Response } from './models/response';
-export { SectionItem } from './models/sectionItem';
 export { Server } from './models/server';
 export { ServerConfiguration } from './models/serverConfiguration';
 export { TemplatesPackageDeploymentInformation } from './models/templatesPackageDeploymentInformation';

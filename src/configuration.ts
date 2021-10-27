@@ -8,8 +8,7 @@
 export interface Configuration {
   timeout: number;
   environment: Environment;
-  email: string;
-  password: string;
+  authorization: string;
   unstable_httpClientOptions?: any;
 }
 
