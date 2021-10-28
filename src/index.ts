@@ -16,7 +16,8 @@ export {
   ResponseValidationError,
 } from './core';
 export * from './defaultConfiguration';
-export * from './controllers/aPIValidationController';
+export * from './controllers/aPIValidationExternalApisController';
+export * from './controllers/aPIValidationImportedApisController';
 export * from './controllers/apisManagementController';
 export * from './controllers/codeGenerationExternalApisController';
 export * from './controllers/codeGenerationImportedApisController';

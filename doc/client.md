@@ -30,6 +30,7 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 | codeGenerationExternalApis | Gets CodeGenerationExternalApisController |
 | transformation | Gets TransformationController |
 | docsPortalManagement | Gets DocsPortalManagementController |
-| aPIValidation | Gets APIValidationController |
+| aPIValidationImportedApis | Gets APIValidationImportedApisController |
+| aPIValidationExternalApis | Gets APIValidationExternalApisController |
 | packageDeployment | Gets PackageDeploymentController |
 

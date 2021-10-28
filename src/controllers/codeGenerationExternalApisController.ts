@@ -33,7 +33,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *                                in.
    * @return Response from the API call
    */
-  async generateSDKviaFile(
+  async generateSDKViaFile(
     file: FileWrapper,
     template: Platforms,
     requestOptions?: RequestOptions
@@ -61,7 +61,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    * @param body Request Body
    * @return Response from the API call
    */
-  async generateSDKviaURL(
+  async generateSDKViaURL(
     body: GenerateSdkViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UserCodeGeneration>> {
@@ -87,7 +87,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *                             generation-external-apis/generate-sdk-via-url) calls.
    * @return Response from the API call
    */
-  async getDownloadSDK(
+  async downloadSDK(
     codegenId: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
@@ -102,7 +102,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *
    * @return Response from the API call
    */
-  async getListAllCodeGenerations(
+  async listAllCodeGenerations(
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UserCodeGeneration[]>> {
     const req = this.createRequest('GET', '/code-generations');
@@ -143,7 +143,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *                             generation-external-apis/generate-sdk-via-url) calls.
    * @return Response from the API call
    */
-  async getACodeGeneration1(
+  async getACodeGeneration(
     codegenId: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UserCodeGeneration>> {

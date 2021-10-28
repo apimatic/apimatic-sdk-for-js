@@ -10,23 +10,23 @@ const transformationController = new TransformationController(client);
 
 ## Methods
 
-* [Transformvia File](/doc/controllers/transformation.md#transformvia-file)
-* [Transformvia URL](/doc/controllers/transformation.md#transformvia-url)
+* [Transform Via File](/doc/controllers/transformation.md#transform-via-file)
+* [Transform Via URL](/doc/controllers/transformation.md#transform-via-url)
 * [Download Transformed File](/doc/controllers/transformation.md#download-transformed-file)
-* [Get Download Input File](/doc/controllers/transformation.md#get-download-input-file)
+* [Download Input File](/doc/controllers/transformation.md#download-input-file)
 * [List All Transformations](/doc/controllers/transformation.md#list-all-transformations)
-* [Geta Transformation](/doc/controllers/transformation.md#geta-transformation)
+* [Get a Transformation](/doc/controllers/transformation.md#get-a-transformation)
 * [Delete Transformation](/doc/controllers/transformation.md#delete-transformation)
 
 
-# Transformvia File
+# Transform Via File
 
 Transform an API into any of the supported API specification formats by uploading the API specification file.
 
 This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud storage. An ID for the transformation performed is returned as part of the response.
 
 ```ts
-async transformviaFile(
+async transformViaFile(
   contentType: ContentType,
   file: FileWrapper,
   exportFormat: ExportFormats,
@@ -54,7 +54,7 @@ const contentType = 'multipart/form-data';
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 const exportFormat = 'Swagger10';
 try {
-  const { result, ...httpResponse } = await transformationController.transformviaFile(contentType, file, exportFormat);
+  const { result, ...httpResponse } = await transformationController.transformViaFile(contentType, file, exportFormat);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -66,14 +66,14 @@ try {
 ```
 
 
-# Transformvia URL
+# Transform Via URL
 
 Transform an API into any of the supported API specification formats by providing the URL of the API specification file.
 
 This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud storage. An ID for the transformation performed is returned as part of the response.
 
 ```ts
-async transformviaURL(
+async transformViaURL(
   body: TransformViaUrlRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Transformation>>
@@ -99,7 +99,7 @@ const body: TransformViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await transformationController.transformviaURL(body);
+  const { result, ...httpResponse } = await transformationController.transformViaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -150,12 +150,12 @@ try {
 ```
 
 
-# Get Download Input File
+# Download Input File
 
 Download the API Specification file used as input for a particular Transformation performed via the Transformation endpoints.
 
 ```ts
-async getDownloadInputFile(
+async downloadInputFile(
   transformationId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
@@ -177,7 +177,7 @@ async getDownloadInputFile(
 ```ts
 const transformationId = 'transformation_id6';
 try {
-  const { result, ...httpResponse } = await transformationController.getDownloadInputFile(transformationId);
+  const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -225,12 +225,12 @@ try {
 ```
 
 
-# Geta Transformation
+# Get a Transformation
 
 Get details on a particular Transformation performed via the Transformation endpoints.
 
 ```ts
-async getaTransformation(
+async getATransformation(
   transformationId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Transformation>>
@@ -252,7 +252,7 @@ async getaTransformation(
 ```ts
 const transformationId = 'transformation_id6';
 try {
-  const { result, ...httpResponse } = await transformationController.getaTransformation(transformationId);
+  const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

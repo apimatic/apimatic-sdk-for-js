@@ -100,7 +100,8 @@ This API uses `Custom Header Signature`.
 * [Code Generation - External APIs](/doc/controllers/code-generation-external-apis.md)
 * [Transformation](/doc/controllers/transformation.md)
 * [Docs Portal Management](/doc/controllers/docs-portal-management.md)
-* [API Validation](/doc/controllers/api-validation.md)
+* [API Validation - Imported APIs](/doc/controllers/api-validation-imported-apis.md)
+* [API Validation - External APIs](/doc/controllers/api-validation-external-apis.md)
 * [Package Deployment](/doc/controllers/package-deployment.md)
 
 ## Classes Documentation

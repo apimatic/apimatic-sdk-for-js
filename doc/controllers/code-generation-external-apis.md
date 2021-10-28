@@ -10,16 +10,16 @@ const codeGenerationExternalApisController = new CodeGenerationExternalApisContr
 
 ## Methods
 
-* [Generate SD Kvia File](/doc/controllers/code-generation-external-apis.md#generate-sd-kvia-file)
-* [Generate SD Kvia URL](/doc/controllers/code-generation-external-apis.md#generate-sd-kvia-url)
-* [Get Download SDK](/doc/controllers/code-generation-external-apis.md#get-download-sdk)
-* [Get List All Code Generations](/doc/controllers/code-generation-external-apis.md#get-list-all-code-generations)
+* [Generate SDK Via File](/doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
+* [Generate SDK Via URL](/doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
+* [Download SDK](/doc/controllers/code-generation-external-apis.md#download-sdk)
+* [List All Code Generations](/doc/controllers/code-generation-external-apis.md#list-all-code-generations)
 * [Download Input File](/doc/controllers/code-generation-external-apis.md#download-input-file)
-* [Get a Code Generation 1](/doc/controllers/code-generation-external-apis.md#get-a-code-generation-1)
+* [Get a Code Generation](/doc/controllers/code-generation-external-apis.md#get-a-code-generation)
 * [Delete Code Generation 1](/doc/controllers/code-generation-external-apis.md#delete-code-generation-1)
 
 
-# Generate SD Kvia File
+# Generate SDK Via File
 
 Generate an SDK for an API by by uploading the API specification file.
 
@@ -28,7 +28,7 @@ This endpoint generates and then uploads the generated SDK to APIMatic's cloud s
 This endpoint does not import an API into APIMatic.
 
 ```ts
-async generateSDKviaFile(
+async generateSDKViaFile(
   file: FileWrapper,
   template: Platforms,
   requestOptions?: RequestOptions
@@ -53,7 +53,7 @@ async generateSDKviaFile(
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 const template = 'CS_UNIVERSAL_WINDOWS_PLATFORM_LIB';
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKviaFile(file, template);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaFile(file, template);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -65,7 +65,7 @@ try {
 ```
 
 
-# Generate SD Kvia URL
+# Generate SDK Via URL
 
 Generate an SDK for an API by providing the URL of the API specification file.
 
@@ -74,7 +74,7 @@ This endpoint generates and then uploads the generated SDK to APIMatic's cloud s
 This endpoint does not import an API into APIMatic.
 
 ```ts
-async generateSDKviaURL(
+async generateSDKViaURL(
   body: GenerateSdkViaUrlRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<UserCodeGeneration>>
@@ -100,7 +100,7 @@ const body: GenerateSdkViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKviaURL(body);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -112,12 +112,12 @@ try {
 ```
 
 
-# Get Download SDK
+# Download SDK
 
 Download the SDK generated via the Generate SDK endpoints.
 
 ```ts
-async getDownloadSDK(
+async downloadSDK(
   codegenId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
@@ -139,7 +139,7 @@ async getDownloadSDK(
 ```ts
 const codegenId = 'codegen_id6';
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.getDownloadSDK(codegenId);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.downloadSDK(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -151,12 +151,12 @@ try {
 ```
 
 
-# Get List All Code Generations
+# List All Code Generations
 
 Get a list of all SDK generations performed with external APIs via the Generate SDK endpoints.
 
 ```ts
-async getListAllCodeGenerations(
+async listAllCodeGenerations(
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<UserCodeGeneration[]>>
 ```
@@ -175,7 +175,7 @@ async getListAllCodeGenerations(
 
 ```ts
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.getListAllCodeGenerations();
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.listAllCodeGenerations();
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -226,12 +226,12 @@ try {
 ```
 
 
-# Get a Code Generation 1
+# Get a Code Generation
 
 Get details on an SDK generation performed for an external API via the Generate SDK endpoints.
 
 ```ts
-async getACodeGeneration1(
+async getACodeGeneration(
   codegenId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<UserCodeGeneration>>
@@ -253,7 +253,7 @@ async getACodeGeneration1(
 ```ts
 const codegenId = 'codegen_id6';
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.getACodeGeneration1(codegenId);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.getACodeGeneration(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

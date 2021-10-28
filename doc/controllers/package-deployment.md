@@ -12,9 +12,9 @@ const packageDeploymentController = new PackageDeploymentController(client);
 
 * [Update Package Deployment Information](/doc/controllers/package-deployment.md#update-package-deployment-information)
 * [Package Deployment Information](/doc/controllers/package-deployment.md#package-deployment-information)
-* [Get Published Packagesfor API](/doc/controllers/package-deployment.md#get-published-packagesfor-api)
-* [Publisha Packagefor API](/doc/controllers/package-deployment.md#publisha-packagefor-api)
-* [Geta Published Package](/doc/controllers/package-deployment.md#geta-published-package)
+* [Get Published Packages for API](/doc/controllers/package-deployment.md#get-published-packages-for-api)
+* [Publish a Package for API](/doc/controllers/package-deployment.md#publish-a-package-for-api)
+* [Get a Published Package](/doc/controllers/package-deployment.md#get-a-published-package)
 
 
 # Update Package Deployment Information
@@ -133,12 +133,12 @@ try {
 ```
 
 
-# Get Published Packagesfor API
+# Get Published Packages for API
 
 Returns logs for all packages published for the API.
 
 ```ts
-async getPublishedPackagesforAPI(
+async getPublishedPackagesForAPI(
   apiEntityId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<PublishedPackage[]>>
@@ -160,7 +160,7 @@ async getPublishedPackagesforAPI(
 ```ts
 const apiEntityId = '5e8217662ac3ed0b20b0dece';
 try {
-  const { result, ...httpResponse } = await packageDeploymentController.getPublishedPackagesforAPI(apiEntityId);
+  const { result, ...httpResponse } = await packageDeploymentController.getPublishedPackagesForAPI(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -209,7 +209,7 @@ try {
 ```
 
 
-# Publisha Packagefor API
+# Publish a Package for API
 
 Publish a new package for API by specifying package name and version number.
 
@@ -217,7 +217,7 @@ To publish packages using this API, you will first need to add package repositor
 Check out the [docs](https://docs.apimatic.io/advanced/publishing-a-package/) for a guide on adding package repository credentials
 
 ```ts
-async publishaPackageforAPI(
+async publishAPackageForAPI(
   apiEntityId: string,
   body: PublishPackageInput,
   requestOptions?: RequestOptions
@@ -249,7 +249,7 @@ const body: PublishPackageInput = {
 };
 
 try {
-  const { result, ...httpResponse } = await packageDeploymentController.publishaPackageforAPI(apiEntityId, body);
+  const { result, ...httpResponse } = await packageDeploymentController.publishAPackageForAPI(apiEntityId, body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -261,12 +261,12 @@ try {
 ```
 
 
-# Geta Published Package
+# Get a Published Package
 
 Pull details for a certain published package by specifying Published Package Id.
 
 ```ts
-async getaPublishedPackage(
+async getAPublishedPackage(
   apiEntityId: string,
   publishedPackageId: string,
   requestOptions?: RequestOptions
@@ -291,7 +291,7 @@ async getaPublishedPackage(
 const apiEntityId = '5e8217662ac3ed0b20b0dece';
 const publishedPackageId = '5e8602472ac3db42ec7f097f';
 try {
-  const { result, ...httpResponse } = await packageDeploymentController.getaPublishedPackage(apiEntityId, publishedPackageId);
+  const { result, ...httpResponse } = await packageDeploymentController.getAPublishedPackage(apiEntityId, publishedPackageId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

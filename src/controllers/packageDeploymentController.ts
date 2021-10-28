@@ -79,7 +79,7 @@ export class PackageDeploymentController extends BaseController {
    * @param apiEntityId   Unique API Identifier
    * @return Response from the API call
    */
-  async getPublishedPackagesforAPI(
+  async getPublishedPackagesForAPI(
     apiEntityId: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<PublishedPackage[]>> {
@@ -101,7 +101,7 @@ export class PackageDeploymentController extends BaseController {
    * @param body
    * @return Response from the API call
    */
-  async publishaPackageforAPI(
+  async publishAPackageForAPI(
     apiEntityId: string,
     body: PublishPackageInput,
     requestOptions?: RequestOptions
@@ -123,7 +123,7 @@ export class PackageDeploymentController extends BaseController {
    * @param publishedPackageId   Unique Published Package Identifier
    * @return Response from the API call
    */
-  async getaPublishedPackage(
+  async getAPublishedPackage(
     apiEntityId: string,
     publishedPackageId: string,
     requestOptions?: RequestOptions

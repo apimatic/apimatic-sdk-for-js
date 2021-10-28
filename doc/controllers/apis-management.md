@@ -10,24 +10,24 @@ const apisManagementController = new ApisManagementController(client);
 
 ## Methods
 
-* [Import AP Ivia File](/doc/controllers/apis-management.md#import-ap-ivia-file)
-* [Import AP Ivia URL](/doc/controllers/apis-management.md#import-ap-ivia-url)
-* [Importnew API Versionvia File](/doc/controllers/apis-management.md#importnew-api-versionvia-file)
-* [Importnew API Versionvia URL](/doc/controllers/apis-management.md#importnew-api-versionvia-url)
-* [Inplace API Importvia File](/doc/controllers/apis-management.md#inplace-api-importvia-file)
-* [Inplace API Importvia URL](/doc/controllers/apis-management.md#inplace-api-importvia-url)
+* [Import API Via File](/doc/controllers/apis-management.md#import-api-via-file)
+* [Import API Via URL](/doc/controllers/apis-management.md#import-api-via-url)
+* [Import New API Version Via File](/doc/controllers/apis-management.md#import-new-api-version-via-file)
+* [Import New API Version Via URL](/doc/controllers/apis-management.md#import-new-api-version-via-url)
+* [Inplace API Import Via File](/doc/controllers/apis-management.md#inplace-api-import-via-file)
+* [Inplace API Import Via URL](/doc/controllers/apis-management.md#inplace-api-import-via-url)
 * [Fetch API Entity](/doc/controllers/apis-management.md#fetch-api-entity)
-* [Download APIS Pecification](/doc/controllers/apis-management.md#download-apis-pecification)
+* [Download API Specification](/doc/controllers/apis-management.md#download-api-specification)
 
 
-# Import AP Ivia File
+# Import API Via File
 
 Import an API into the APIMatic Dashboard by uploading the API specification file.
 
 You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while importing the API using this endpoint. When specifying Metadata, the uploaded file will be a zip file containing the API specification file and the `APIMATIC-META` json file.
 
 ```ts
-async importAPIviaFile(
+async importAPIViaFile(
   file: FileWrapper,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ApiEntity>>
@@ -49,7 +49,7 @@ async importAPIviaFile(
 ```ts
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
-  const { result, ...httpResponse } = await apisManagementController.importAPIviaFile(file);
+  const { result, ...httpResponse } = await apisManagementController.importAPIViaFile(file);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -70,14 +70,14 @@ try {
 | 500 | Internal Server Error | `ApiError` |
 
 
-# Import AP Ivia URL
+# Import API Via URL
 
 Import an API into the APIMatic Dashboard by providing the URL of the API specification file.
 
 You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while importing the API using this endpoint. When specifying Metadata, the URL provided will be that of a zip file containing the API specification file and the `APIMATIC-META` json file.
 
 ```ts
-async importAPIviaURL(
+async importAPIViaURL(
   body: ImportApiViaUrlRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ApiEntity>>
@@ -102,7 +102,7 @@ const body: ImportApiViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importAPIviaURL(body);
+  const { result, ...httpResponse } = await apisManagementController.importAPIViaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -123,14 +123,14 @@ try {
 | 500 | Internal Server Error | `ApiError` |
 
 
-# Importnew API Versionvia File
+# Import New API Version Via File
 
 Import a new version for an API, against an existing API Group, by uploading the API specification file.
 
 You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while importing the API version using this endpoint. When specifying Metadata, the uploaded file will be a zip file containing the API specification file and the `APIMATIC-META` json file.
 
 ```ts
-async importnewAPIVersionviaFile(
+async importNewAPIVersionViaFile(
   apiGroupId: string,
   accept: Accept,
   versionOverride: string,
@@ -161,7 +161,7 @@ const accept = 'application/json';
 const versionOverride = 'version_override2';
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
-  const { result, ...httpResponse } = await apisManagementController.importnewAPIVersionviaFile(apiGroupId, accept, versionOverride, file);
+  const { result, ...httpResponse } = await apisManagementController.importNewAPIVersionViaFile(apiGroupId, accept, versionOverride, file);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -173,14 +173,14 @@ try {
 ```
 
 
-# Importnew API Versionvia URL
+# Import New API Version Via URL
 
 Import a new version for an API, against an existing API Group, by providing the URL of the API specification file.
 
 You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while importing the API version using this endpoint. When specifying Metadata, the URL provided will be that of a zip file containing the API specification file and the `APIMATIC-META` json file.
 
 ```ts
-async importnewAPIVersionviaURL(
+async importNewAPIVersionViaURL(
   apiGroupId: string,
   accept: Accept,
   body: ImportApiVersionViaUrlRequest,
@@ -212,7 +212,7 @@ const body: ImportApiVersionViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importnewAPIVersionviaURL(apiGroupId, accept, body);
+  const { result, ...httpResponse } = await apisManagementController.importNewAPIVersionViaURL(apiGroupId, accept, body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -224,14 +224,14 @@ try {
 ```
 
 
-# Inplace API Importvia File
+# Inplace API Import Via File
 
 Replace an API version of an API Group, by uploading the API specification file that will replace the current version.
 
 You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while importing the API version using this endpoint. When specifying Metadata, the uploaded file will be a zip file containing the API specification file and the `APIMATIC-META` json file.
 
 ```ts
-async inplaceAPIImportviaFile(
+async inplaceAPIImportViaFile(
   apiEntityId: string,
   accept: Accept2,
   file: FileWrapper,
@@ -259,7 +259,7 @@ const apiEntityId = 'api_entity_id4';
 const accept = 'application/vnd.apimatic.apiEntity.full.v1+json';
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
-  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportviaFile(apiEntityId, accept, file);
+  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaFile(apiEntityId, accept, file);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -271,14 +271,14 @@ try {
 ```
 
 
-# Inplace API Importvia URL
+# Inplace API Import Via URL
 
 Replace an API version of an API Group, by providing the URL of the API specification file that will replace the current version.
 
 You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimatic-metadata) while importing the API version using this endpoint. When specifying Metadata, the URL provided will be that of a zip file containing the API specification file and the `APIMATIC-META` json file.
 
 ```ts
-async inplaceAPIImportviaURL(
+async inplaceAPIImportViaURL(
   apiEntityId: string,
   body: InplaceImportApiViaUrlRequest,
   requestOptions?: RequestOptions
@@ -306,7 +306,7 @@ const body: InplaceImportApiViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportviaURL(apiEntityId, body);
+  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaURL(apiEntityId, body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -357,12 +357,12 @@ try {
 ```
 
 
-# Download APIS Pecification
+# Download API Specification
 
 Download the API Specification file for a an API Version in any of the API Specification formats supported by APIMatic.
 
 ```ts
-async downloadApisPecification(
+async downloadAPISpecification(
   apiEntityId: string,
   format: ExportFormats,
   requestOptions?: RequestOptions
@@ -387,7 +387,7 @@ async downloadApisPecification(
 const apiEntityId = 'api_entity_id4';
 const format = 'APIMATIC';
 try {
-  const { result, ...httpResponse } = await apisManagementController.downloadApisPecification(apiEntityId, format);
+  const { result, ...httpResponse } = await apisManagementController.downloadAPISpecification(apiEntityId, format);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {

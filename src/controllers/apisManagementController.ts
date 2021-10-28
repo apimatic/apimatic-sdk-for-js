@@ -38,7 +38,7 @@ export class ApisManagementController extends BaseController {
    *                            transformer#supported-input-formats).
    * @return Response from the API call
    */
-  async importAPIviaFile(
+  async importAPIViaFile(
     file: FileWrapper,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiEntity>> {
@@ -63,7 +63,7 @@ export class ApisManagementController extends BaseController {
    * @param body Request Body
    * @return Response from the API call
    */
-  async importAPIviaURL(
+  async importAPIViaURL(
     body: ImportApiViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiEntity>> {
@@ -99,7 +99,7 @@ export class ApisManagementController extends BaseController {
    *                                        transformer/overview-transformer#supported-input-formats).
    * @return Response from the API call
    */
-  async importnewAPIVersionviaFile(
+  async importNewAPIVersionViaFile(
     apiGroupId: string,
     accept: Accept,
     versionOverride: string,
@@ -135,7 +135,7 @@ export class ApisManagementController extends BaseController {
    * @param body         Request Body
    * @return Response from the API call
    */
-  async importnewAPIVersionviaURL(
+  async importNewAPIVersionViaURL(
     apiGroupId: string,
     accept: Accept,
     body: ImportApiVersionViaUrlRequest,
@@ -168,7 +168,7 @@ export class ApisManagementController extends BaseController {
    *                                     transformer/overview-transformer#supported-input-formats).
    * @return Response from the API call
    */
-  async inplaceAPIImportviaFile(
+  async inplaceAPIImportViaFile(
     apiEntityId: string,
     accept: Accept2,
     file: FileWrapper,
@@ -199,7 +199,7 @@ export class ApisManagementController extends BaseController {
    * @param body          Request Body
    * @return Response from the API call
    */
-  async inplaceAPIImportviaURL(
+  async inplaceAPIImportViaURL(
     apiEntityId: string,
     body: InplaceImportApiViaUrlRequest,
     requestOptions?: RequestOptions
@@ -240,7 +240,7 @@ export class ApisManagementController extends BaseController {
    *                                       transformer#supported-input-formats).
    * @return Response from the API call
    */
-  async downloadApisPecification(
+  async downloadAPISpecification(
     apiEntityId: string,
     format: ExportFormats,
     requestOptions?: RequestOptions

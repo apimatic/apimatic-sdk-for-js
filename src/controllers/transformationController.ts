@@ -31,7 +31,7 @@ export class TransformationController extends BaseController {
    *                                       convert to.
    * @return Response from the API call
    */
-  async transformviaFile(
+  async transformViaFile(
     contentType: ContentType,
     file: FileWrapper,
     exportFormat: ExportFormats,
@@ -63,7 +63,7 @@ export class TransformationController extends BaseController {
    * @param body Request Body
    * @return Response from the API call
    */
-  async transformviaURL(
+  async transformViaURL(
     body: TransformViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transformation>> {
@@ -115,7 +115,7 @@ export class TransformationController extends BaseController {
    *                                    endpoints/transformation/transform-via-url) calls.
    * @return Response from the API call
    */
-  async getDownloadInputFile(
+  async downloadInputFile(
     transformationId: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
@@ -151,7 +151,7 @@ export class TransformationController extends BaseController {
    *                                    endpoints/transformation/transform-via-url) calls.
    * @return Response from the API call
    */
-  async getaTransformation(
+  async getATransformation(
     transformationId: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transformation>> {
