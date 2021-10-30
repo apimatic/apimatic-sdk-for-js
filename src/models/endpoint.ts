@@ -48,7 +48,7 @@ export interface Endpoint {
   /** Endpoint Paramaters */
   parameters: Parameter[];
   /** Errors that Endpoint may output */
-  errors?: unknown[];
+  errors: unknown[];
   /** Test Cases associated with Endpoint */
   testCases: TestCase[];
 }

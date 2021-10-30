@@ -12,7 +12,8 @@ const docsPortalManagementController = new DocsPortalManagementController(client
 
 * [Publish Hosted Portal](/doc/controllers/docs-portal-management.md#publish-hosted-portal)
 * [Publish Embedded Portal](/doc/controllers/docs-portal-management.md#publish-embedded-portal)
-* [Generate On-Prem Portal](/doc/controllers/docs-portal-management.md#generate-on-prem-portal)
+* [Generate On-Prem Portal Via API Entity](/doc/controllers/docs-portal-management.md#generate-on-prem-portal-via-api-entity)
+* [Generate On-Prem Portal Via Build Input](/doc/controllers/docs-portal-management.md#generate-on-prem-portal-via-build-input)
 * [Unpublish Portal](/doc/controllers/docs-portal-management.md#unpublish-portal)
 
 
@@ -114,7 +115,7 @@ try {
 ```
 
 
-# Generate On-Prem Portal
+# Generate On-Prem Portal Via API Entity
 
 Generate an On-premise Documentation Portal for an API Entity. This endpoint generates all artifacts for the Portal and packages them together into a zip file along with the required HTML, CSS and JS files. The generated artifacts include:
 
@@ -125,7 +126,7 @@ Generate an On-premise Documentation Portal for an API Entity. This endpoint gen
 The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
 
 ```ts
-async generateOnPremPortal(
+async generateOnPremPortalViaAPIEntity(
   apiEntityId: string,
   accept: Accept3,
   requestOptions?: RequestOptions
@@ -150,7 +151,7 @@ async generateOnPremPortal(
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 const accept = 'application/zip';
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortal(apiEntityId, accept);
+  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaAPIEntity(apiEntityId, accept);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -160,6 +161,60 @@ try {
   }
 }
 ```
+
+
+# Generate On-Prem Portal Via Build Input
+
+Generate an On-premise Documentation Portal by uploading a Portal Build Input. This endpoint generates all artifacts for the Portal and packages them together into a zip file along with the required HTML, CSS and JS files. The generated artifacts include:
+
+1. SDKs
+2. Docs
+3. API Specification files
+
+The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
+
+```ts
+async generateOnPremPortalViaBuildInput(
+  file: FileWrapper,
+  requestOptions?: RequestOptions
+): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `file` | `FileWrapper` | Form, Required | The input file to the Portal Generator. Must contain the build file. |
+| `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
+
+## Response Type
+
+`NodeJS.ReadableStream | Blob`
+
+## Example Usage
+
+```ts
+const file = new FileWrapper(fs.createReadStream('dummy_file'));
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(file);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch(error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request | `ApiError` |
+| 401 | Unauthorized | `ApiError` |
+| 402 | Subscription Issue | `ApiError` |
+| 422 | Unprocessable Entity | [`ValidationExceptionError`](/doc/models/validation-exception-error.md) |
 
 
 # Unpublish Portal

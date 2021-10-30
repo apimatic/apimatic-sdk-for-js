@@ -17,7 +17,7 @@ The structure collects API Endpoints and Custom Types to display detailed inform
 | `apiGroupId` | `string` | Required | Unique API Group Identifier |
 | `imageUri` | `string` | Required | Cover Image |
 | `creationDate` | `string` | Required | Entity creation date |
-| `public` | `boolean` | Required | API Status (Deprecated) |
+| `mPublic` | `boolean` | Required | API Status (Deprecated) |
 | `name` | `string` | Required | API Entity  Name |
 | `baseUri` | `string` | Required | Base URI for the Entity |
 | `version` | `string` | Required | Entity Version Number |

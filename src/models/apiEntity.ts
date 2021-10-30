@@ -28,7 +28,7 @@ export interface ApiEntity {
   /** Entity creation date */
   creationDate: string;
   /** API Status (Deprecated) */
-  public: boolean;
+  mPublic: boolean;
   /** API Entity  Name */
   name: string;
   /** Base URI for the Entity */
@@ -56,7 +56,7 @@ export const apiEntitySchema: Schema<ApiEntity> = object({
   apiGroupId: ['apiGroupId', string()],
   imageUri: ['imageUri', string()],
   creationDate: ['creationDate', string()],
-  public: ['public', boolean()],
+  mPublic: ['public', boolean()],
   name: ['name', string()],
   baseUri: ['baseUri', string()],
   version: ['version', string()],

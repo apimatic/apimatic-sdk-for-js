@@ -25,6 +25,7 @@ export * from './controllers/docsPortalManagementController';
 export * from './controllers/packageDeploymentController';
 export * from './controllers/transformationController';
 export { ApiError } from './core';
+export * from './errors/validationExceptionError';
 export { Accept } from './models/accept';
 export { Accept2 } from './models/accept2';
 export { Accept3 } from './models/accept3';
