@@ -35,6 +35,7 @@ export class CodeGenerationImportedApisController extends BaseController {
       apiEntityId: [apiEntityId, string()],
       template: [template, platformsSchema],
     });
+    req.header('Content-Type', 'application/x-www-form-urlencoded');
     req.form({
       template: mapped.template,
     });

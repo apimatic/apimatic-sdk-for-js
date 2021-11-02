@@ -41,6 +41,7 @@ async validateAPIViaFile(
 ## Example Usage
 
 ```ts
+const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
   const { result, ...httpResponse } = await aPIValidationExternalApisController.validateAPIViaFile(file);

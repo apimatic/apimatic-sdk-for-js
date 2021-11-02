@@ -33,9 +33,9 @@ export class ApisManagementController extends BaseController {
    * importing the API using this endpoint. When specifying Metadata, the uploaded file will be a zip
    * file containing the API specification file and the `APIMATIC-META` json file.
    *
-   * @param file The API specification file.<br>The type of the specification file should be any of the
-   *                            [supported formats](https://docs.apimatic.io/api-transformer/overview-
-   *                            transformer#supported-input-formats).
+   * @param file         The API specification file.<br>The type of the specification file should be
+   *                                    any of the [supported formats](https://docs.apimatic.io/api-
+   *                                    transformer/overview-transformer#supported-input-formats).
    * @return Response from the API call
    */
   async importAPIViaFile(
@@ -43,6 +43,7 @@ export class ApisManagementController extends BaseController {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiEntity>> {
     const req = this.createRequest('POST', '/api-entities/import-via-file');
+    req.header('Content-Type', 'multipart/form-data');
     req.formData({
       file: file,
     });
@@ -60,7 +61,7 @@ export class ApisManagementController extends BaseController {
    * importing the API using this endpoint. When specifying Metadata, the URL provided will be that of a
    * zip file containing the API specification file and the `APIMATIC-META` json file.
    *
-   * @param body Request Body
+   * @param body         Request Body
    * @return Response from the API call
    */
   async importAPIViaURL(
@@ -71,6 +72,7 @@ export class ApisManagementController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, importApiViaUrlRequestSchema],
     });
+    req.header('Content-Type', 'application/vnd.apimatic.apiEntityUrlImportDto.v1+json');
     req.json(mapped.body);
     req.throwOn(400, ApiError, 'Bad Request');
     req.throwOn(412, ApiError, 'Precondition Failed');
@@ -113,6 +115,7 @@ export class ApisManagementController extends BaseController {
       versionOverride: [versionOverride, string()],
     });
     req.header('Accept', mapped.accept);
+    req.header('Content-Type', 'multipart/form-data');
     req.formData({
       version_override: mapped.versionOverride,
       file: file,
@@ -148,6 +151,7 @@ export class ApisManagementController extends BaseController {
       body: [body, importApiVersionViaUrlRequestSchema],
     });
     req.header('Accept', mapped.accept);
+    req.header('Content-Type', 'application/vnd.apimatic.apiGroupApiEntityUrlImportDto.v1+json');
     req.json(mapped.body);
     req.appendTemplatePath`/api-groups/${mapped.apiGroupId}/api-entities/import-via-url`;
     return req.callAsJson(apiEntitySchema, requestOptions);
@@ -180,6 +184,7 @@ export class ApisManagementController extends BaseController {
       accept: [accept, accept2Schema],
     });
     req.header('Accept', mapped.accept);
+    req.header('Content-Type', 'multipart/form-data');
     req.formData({
       file: file,
     });
@@ -209,6 +214,7 @@ export class ApisManagementController extends BaseController {
       apiEntityId: [apiEntityId, string()],
       body: [body, inplaceImportApiViaUrlRequestSchema],
     });
+    req.header('Content-Type', 'application/vnd.apimatic.apiEntityUrlImportDto.v1+json');
     req.json(mapped.body);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/import-via-url`;
     return req.call(requestOptions);

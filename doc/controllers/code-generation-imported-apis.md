@@ -47,6 +47,7 @@ async generateSDK(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
+const contentType = null;
 const template = 'CS_UNIVERSAL_WINDOWS_PLATFORM_LIB';
 try {
   const { result, ...httpResponse } = await codeGenerationImportedApisController.generateSDK(apiEntityId, template);

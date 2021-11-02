@@ -47,6 +47,7 @@ async importAPIViaFile(
 ## Example Usage
 
 ```ts
+const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
   const { result, ...httpResponse } = await apisManagementController.importAPIViaFile(file);
@@ -97,6 +98,7 @@ async importAPIViaURL(
 ## Example Usage
 
 ```ts
+const contentType = null;
 const body: ImportApiViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
@@ -158,6 +160,7 @@ async importNewAPIVersionViaFile(
 ```ts
 const apiGroupId = 'api_group_id6';
 const accept = 'application/json';
+const contentType = null;
 const versionOverride = 'version_override2';
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
@@ -206,6 +209,7 @@ async importNewAPIVersionViaURL(
 ```ts
 const apiGroupId = '5c9de181dc6209221416f250';
 const accept = 'application/json';
+const contentType = null;
 const body: ImportApiVersionViaUrlRequest = {
   versionOverride: '1.2.3',
   url: 'https://petstore.swagger.io/v2/swagger.json',
@@ -257,6 +261,7 @@ async inplaceAPIImportViaFile(
 ```ts
 const apiEntityId = 'api_entity_id4';
 const accept = 'application/vnd.apimatic.apiEntity.full.v1+json';
+const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 try {
   const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaFile(apiEntityId, accept, file);
@@ -301,6 +306,7 @@ async inplaceAPIImportViaURL(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
+const contentType = null;
 const body: InplaceImportApiViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };

@@ -50,6 +50,7 @@ async generateSDKViaFile(
 ## Example Usage
 
 ```ts
+const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 const template = 'CS_UNIVERSAL_WINDOWS_PLATFORM_LIB';
 try {
@@ -94,6 +95,7 @@ async generateSDKViaURL(
 ## Example Usage
 
 ```ts
+const contentType = null;
 const body: GenerateSdkViaUrlRequest = {
   url: 'http://petstore.swagger.io/v2/swagger.json',
   template: 'CS_NET_STANDARD_LIB',

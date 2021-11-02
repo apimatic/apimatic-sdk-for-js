@@ -49,6 +49,7 @@ export class PackageDeploymentController extends BaseController {
       apiEntityId: [apiEntityId, string()],
       body: [body, updatePackageDeploymentInformationSchema],
     });
+    req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/docs/package-deployment-information`;
     return req.call(requestOptions);
@@ -111,6 +112,7 @@ export class PackageDeploymentController extends BaseController {
       apiEntityId: [apiEntityId, string()],
       body: [body, publishPackageInputSchema],
     });
+    req.header('Content-Type', 'application/json');
     req.json(mapped.body);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/published-packages/`;
     return req.callAsJson(publishedPackageSchema, requestOptions);

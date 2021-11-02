@@ -5,7 +5,6 @@
  */
 
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
-import { ContentType, contentTypeSchema } from '../models/contentType';
 import { ExportFormats, exportFormatsSchema } from '../models/exportFormats';
 import { Transformation, transformationSchema } from '../models/transformation';
 import {
@@ -23,7 +22,6 @@ export class TransformationController extends BaseController {
    * This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud
    * storage. An ID for the transformation performed is returned as part of the response.
    *
-   * @param contentType
    * @param file          The API specification file.<br>The type of the specification file should be
    *                                       any of the [supported formats](https://docs.apimatic.io/api-
    *                                       transformer/overview-transformer#supported-input-formats).
@@ -32,7 +30,6 @@ export class TransformationController extends BaseController {
    * @return Response from the API call
    */
   async transformViaFile(
-    contentType: ContentType,
     file: FileWrapper,
     exportFormat: ExportFormats,
     requestOptions?: RequestOptions
@@ -42,10 +39,9 @@ export class TransformationController extends BaseController {
       '/transformations/transform-via-file'
     );
     const mapped = req.prepareArgs({
-      contentType: [contentType, contentTypeSchema],
       exportFormat: [exportFormat, exportFormatsSchema],
     });
-    req.header('Content-Type', mapped.contentType);
+    req.header('ContentType', 'multipart/form-data');
     req.formData({
       file: file,
       export_format: mapped.exportFormat,
@@ -60,7 +56,7 @@ export class TransformationController extends BaseController {
    * This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud
    * storage. An ID for the transformation performed is returned as part of the response.
    *
-   * @param body Request Body
+   * @param body         Request Body
    * @return Response from the API call
    */
   async transformViaURL(
@@ -74,6 +70,10 @@ export class TransformationController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, transformViaUrlRequestSchema],
     });
+    req.header(
+      'Content-Type',
+      'application/vnd.apimatic.urlTransformDto.v1+json'
+    );
     req.json(mapped.body);
     return req.callAsJson(transformationSchema, requestOptions);
   }

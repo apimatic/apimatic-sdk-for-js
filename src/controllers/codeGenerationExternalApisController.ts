@@ -26,11 +26,11 @@ export class CodeGenerationExternalApisController extends BaseController {
    *
    * This endpoint does not import an API into APIMatic.
    *
-   * @param file     The API specification file.<br>The type of the specification file should be any of
-   *                                the [supported formats](https://docs.apimatic.io/api-transformer/overview-
-   *                                transformer#supported-input-formats).
-   * @param template The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs
-   *                                in.
+   * @param file         The API specification file.<br>The type of the specification file should be
+   *                                    any of the [supported formats](https://docs.apimatic.io/api-
+   *                                    transformer/overview-transformer#supported-input-formats).
+   * @param template     The structure contains platforms that APIMatic CodeGen can generate SDKs and
+   *                                    Docs in.
    * @return Response from the API call
    */
   async generateSDKViaFile(
@@ -43,6 +43,7 @@ export class CodeGenerationExternalApisController extends BaseController {
       '/code-generations/generate-via-file'
     );
     const mapped = req.prepareArgs({ template: [template, platformsSchema] });
+    req.header('Content-Type', 'multipart/form-data');
     req.formData({
       file: file,
       template: mapped.template,
@@ -58,7 +59,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *
    * This endpoint does not import an API into APIMatic.
    *
-   * @param body Request Body
+   * @param body         Request Body
    * @return Response from the API call
    */
   async generateSDKViaURL(
@@ -72,6 +73,7 @@ export class CodeGenerationExternalApisController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, generateSdkViaUrlRequestSchema],
     });
+    req.header('Content-Type', 'application/vnd.apimatic.userCodeGenerationDto.v1+json');
     req.json(mapped.body);
     return req.callAsJson(userCodeGenerationSchema, requestOptions);
   }

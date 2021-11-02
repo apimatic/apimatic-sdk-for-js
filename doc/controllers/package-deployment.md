@@ -47,6 +47,7 @@ async updatePackageDeploymentInformation(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
+const contentType = null;
 const bodyTemplatesPackageDeploymentInformationCSNETSTANDARDLIB: CSNETSTANDARDLIB = {
   packageRepository: 'NuGet',
   packageName: 'myPackage',
@@ -240,6 +241,7 @@ async publishAPackageForAPI(
 
 ```ts
 const apiEntityId = '5e8217662ac3ed0b20b0dece';
+const contentType = null;
 const body: PublishPackageInput = {
   packageRepository: 'Npm',
   template: 'NODE_JAVASCRIPT_LIB',

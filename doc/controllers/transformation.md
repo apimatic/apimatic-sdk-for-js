@@ -27,7 +27,6 @@ This endpoint transforms and then uploads the transformed API specification to A
 
 ```ts
 async transformViaFile(
-  contentType: ContentType,
   file: FileWrapper,
   exportFormat: ExportFormats,
   requestOptions?: RequestOptions
@@ -38,7 +37,6 @@ async transformViaFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `contentType` | [`ContentType`](/doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `exportFormat` | [`ExportFormats`](/doc/models/export-formats.md) | Form, Required | The structure contains API specification formats that Transformer can convert to. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
@@ -50,11 +48,11 @@ async transformViaFile(
 ## Example Usage
 
 ```ts
-const contentType = 'multipart/form-data';
+const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 const exportFormat = 'Swagger10';
 try {
-  const { result, ...httpResponse } = await transformationController.transformViaFile(contentType, file, exportFormat);
+  const { result, ...httpResponse } = await transformationController.transformViaFile(file, exportFormat);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch(error) {
@@ -93,6 +91,7 @@ async transformViaURL(
 ## Example Usage
 
 ```ts
+const contentType = null;
 const body: TransformViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
   exportFormat: 'APIMATIC',

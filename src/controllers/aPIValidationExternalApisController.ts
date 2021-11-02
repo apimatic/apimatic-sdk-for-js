@@ -21,9 +21,9 @@ export class APIValidationExternalApisController extends BaseController {
    * validating the API using this endpoint. When specifying Metadata, the uploaded file will be a zip
    * file containing the API specification file and the `APIMATIC-META` json file.
    *
-   * @param file The API specification file.<br>The type of the specification file should be any of the
-   *                            [supported formats](https://docs.apimatic.io/api-transformer/overview-
-   *                            transformer#supported-input-formats).
+   * @param file         The API specification file.<br>The type of the specification file should be
+   *                                    any of the [supported formats](https://docs.apimatic.io/api-
+   *                                    transformer/overview-transformer#supported-input-formats).
    * @return Response from the API call
    */
   async validateAPIViaFile(
@@ -32,6 +32,7 @@ export class APIValidationExternalApisController extends BaseController {
   ): Promise<ApiResponse<ApiValidationSummary>> {
     const req = this.createRequest('POST', '/validation/validate-via-file');
     req.baseUrl('default');
+    req.header('Content-Type', 'multipart/form-data');
     req.formData({
       file: file,
     });
