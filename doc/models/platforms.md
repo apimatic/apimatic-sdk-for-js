@@ -14,16 +14,11 @@ The structure contains platforms that APIMatic CodeGen can generate SDKs and Doc
 | `cSNETSTANDARDLIB` | .NET Standard Library |
 | `cSPORTABLENETLIB` | .NET Portable Library |
 | `cSUNIVERSALWINDOWSPLATFORMLIB` | .NET Windows Platform |
-| `jAVAGRADLEANDROIDLIB` | Android |
-| `oBJCCOCOATOUCHIOSLIB` | Objective C  - iOS |
 | `jAVAECLIPSEJRELIB` | JAVA |
 | `pHPGENERICLIB` | PHP |
 | `pYTHONGENERICLIB` | Python |
 | `rUBYGENERICLIB` | Ruby |
-| `aNGULARJAVASCRIPTLIB` | Angular JS |
-| `nODEJAVASCRIPTLIB` | Node JS |
-| `gOGENERICLIB` | GO Language |
-| `hTTPCURLV1` | HTTP CURL |
+| `tSGENERICLIB` | Typescript |
 
 ## Example
 

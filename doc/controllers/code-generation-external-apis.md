@@ -52,7 +52,7 @@ async generateSDKViaFile(
 ```ts
 const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
-const template = 'CS_UNIVERSAL_WINDOWS_PLATFORM_LIB';
+const template = 'PHP_GENERIC_LIB';
 try {
   const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaFile(file, template);
   // Get more response info...

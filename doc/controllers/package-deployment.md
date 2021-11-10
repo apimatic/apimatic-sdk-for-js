@@ -244,7 +244,7 @@ const apiEntityId = '5e8217662ac3ed0b20b0dece';
 const contentType = null;
 const body: PublishPackageInput = {
   packageRepository: 'Npm',
-  template: 'NODE_JAVASCRIPT_LIB',
+  template: 'CS_NET_STANDARD_LIB',
   packageName: 'apimaticcalculatortest',
   version: '1.0.0',
   additionalDeploymentInformation: 'Liquid error: Object of type 'DotLiquid.Hash' cannot be converted to type 'System.String'.',
