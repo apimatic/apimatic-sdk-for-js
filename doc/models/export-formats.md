@@ -15,21 +15,21 @@ The structure contains API specification formats that Transformer can convert to
 | `wADL2009` |
 | `wADL2006` |
 | `wSDL` |
-| `swagger10` |
-| `swagger20` |
+| `sWAGGER10` |
+| `sWAGGER20` |
 | `swaggerYaml` |
-| `openApi3Json` |
-| `openApi3Yaml` |
-| `iODocs` |
-| `iODocsV0314` |
-| `aPIBluePrint` |
+| `oPENAPI3JSON` |
+| `oPENAPI3YAML` |
+| `iODOCS` |
+| `iODOCSV0314` |
+| `aPIBLUEPRINT` |
 | `rAML` |
 | `rAML10` |
-| `googleDiscovery` |
-| `mashape` |
-| `postman10` |
-| `postman20` |
-| `graphQlSchema` |
+| `gOOGLEDISCOVERY` |
+| `mASHAPE` |
+| `pOSTMAN10` |
+| `pOSTMAN20` |
+| `gRAPHQLSCHEMA` |
 
 ## Example
 
