@@ -27,7 +27,7 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
   "id": "5be08b2d83b41d0d8cdb3289",
   "template": "CS_NET_STANDARD_LIB",
   "generatedFile": "https://apimatic.io/api/code-generations/5be08b2d83b41d0d8cdb3289/generated-sdk",
-  "generatedOn": "2018-11-05T18:25:46.000+00:00",
+  "generatedOn": "11/05/2018 18:25:46",
   "hashCode": "77BDA4F625EF512B336D0A77CE2BB2B6",
   "codeGenerationSource": "Api",
   "codeGenVersion": "1",

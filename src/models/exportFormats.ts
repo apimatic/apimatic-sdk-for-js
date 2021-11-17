@@ -16,7 +16,7 @@ export enum ExportFormats {
   WSDL = 'WSDL',
   SWAGGER10 = 'Swagger10',
   SWAGGER20 = 'Swagger20',
-  SwaggerYaml = 'SwaggerYaml',
+  SWAGGERYAML = 'SwaggerYaml',
   OPENAPI3JSON = 'OpenApi3Json',
   OPENAPI3YAML = 'OpenApi3Yaml',
   IODOCS = 'IODocs',

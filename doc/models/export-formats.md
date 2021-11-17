@@ -17,7 +17,7 @@ The structure contains API specification formats that Transformer can convert to
 | `wSDL` |
 | `sWAGGER10` |
 | `sWAGGER20` |
-| `swaggerYaml` |
+| `sWAGGERYAML` |
 | `oPENAPI3JSON` |
 | `oPENAPI3YAML` |
 | `iODOCS` |

@@ -25,7 +25,7 @@
 ```json
 {
   "id": "5e8602472ac3db42ec7f097f",
-  "createdOn": "2020-04-02T15:18:03.931Z",
+  "createdOn": "04/02/2020 15:18:03",
   "apiEntityId": "5e8217662ac3ed0b20b0dece",
   "packageRepository": "Npm",
   "template": "NODE_JAVASCRIPT_LIB",
