@@ -50,7 +50,7 @@ async transformViaFile(
 ```ts
 const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
-const exportFormat = 'Swagger10';
+const exportFormat = 'WSDL';
 try {
   const { result, ...httpResponse } = await transformationController.transformViaFile(file, exportFormat);
   // Get more response info...
