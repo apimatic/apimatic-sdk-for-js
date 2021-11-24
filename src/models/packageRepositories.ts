@@ -18,4 +18,6 @@ export enum PackageRepositories {
 /**
  * Schema for PackageRepositories
  */
-export const packageRepositoriesSchema: Schema<PackageRepositories> = stringEnum(PackageRepositories);
+export const packageRepositoriesSchema: Schema<PackageRepositories> = stringEnum(
+  PackageRepositories
+);

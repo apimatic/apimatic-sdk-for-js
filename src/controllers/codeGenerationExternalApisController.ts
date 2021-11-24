@@ -73,7 +73,10 @@ export class CodeGenerationExternalApisController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, generateSdkViaUrlRequestSchema],
     });
-    req.header('Content-Type', 'application/vnd.apimatic.userCodeGenerationDto.v1+json');
+    req.header(
+      'Content-Type',
+      'application/vnd.apimatic.userCodeGenerationDto.v1+json'
+    );
     req.json(mapped.body);
     return req.callAsJson(userCodeGenerationSchema, requestOptions);
   }

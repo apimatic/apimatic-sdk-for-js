@@ -29,4 +29,6 @@ export enum ExportFormats {
 /**
  * Schema for ExportFormats
  */
-export const exportFormatsSchema: Schema<ExportFormats> = stringEnum(ExportFormats);
+export const exportFormatsSchema: Schema<ExportFormats> = stringEnum(
+  ExportFormats
+);

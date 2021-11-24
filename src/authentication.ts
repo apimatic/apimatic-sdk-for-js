@@ -23,7 +23,7 @@ export const customHeaderAuthenticationProvider = ({
 
     return (request, options, next) => {
       const customHeaderParams = {
-        'Authorization': authorization,
+        Authorization: authorization,
       };
       mergeHeaders(request.headers ?? {}, customHeaderParams);
 
