@@ -31,12 +31,13 @@ jobs:
           token: ${{ secrets.ACTIONS_PAT }}
           path: 'sdk'
 
-      # Install Node dependencies
+      # Install Node dependencies and run build command
       - name: Install dependencies
         working-directory: 'sdk'
-        run: npm i
-
-      # Runs build command
-      - name: Run and check build
-        working-directory: 'sdk'
-        run: npm run build
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '10'
+          cache: 'npm'
+      - run: |
+          npm install
+          npm run build
