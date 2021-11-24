@@ -15,29 +15,17 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    strategy:
+      matrix:
+        node: [ '10' ]
+    name: Node ${{ matrix.node }} sample
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout main branch
       - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
         with:
-          repository: 'apimatic/apimatic-sdk-for-js'
-          ref: 'main'
-          token: ${{ secrets.ACTIONS_PAT }}
-          path: 'sdk'
-
-      # Install Node dependencies and run build command
-      - name: Install dependencies
-        working-directory: 'sdk'
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '10'
-          cache: 'npm'
-      - run: |
-          npm install
-          npm run build
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npm run build
