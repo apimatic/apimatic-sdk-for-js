@@ -5,7 +5,6 @@
  */
 
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
-import { ContentType, contentTypeSchema } from '../models/contentType';
 import { ExportFormats, exportFormatsSchema } from '../models/exportFormats';
 import { Transformation, transformationSchema } from '../models/transformation';
 import {
@@ -71,7 +70,10 @@ export class TransformationController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, transformViaUrlRequestSchema],
     });
-    req.header('Content-Type', 'application/vnd.apimatic.urlTransformDto.v1+json');
+    req.header(
+      'Content-Type',
+      'application/vnd.apimatic.urlTransformDto.v1+json'
+    );
     req.json(mapped.body);
     return req.callAsJson(transformationSchema, requestOptions);
   }
