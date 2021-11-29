@@ -6,7 +6,6 @@
 
 import { ApiError } from '@apimatic/core';
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
-import { ValidationExceptionError } from '../errors/validationExceptionError';
 import { Accept3, accept3Schema } from '../models/accept3';
 import { string } from '../schema';
 import { BaseController } from './baseController';
@@ -126,7 +125,7 @@ export class DocsPortalManagementController extends BaseController {
     req.throwOn(400, ApiError, 'Bad Request');
     req.throwOn(401, ApiError, 'Unauthorized');
     req.throwOn(402, ApiError, 'Subscription Issue');
-    req.throwOn(422, ValidationExceptionError, 'Unprocessable Entity');
+    req.throwOn(422, ApiError, 'Unprocessable Entity');
     return req.callAsStream(requestOptions);
   }
 

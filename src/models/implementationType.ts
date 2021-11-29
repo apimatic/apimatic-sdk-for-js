@@ -18,6 +18,4 @@ export enum ImplementationType {
 /**
  * Schema for ImplementationType
  */
-export const implementationTypeSchema: Schema<ImplementationType> = stringEnum(
-  ImplementationType
-);
+export const implementationTypeSchema: Schema<ImplementationType> = stringEnum(ImplementationType);

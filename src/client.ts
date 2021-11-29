@@ -42,7 +42,11 @@ export class Client implements ClientInterface {
         timeout: this._config.timeout,
         clientConfigOverrides: this._config.unstable_httpClientOptions,
       }),
-      [withErrorHandlers, withUserAgent, withAuthenticationByDefault],
+      [
+        withErrorHandlers,
+        withUserAgent,
+        withAuthenticationByDefault,
+      ],
       new XmlSerialization()
     );
   }

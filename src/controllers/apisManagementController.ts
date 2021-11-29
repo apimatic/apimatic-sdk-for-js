@@ -72,11 +72,12 @@ export class ApisManagementController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, importApiViaUrlRequestSchema],
     });
-    req.header(
-      'Content-Type',
-      'application/vnd.apimatic.apiEntityUrlImportDto.v1+json'
-    );
+    req.header('Content-Type', 'application/vnd.apimatic.apiEntityUrlImportDto.v1+json');
     req.json(mapped.body);
+    req.throwOn(400, ApiError, 'Bad Request');
+    req.throwOn(412, ApiError, 'Precondition Failed');
+    req.throwOn(422, ApiError, 'Unprocessable Entity');
+    req.throwOn(500, ApiError, 'Internal Server Error');
     return req.callAsJson(apiEntitySchema, requestOptions);
   }
 
@@ -150,10 +151,7 @@ export class ApisManagementController extends BaseController {
       body: [body, importApiVersionViaUrlRequestSchema],
     });
     req.header('Accept', mapped.accept);
-    req.header(
-      'Content-Type',
-      'application/vnd.apimatic.apiGroupApiEntityUrlImportDto.v1+json'
-    );
+    req.header('Content-Type', 'application/vnd.apimatic.apiGroupApiEntityUrlImportDto.v1+json');
     req.json(mapped.body);
     req.appendTemplatePath`/api-groups/${mapped.apiGroupId}/api-entities/import-via-url`;
     return req.callAsJson(apiEntitySchema, requestOptions);
@@ -216,10 +214,7 @@ export class ApisManagementController extends BaseController {
       apiEntityId: [apiEntityId, string()],
       body: [body, inplaceImportApiViaUrlRequestSchema],
     });
-    req.header(
-      'Content-Type',
-      'application/vnd.apimatic.apiEntityUrlImportDto.v1+json'
-    );
+    req.header('Content-Type', 'application/vnd.apimatic.apiEntityUrlImportDto.v1+json');
     req.json(mapped.body);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/import-via-url`;
     return req.call(requestOptions);

@@ -9,7 +9,10 @@ export class XmlSerialization {
     throw new Error('XML serialization is not available.');
   }
 
-  public xmlDeserialize(_rootName: string, _xmlString: string): Promise<any> {
+  public xmlDeserialize(
+    _rootName: string,
+    _xmlString: string
+  ): Promise<any> {
     throw new Error('XML deserialization is not available.');
   }
 }

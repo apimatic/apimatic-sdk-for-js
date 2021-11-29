@@ -215,7 +215,7 @@ try {
 | 400 | Bad Request | `ApiError` |
 | 401 | Unauthorized | `ApiError` |
 | 402 | Subscription Issue | `ApiError` |
-| 422 | Unprocessable Entity | [`ValidationExceptionError`](/doc/models/validation-exception-error.md) |
+| 422 | Unprocessable Entity | `ApiError` |
 
 
 # Unpublish Portal
