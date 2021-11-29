@@ -10,7 +10,6 @@ import {
   ApiValidationSummary,
   apiValidationSummarySchema,
 } from '../models/apiValidationSummary';
-import { ContentType, contentTypeSchema } from '../models/contentType';
 import { string } from '../schema';
 import { BaseController } from './baseController';
 
@@ -65,10 +64,6 @@ export class APIValidationExternalApisController extends BaseController {
       descriptionUrl: [descriptionUrl, string()],
     });
     req.query('descriptionUrl', mapped.descriptionUrl);
-    req.throwOn(400, ApiError, 'Bad Request');
-    req.throwOn(401, ApiError, 'Unauthenticated');
-    req.throwOn(403, ApiError, 'Forbidden');
-    req.throwOn(500, ApiError, 'Internal Server Error');
     return req.callAsJson(apiValidationSummarySchema, requestOptions);
   }
 }
