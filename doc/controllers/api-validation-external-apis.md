@@ -116,7 +116,7 @@ You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimati
 
 ```ts
 async validateAPIViaURL(
-  descriptionUrl?: string,
+  descriptionUrl: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ApiValidationSummary>>
 ```
@@ -125,7 +125,7 @@ async validateAPIViaURL(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `descriptionUrl` | `string \| undefined` | Query, Optional | The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. |
+| `descriptionUrl` | `string` | Query, Required | The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type

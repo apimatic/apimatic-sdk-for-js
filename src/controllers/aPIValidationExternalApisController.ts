@@ -10,7 +10,8 @@ import {
   ApiValidationSummary,
   apiValidationSummarySchema,
 } from '../models/apiValidationSummary';
-import { optional, string } from '../schema';
+import { ContentType, contentTypeSchema } from '../models/contentType';
+import { string } from '../schema';
 import { BaseController } from './baseController';
 
 export class APIValidationExternalApisController extends BaseController {
@@ -21,9 +22,9 @@ export class APIValidationExternalApisController extends BaseController {
    * validating the API using this endpoint. When specifying Metadata, the uploaded file will be a zip
    * file containing the API specification file and the `APIMATIC-META` json file.
    *
-   * @param file         The API specification file.<br>The type of the specification file should be
-   *                                    any of the [supported formats](https://docs.apimatic.io/api-
-   *                                    transformer/overview-transformer#supported-input-formats).
+   * @param file        The API specification file.<br>The type of the specification file should be any
+   *                                   of the [supported formats](https://docs.apimatic.io/api-transformer/overview-
+   *                                   transformer#supported-input-formats).
    * @return Response from the API call
    */
   async validateAPIViaFile(
@@ -32,7 +33,7 @@ export class APIValidationExternalApisController extends BaseController {
   ): Promise<ApiResponse<ApiValidationSummary>> {
     const req = this.createRequest('POST', '/validation/validate-via-file');
     req.baseUrl('default');
-    req.header('Content-Type', 'multipart/form-data');
+    req.header('ContentType', 'multipart/form-data');
     req.formData({
       file: file,
     });
@@ -55,13 +56,13 @@ export class APIValidationExternalApisController extends BaseController {
    * @return Response from the API call
    */
   async validateAPIViaURL(
-    descriptionUrl?: string,
+    descriptionUrl: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiValidationSummary>> {
     const req = this.createRequest('GET', '/validation/validate-via-url');
     req.baseUrl('default');
     const mapped = req.prepareArgs({
-      descriptionUrl: [descriptionUrl, optional(string())],
+      descriptionUrl: [descriptionUrl, string()],
     });
     req.query('descriptionUrl', mapped.descriptionUrl);
     req.throwOn(400, ApiError, 'Bad Request');
