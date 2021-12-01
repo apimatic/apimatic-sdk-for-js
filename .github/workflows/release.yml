@@ -1,0 +1,41 @@
+name: Release
+
+on:
+  push:
+    branches: [alpha]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['12', '13', '14']
+    name: Release with Node version ${{ matrix.node }}
+    steps:
+      - name: Checkout CLI
+        uses: actions/checkout@v2
+        with:
+          repository: apimatic/apimatic-sdk-for-js
+          token: ${{ secrets.ACCESS_TOKEN }}
+          persist-credentials: false
+          fetch-depth: 0
+          path: sdk
+
+      - name: setup node
+        uses: actions/setup-node@v2
+
+      - name: Install dependencies
+        working-directory: sdk
+        run: |
+          npm install
+          npm install --save-dev @semantic-release/changelog @semantic-release/git
+      - name: Check Build
+        working-directory: sdk
+        run: npm run build
+
+      - name: Release
+        working-directory: sdk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

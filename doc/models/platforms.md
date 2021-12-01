@@ -12,10 +12,8 @@ The structure contains platforms that APIMatic CodeGen can generate SDKs and Doc
 | Name | Description |
 |  --- | --- |
 | `cSNETSTANDARDLIB` | .NET Standard Library |
-| `cSPORTABLENETLIB` | .NET Portable Library |
-| `cSUNIVERSALWINDOWSPLATFORMLIB` | .NET Windows Platform |
 | `jAVAECLIPSEJRELIB` | JAVA |
-| `pHPGENERICLIB` | PHP |
+| `pHPGENERICLIBV2` | PHP |
 | `pYTHONGENERICLIB` | Python |
 | `rUBYGENERICLIB` | Ruby |
 | `tSGENERICLIB` | Typescript |

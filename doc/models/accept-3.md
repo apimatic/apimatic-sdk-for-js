@@ -11,9 +11,3 @@
 |  --- |
 | `enumApplicationzip` |
 
-## Example
-
-```
-application/zip
-```
-

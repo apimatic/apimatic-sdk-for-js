@@ -16,7 +16,7 @@ export enum ExportFormats {
   SWAGGER10 = 'Swagger10',
   SWAGGER20 = 'Swagger20',
   SWAGGERYAML = 'SwaggerYaml',
-  OPENAPI3JSON = 'OpenApi3Json',
+  OAS3 = 'OpenApi3Json',
   OPENAPI3YAML = 'OpenApi3Yaml',
   APIBLUEPRINT = 'APIBluePrint',
   RAML = 'RAML',

@@ -12,7 +12,7 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Required | Unique Code Generation Identifier |
-| `template` | [`Platforms`](/doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
+| `template` | [`Platforms`](/doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br>**Default**: `Platforms.CSNETSTANDARDLIB` |
 | `generatedFile` | `string` | Required | The generated SDK |
 | `generatedOn` | `string` | Required | Generation Date and Time |
 | `hashCode` | `string` | Required | The md5 hash of the API Description |

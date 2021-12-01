@@ -32,9 +32,9 @@ export class ApisManagementController extends BaseController {
    * importing the API using this endpoint. When specifying Metadata, the uploaded file will be a zip
    * file containing the API specification file and the `APIMATIC-META` json file.
    *
-   * @param file         The API specification file.<br>The type of the specification file should be
-   *                                    any of the [supported formats](https://docs.apimatic.io/api-
-   *                                    transformer/overview-transformer#supported-input-formats).
+   * @param file        The API specification file.<br>The type of the specification file should be any
+   *                                   of the [supported formats](https://docs.apimatic.io/api-transformer/overview-
+   *                                   transformer#supported-input-formats).
    * @return Response from the API call
    */
   async importAPIViaFile(
@@ -42,7 +42,7 @@ export class ApisManagementController extends BaseController {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<ApiEntity>> {
     const req = this.createRequest('POST', '/api-entities/import-via-file');
-    req.header('Content-Type', 'multipart/form-data');
+    req.header('ContentType', 'multipart/form-data');
     req.formData({
       file: file,
     });

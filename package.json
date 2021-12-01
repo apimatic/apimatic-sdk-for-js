@@ -1,10 +1,13 @@
 {
-  "version": "0.0.17",
+  "name": "@apimatic/js-sdk",
+  "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformers Engine.",
+  "author": "Team APIMatic",
+  "version": "0.0.0-semantic-release",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/apimatic-apilib.esm.js",
+  "module": "dist/js-sdk.esm.js",
   "files": [
     "dist",
     "src"
@@ -12,11 +15,19 @@
   "engines": {
     "node": ">=10.4.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "apimatic",
+    "sdk",
+    "api"
+  ],
   "scripts": {
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src",
-    "prepare": "tsdx build"
+    "prepare": "husky install"
   },
   "peerDependencies": {},
   "prettier": {
@@ -25,10 +36,10 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@apimatic/apimatic-sdk-for-js",
-  "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformers Engine.",
-  "author": "Team APIMatic",
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "husky": "^7.0.4",
     "stream-equal": "^2.0.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.1.0",

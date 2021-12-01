@@ -80,7 +80,7 @@ export class DocsPortalManagementController extends BaseController {
    * The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
    *
    * @param apiEntityId   The ID of the API Entity to generate the Portal for.
-   * @param accept
+   * @param accept        Example: application/zip
    * @return Response from the API call
    */
   async generateOnPremPortalViaAPIEntity(
@@ -109,7 +109,7 @@ export class DocsPortalManagementController extends BaseController {
    *
    * The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
    *
-   * @param file         The input file to the Portal Generator. Must contain the build file.
+   * @param file        The input file to the Portal Generator. Must contain the build file.
    * @return Response from the API call
    */
   async generateOnPremPortalViaBuildInput(
@@ -117,7 +117,7 @@ export class DocsPortalManagementController extends BaseController {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
     const req = this.createRequest('POST', '/portal');
-    req.header('Content-Type', 'multipart/form-data');
+    req.header('ContentType', 'multipart/form-data');
     req.formData({
       file: file,
     });
