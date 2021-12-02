@@ -1,3 +1,10 @@
+## [0.0.1-alpha.2](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.1...v0.0.1-alpha.2) (2021-12-02)
+
+
+### Bug Fixes
+
+* **readme:** fix package version in readme ([e77a2b5](https://github.com/apimatic/apimatic-sdk-for-js/commit/e77a2b58faf7043eadc5ce8ac595b0cd9633f39f))
+
 ## [0.0.1-alpha.1](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.0...v0.0.1-alpha.1) (2021-12-02)
 
 
