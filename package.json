@@ -1,5 +1,5 @@
 {
-  "name": "@apimatic/js-sdk",
+  "name": "@apimatic/sdk",
   "description": "This API gives you programmatic access to APIMatic's Code Generation, Transformers Engine and Docs Generation.",
   "author": "Team APIMatic",
   "version": "0.0.0-semantic-release",
@@ -7,7 +7,7 @@
   "sideEffects": false,
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/js-sdk.esm.js",
+  "module": "dist/sdk.esm.js",
   "files": [
     "dist",
     "src"
