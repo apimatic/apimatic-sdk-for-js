@@ -1,3 +1,10 @@
+## [0.0.1-alpha.3](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.2...v0.0.1-alpha.3) (2021-12-06)
+
+
+### Bug Fixes
+
+* **js files:** update minified and js files ([972b79d](https://github.com/apimatic/apimatic-sdk-for-js/commit/972b79d1b975b0be1bc9134f85420bc3c89bbdeb))
+
 ## [0.0.1-alpha.2](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.1...v0.0.1-alpha.2) (2021-12-02)
 
 
