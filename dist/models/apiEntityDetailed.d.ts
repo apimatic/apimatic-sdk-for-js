@@ -8,6 +8,8 @@ import { Authentication } from './authentication';
 import { CodeGenSettings } from './codeGenSettings';
 import { CustomType } from './customType';
 import { Endpoint } from './endpoint';
+import { EndpointsGroup } from './endpointsGroup';
+import { MetaData } from './metaData';
 import { ServerConfiguration } from './serverConfiguration';
 import { TestGenSettings } from './testGenSettings';
 /** The structure collects API Endpoints and Custom Types to display detailed information on API Entity. */
@@ -28,8 +30,8 @@ export interface ApiEntityDetailed {
     mPublic: boolean;
     /** API Entity  Name */
     name: string;
-    /** Base URI for the Entity */
-    baseUri: string;
+    /** Description of the API */
+    description: string;
     /** Entity Version Number */
     version: string;
     /** Header Content */
@@ -44,6 +46,10 @@ export interface ApiEntityDetailed {
     errors: string[];
     /** Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. */
     serverConfiguration: ServerConfiguration;
+    /** API Endpoint Groups */
+    endpointsGroup?: EndpointsGroup[];
+    /** API Meta Data */
+    metaData: MetaData[];
     /** API Endpoints */
     endpoints: Endpoint[];
     /** Complex Custom Model Types */

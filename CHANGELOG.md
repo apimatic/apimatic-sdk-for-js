@@ -1,3 +1,20 @@
+## [0.0.1-alpha.5](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.4...v0.0.1-alpha.5) (2021-12-07)
+
+
+### Bug Fixes
+
+* **release:** publish new version of the sdk ([50f2a0f](https://github.com/apimatic/apimatic-sdk-for-js/commit/50f2a0fcf2bd932dfb4c1d8d0470e73c0b94012c))
+* **release:** release v0.0.1-alpha.6 ([dafb9ac](https://github.com/apimatic/apimatic-sdk-for-js/commit/dafb9ace1b061f70511d7e02b53cb1635513358e))
+* **schema:** update schema for import api endpoints ([85dff1c](https://github.com/apimatic/apimatic-sdk-for-js/commit/85dff1c9c548c43d20d81e93ef930d843cff34a3))
+
+## [0.0.1-alpha.5](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.4...v0.0.1-alpha.5) (2021-12-07)
+
+
+### Bug Fixes
+
+* **release:** publish new version of the sdk ([50f2a0f](https://github.com/apimatic/apimatic-sdk-for-js/commit/50f2a0fcf2bd932dfb4c1d8d0470e73c0b94012c))
+* **schema:** update schema for import api endpoints ([85dff1c](https://github.com/apimatic/apimatic-sdk-for-js/commit/85dff1c9c548c43d20d81e93ef930d843cff34a3))
+
 ## [0.0.1-alpha.4](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.3...v0.0.1-alpha.4) (2021-12-06)
 
 
