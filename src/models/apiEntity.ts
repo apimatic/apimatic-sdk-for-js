@@ -59,8 +59,7 @@ export interface ApiEntity {
   serverConfiguration: ServerConfiguration;
   /** API Endpoint Groups */
   endpointsGroup?: EndpointsGroup[];
-  /** API Meta Data */
-  metaData: MetaData[];
+  metaData: MetaData;
 }
 
 export const apiEntitySchema: Schema<ApiEntity> = object({
@@ -87,5 +86,5 @@ export const apiEntitySchema: Schema<ApiEntity> = object({
     'endpointsGroup',
     optional(array(lazy(() => endpointsGroupSchema))),
   ],
-  metaData: ['metaData', array(lazy(() => metaDataSchema))],
+  metaData: ['metaData', lazy(() => metaDataSchema)],
 });

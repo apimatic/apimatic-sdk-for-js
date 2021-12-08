@@ -13,7 +13,7 @@ This structure helps specify additional test configurations which affects how te
 |  --- | --- | --- | --- |
 | `precisionDelta` | `number` | Required | Error margin for comparing values in decimal places |
 | `testTimeout` | `number` | Required | Number of seconds after which if the endpoint is not returning any response, the test is forced to fail e.g. a timeout of 60 |
-| `configuration` | `string[]` | Required | The parameters allows to provide values for configuration file for use in the test environment |
+| `configuration` | `unknown` | Required | The parameters allows to provide values for configuration file for use in the test environment |
 
 ## Example (as JSON)
 

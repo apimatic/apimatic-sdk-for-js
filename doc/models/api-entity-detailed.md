@@ -28,7 +28,7 @@ The structure collects API Endpoints and Custom Types to display detailed inform
 | `errors` | `string[]` | Required | API Errors |
 | `serverConfiguration` | [`ServerConfiguration`](/doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
 | `endpointsGroup` | [`EndpointsGroup[] \| undefined`](/doc/models/endpoints-group.md) | Optional | API Endpoint Groups |
-| `metaData` | [`MetaData[]`](/doc/models/meta-data.md) | Required | API Meta Data |
+| `metaData` | [`MetaData`](/doc/models/meta-data.md) | Required | - |
 | `endpoints` | [`Endpoint[]`](/doc/models/endpoint.md) | Required | API Endpoints |
 | `customTypes` | [`CustomType[]`](/doc/models/custom-type.md) | Required | Complex Custom Model Types |
 

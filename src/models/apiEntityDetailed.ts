@@ -61,8 +61,7 @@ export interface ApiEntityDetailed {
   serverConfiguration: ServerConfiguration;
   /** API Endpoint Groups */
   endpointsGroup?: EndpointsGroup[];
-  /** API Meta Data */
-  metaData: MetaData[];
+  metaData: MetaData;
   /** API Endpoints */
   endpoints: Endpoint[];
   /** Complex Custom Model Types */
@@ -93,7 +92,7 @@ export const apiEntityDetailedSchema: Schema<ApiEntityDetailed> = object({
     'endpointsGroup',
     optional(array(lazy(() => endpointsGroupSchema))),
   ],
-  metaData: ['metaData', array(lazy(() => metaDataSchema))],
+  metaData: ['metaData', lazy(() => metaDataSchema)],
   endpoints: ['endpoints', array(lazy(() => endpointSchema))],
   customTypes: ['customTypes', array(lazy(() => customTypeSchema))],
 });
