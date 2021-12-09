@@ -1,3 +1,10 @@
+## [0.0.1-alpha.7](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.6...v0.0.1-alpha.7) (2021-12-08)
+
+
+### Bug Fixes
+
+* **schema:** update types of configuration and metadata to object from array ([67600be](https://github.com/apimatic/apimatic-sdk-for-js/commit/67600be2ae2a1b22ec4aa8d0530c8478a30b019a))
+
 ## [0.0.1-alpha.6](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.5...v0.0.1-alpha.6) (2021-12-08)
 
 

@@ -1478,7 +1478,7 @@ var serverConfigurationSchema = /*#__PURE__*/object({
 var testGenSettingsSchema = /*#__PURE__*/object({
   precisionDelta: ['precisionDelta', /*#__PURE__*/number()],
   testTimeout: ['testTimeout', /*#__PURE__*/number()],
-  configuration: ['configuration', /*#__PURE__*/array( /*#__PURE__*/string())]
+  configuration: ['configuration', /*#__PURE__*/unknown()]
 });
 
 /**
@@ -1514,9 +1514,9 @@ var apiEntitySchema = /*#__PURE__*/object({
   endpointsGroup: ['endpointsGroup', /*#__PURE__*/optional( /*#__PURE__*/array( /*#__PURE__*/lazy(function () {
     return endpointsGroupSchema;
   })))],
-  metaData: ['metaData', /*#__PURE__*/array( /*#__PURE__*/lazy(function () {
+  metaData: ['metaData', /*#__PURE__*/lazy(function () {
     return metaDataSchema;
-  }))]
+  })]
 });
 
 /**

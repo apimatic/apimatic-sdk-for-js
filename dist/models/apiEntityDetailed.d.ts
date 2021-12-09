@@ -48,8 +48,7 @@ export interface ApiEntityDetailed {
     serverConfiguration: ServerConfiguration;
     /** API Endpoint Groups */
     endpointsGroup?: EndpointsGroup[];
-    /** API Meta Data */
-    metaData: MetaData[];
+    metaData: MetaData;
     /** API Endpoints */
     endpoints: Endpoint[];
     /** Complex Custom Model Types */

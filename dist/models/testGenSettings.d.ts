@@ -11,6 +11,6 @@ export interface TestGenSettings {
     /** Number of seconds after which if the endpoint is not returning any response, the test is forced to fail e.g. a timeout of 60 */
     testTimeout: number;
     /** The parameters allows to provide values for configuration file for use in the test environment */
-    configuration: string[];
+    configuration?: unknown;
 }
 export declare const testGenSettingsSchema: Schema<TestGenSettings>;

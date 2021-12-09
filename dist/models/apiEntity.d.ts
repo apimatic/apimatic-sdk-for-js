@@ -46,7 +46,6 @@ export interface ApiEntity {
     serverConfiguration: ServerConfiguration;
     /** API Endpoint Groups */
     endpointsGroup?: EndpointsGroup[];
-    /** API Meta Data */
-    metaData: MetaData[];
+    metaData: MetaData;
 }
 export declare const apiEntitySchema: Schema<ApiEntity>;
