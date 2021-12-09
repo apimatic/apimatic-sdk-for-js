@@ -1,3 +1,10 @@
+## [0.0.1-alpha.8](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.7...v0.0.1-alpha.8) (2021-12-09)
+
+
+### Bug Fixes
+
+* **transformaiton:** make import and validation summary required in response ([e8778cf](https://github.com/apimatic/apimatic-sdk-for-js/commit/e8778cfa62d04e714108f029f5d0a24cf325ebf0))
+
 ## [0.0.1-alpha.7](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.6...v0.0.1-alpha.7) (2021-12-08)
 
 

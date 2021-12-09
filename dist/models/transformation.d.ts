@@ -27,7 +27,7 @@ export interface Transformation {
     codeGenVersion: string;
     /** Successful Transformation Flag */
     success: boolean;
-    importSummary?: ApiValidationSummary;
-    apiValidationSummary?: ApiValidationSummary;
+    importSummary: ApiValidationSummary;
+    apiValidationSummary: ApiValidationSummary;
 }
 export declare const transformationSchema: Schema<Transformation>;

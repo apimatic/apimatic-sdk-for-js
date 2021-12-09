@@ -3271,12 +3271,12 @@ var transformationSchema = /*#__PURE__*/object({
   transformationInput: ['transformationInput', /*#__PURE__*/string()],
   codeGenVersion: ['codeGenVersion', /*#__PURE__*/string()],
   success: ['success', /*#__PURE__*/boolean()],
-  importSummary: ['importSummary', /*#__PURE__*/optional( /*#__PURE__*/lazy(function () {
+  importSummary: ['importSummary', /*#__PURE__*/lazy(function () {
     return apiValidationSummarySchema;
-  }))],
-  apiValidationSummary: ['apiValidationSummary', /*#__PURE__*/optional( /*#__PURE__*/lazy(function () {
+  })],
+  apiValidationSummary: ['apiValidationSummary', /*#__PURE__*/lazy(function () {
     return apiValidationSummarySchema;
-  }))]
+  })]
 });
 
 /**

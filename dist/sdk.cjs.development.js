@@ -3231,12 +3231,12 @@ var transformationSchema = /*#__PURE__*/schema.object({
   transformationInput: ['transformationInput', /*#__PURE__*/schema.string()],
   codeGenVersion: ['codeGenVersion', /*#__PURE__*/schema.string()],
   success: ['success', /*#__PURE__*/schema.boolean()],
-  importSummary: ['importSummary', /*#__PURE__*/schema.optional( /*#__PURE__*/schema.lazy(function () {
+  importSummary: ['importSummary', /*#__PURE__*/schema.lazy(function () {
     return apiValidationSummarySchema;
-  }))],
-  apiValidationSummary: ['apiValidationSummary', /*#__PURE__*/schema.optional( /*#__PURE__*/schema.lazy(function () {
+  })],
+  apiValidationSummary: ['apiValidationSummary', /*#__PURE__*/schema.lazy(function () {
     return apiValidationSummarySchema;
-  }))]
+  })]
 });
 
 /**
