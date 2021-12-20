@@ -13,7 +13,7 @@ This Structure encapsulates all details of API authentication.
 |  --- | --- | --- | --- |
 | `id` | `string` | Required | Auth Id |
 | `authType` | `string` | Required | Auth Type |
-| `scopes` | `string[]` | Required | Scope |
+| `scopes` | [`AuthScope[]`](/doc/models/auth-scope.md) | Required | Scope |
 | `parameters` | `string[]` | Required | Auth Params |
 | `authScopes` | `string[]` | Required | Auth Scopes |
 | `authGrantTypes` | `string[]` | Required | Auth Grant Types |

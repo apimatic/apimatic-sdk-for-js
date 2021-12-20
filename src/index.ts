@@ -35,6 +35,7 @@ export { ApiValidationSummary } from './models/apiValidationSummary';
 export { Attributes } from './models/attributes';
 export { Authentication } from './models/authentication';
 export { AuthorIdentifiers } from './models/authorIdentifiers';
+export { AuthScope } from './models/authScope';
 export { CodeGeneration } from './models/codeGeneration';
 export { CodeGenSettings } from './models/codeGenSettings';
 export { ContentType } from './models/contentType';

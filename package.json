@@ -2,7 +2,7 @@
   "name": "@apimatic/sdk",
   "description": "This API gives you programmatic access to APIMatic's Code Generation, Transformers Engine and Docs Generation.",
   "author": "Team APIMatic",
-  "version": "0.0.1-alpha.6",
+  "version": "0.0.1-alpha.2",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/index.js",
