@@ -1,3 +1,10 @@
+## [0.0.1-alpha.9](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.8...v0.0.1-alpha.9) (2021-12-20)
+
+
+### Bug Fixes
+
+* **scope:** add scope to auth in import spec api ([05c481e](https://github.com/apimatic/apimatic-sdk-for-js/commit/05c481ebfe05e5171323f441a75d406048ea6e33))
+
 ## [0.0.1-alpha.8](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.7...v0.0.1-alpha.8) (2021-12-09)
 
 
