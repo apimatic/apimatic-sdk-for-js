@@ -42,11 +42,7 @@ export class Client implements ClientInterface {
         timeout: this._config.timeout,
         clientConfigOverrides: this._config.unstable_httpClientOptions,
       }),
-      [
-        withErrorHandlers,
-        withUserAgent,
-        withAuthenticationByDefault,
-      ],
+      [withErrorHandlers, withUserAgent, withAuthenticationByDefault],
       new XmlSerialization()
     );
   }
@@ -72,7 +68,7 @@ function createHttpClientAdapter(client: HttpClient): HttpClientInterface {
 function getBaseUri(server: Server = 'default', config: Configuration): string {
   if (config.environment === Environment.Production) {
     if (server === 'default') {
-      return 'https://apimaticio-test.azurewebsites.net/api';
+      return 'https://www.apimatic.io/api';
     }
   }
   throw new Error('Could not get Base URL. Invalid environment or server.');

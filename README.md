@@ -9,7 +9,8 @@ This API gives you programmatic access to APIMatic's Code Generation, Docs Gener
 Run the following command from your project directory to install the package from npm:
 
 ```ts
-npm install @apimatic/sdk@0.0.1-alpha.2
+npm install @apimatic/sdk@0.0.1-alpha.10
+
 ```
 
 ## Initialize the API Client
