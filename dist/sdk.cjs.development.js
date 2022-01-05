@@ -977,7 +977,7 @@ function getBaseUri(server, config) {
 
   if (config.environment === exports.Environment.Production) {
     if (server === 'default') {
-      return 'https://apimaticio-test.azurewebsites.net/api';
+      return 'https://www.apimatic.io/api';
     }
   }
 

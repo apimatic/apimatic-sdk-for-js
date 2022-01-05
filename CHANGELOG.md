@@ -1,3 +1,10 @@
+## [0.0.1-alpha.10](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.9...v0.0.1-alpha.10) (2022-01-05)
+
+
+### Bug Fixes
+
+* **base URL:** change base url from test to production ([f8c16fe](https://github.com/apimatic/apimatic-sdk-for-js/commit/f8c16fef709809f4747cb5bb6811e815cb11e935))
+
 ## [0.0.1-alpha.9](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.8...v0.0.1-alpha.9) (2021-12-20)
 
 
