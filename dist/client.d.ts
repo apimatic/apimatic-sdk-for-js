@@ -7,7 +7,10 @@ import { ClientInterface, SdkRequestBuilderFactory } from './clientInterface';
 import { Configuration } from './configuration';
 export declare class Client implements ClientInterface {
     private _config;
+    private _timeout;
+    private _retryConfig;
     private _requestBuilderFactory;
+    private _userAgent;
     constructor(config?: Partial<Configuration>);
     getRequestBuilderFactory(): SdkRequestBuilderFactory;
     /**

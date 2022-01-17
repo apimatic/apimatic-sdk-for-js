@@ -1,3 +1,10 @@
+# [0.1.0-alpha.1](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.10...v0.1.0-alpha.1) (2022-01-17)
+
+
+### Features
+
+* **user-agent:** add custom user agent for usage tracking purposese of cli ([c0b18af](https://github.com/apimatic/apimatic-sdk-for-js/commit/c0b18af21d7c19847f1287debcf3dc0b3765792e))
+
 ## [0.0.1-alpha.10](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.9...v0.0.1-alpha.10) (2022-01-05)
 
 

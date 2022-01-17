@@ -1,4 +1,4 @@
-import { passThroughInterceptor, mergeHeaders, HttpClient, createRequestBuilderFactory, ApiError } from '@apimatic/core';
+import { passThroughInterceptor, mergeHeaders, updateUserAgent, HttpClient, createRequestBuilderFactory, ApiError, setHeader } from '@apimatic/core';
 export { AbortError, ApiError, ArgumentsValidationError, FileWrapper, ResponseValidationError, cloneFileWrapper, isFileWrapper } from '@apimatic/core';
 import { object, boolean, array, string, stringEnum, lazy, unknown, number, optional } from '@apimatic/schema';
 
@@ -888,7 +888,18 @@ var Environment;
 var DEFAULT_CONFIGURATION = {
   timeout: 0,
   environment: Environment.Production,
-  authorization: 'TODO Authorization value'
+  authorization: 'TODO Authorization'
+};
+/** Default values for retry configuration parameters. */
+
+var DEFAULT_RETRY_CONFIG = {
+  maxNumberOfRetries: 0,
+  retryOnTimeout: true,
+  retryInterval: 1,
+  maximumRetryWaitTime: 0,
+  backoffFactor: 2,
+  httpStatusCodesToRetry: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
+  httpMethodsToRetry: ['GET', 'PUT']
 };
 
 /**
@@ -912,18 +923,26 @@ var XmlSerialization = /*#__PURE__*/function () {
   return XmlSerialization;
 }();
 
-var USER_AGENT = 'APIMATIC 3.0';
 var Client = /*#__PURE__*/function () {
   function Client(config) {
-    var _this = this;
+    var _this$_config$httpCli,
+        _this$_config$httpCli2,
+        _this = this,
+        _this$_config$httpCli3,
+        _this$_config$httpCli4;
 
     this._config = _extends({}, DEFAULT_CONFIGURATION, config);
+    this._retryConfig = _extends({}, DEFAULT_RETRY_CONFIG, (_this$_config$httpCli = this._config.httpClientOptions) == null ? void 0 : _this$_config$httpCli.retryConfig);
+    this._timeout = typeof ((_this$_config$httpCli2 = this._config.httpClientOptions) == null ? void 0 : _this$_config$httpCli2.timeout) != 'undefined' ? this._config.httpClientOptions.timeout : this._config.timeout;
+    this._userAgent = updateUserAgent('APIMatic CLI');
     this._requestBuilderFactory = createRequestHandlerFactory(function (server) {
       return getBaseUri(server, _this._config);
     }, customHeaderAuthenticationProvider(this._config), new HttpClient({
-      timeout: this._config.timeout,
-      clientConfigOverrides: this._config.unstable_httpClientOptions
-    }), [withErrorHandlers, withUserAgent, withAuthenticationByDefault], new XmlSerialization());
+      timeout: this._timeout,
+      clientConfigOverrides: this._config.unstable_httpClientOptions,
+      httpAgent: (_this$_config$httpCli3 = this._config.httpClientOptions) == null ? void 0 : _this$_config$httpCli3.httpAgent,
+      httpsAgent: (_this$_config$httpCli4 = this._config.httpClientOptions) == null ? void 0 : _this$_config$httpCli4.httpsAgent
+    }), [withErrorHandlers, withUserAgent(this._userAgent), withAuthenticationByDefault], new XmlSerialization(), this._retryConfig);
   }
 
   var _proto = Client.prototype;
@@ -984,8 +1003,8 @@ function getBaseUri(server, config) {
   throw new Error('Could not get Base URL. Invalid environment or server.');
 }
 
-function createRequestHandlerFactory(baseUrlProvider, authProvider, httpClient, addons, xmlSerializer) {
-  var requestBuilderFactory = createRequestBuilderFactory(createHttpClientAdapter(httpClient), baseUrlProvider, ApiError, authProvider, xmlSerializer);
+function createRequestHandlerFactory(baseUrlProvider, authProvider, httpClient, addons, xmlSerializer, retryConfig) {
+  var requestBuilderFactory = createRequestBuilderFactory(createHttpClientAdapter(httpClient), baseUrlProvider, ApiError, authProvider, xmlSerializer, retryConfig);
   return tap.apply(void 0, [requestBuilderFactory].concat(addons));
 }
 
@@ -1007,8 +1026,18 @@ function withErrorHandlers(rb) {
   rb.defaultToError(ApiError);
 }
 
-function withUserAgent(rb) {
-  rb.header('user-agent', USER_AGENT);
+function withUserAgent(userAgent) {
+  return function (rb) {
+    rb.interceptRequest(function (request) {
+      var _request$headers;
+
+      var headers = (_request$headers = request.headers) != null ? _request$headers : {};
+      setHeader(headers, 'user-agent', userAgent);
+      return _extends({}, request, {
+        headers: headers
+      });
+    });
+  };
 }
 
 function withAuthenticationByDefault(rb) {
@@ -3649,5 +3678,5 @@ var ImplementationType;
   ImplementationType["Exception"] = "Exception";
 })(ImplementationType || (ImplementationType = {}));
 
-export { APIValidationExternalApisController, APIValidationImportedApisController, Accept, Accept2, Accept3, ApisManagementController, Client, CodeGenerationExternalApisController, CodeGenerationImportedApisController, ContentType, DEFAULT_CONFIGURATION, DocsPortalManagementController, Environment, ExportFormats, Id, ImplementationType, Link, PackageDeploymentController, PackageRepositories, Platforms, TransformationController };
+export { APIValidationExternalApisController, APIValidationImportedApisController, Accept, Accept2, Accept3, ApisManagementController, Client, CodeGenerationExternalApisController, CodeGenerationImportedApisController, ContentType, DEFAULT_CONFIGURATION, DEFAULT_RETRY_CONFIG, DocsPortalManagementController, Environment, ExportFormats, Id, ImplementationType, Link, PackageDeploymentController, PackageRepositories, Platforms, TransformationController };
 //# sourceMappingURL=sdk.esm.js.map
