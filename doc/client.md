@@ -6,14 +6,16 @@ The following parameters are configurable for the API Client:
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | `timeout` | `number` | Timeout for API calls.<br>*Default*: `0` |
-| `authorization` | `string` | Auth Header. Replace {x-auth-key} with your API Key. |
+| `httpClientOptions` | `Partial<HttpClientOptions>` | Stable configurable http client options. |
+| `unstableHttpClientOptions` | `any` | Unstable configurable http client options. |
+| `authorization` | `string` |  |
 
 The API client can be initialized as follows:
 
 ```ts
 const client = new Client({
   timeout: 0,
-  authorization: 'Authorization',
+  authorization: 'X-Auth-Key {x-auth-key}',
 })
 ```
 

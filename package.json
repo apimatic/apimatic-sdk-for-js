@@ -29,7 +29,6 @@
     "lint": "tsdx lint src",
     "prepare": "husky install"
   },
-  "peerDependencies": {},
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -46,7 +45,7 @@
     "typescript": "^3.9.7"
   },
   "dependencies": {
-    "@apimatic/core": "^0.6.2",
+    "@apimatic/core": "^0.7.2",
     "@apimatic/schema": "^0.6.0"
   },
   "bugs": {
