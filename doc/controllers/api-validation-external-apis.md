@@ -1,4 +1,4 @@
-# API Validation - External APIs
+# API Validation-External APIs
 
 ```ts
 const aPIValidationExternalApisController = new APIValidationExternalApisController(client);
@@ -10,8 +10,8 @@ const aPIValidationExternalApisController = new APIValidationExternalApisControl
 
 ## Methods
 
-* [Validate API Via File](/doc/controllers/api-validation-external-apis.md#validate-api-via-file)
-* [Validate API Via URL](/doc/controllers/api-validation-external-apis.md#validate-api-via-url)
+* [Validate API Via File](../../doc/controllers/api-validation-external-apis.md#validate-api-via-file)
+* [Validate API Via URL](../../doc/controllers/api-validation-external-apis.md#validate-api-via-url)
 
 
 # Validate API Via File
@@ -22,6 +22,7 @@ You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimati
 
 ```ts
 async validateAPIViaFile(
+  contentType: ContentType,
   file: FileWrapper,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ApiValidationSummary>>
@@ -31,24 +32,34 @@ async validateAPIViaFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`ApiValidationSummary`](/doc/models/api-validation-summary.md)
+[`ApiValidationSummary`](../../doc/models/api-validation-summary.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
+const contentType = ContentType.EnumMultipartformdata;
+
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
+
 try {
-  const { result, ...httpResponse } = await aPIValidationExternalApisController.validateAPIViaFile(file);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await aPIValidationExternalApisController.validateAPIViaFile(
+  contentType,
+  file
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -130,18 +141,23 @@ async validateAPIViaURL(
 
 ## Response Type
 
-[`ApiValidationSummary`](/doc/models/api-validation-summary.md)
+[`ApiValidationSummary`](../../doc/models/api-validation-summary.md)
 
 ## Example Usage
 
 ```ts
 const descriptionUrl = 'https://petstore.swagger.io/v2/swagger.json';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await aPIValidationExternalApisController.validateAPIViaURL(descriptionUrl);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }

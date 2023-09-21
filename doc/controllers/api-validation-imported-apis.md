@@ -1,4 +1,4 @@
-# API Validation - Imported APIs
+# API Validation-Imported APIs
 
 ```ts
 const aPIValidationImportedApisController = new APIValidationImportedApisController(client);
@@ -10,8 +10,8 @@ const aPIValidationImportedApisController = new APIValidationImportedApisControl
 
 ## Methods
 
-* [Validate API](/doc/controllers/api-validation-imported-apis.md#validate-api)
-* [Validate API for Docs](/doc/controllers/api-validation-imported-apis.md#validate-api-for-docs)
+* [Validate API](../../doc/controllers/api-validation-imported-apis.md#validate-api)
+* [Validate API for Docs](../../doc/controllers/api-validation-imported-apis.md#validate-api-for-docs)
 
 
 # Validate API
@@ -34,18 +34,23 @@ async validateAPI(
 
 ## Response Type
 
-[`ApiValidationSummary`](/doc/models/api-validation-summary.md)
+[`ApiValidationSummary`](../../doc/models/api-validation-summary.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = '608fe1dad3131a0fd443ba56';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await aPIValidationImportedApisController.validateAPI(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -125,18 +130,23 @@ async validateAPIForDocs(
 
 ## Response Type
 
-[`DocsValidationSummary`](/doc/models/docs-validation-summary.md)
+[`DocsValidationSummary`](../../doc/models/docs-validation-summary.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = '608fe1dad3131a0fd443ba56';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await aPIValidationImportedApisController.validateAPIForDocs(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }

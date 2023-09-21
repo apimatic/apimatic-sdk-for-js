@@ -18,7 +18,8 @@ Validation exception contains information, warnings, messages and errors.
 
 ```json
 {
-  "reason": "Import Failed"
+  "reason": "Import Failed",
+  "summary": "summary2"
 }
 ```
 

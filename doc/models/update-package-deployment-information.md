@@ -11,7 +11,7 @@ This structure is used to update package deployment details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `templatesPackageDeploymentInformation` | [`UpdateTemplatesPackageDeploymentInformation`](/doc/models/update-templates-package-deployment-information.md) | Required | This structure helps update package deployment details. |
+| `templatesPackageDeploymentInformation` | [`UpdateTemplatesPackageDeploymentInformation`](../../doc/models/update-templates-package-deployment-information.md) | Required | This structure helps update package deployment details. |
 
 ## Example (as JSON)
 
@@ -19,10 +19,12 @@ This structure is used to update package deployment details.
 {
   "templatesPackageDeploymentInformation": {
     "CS_NET_STANDARD_LIB": {
+      "id": "5dcd2b5893c3e31a206f30c4",
       "packageRepository": "NuGet",
       "packageName": "myPackage",
       "version": "1.1.1",
-      "additionalDeploymentInformation": {}
+      "additionalDeploymentInformation": {},
+      "link": "https://www.nuget.org/packages/myPackage/1.1.1"
     }
   }
 }

@@ -30,7 +30,7 @@ export const cSNETSTANDARDLIBSchema: Schema<CSNETSTANDARDLIB> = object({
   version: ['version', string()],
   additionalDeploymentInformation: [
     'additionalDeploymentInformation',
-    unknown(),
+    optional(unknown()),
   ],
   link: ['link', optional(linkSchema)],
 });

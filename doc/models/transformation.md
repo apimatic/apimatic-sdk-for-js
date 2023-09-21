@@ -21,8 +21,8 @@ Transformation structure encapsulates all the details of a Transformation.
 | `transformationInput` | `string` | Required | Via File or URL |
 | `codeGenVersion` | `string` | Required | CodeGen Engine Version |
 | `success` | `boolean` | Required | Successful Transformation Flag |
-| `importSummary` | [`ApiValidationSummary`](/doc/models/api-validation-summary.md) | Required | - |
-| `apiValidationSummary` | [`ApiValidationSummary`](/doc/models/api-validation-summary.md) | Required | - |
+| `importSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
+| `apiValidationSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
 
 ## Example (as JSON)
 

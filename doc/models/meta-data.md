@@ -9,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `importValidationSummary` | [`ImportValidationSummary`](/doc/models/import-validation-summary.md) | Required | - |
-| `apiValidationSummary` | [`ApiValidationSummary`](/doc/models/api-validation-summary.md) | Required | - |
-| `docsValidationSummary` | [`DocsValidationSummary`](/doc/models/docs-validation-summary.md) | Required | - |
+| `importValidationSummary` | [`ImportValidationSummary`](../../doc/models/import-validation-summary.md) | Required | - |
+| `apiValidationSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
+| `docsValidationSummary` | [`DocsValidationSummary`](../../doc/models/docs-validation-summary.md) | Required | - |
 
 ## Example (as JSON)
 

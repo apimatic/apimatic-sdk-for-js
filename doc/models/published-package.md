@@ -17,7 +17,7 @@
 | `packageName` | `string` | Required | - |
 | `version` | `string` | Required | - |
 | `additionalDeploymentInformation` | `unknown` | Required | - |
-| `authorIdentifiers` | [`AuthorIdentifiers`](/doc/models/author-identifiers.md) | Required | - |
+| `authorIdentifiers` | [`AuthorIdentifiers`](../../doc/models/author-identifiers.md) | Required | - |
 | `link` | `string` | Required | - |
 
 ## Example (as JSON)

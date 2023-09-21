@@ -21,7 +21,7 @@ This structure helps specify additional test configurations which affects how te
 {
   "precisionDelta": 0.01,
   "testTimeout": 30,
-  "configuration": []
+  "configuration": {}
 }
 ```
 

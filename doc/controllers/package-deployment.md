@@ -10,11 +10,11 @@ const packageDeploymentController = new PackageDeploymentController(client);
 
 ## Methods
 
-* [Update Package Deployment Information](/doc/controllers/package-deployment.md#update-package-deployment-information)
-* [Package Deployment Information](/doc/controllers/package-deployment.md#package-deployment-information)
-* [Get Published Packages for API](/doc/controllers/package-deployment.md#get-published-packages-for-api)
-* [Publish a Package for API](/doc/controllers/package-deployment.md#publish-a-package-for-api)
-* [Get a Published Package](/doc/controllers/package-deployment.md#get-a-published-package)
+* [Update Package Deployment Information](../../doc/controllers/package-deployment.md#update-package-deployment-information)
+* [Package Deployment Information](../../doc/controllers/package-deployment.md#package-deployment-information)
+* [Get Published Packages for API](../../doc/controllers/package-deployment.md#get-published-packages-for-api)
+* [Publish a Package for API](../../doc/controllers/package-deployment.md#publish-a-package-for-api)
+* [Get a Published Package](../../doc/controllers/package-deployment.md#get-a-published-package)
 
 
 # Update Package Deployment Information
@@ -36,7 +36,7 @@ async updatePackageDeploymentInformation(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | Unique API Entity Identifier |
-| `body` | [`UpdatePackageDeploymentInformation`](/doc/models/update-package-deployment-information.md) | Body, Required | Package Deployment Information to be updated. This comprises of the Platform Template, the Repository Name and Version. |
+| `body` | [`UpdatePackageDeploymentInformation`](../../doc/models/update-package-deployment-information.md) | Body, Required | Package Deployment Information to be updated. This comprises of the Platform Template, the Repository Name and Version. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -47,28 +47,33 @@ async updatePackageDeploymentInformation(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
-const contentType = null;
-const bodyTemplatesPackageDeploymentInformationCSNETSTANDARDLIB: CSNETSTANDARDLIB = {
-  packageRepository: 'NuGet',
-  packageName: 'myPackage',
-  version: '1.1.1',
-  additionalDeploymentInformation: 'Liquid error: Object of type 'DotLiquid.Hash' cannot be converted to type 'System.String'.',
-};
-
-const bodyTemplatesPackageDeploymentInformation: UpdateTemplatesPackageDeploymentInformation = {
-  cSNETSTANDARDLIB: bodyTemplatesPackageDeploymentInformationCSNETSTANDARDLIB,
-};
 
 const body: UpdatePackageDeploymentInformation = {
-  templatesPackageDeploymentInformation: bodyTemplatesPackageDeploymentInformation,
+  templatesPackageDeploymentInformation: {
+    cSNETSTANDARDLIB: {
+      packageRepository: 'NuGet',
+      packageName: 'myPackage',
+      version: '1.1.1',
+      additionalDeploymentInformation: {  },
+      id: Id.Enum5dcd2b5893c3e31a206f30c4,
+      link: Link.EnumHttpswwwnugetorgpackagesmyPackage111,
+    },
+  },
 };
 
 try {
-  const { result, ...httpResponse } = await packageDeploymentController.updatePackageDeploymentInformation(apiEntityId, body);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await packageDeploymentController.updatePackageDeploymentInformation(
+  apiEntityId,
+  body
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -97,18 +102,23 @@ async packageDeploymentInformation(
 
 ## Response Type
 
-[`PackageDeploymentInformation`](/doc/models/package-deployment-information.md)
+[`PackageDeploymentInformation`](../../doc/models/package-deployment-information.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = 'api_entity_id4';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await packageDeploymentController.packageDeploymentInformation(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -154,18 +164,23 @@ async getPublishedPackagesForAPI(
 
 ## Response Type
 
-[`PublishedPackage[]`](/doc/models/published-package.md)
+[`PublishedPackage[]`](../../doc/models/published-package.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = '5e8217662ac3ed0b20b0dece';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await packageDeploymentController.getPublishedPackagesForAPI(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -230,32 +245,39 @@ async publishAPackageForAPI(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | Unique API Identifier |
-| `body` | [`PublishPackageInput`](/doc/models/publish-package-input.md) | Body, Required | - |
+| `body` | [`PublishPackageInput`](../../doc/models/publish-package-input.md) | Body, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`PublishedPackage`](/doc/models/published-package.md)
+[`PublishedPackage`](../../doc/models/published-package.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = '5e8217662ac3ed0b20b0dece';
-const contentType = null;
+
 const body: PublishPackageInput = {
-  packageRepository: 'Npm',
-  template: 'CS_NET_STANDARD_LIB',
+  packageRepository: PackageRepositories.Npm,
+  template: Platforms.CSNETSTANDARDLIB,
   packageName: 'apimaticcalculatortest',
   version: '1.0.0',
-  additionalDeploymentInformation: 'Liquid error: Object of type 'DotLiquid.Hash' cannot be converted to type 'System.String'.',
+  additionalDeploymentInformation: {  },
 };
 
 try {
-  const { result, ...httpResponse } = await packageDeploymentController.publishAPackageForAPI(apiEntityId, body);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await packageDeploymentController.publishAPackageForAPI(
+  apiEntityId,
+  body
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -285,19 +307,28 @@ async getAPublishedPackage(
 
 ## Response Type
 
-[`PublishedPackage`](/doc/models/published-package.md)
+[`PublishedPackage`](../../doc/models/published-package.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = '5e8217662ac3ed0b20b0dece';
+
 const publishedPackageId = '5e8602472ac3db42ec7f097f';
+
 try {
-  const { result, ...httpResponse } = await packageDeploymentController.getAPublishedPackage(apiEntityId, publishedPackageId);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await packageDeploymentController.getAPublishedPackage(
+  apiEntityId,
+  publishedPackageId
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }

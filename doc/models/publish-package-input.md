@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `packageRepository` | [`PackageRepositories`](/doc/models/package-repositories.md) | Required | - |
-| `template` | [`Platforms`](/doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br>**Default**: `Platforms.CSNETSTANDARDLIB` |
+| `packageRepository` | [`PackageRepositories`](../../doc/models/package-repositories.md) | Required | - |
+| `template` | [`Platforms`](../../doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br>**Default**: `Platforms.CSNETSTANDARDLIB` |
 | `packageName` | `string` | Required | - |
 | `version` | `string` | Required | - |
 | `additionalDeploymentInformation` | `unknown` | Required | - |

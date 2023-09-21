@@ -5,7 +5,7 @@
  */
 
 import { array, lazy, object, Schema, string } from '../schema';
-import { Environment, environmentSchema } from './environment';
+import { MEnvironment, mEnvironmentSchema } from './mEnvironment';
 import { Parameter, parameterSchema } from './parameter';
 
 /** Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. */
@@ -17,7 +17,7 @@ export interface ServerConfiguration {
   /** Default Server */
   defaultServer: string;
   /** Environment Identifier and Name */
-  environments: Environment[];
+  environments: MEnvironment[];
   /** Parameter Attributes */
   parameters: Parameter[];
 }
@@ -26,6 +26,6 @@ export const serverConfigurationSchema: Schema<ServerConfiguration> = object({
   id: ['id', string()],
   defaultEnvironment: ['defaultEnvironment', string()],
   defaultServer: ['defaultServer', string()],
-  environments: ['environments', array(lazy(() => environmentSchema))],
+  environments: ['environments', array(lazy(() => mEnvironmentSchema))],
   parameters: ['parameters', array(lazy(() => parameterSchema))],
 });

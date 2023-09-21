@@ -21,6 +21,6 @@ export const DEFAULT_RETRY_CONFIG: RetryConfiguration = {
   retryInterval: 1,
   maximumRetryWaitTime: 0,
   backoffFactor: 2,
-  httpStatusCodesToRetry: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
-  httpMethodsToRetry: ['GET', 'PUT'],
+  httpStatusCodesToRetry: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524, 408, 413, 429, 500, 502, 503, 504, 521, 522, 524],
+  httpMethodsToRetry: ['GET', 'PUT', 'GET', 'PUT'],
 };

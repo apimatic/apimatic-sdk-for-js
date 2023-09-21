@@ -10,13 +10,13 @@ const transformationController = new TransformationController(client);
 
 ## Methods
 
-* [Transform Via File](/doc/controllers/transformation.md#transform-via-file)
-* [Transform Via URL](/doc/controllers/transformation.md#transform-via-url)
-* [Download Transformed File](/doc/controllers/transformation.md#download-transformed-file)
-* [Download Input File](/doc/controllers/transformation.md#download-input-file)
-* [List All Transformations](/doc/controllers/transformation.md#list-all-transformations)
-* [Get a Transformation](/doc/controllers/transformation.md#get-a-transformation)
-* [Delete Transformation](/doc/controllers/transformation.md#delete-transformation)
+* [Transform Via File](../../doc/controllers/transformation.md#transform-via-file)
+* [Transform Via URL](../../doc/controllers/transformation.md#transform-via-url)
+* [Download Transformed File](../../doc/controllers/transformation.md#download-transformed-file)
+* [Download Input File](../../doc/controllers/transformation.md#download-input-file)
+* [List All Transformations](../../doc/controllers/transformation.md#list-all-transformations)
+* [Get a Transformation](../../doc/controllers/transformation.md#get-a-transformation)
+* [Delete Transformation](../../doc/controllers/transformation.md#delete-transformation)
 
 
 # Transform Via File
@@ -27,6 +27,7 @@ This endpoint transforms and then uploads the transformed API specification to A
 
 ```ts
 async transformViaFile(
+  contentType: ContentType,
   file: FileWrapper,
   exportFormat: ExportFormats,
   requestOptions?: RequestOptions
@@ -37,26 +38,38 @@ async transformViaFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
-| `exportFormat` | [`ExportFormats`](/doc/models/export-formats.md) | Form, Required | The structure contains API specification formats that Transformer can convert to. |
+| `exportFormat` | [`ExportFormats`](../../doc/models/export-formats.md) | Form, Required | The structure contains API specification formats that Transformer can convert to. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`Transformation`](/doc/models/transformation.md)
+[`Transformation`](../../doc/models/transformation.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
+const contentType = ContentType.EnumMultipartformdata;
+
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
-const exportFormat = 'WSDL';
+
+const exportFormat = ExportFormats.WSDL;
+
 try {
-  const { result, ...httpResponse } = await transformationController.transformViaFile(file, exportFormat);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await transformationController.transformViaFile(
+  contentType,
+  file,
+  exportFormat
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -81,28 +94,31 @@ async transformViaURL(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`TransformViaUrlRequest`](/doc/models/transform-via-url-request.md) | Body, Required | Request Body |
+| `body` | [`TransformViaUrlRequest`](../../doc/models/transform-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`Transformation`](/doc/models/transformation.md)
+[`Transformation`](../../doc/models/transformation.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
 const body: TransformViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
-  exportFormat: 'APIMATIC',
+  exportFormat: ExportFormats.APIMATIC,
 };
 
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await transformationController.transformViaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -136,12 +152,17 @@ async downloadTransformedFile(
 
 ```ts
 const transformationId = 'transformation_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -175,12 +196,17 @@ async downloadInputFile(
 
 ```ts
 const transformationId = 'transformation_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -206,17 +232,21 @@ async listAllTransformations(
 
 ## Response Type
 
-[`Transformation[]`](/doc/models/transformation.md)
+[`Transformation[]`](../../doc/models/transformation.md)
 
 ## Example Usage
 
 ```ts
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await transformationController.listAllTransformations();
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -244,18 +274,23 @@ async getATransformation(
 
 ## Response Type
 
-[`Transformation`](/doc/models/transformation.md)
+[`Transformation`](../../doc/models/transformation.md)
 
 ## Example Usage
 
 ```ts
 const transformationId = 'transformation_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -289,12 +324,17 @@ async deleteTransformation(
 
 ```ts
 const transformationId = 'transformation_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
