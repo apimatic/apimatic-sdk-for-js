@@ -1,5 +1,8 @@
 {
-  "version": "3.0.0",
+  "name": "@apimatic/sdk",
+  "description": "This API gives you programmatic access to APIMatic's Code Generation, Transformers Engine and Docs Generation.",
+  "author": "Team APIMatic",
+  "version": "0.0.1-alpha.10",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/cjs/index.js",
@@ -12,6 +15,14 @@
   "engines": {
     "node": ">=14.17.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "apimatic",
+    "sdk",
+    "api"
+  ],
   "scripts": {
     "build": "rm -rf dist & tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json",
     "test": "jest --coverage --passWithNoTests",
@@ -24,12 +35,6 @@
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
-  },
-  "name": "apimatic-apilib",
-  "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformation Engine",
-  "author": {
-    "name": "Team APIMatic",
-    "email": "contactus@apimatic.io"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
