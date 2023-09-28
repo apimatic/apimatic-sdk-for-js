@@ -12,11 +12,12 @@ jobs:
         node: ['12', '13', '14']
     name: Release with Node version ${{ matrix.node }}
     steps:
+    
       - name: Checkout CLI
         uses: actions/checkout@v2
         with:
           repository: apimatic/apimatic-sdk-for-js
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.ACTIONS_PAT }}
           persist-credentials: false
           fetch-depth: 0
           path: sdk
@@ -36,6 +37,6 @@ jobs:
       - name: Release
         working-directory: sdk
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
