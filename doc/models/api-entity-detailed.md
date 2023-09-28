@@ -22,15 +22,15 @@ The structure collects API Endpoints and Custom Types to display detailed inform
 | `description` | `string` | Required | Description of the API |
 | `version` | `string` | Required | Entity Version Number |
 | `additionalHeaders` | `string[]` | Required | Header Content |
-| `authentication` | [`Authentication`](/doc/models/authentication.md) | Required | This Structure encapsulates all details of API authentication. |
-| `codeGenSettings` | [`CodeGenSettings`](/doc/models/code-gen-settings.md) | Required | APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration. |
-| `testGenSettings` | [`TestGenSettings`](/doc/models/test-gen-settings.md) | Required | This structure helps specify additional test configurations which affects how test cases are generated. |
+| `authentication` | [`Authentication`](../../doc/models/authentication.md) | Required | This Structure encapsulates all details of API authentication. |
+| `codeGenSettings` | [`CodeGenSettings`](../../doc/models/code-gen-settings.md) | Required | APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration. |
+| `testGenSettings` | [`TestGenSettings`](../../doc/models/test-gen-settings.md) | Required | This structure helps specify additional test configurations which affects how test cases are generated. |
 | `errors` | `string[]` | Required | API Errors |
-| `serverConfiguration` | [`ServerConfiguration`](/doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
-| `endpointsGroup` | [`EndpointsGroup[] \| undefined`](/doc/models/endpoints-group.md) | Optional | API Endpoint Groups |
-| `metaData` | [`MetaData`](/doc/models/meta-data.md) | Required | - |
-| `endpoints` | [`Endpoint[]`](/doc/models/endpoint.md) | Required | API Endpoints |
-| `customTypes` | [`CustomType[]`](/doc/models/custom-type.md) | Required | Complex Custom Model Types |
+| `serverConfiguration` | [`ServerConfiguration`](../../doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
+| `endpointsGroup` | [`EndpointsGroup[] \| undefined`](../../doc/models/endpoints-group.md) | Optional | API Endpoint Groups |
+| `metaData` | [`MetaData`](../../doc/models/meta-data.md) | Required | - |
+| `endpoints` | [`Endpoint[]`](../../doc/models/endpoint.md) | Required | API Endpoints |
+| `customTypes` | [`CustomType[]`](../../doc/models/custom-type.md) | Required | Complex Custom Model Types |
 
 ## Example (as JSON)
 
@@ -114,7 +114,7 @@ The structure collects API Endpoints and Custom Types to display detailed inform
   "testGenSettings": {
     "precisionDelta": 0.01,
     "testTimeout": 30,
-    "configuration": []
+    "configuration": {}
   },
   "errors": [],
   "serverConfiguration": {
@@ -134,24 +134,26 @@ The structure collects API Endpoints and Custom Types to display detailed inform
         ]
       }
     ],
-    "parameters": {
-      "optional": false,
-      "type": "test\\r\\nstringEncoding",
-      "constant": false,
-      "isArray": false,
-      "isStream": false,
-      "isAttribute": false,
-      "isMap": false,
-      "attributes": {
-        "id": "5be1603083b41d0b50110551"
-      },
-      "nullable": false,
-      "id": "5a4e8675b724bb198c289f7a",
-      "name": "body",
-      "description": null,
-      "defaultValue": null,
-      "ParamFormat": "Body"
-    }
+    "parameters": [
+      {
+        "optional": false,
+        "type": "test\\r\\nstringEncoding",
+        "constant": false,
+        "isArray": false,
+        "isStream": false,
+        "isAttribute": false,
+        "isMap": false,
+        "attributes": {
+          "id": "5be1603083b41d0b50110551"
+        },
+        "nullable": false,
+        "id": "5a4e8675b724bb198c289f7a",
+        "name": "body",
+        "description": "description4",
+        "defaultValue": "defaultValue2",
+        "ParamFormat": "Body"
+      }
+    ]
   },
   "metaData": {
     "importValidationSummary": {
@@ -1068,87 +1070,101 @@ The structure collects API Endpoints and Custom Types to display detailed inform
       ]
     }
   },
-  "endpoints": {
-    "id": "5a4e8675b724bb198c28a06a",
-    "apiId": "5a4e8675b724bb198c289fe9",
-    "name": "Send String in body with \\r\\n",
-    "httpMethod": "POST",
-    "group": "BodyParams",
-    "skipAuthentication": false,
-    "route": "/body/stringEncoding",
-    "response": {
-      "optional": false,
-      "type": "ServerResponse",
-      "constant": false,
-      "isArray": false,
-      "isStream": false,
-      "isAttribute": false,
-      "isMap": false,
-      "attributes": {
-        "id": "5be1603083b41d0b50110551"
-      },
-      "nullable": false,
-      "id": "5a4e8675b724bb198c289f79",
-      "name": "response"
-    },
-    "hasOptionalQueryParams": false,
-    "hasOptionalFieldParams": false,
-    "collectParameters": false,
-    "wrapBodyInObject": false,
-    "requiredScopes": [],
-    "parameters": {
-      "optional": false,
-      "type": "test\\r\\nstringEncoding",
-      "constant": false,
-      "isArray": false,
-      "isStream": false,
-      "isAttribute": false,
-      "isMap": false,
-      "attributes": {
-        "id": "5be1603083b41d0b50110551"
-      },
-      "nullable": false,
-      "id": "5a4e8675b724bb198c289f7a",
-      "name": "body",
-      "description": null,
-      "defaultValue": null,
-      "ParamFormat": "Body"
-    },
-    "errors": [],
-    "testCases": {
-      "id": "5a4e8675b724bb198c289f7b",
-      "endpointId": "5a4e8675b724bb198c28a06a",
+  "endpoints": [
+    {
+      "id": "5a4e8675b724bb198c28a06a",
       "apiId": "5a4e8675b724bb198c289fe9",
-      "name": "send string in body with \\r\\n1",
-      "enabled": true,
-      "shouldPass": true,
-      "inputParameters": [
+      "name": "Send String in body with \\r\\n",
+      "httpMethod": "POST",
+      "group": "BodyParams",
+      "skipAuthentication": false,
+      "route": "/body/stringEncoding",
+      "response": {
+        "optional": false,
+        "type": "ServerResponse",
+        "constant": false,
+        "isArray": false,
+        "isStream": false,
+        "isAttribute": false,
+        "isMap": false,
+        "attributes": {
+          "id": "5be1603083b41d0b50110551"
+        },
+        "nullable": false,
+        "id": "5a4e8675b724bb198c289f79",
+        "name": "response"
+      },
+      "hasOptionalQueryParams": false,
+      "hasOptionalFieldParams": false,
+      "collectParameters": false,
+      "wrapBodyInObject": false,
+      "requiredScopes": [],
+      "parameters": [
         {
-          "isNull": false,
-          "endpointInputPrameterId": "5a4e8675b724bb198c289f7a",
-          "id": "5a4e8675b724bb198c289f7c",
+          "optional": false,
+          "type": "test\\r\\nstringEncoding",
+          "constant": false,
+          "isArray": false,
+          "isStream": false,
+          "isAttribute": false,
+          "isMap": false,
+          "attributes": {
+            "id": "5be1603083b41d0b50110551"
+          },
+          "nullable": false,
+          "id": "5a4e8675b724bb198c289f7a",
           "name": "body",
-          "value": "{\"name\":\"farhan\",\"field\":\"QA\"}"
+          "description": "description4",
+          "defaultValue": "defaultValue2",
+          "ParamFormat": "Body"
         }
       ],
-      "expectedStatus": "200",
-      "expectedHeaders": [],
-      "expectedHeadersAllowExtra": true,
-      "expectedBody": "{\r\n  \"passed\": true\r\n}",
-      "expectedBodyMatchMode": "KEYSANDVALUES",
-      "expectedArrayOrderedMatching": false,
-      "expectedArrayCheckCount": false,
-      "responseMatchSchema": true
+      "errors": [],
+      "testCases": [
+        {
+          "id": "5a4e8675b724bb198c289f7b",
+          "endpointId": "5a4e8675b724bb198c28a06a",
+          "apiId": "5a4e8675b724bb198c289fe9",
+          "name": "send string in body with \\r\\n1",
+          "enabled": true,
+          "shouldPass": true,
+          "inputParameters": [
+            {
+              "isNull": false,
+              "endpointInputPrameterId": "5a4e8675b724bb198c289f7a",
+              "id": "5a4e8675b724bb198c289f7c",
+              "name": "body",
+              "value": "{\"name\":\"farhan\",\"field\":\"QA\"}"
+            }
+          ],
+          "expectedStatus": "200",
+          "expectedHeaders": [],
+          "expectedHeadersAllowExtra": true,
+          "expectedBody": "{\r\n  \"passed\": true\r\n}",
+          "expectedBodyMatchMode": "KEYSANDVALUES",
+          "expectedArrayOrderedMatching": false,
+          "expectedArrayCheckCount": false,
+          "responseMatchSchema": true
+        }
+      ]
     }
-  },
-  "customTypes": {
-    "id": "5a4e8675b724bb198c289ff6",
-    "apiId": "5a4e8675b724bb198c289fe9",
-    "name": "Job",
-    "baseType": null,
-    "implementationType": "Structure",
-    "fields": []
-  }
+  ],
+  "customTypes": [
+    {
+      "id": "5a4e8675b724bb198c289ff6",
+      "apiId": "5a4e8675b724bb198c289fe9",
+      "name": "Job",
+      "baseType": "baseType6",
+      "implementationType": "Structure",
+      "fields": []
+    }
+  ],
+  "endpointsGroup": [
+    {
+      "name": "name8",
+      "description": "description8"
+    }
+  ]
 }
 ```
 

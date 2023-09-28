@@ -18,7 +18,7 @@ Parameters are options passed with the endpoint
 | `isStream` | `boolean` | Required | - |
 | `isAttribute` | `boolean` | Required | - |
 | `isMap` | `boolean` | Required | - |
-| `attributes` | [`Attributes`](/doc/models/attributes.md) | Required | The structure contain attribute details of a parameter type. |
+| `attributes` | [`Attributes`](../../doc/models/attributes.md) | Required | The structure contain attribute details of a parameter type. |
 | `nullable` | `boolean` | Required | If Parameter is nullable |
 | `id` | `string` | Required | Unique Parameter identifier |
 | `name` | `string` | Required | Parameter Name |
@@ -43,8 +43,8 @@ Parameters are options passed with the endpoint
   "nullable": false,
   "id": "5a4e8675b724bb198c289f7a",
   "name": "body",
-  "description": null,
-  "defaultValue": null,
+  "description": "description8",
+  "defaultValue": "defaultValue4",
   "ParamFormat": "Body"
 }
 ```

@@ -22,13 +22,13 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
 | `description` | `string` | Required | Description of the API |
 | `version` | `string` | Required | Entity Version Number |
 | `additionalHeaders` | `string[]` | Required | Header Content |
-| `authentication` | [`Authentication`](/doc/models/authentication.md) | Required | This Structure encapsulates all details of API authentication. |
-| `codeGenSettings` | [`CodeGenSettings`](/doc/models/code-gen-settings.md) | Required | APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration. |
-| `testGenSettings` | [`TestGenSettings`](/doc/models/test-gen-settings.md) | Required | This structure helps specify additional test configurations which affects how test cases are generated. |
+| `authentication` | [`Authentication`](../../doc/models/authentication.md) | Required | This Structure encapsulates all details of API authentication. |
+| `codeGenSettings` | [`CodeGenSettings`](../../doc/models/code-gen-settings.md) | Required | APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration. |
+| `testGenSettings` | [`TestGenSettings`](../../doc/models/test-gen-settings.md) | Required | This structure helps specify additional test configurations which affects how test cases are generated. |
 | `errors` | `string[]` | Required | API Errors |
-| `serverConfiguration` | [`ServerConfiguration`](/doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
-| `endpointsGroup` | [`EndpointsGroup[] \| undefined`](/doc/models/endpoints-group.md) | Optional | API Endpoint Groups |
-| `metaData` | [`MetaData`](/doc/models/meta-data.md) | Required | - |
+| `serverConfiguration` | [`ServerConfiguration`](../../doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
+| `endpointsGroup` | [`EndpointsGroup[] \| undefined`](../../doc/models/endpoints-group.md) | Optional | API Endpoint Groups |
+| `metaData` | [`MetaData`](../../doc/models/meta-data.md) | Required | - |
 
 ## Example (as JSON)
 
@@ -112,7 +112,7 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
   "testGenSettings": {
     "precisionDelta": 0.01,
     "testTimeout": 30,
-    "configuration": []
+    "configuration": {}
   },
   "errors": [],
   "serverConfiguration": {
@@ -132,24 +132,26 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
         ]
       }
     ],
-    "parameters": {
-      "optional": false,
-      "type": "test\\r\\nstringEncoding",
-      "constant": false,
-      "isArray": false,
-      "isStream": false,
-      "isAttribute": false,
-      "isMap": false,
-      "attributes": {
-        "id": "5be1603083b41d0b50110551"
-      },
-      "nullable": false,
-      "id": "5a4e8675b724bb198c289f7a",
-      "name": "body",
-      "description": null,
-      "defaultValue": null,
-      "ParamFormat": "Body"
-    }
+    "parameters": [
+      {
+        "optional": false,
+        "type": "test\\r\\nstringEncoding",
+        "constant": false,
+        "isArray": false,
+        "isStream": false,
+        "isAttribute": false,
+        "isMap": false,
+        "attributes": {
+          "id": "5be1603083b41d0b50110551"
+        },
+        "nullable": false,
+        "id": "5a4e8675b724bb198c289f7a",
+        "name": "body",
+        "description": "description4",
+        "defaultValue": "defaultValue2",
+        "ParamFormat": "Body"
+      }
+    ]
   },
   "metaData": {
     "importValidationSummary": {
@@ -1065,7 +1067,21 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
         "The following server configuration parameter has a missing description: <i><code>defaultHost</code></i>."
       ]
     }
-  }
+  },
+  "endpointsGroup": [
+    {
+      "name": "name8",
+      "description": "description8"
+    },
+    {
+      "name": "name8",
+      "description": "description8"
+    },
+    {
+      "name": "name8",
+      "description": "description8"
+    }
+  ]
 }
 ```
 

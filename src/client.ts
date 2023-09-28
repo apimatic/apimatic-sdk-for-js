@@ -13,19 +13,21 @@ import {
   Server,
 } from './clientInterface';
 import { Configuration, Environment } from './configuration';
-import { DEFAULT_CONFIGURATION, DEFAULT_RETRY_CONFIG } from './defaultConfiguration';
+import {
+  DEFAULT_CONFIGURATION,
+  DEFAULT_RETRY_CONFIG,
+} from './defaultConfiguration';
 import { ApiError } from './core';
 import { setHeader } from './core';
 import { updateUserAgent } from './core';
 import {
+  AbortError,
   AuthenticatorInterface,
   createRequestBuilderFactory,
-  HttpClient,
   HttpClientInterface,
   RetryConfiguration,
-  XmlSerializerInterface,
 } from './core';
-import { XmlSerialization } from './http/xmlSerialization';
+ import { HttpClient } from './clientAdapter';
 
 export class Client implements ClientInterface {
   private _config: Readonly<Configuration>;
@@ -41,18 +43,19 @@ export class Client implements ClientInterface {
     };
     this._retryConfig = {
       ...DEFAULT_RETRY_CONFIG,
-      ...this._config.httpClientOptions?.retryConfig
+      ...this._config.httpClientOptions?.retryConfig,
     };
-    this._timeout = typeof this._config.httpClientOptions?.timeout != 'undefined' ?
-      this._config.httpClientOptions.timeout :
-      this._config.timeout;
+    this._timeout =
+      typeof this._config.httpClientOptions?.timeout != 'undefined'
+        ? this._config.httpClientOptions.timeout
+        : this._config.timeout;
     this._userAgent = updateUserAgent(
       'APIMatic CLI',
     );
     this._requestBuilderFactory = createRequestHandlerFactory(
       server => getBaseUri(server, this._config),
-      customHeaderAuthenticationProvider(this._config),
-      new HttpClient({
+      customHeaderAuthenticationProvider({'Authorization': this._config.authorization, }),
+      new HttpClient(AbortError, {
         timeout: this._timeout,
         clientConfigOverrides: this._config.unstable_httpClientOptions,
         httpAgent: this._config.httpClientOptions?.httpAgent,
@@ -63,7 +66,6 @@ export class Client implements ClientInterface {
         withUserAgent(this._userAgent),
         withAuthenticationByDefault,
       ],
-      new XmlSerialization(),
       this._retryConfig
     );
   }
@@ -89,7 +91,7 @@ function createHttpClientAdapter(client: HttpClient): HttpClientInterface {
 function getBaseUri(server: Server = 'default', config: Configuration): string {
   if (config.environment === Environment.Production) {
     if (server === 'default') {
-      return 'https://www.apimatic.io/api';
+      return 'https://api.apimatic.io';
     }
   }
   throw new Error('Could not get Base URL. Invalid environment or server.');
@@ -100,7 +102,6 @@ function createRequestHandlerFactory(
   authProvider: AuthenticatorInterface<AuthParams>,
   httpClient: HttpClient,
   addons: ((rb: SdkRequestBuilder) => void)[],
-  xmlSerializer: XmlSerializerInterface,
   retryConfig: RetryConfiguration
 ): SdkRequestBuilderFactory {
   const requestBuilderFactory = createRequestBuilderFactory(
@@ -108,7 +109,6 @@ function createRequestHandlerFactory(
     baseUrlProvider,
     ApiError,
     authProvider,
-    xmlSerializer,
     retryConfig
   );
 
@@ -137,9 +137,8 @@ function withUserAgent(userAgent: string) {
       setHeader(headers, 'user-agent', userAgent);
       return { ...request, headers };
     });
-  }
+  };
 }
-
 
 function withAuthenticationByDefault(rb: SdkRequestBuilder) {
   rb.authenticate(true);

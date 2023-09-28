@@ -1,4 +1,4 @@
-# Code Generation - External APIs
+# Code Generation-External APIs
 
 ```ts
 const codeGenerationExternalApisController = new CodeGenerationExternalApisController(client);
@@ -10,13 +10,13 @@ const codeGenerationExternalApisController = new CodeGenerationExternalApisContr
 
 ## Methods
 
-* [Generate SDK Via File](/doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
-* [Generate SDK Via URL](/doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
-* [Download SDK](/doc/controllers/code-generation-external-apis.md#download-sdk)
-* [List All Code Generations](/doc/controllers/code-generation-external-apis.md#list-all-code-generations)
-* [Download Input File](/doc/controllers/code-generation-external-apis.md#download-input-file)
-* [Get a Code Generation](/doc/controllers/code-generation-external-apis.md#get-a-code-generation)
-* [Delete Code Generation 1](/doc/controllers/code-generation-external-apis.md#delete-code-generation-1)
+* [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
+* [Generate SDK Via URL](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
+* [Download SDK](../../doc/controllers/code-generation-external-apis.md#download-sdk)
+* [List All Code Generations](../../doc/controllers/code-generation-external-apis.md#list-all-code-generations)
+* [Download Input File](../../doc/controllers/code-generation-external-apis.md#download-input-file)
+* [Get a Code Generation](../../doc/controllers/code-generation-external-apis.md#get-a-code-generation)
+* [Delete Code Generation 1](../../doc/controllers/code-generation-external-apis.md#delete-code-generation-1)
 
 
 # Generate SDK Via File
@@ -40,25 +40,33 @@ async generateSDKViaFile(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
-| `template` | [`Platforms`](/doc/models/platforms.md) | Form, Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
+| `template` | [`Platforms`](../../doc/models/platforms.md) | Form, Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`UserCodeGeneration`](/doc/models/user-code-generation.md)
+[`UserCodeGeneration`](../../doc/models/user-code-generation.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
-const template = 'CS_NET_STANDARD_LIB';
+
+const template = Platforms.CSNETSTANDARDLIB;
+
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaFile(file, template);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaFile(
+  file,
+  template
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -85,28 +93,31 @@ async generateSDKViaURL(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`GenerateSdkViaUrlRequest`](/doc/models/generate-sdk-via-url-request.md) | Body, Required | Request Body |
+| `body` | [`GenerateSdkViaUrlRequest`](../../doc/models/generate-sdk-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`UserCodeGeneration`](/doc/models/user-code-generation.md)
+[`UserCodeGeneration`](../../doc/models/user-code-generation.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
 const body: GenerateSdkViaUrlRequest = {
   url: 'http://petstore.swagger.io/v2/swagger.json',
-  template: 'CS_NET_STANDARD_LIB',
+  template: Platforms.CSNETSTANDARDLIB,
 };
 
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSDKViaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -140,12 +151,17 @@ async downloadSDK(
 
 ```ts
 const codegenId = 'codegen_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await codeGenerationExternalApisController.downloadSDK(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -171,17 +187,21 @@ async listAllCodeGenerations(
 
 ## Response Type
 
-[`UserCodeGeneration[]`](/doc/models/user-code-generation.md)
+[`UserCodeGeneration[]`](../../doc/models/user-code-generation.md)
 
 ## Example Usage
 
 ```ts
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await codeGenerationExternalApisController.listAllCodeGenerations();
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -215,12 +235,17 @@ async downloadInputFile(
 
 ```ts
 const codegenId = 'codegen_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await codeGenerationExternalApisController.downloadInputFile(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -248,18 +273,23 @@ async getACodeGeneration(
 
 ## Response Type
 
-[`UserCodeGeneration`](/doc/models/user-code-generation.md)
+[`UserCodeGeneration`](../../doc/models/user-code-generation.md)
 
 ## Example Usage
 
 ```ts
 const codegenId = 'codegen_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await codeGenerationExternalApisController.getACodeGeneration(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -293,12 +323,17 @@ async deleteCodeGeneration1(
 
 ```ts
 const codegenId = 'codegen_id6';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await codeGenerationExternalApisController.deleteCodeGeneration1(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }

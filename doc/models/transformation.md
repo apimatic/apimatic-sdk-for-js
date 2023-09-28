@@ -21,8 +21,8 @@ Transformation structure encapsulates all the details of a Transformation.
 | `transformationInput` | `string` | Required | Via File or URL |
 | `codeGenVersion` | `string` | Required | CodeGen Engine Version |
 | `success` | `boolean` | Required | Successful Transformation Flag |
-| `importSummary` | [`ApiValidationSummary`](/doc/models/api-validation-summary.md) | Required | - |
-| `apiValidationSummary` | [`ApiValidationSummary`](/doc/models/api-validation-summary.md) | Required | - |
+| `importSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
+| `apiValidationSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
 
 ## Example (as JSON)
 
@@ -31,8 +31,8 @@ Transformation structure encapsulates all the details of a Transformation.
   "id": "5be0999183b41d0d8cdb9f26",
   "transformedOn": "11/5/2018 7:27:13 PM",
   "userId": "5afc60380b9949253c6b7776",
-  "inputtedFile": "https://apimatic.io/api/transformations/5be0999183b41d0d8cdb9f26/input-file",
-  "generatedFile": "https://apimatic.io/api/transformations/5be0999183b41d0d8cdb9f26/converted-file",
+  "inputtedFile": "https://api.apimatic.io/transformations/5be0999183b41d0d8cdb9f26/input-file",
+  "generatedFile": "https://api.apimatic.io/transformations/5be0999183b41d0d8cdb9f26/converted-file",
   "exportFormat": "APIMATIC",
   "transformationSource": "Api",
   "transformationInput": "File",

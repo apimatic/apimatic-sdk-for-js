@@ -10,14 +10,14 @@ const apisManagementController = new ApisManagementController(client);
 
 ## Methods
 
-* [Import API Via File](/doc/controllers/apis-management.md#import-api-via-file)
-* [Import API Via URL](/doc/controllers/apis-management.md#import-api-via-url)
-* [Import New API Version Via File](/doc/controllers/apis-management.md#import-new-api-version-via-file)
-* [Import New API Version Via URL](/doc/controllers/apis-management.md#import-new-api-version-via-url)
-* [Inplace API Import Via File](/doc/controllers/apis-management.md#inplace-api-import-via-file)
-* [Inplace API Import Via URL](/doc/controllers/apis-management.md#inplace-api-import-via-url)
-* [Fetch API Entity](/doc/controllers/apis-management.md#fetch-api-entity)
-* [Download API Specification](/doc/controllers/apis-management.md#download-api-specification)
+* [Import API Via File](../../doc/controllers/apis-management.md#import-api-via-file)
+* [Import API Via URL](../../doc/controllers/apis-management.md#import-api-via-url)
+* [Import New API Version Via File](../../doc/controllers/apis-management.md#import-new-api-version-via-file)
+* [Import New API Version Via URL](../../doc/controllers/apis-management.md#import-new-api-version-via-url)
+* [Inplace API Import Via File](../../doc/controllers/apis-management.md#inplace-api-import-via-file)
+* [Inplace API Import Via URL](../../doc/controllers/apis-management.md#inplace-api-import-via-url)
+* [Fetch API Entity](../../doc/controllers/apis-management.md#fetch-api-entity)
+* [Download API Specification](../../doc/controllers/apis-management.md#download-api-specification)
 
 
 # Import API Via File
@@ -28,6 +28,7 @@ You can also specify [API Metadata](https://docs.apimatic.io/manage-apis/apimati
 
 ```ts
 async importAPIViaFile(
+  contentType: ContentType,
   file: FileWrapper,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<ApiEntity>>
@@ -37,24 +38,34 @@ async importAPIViaFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`ApiEntity`](/doc/models/api-entity.md)
+[`ApiEntity`](../../doc/models/api-entity.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
+const contentType = ContentType.EnumMultipartformdata;
+
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
+
 try {
-  const { result, ...httpResponse } = await apisManagementController.importAPIViaFile(file);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await apisManagementController.importAPIViaFile(
+  contentType,
+  file
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -88,27 +99,30 @@ async importAPIViaURL(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`ImportApiViaUrlRequest`](/doc/models/import-api-via-url-request.md) | Body, Required | Request Body |
+| `body` | [`ImportApiViaUrlRequest`](../../doc/models/import-api-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`ApiEntity`](/doc/models/api-entity.md)
+[`ApiEntity`](../../doc/models/api-entity.md)
 
 ## Example Usage
 
 ```ts
-const contentType = null;
 const body: ImportApiViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
 
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await apisManagementController.importAPIViaURL(body);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -146,29 +160,41 @@ async importNewAPIVersionViaFile(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiGroupId` | `string` | Template, Required | The ID of the API Group for which to import a new API version. |
-| `accept` | [`Accept`](/doc/models/accept.md) | Header, Required | - |
+| `accept` | [`Accept`](../../doc/models/accept.md) | Header, Required | - |
 | `versionOverride` | `string` | Form, Required | The version number with which the new API version will be imported. This version number will override the version specified in the API specification file.<br>APIMatic recommends versioning the API with the [versioning scheme](https://docs.apimatic.io/define-apis/basic-settings/#version) documented in the docs. |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`ApiEntity`](/doc/models/api-entity.md)
+[`ApiEntity`](../../doc/models/api-entity.md)
 
 ## Example Usage
 
 ```ts
 const apiGroupId = 'api_group_id6';
-const accept = 'application/json';
-const contentType = null;
+
+const accept = Accept.EnumApplicationjson;
+
 const versionOverride = 'version_override2';
+
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
+
 try {
-  const { result, ...httpResponse } = await apisManagementController.importNewAPIVersionViaFile(apiGroupId, accept, versionOverride, file);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await apisManagementController.importNewAPIVersionViaFile(
+  apiGroupId,
+  accept,
+  versionOverride,
+  file
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -196,31 +222,40 @@ async importNewAPIVersionViaURL(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiGroupId` | `string` | Template, Required | The ID of the API Group for which to import a new API version. |
-| `accept` | [`Accept`](/doc/models/accept.md) | Header, Required | - |
-| `body` | [`ImportApiVersionViaUrlRequest`](/doc/models/import-api-version-via-url-request.md) | Body, Required | Request Body |
+| `accept` | [`Accept`](../../doc/models/accept.md) | Header, Required | - |
+| `body` | [`ImportApiVersionViaUrlRequest`](../../doc/models/import-api-version-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-[`ApiEntity`](/doc/models/api-entity.md)
+[`ApiEntity`](../../doc/models/api-entity.md)
 
 ## Example Usage
 
 ```ts
 const apiGroupId = '5c9de181dc6209221416f250';
-const accept = 'application/json';
-const contentType = null;
+
+const accept = Accept.EnumApplicationjson;
+
 const body: ImportApiVersionViaUrlRequest = {
   versionOverride: '1.2.3',
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importNewAPIVersionViaURL(apiGroupId, accept, body);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await apisManagementController.importNewAPIVersionViaURL(
+  apiGroupId,
+  accept,
+  body
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -248,7 +283,7 @@ async inplaceAPIImportViaFile(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity to replace. |
-| `accept` | [`Accept2`](/doc/models/accept-2.md) | Header, Required | - |
+| `accept` | [`Accept2`](../../doc/models/accept-2.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
@@ -260,15 +295,25 @@ async inplaceAPIImportViaFile(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
-const accept = 'application/vnd.apimatic.apiEntity.full.v1+json';
-const contentType = null;
+
+const accept = Accept2.EnumApplicationvndapimaticapiEntityfullv1json;
+
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
+
 try {
-  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaFile(apiEntityId, accept, file);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaFile(
+  apiEntityId,
+  accept,
+  file
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -295,7 +340,7 @@ async inplaceAPIImportViaURL(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity to replace. |
-| `body` | [`InplaceImportApiViaUrlRequest`](/doc/models/inplace-import-api-via-url-request.md) | Body, Required | Request Body |
+| `body` | [`InplaceImportApiViaUrlRequest`](../../doc/models/inplace-import-api-via-url-request.md) | Body, Required | Request Body |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -306,17 +351,24 @@ async inplaceAPIImportViaURL(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
-const contentType = null;
+
 const body: InplaceImportApiViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaURL(apiEntityId, body);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await apisManagementController.inplaceAPIImportViaURL(
+  apiEntityId,
+  body
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -344,18 +396,23 @@ async fetchAPIEntity(
 
 ## Response Type
 
-[`ApiEntity`](/doc/models/api-entity.md)
+[`ApiEntity`](../../doc/models/api-entity.md)
 
 ## Example Usage
 
 ```ts
 const apiEntityId = 'api_entity_id4';
+
 try {
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await apisManagementController.fetchAPIEntity(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -380,7 +437,7 @@ async downloadAPISpecification(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity to download. |
-| `format` | [`ExportFormats`](/doc/models/export-formats.md) | Query, Required | The format in which to download the API.<br>The format can be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
+| `format` | [`ExportFormats`](../../doc/models/export-formats.md) | Query, Required | The format in which to download the API.<br>The format can be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -391,13 +448,22 @@ async downloadAPISpecification(
 
 ```ts
 const apiEntityId = 'api_entity_id4';
-const format = 'APIMATIC';
+
+const format = ExportFormats.APIMATIC;
+
 try {
-  const { result, ...httpResponse } = await apisManagementController.downloadAPISpecification(apiEntityId, format);
+  // @ts-expect-error: unused variables
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { result, ...httpResponse } = await apisManagementController.downloadAPISpecification(
+  apiEntityId,
+  format
+);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
-} catch(error) {
+} catch (error) {
   if (error instanceof ApiError) {
+    // @ts-expect-error: unused variables
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }

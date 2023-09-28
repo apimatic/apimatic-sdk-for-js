@@ -12,7 +12,7 @@ This structure puts together the URL of the file to be transformed, along with t
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `url` | `string` | Required | The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. |
-| `exportFormat` | [`ExportFormats`](/doc/models/export-formats.md) | Required | The structure contains API specification formats that Transformer can convert to. |
+| `exportFormat` | [`ExportFormats`](../../doc/models/export-formats.md) | Required | The structure contains API specification formats that Transformer can convert to. |
 
 ## Example (as JSON)
 

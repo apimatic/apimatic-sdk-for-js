@@ -17,7 +17,7 @@ APIMatic lets you define test cases for endpoints using the API Editor. The test
 | `name` | `string` | Required | The Test Case name |
 | `enabled` | `boolean` | Required | Enable/Disable a Test Case |
 | `shouldPass` | `boolean` | Required | - |
-| `inputParameters` | [`InputParameter[]`](/doc/models/input-parameter.md) | Required | Test case parameters |
+| `inputParameters` | [`InputParameter[]`](../../doc/models/input-parameter.md) | Required | Test case parameters |
 | `expectedStatus` | `string` | Required | Expected response status. We expect the status code to be 200 if the operation is successful, hence we input the value 200. |
 | `expectedHeaders` | `string[]` | Required | Expected Headers |
 | `expectedHeadersAllowExtra` | `boolean` | Required | If this flag is disabled, it will cause the test case to fail if the response contains other headers than those listed in the expected headers list. |
