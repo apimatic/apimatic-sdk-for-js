@@ -1,0 +1,1 @@
+{"version":3,"file":"transformViaUrlRequest.js","sourceRoot":"","sources":["../../../src/models/transformViaUrlRequest.ts"],"names":[],"mappings":";AAAA;;;;GAIG;;;AAEH,oCAAmD;AACnD,iDAAqE;AAUxD,QAAA,4BAA4B,GAAmC,IAAA,eAAM,EAChF;IACE,GAAG,EAAE,CAAC,KAAK,EAAE,IAAA,eAAM,GAAE,CAAC;IACtB,YAAY,EAAE,CAAC,eAAe,EAAE,mCAAmB,CAAC;CACrD,CACF,CAAC"}

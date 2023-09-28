@@ -1,3 +1,11 @@
+# [0.1.0-alpha.2](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2023-09-28)
+
+
+### Features
+
+* update example md files with new baseUrl api.apimatic.io ([a7be317](https://github.com/apimatic/apimatic-sdk-for-js/commit/a7be3170a37fc4fc670aa5b1717b3cd1bf019b6e))
+* update sdk with new apimatic.io base url ([e03221f](https://github.com/apimatic/apimatic-sdk-for-js/commit/e03221fb0c7c8455e5065c63f40d7110d5156360))
+
 # [0.1.0-alpha.1](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.0.1-alpha.10...v0.1.0-alpha.1) (2022-01-17)
 
 
