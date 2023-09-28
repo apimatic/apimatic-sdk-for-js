@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: apimatic/apimatic-sdk-for-js
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.ACTIONS_PAT }}
           persist-credentials: false
           fetch-depth: 0
           path: sdk
