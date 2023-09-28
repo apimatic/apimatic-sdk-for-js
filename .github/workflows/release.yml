@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: apimatic/apimatic-sdk-for-js
-          token: ${{ secrets.ACTIONS_PAT }}
+          token: ${{ secrets.ACCESS_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
           path: sdk
@@ -37,6 +37,6 @@ jobs:
       - name: Release
         working-directory: sdk
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_PAT }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
