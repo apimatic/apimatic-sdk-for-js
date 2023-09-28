@@ -1,6 +1,7 @@
 name: Release
 
 on:
+  workflow_dispatch:
   push:
     branches: [alpha]
 
@@ -12,15 +13,6 @@ jobs:
         node: ['12', '13', '14']
     name: Release with Node version ${{ matrix.node }}
     steps:
-      - name: Checkout CLI
-        uses: actions/checkout@v2
-        with:
-          repository: apimatic/apimatic-sdk-for-js
-          token: ${{ secrets.ACTIONS_PAT }}
-          persist-credentials: false
-          fetch-depth: 0
-          path: sdk
-
       - name: setup node
         uses: actions/setup-node@v2
 
@@ -32,10 +24,3 @@ jobs:
       - name: Check Build
         working-directory: sdk
         run: npm run build
-
-      - name: Release
-        working-directory: sdk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx semantic-release
