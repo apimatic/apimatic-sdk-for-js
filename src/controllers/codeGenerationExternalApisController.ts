@@ -17,7 +17,7 @@ import {
 import { array, string } from '../schema';
 import { BaseController } from './baseController';
 
-export class CodeGenerationExternalApisController extends BaseController {
+export class CodeGenerationExternalApIsController extends BaseController {
   /**
    * Generate an SDK for an API by by uploading the API specification file.
    *
@@ -33,7 +33,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *                                in.
    * @return Response from the API call
    */
-  async generateSDKViaFile(
+  async generateSdkViaFile(
     file: FileWrapper,
     template: Platforms,
     requestOptions?: RequestOptions
@@ -43,10 +43,8 @@ export class CodeGenerationExternalApisController extends BaseController {
       '/code-generations/generate-via-file'
     );
     const mapped = req.prepareArgs({ template: [template, platformsSchema] });
-    req.formData({
-      file: file,
-      template: mapped.template,
-    });
+    req.formData({ file: file, template: mapped.template });
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(userCodeGenerationSchema, requestOptions);
   }
 
@@ -61,7 +59,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    * @param body         Request Body
    * @return Response from the API call
    */
-  async generateSDKViaURL(
+  async generateSdkViaUrl(
     body: GenerateSdkViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UserCodeGeneration>> {
@@ -72,8 +70,12 @@ export class CodeGenerationExternalApisController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, generateSdkViaUrlRequestSchema],
     });
-    req.header('Content-Type', 'application/vnd.apimatic.userCodeGenerationDto.v1+json');
+    req.header(
+      'Content-Type',
+      'application/vnd.apimatic.userCodeGenerationDto.v1+json'
+    );
     req.json(mapped.body);
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(userCodeGenerationSchema, requestOptions);
   }
 
@@ -88,13 +90,14 @@ export class CodeGenerationExternalApisController extends BaseController {
    *                             generation-external-apis/generate-sdk-via-url) calls.
    * @return Response from the API call
    */
-  async downloadSDK(
+  async downloadSdk(
     codegenId: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
     const req = this.createRequest('GET');
     const mapped = req.prepareArgs({ codegenId: [codegenId, string()] });
     req.appendTemplatePath`/code-generations/${mapped.codegenId}/generated-sdk`;
+    req.authenticate([{ authorization: true }]);
     return req.callAsStream(requestOptions);
   }
 
@@ -107,6 +110,7 @@ export class CodeGenerationExternalApisController extends BaseController {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UserCodeGeneration[]>> {
     const req = this.createRequest('GET', '/code-generations');
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(array(userCodeGenerationSchema), requestOptions);
   }
 
@@ -130,6 +134,7 @@ export class CodeGenerationExternalApisController extends BaseController {
     const req = this.createRequest('GET');
     const mapped = req.prepareArgs({ codegenId: [codegenId, string()] });
     req.appendTemplatePath`/code-generations/${mapped.codegenId}/input-file`;
+    req.authenticate([{ authorization: true }]);
     return req.callAsStream(requestOptions);
   }
 
@@ -151,6 +156,7 @@ export class CodeGenerationExternalApisController extends BaseController {
     const req = this.createRequest('GET');
     const mapped = req.prepareArgs({ codegenId: [codegenId, string()] });
     req.appendTemplatePath`/code-generations/${mapped.codegenId}`;
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(userCodeGenerationSchema, requestOptions);
   }
 
@@ -172,6 +178,7 @@ export class CodeGenerationExternalApisController extends BaseController {
     const req = this.createRequest('DELETE');
     const mapped = req.prepareArgs({ codegenId: [codegenId, string()] });
     req.appendTemplatePath`/code-generations/${mapped.codegenId}`;
+    req.authenticate([{ authorization: true }]);
     return req.call(requestOptions);
   }
 }

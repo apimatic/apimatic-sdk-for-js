@@ -12,15 +12,14 @@ import {
   unknown,
 } from '../schema';
 
-/** This structure encapsulates all the attributes of an API Endpoints Group. */
-export interface EndpointsGroup {
-  name: string;
-  description: string;
+export interface Links {
+  status: string;
+  download: string;
   additionalProperties?: Record<string, unknown>;
 }
 
-export const endpointsGroupSchema: Schema<EndpointsGroup> = typedExpandoObject(
-  { name: ['name', string()], description: ['description', string()] },
+export const linksSchema: Schema<Links> = typedExpandoObject(
+  { status: ['status', string()], download: ['download', string()] },
   'additionalProperties',
   optional(unknown())
 );
