@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `enumApplicationvndapimaticapiEntityfullv1json` |
+| `EnumApplicationvndapimaticapiEntityfullv1Json` |
 
 ## Example
 

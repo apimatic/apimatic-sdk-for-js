@@ -11,20 +11,20 @@ The structure contains API specification formats that Transformer can convert to
 
 | Name | Description |
 |  --- | --- |
-| `aPIMATIC` |  |
-| `wADL2009` |  |
-| `wSDL` |  |
-| `sWAGGER10` |  |
-| `sWAGGER20` |  |
-| `sWAGGERYAML` |  |
-| `oAS3` | OpenAPI v3.0 (JSON) |
-| `oPENAPI3YAML` |  |
-| `aPIBLUEPRINT` |  |
-| `rAML` |  |
-| `rAML10` |  |
-| `pOSTMAN10` |  |
-| `pOSTMAN20` |  |
-| `gRAPHQLSCHEMA` |  |
+| `Apimatic` |  |
+| `Wadl2009` |  |
+| `Wsdl` |  |
+| `Swagger10` |  |
+| `Swagger20` |  |
+| `Swaggeryaml` |  |
+| `Oas3` | OpenAPI v3.0 (JSON) |
+| `Openapi3Yaml` |  |
+| `Apiblueprint` |  |
+| `Raml` |  |
+| `Raml10` |  |
+| `Postman10` |  |
+| `Postman20` |  |
+| `Graphqlschema` |  |
 
 ## Example
 

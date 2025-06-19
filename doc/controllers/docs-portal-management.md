@@ -49,7 +49,7 @@ async publishHostedPortal(
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -57,15 +57,11 @@ async publishHostedPortal(
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await docsPortalManagementController.publishHostedPortal(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -103,7 +99,7 @@ async publishEmbeddedPortal(
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -111,15 +107,11 @@ async publishEmbeddedPortal(
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await docsPortalManagementController.publishEmbeddedPortal(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -138,7 +130,7 @@ Generate an On-premise Documentation Portal for an API Entity. This endpoint gen
 The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
 
 ```ts
-async generateOnPremPortalViaAPIEntity(
+async generateOnPremPortalViaApiEntity(
   apiEntityId: string,
   accept: Accept3,
   requestOptions?: RequestOptions
@@ -155,7 +147,7 @@ async generateOnPremPortalViaAPIEntity(
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -165,9 +157,7 @@ const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 const accept = Accept3.EnumApplicationzip;
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaAPIEntity(
+  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaApiEntity(
   apiEntityId,
   accept
 );
@@ -175,8 +165,6 @@ try {
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -212,7 +200,7 @@ async generateOnPremPortalViaBuildInput(
 
 ## Response Type
 
-`NodeJS.ReadableStream | Blob`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
 
 ## Example Usage
 
@@ -222,8 +210,6 @@ const contentType = ContentType.EnumMultipartformdata;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
   contentType,
   file
@@ -232,8 +218,6 @@ try {
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -244,10 +228,11 @@ try {
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request | `ApiError` |
-| 401 | Unauthorized | `ApiError` |
-| 402 | Subscription Issue | `ApiError` |
-| 422 | Unprocessable Entity | `ApiError` |
+| 400 | Bad Request | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
+| 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
+| 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
+| 422 | Unprocessable Entity - Contains error.zip for build issues | `ApiError` |
+| 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
 # Generate Build Input for Unpublished Portal
@@ -273,7 +258,7 @@ async generateBuildInputForUnpublishedPortal(
 
 ## Response Type
 
-`unknown`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type unknown.
 
 ## Example Usage
 
@@ -281,15 +266,11 @@ async generateBuildInputForUnpublishedPortal(
 const apiGroupId = 'apiGroupId8';
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForUnpublishedPortal(apiGroupId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -320,7 +301,7 @@ async generateBuildInputForPublishedPortal(
 
 ## Response Type
 
-`unknown`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type unknown.
 
 ## Example Usage
 
@@ -328,15 +309,11 @@ async generateBuildInputForPublishedPortal(
 const apiGroupId = 'apiGroupId8';
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForPublishedPortal(apiGroupId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }
@@ -368,7 +345,7 @@ async unpublishPortal(
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
@@ -376,15 +353,11 @@ async unpublishPortal(
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { result, ...httpResponse } = await docsPortalManagementController.unpublishPortal(apiEntityId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
   if (error instanceof ApiError) {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const errors = error.result;
     // const { statusCode, headers } = error;
   }

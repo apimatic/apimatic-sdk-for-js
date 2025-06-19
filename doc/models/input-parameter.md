@@ -3,6 +3,8 @@
 
 This structure helps specify details of an input parameter.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `InputParameter`
@@ -16,6 +18,7 @@ This structure helps specify details of an input parameter.
 | `id` | `string` | Required | Unique parameter identifier |
 | `name` | `string` | Required | Parameter Name |
 | `value` | `string` | Required | Parameter Value |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -25,7 +28,11 @@ This structure helps specify details of an input parameter.
   "endpointInputPrameterId": "5a4e8675b724bb198c289f7a",
   "id": "5a4e8675b724bb198c289f7c",
   "name": "body",
-  "value": "{\r\n  \"name\": \"Country\",\r\n  \"field\": \"NZ\"\r\n}"
+  "value": "{\n  \"name\": \"Country\",\n  \"field\": \"NZ\"\n}",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

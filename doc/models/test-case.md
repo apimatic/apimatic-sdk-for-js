@@ -3,6 +3,8 @@
 
 APIMatic lets you define test cases for endpoints using the API Editor. The test cases are automatically generated for each language. This structure encapsulates all details of a Test Case.  To find out more about defining Test Cases visit: https://docs.apimatic.io/testing/defining-your-first-test-case/
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `TestCase`
@@ -26,6 +28,7 @@ APIMatic lets you define test cases for endpoints using the API Editor. The test
 | `expectedArrayOrderedMatching` | `boolean` | Required | If enabled, this will involve ensuring that the response body contains the array elements in the same order as the expected body. |
 | `expectedArrayCheckCount` | `boolean` | Required | If enabled, this will ensure that the response body contains the same number of elements in the array as does the expected body. |
 | `responseMatchSchema` | `boolean` | Required | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -43,17 +46,25 @@ APIMatic lets you define test cases for endpoints using the API Editor. The test
       "endpointInputPrameterId": "5a4e8675b724bb198c289f7a",
       "id": "5a4e8675b724bb198c289f7c",
       "name": "body",
-      "value": "{\"name\":\"farhan\",\"field\":\"QA\"}"
+      "value": "{\"name\":\"farhan\",\"field\":\"QA\"}",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
   ],
   "expectedStatus": "200",
   "expectedHeaders": [],
   "expectedHeadersAllowExtra": true,
-  "expectedBody": "{\r\n  \"passed\": true\r\n}",
+  "expectedBody": "{\n  \"passed\": true\n}",
   "expectedBodyMatchMode": "KEYSANDVALUES",
   "expectedArrayOrderedMatching": false,
   "expectedArrayCheckCount": false,
-  "responseMatchSchema": true
+  "responseMatchSchema": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -1,6 +1,8 @@
 
 # Published Package
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PublishedPackage`
@@ -19,6 +21,7 @@
 | `additionalDeploymentInformation` | `unknown` | Required | - |
 | `authorIdentifiers` | [`AuthorIdentifiers`](../../doc/models/author-identifiers.md) | Required | - |
 | `link` | `string` | Required | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -34,9 +37,17 @@
   "additionalDeploymentInformation": {},
   "authorIdentifiers": {
     "Email": "shayanjalil@gmail.com",
-    "UserName": "shayanjalil"
+    "UserName": "shayanjalil",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
-  "link": "https://www.npmjs.com/package/apimaticcalculatortest/v/1.0.0"
+  "link": "https://www.npmjs.com/package/apimaticcalculatortest/v/1.0.0",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -11,7 +11,7 @@ Unique package identifier
 
 | Name |
 |  --- |
-| `enum5dcd2b5893c3e31a206f30c4` |
+| `Enum5Dcd2B5893C3E31A206F30C4` |
 
 ## Example
 

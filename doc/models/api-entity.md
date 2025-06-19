@@ -3,6 +3,8 @@
 
 The API Entity Structure encapsulates all the details of an API Entity. An API entity is a unique API Version.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `ApiEntity`
@@ -27,8 +29,9 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
 | `testGenSettings` | [`TestGenSettings`](../../doc/models/test-gen-settings.md) | Required | This structure helps specify additional test configurations which affects how test cases are generated. |
 | `errors` | `string[]` | Required | API Errors |
 | `serverConfiguration` | [`ServerConfiguration`](../../doc/models/server-configuration.md) | Required | Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. |
-| `endpointsGroup` | [`EndpointsGroup[] \| undefined`](../../doc/models/endpoints-group.md) | Optional | API Endpoint Groups |
+| `endpointsGroup` | [`EndpointsGroup[]`](../../doc/models/endpoints-group.md) | Required | API Endpoint Groups |
 | `metaData` | [`MetaData`](../../doc/models/meta-data.md) | Required | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -52,7 +55,11 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
     "parameters": [],
     "authScopes": [],
     "authGrantTypes": [],
-    "paramFormats": {}
+    "paramFormats": {},
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "codeGenSettings": {
     "isAsync": true,
@@ -107,12 +114,20 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
     "applyCustomizations": [],
     "doNotSplitWords": [],
     "sortResources": false,
-    "enableGlobalUserAgent": true
+    "enableGlobalUserAgent": true,
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "testGenSettings": {
     "precisionDelta": 0.01,
     "testTimeout": 30,
-    "configuration": {}
+    "configuration": {},
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "errors": [],
   "serverConfiguration": {
@@ -127,9 +142,17 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
           {
             "id": "5be0a21a83b41d0d8cdcd831",
             "name": "default",
-            "url": "{defaultServerUrl}"
+            "url": "{defaultServerUrl}",
+            "exampleAdditionalProperty": {
+              "key1": "val1",
+              "key2": "val2"
+            }
           }
-        ]
+        ],
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       }
     ],
     "parameters": [
@@ -142,17 +165,39 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
         "isAttribute": false,
         "isMap": false,
         "attributes": {
-          "id": "5be1603083b41d0b50110551"
+          "id": "5be1603083b41d0b50110551",
+          "exampleAdditionalProperty": {
+            "key1": "val1",
+            "key2": "val2"
+          }
         },
         "nullable": false,
         "id": "5a4e8675b724bb198c289f7a",
         "name": "body",
         "description": "description4",
         "defaultValue": "defaultValue2",
-        "ParamFormat": "Body"
+        "ParamFormat": "Body",
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       }
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
+  "endpointsGroup": [
+    {
+      "name": "Petstore",
+      "description": "Everything about your pets",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    }
+  ],
   "metaData": {
     "importValidationSummary": {
       "success": true,
@@ -160,7 +205,11 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
       "warnings": [],
       "messages": [
         "One or more elements in the API specification has a missing description field."
-      ]
+      ],
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "apiValidationSummary": {
       "success": true,
@@ -198,7 +247,11 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
       ],
       "messages": [
         "One or more elements in the API specification has a missing description field."
-      ]
+      ],
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "docsValidationSummary": {
       "success": true,
@@ -1065,23 +1118,21 @@ The API Entity Structure encapsulates all the details of an API Entity. An API e
         "Endpoint <i><code>Update Report Rules</code></i> of group <i><code>ReportRules</code></i> contains a response code <i><code>500</code></i> definition of media type <i><code>application/json</code></i> with missing example.",
         "The following environment has a missing description: <i><code>production</code></i>.",
         "The following server configuration parameter has a missing description: <i><code>defaultHost</code></i>."
-      ]
+      ],
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    },
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
     }
   },
-  "endpointsGroup": [
-    {
-      "name": "name8",
-      "description": "description8"
-    },
-    {
-      "name": "name8",
-      "description": "description8"
-    },
-    {
-      "name": "name8",
-      "description": "description8"
-    }
-  ]
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

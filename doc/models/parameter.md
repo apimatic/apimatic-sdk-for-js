@@ -3,6 +3,8 @@
 
 Parameters are options passed with the endpoint
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Parameter`
@@ -25,6 +27,7 @@ Parameters are options passed with the endpoint
 | `description` | `string` | Required | Parameter Description |
 | `defaultValue` | `string` | Required | Default Values of a Parameter |
 | `paramFormat` | `string` | Required | Specify Parameter Format |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -38,14 +41,22 @@ Parameters are options passed with the endpoint
   "isAttribute": false,
   "isMap": false,
   "attributes": {
-    "id": "5be1603083b41d0b50110551"
+    "id": "5be1603083b41d0b50110551",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "nullable": false,
   "id": "5a4e8675b724bb198c289f7a",
   "name": "body",
   "description": "description8",
   "defaultValue": "defaultValue4",
-  "ParamFormat": "Body"
+  "ParamFormat": "Body",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

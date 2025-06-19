@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `enumApplicationjson` |
+| `EnumApplicationjson` |
 
 ## Example
 

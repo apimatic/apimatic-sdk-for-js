@@ -3,6 +3,8 @@
 
 This structure helps creates a new complex model type.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `CustomType`
@@ -17,6 +19,7 @@ This structure helps creates a new complex model type.
 | `baseType` | `string` | Required | Data Format |
 | `implementationType` | [`ImplementationType`](../../doc/models/implementation-type.md) | Required | The structure helps describes the nature of implementation of a  custom model. A model can be of 3 types. |
 | `fields` | [`Field[]`](../../doc/models/field.md) | Required | Type Fields |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -27,7 +30,11 @@ This structure helps creates a new complex model type.
   "name": "Job",
   "baseType": "baseType4",
   "implementationType": "Structure",
-  "fields": []
+  "fields": [],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 
