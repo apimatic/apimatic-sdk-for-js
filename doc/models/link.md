@@ -11,7 +11,7 @@ Link of deployed package
 
 | Name |
 |  --- |
-| `enumHttpswwwnugetorgpackagesmyPackage111` |
+| `EnumHttpswwwnugetorgpackagesmyPackage111` |
 
 ## Example
 

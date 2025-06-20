@@ -11,12 +11,13 @@ The structure contains platforms that APIMatic CodeGen can generate SDKs and Doc
 
 | Name | Description |
 |  --- | --- |
-| `cSNETSTANDARDLIB` | .NET Standard Library |
-| `jAVAECLIPSEJRELIB` | JAVA |
-| `pHPGENERICLIBV2` | PHP |
-| `pYTHONGENERICLIB` | Python |
-| `rUBYGENERICLIB` | Ruby |
-| `tSGENERICLIB` | Typescript |
+| `CsNetStandardLib` | .NET Standard Library |
+| `JavaEclipseJreLib` | JAVA |
+| `PhpGenericLibV2` | PHP |
+| `PythonGenericLib` | Python |
+| `RubyGenericLib` | Ruby |
+| `TsGenericLib` | Typescript |
+| `GoGenericLib` | Go |
 
 ## Example
 

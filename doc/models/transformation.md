@@ -3,6 +3,8 @@
 
 Transformation structure encapsulates all the details of a Transformation.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Transformation`
@@ -23,6 +25,7 @@ Transformation structure encapsulates all the details of a Transformation.
 | `success` | `boolean` | Required | Successful Transformation Flag |
 | `importSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
 | `apiValidationSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -74,7 +77,11 @@ Transformation structure encapsulates all the details of a Transformation.
     ],
     "messages": [
       "One or more elements in the API specification has a missing description field."
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "apiValidationSummary": {
     "success": true,
@@ -112,7 +119,15 @@ Transformation structure encapsulates all the details of a Transformation.
     ],
     "messages": [
       "One or more elements in the API specification has a missing description field."
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

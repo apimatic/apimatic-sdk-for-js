@@ -3,6 +3,8 @@
 
 Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `ServerConfiguration`
@@ -16,6 +18,7 @@ Server configurations can be used to create multiple environments, multiple serv
 | `defaultServer` | `string` | Required | Default Server |
 | `environments` | [`MEnvironment[]`](../../doc/models/m-environment.md) | Required | Environment Identifier and Name |
 | `parameters` | [`Parameter[]`](../../doc/models/parameter.md) | Required | Parameter Attributes |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -32,9 +35,17 @@ Server configurations can be used to create multiple environments, multiple serv
         {
           "id": "5be0a21a83b41d0d8cdcd831",
           "name": "default",
-          "url": "{defaultServerUrl}"
+          "url": "{defaultServerUrl}",
+          "exampleAdditionalProperty": {
+            "key1": "val1",
+            "key2": "val2"
+          }
         }
-      ]
+      ],
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
   ],
   "parameters": [
@@ -47,16 +58,28 @@ Server configurations can be used to create multiple environments, multiple serv
       "isAttribute": false,
       "isMap": false,
       "attributes": {
-        "id": "5be1603083b41d0b50110551"
+        "id": "5be1603083b41d0b50110551",
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       },
       "nullable": false,
       "id": "5a4e8675b724bb198c289f7a",
       "name": "body",
       "description": "description4",
       "defaultValue": "defaultValue2",
-      "ParamFormat": "Body"
+      "ParamFormat": "Body",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
-  ]
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

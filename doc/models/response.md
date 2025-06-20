@@ -3,6 +3,8 @@
 
 The structure encapsulates all details of a request response
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Response`
@@ -22,6 +24,7 @@ The structure encapsulates all details of a request response
 | `nullable` | `boolean` | Required | Specify is response is nullable |
 | `id` | `string` | Required | Unique response identifier |
 | `name` | `string` | Required | Response name |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -35,11 +38,19 @@ The structure encapsulates all details of a request response
   "isAttribute": false,
   "isMap": false,
   "attributes": {
-    "id": "5be1603083b41d0b50110551"
+    "id": "5be1603083b41d0b50110551",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "nullable": false,
   "id": "5a4e8675b724bb198c289f79",
-  "name": "response"
+  "name": "response",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

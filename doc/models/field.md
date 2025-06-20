@@ -3,6 +3,8 @@
 
 This structure encapsulates all details of a parameter.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Field`
@@ -24,6 +26,7 @@ This structure encapsulates all details of a parameter.
 | `name` | `string` | Required | Parameter Name |
 | `description` | `string` | Required | Parameter Description |
 | `defaultValue` | `string` | Required | Default Values of a Parameter |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -37,13 +40,21 @@ This structure encapsulates all details of a parameter.
   "isAttribute": false,
   "isMap": false,
   "attributes": {
-    "id": "5be1603083b41d0b50110551"
+    "id": "5be1603083b41d0b50110551",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "nullable": false,
   "id": "5a4e8675b724bb198c289f7a",
   "name": "body",
   "description": "description4",
-  "defaultValue": "defaultValue0"
+  "defaultValue": "defaultValue0",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

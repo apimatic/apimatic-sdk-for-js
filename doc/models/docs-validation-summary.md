@@ -1,6 +1,8 @@
 
 # Docs Validation Summary
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `DocsValidationSummary`
@@ -13,6 +15,7 @@
 | `errors` | `string[]` | Required | - |
 | `warnings` | `string[]` | Required | - |
 | `messages` | `string[]` | Required | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -882,7 +885,11 @@
     "Endpoint <i><code>Update Report Rules</code></i> of group <i><code>ReportRules</code></i> contains a response code <i><code>500</code></i> definition of media type <i><code>application/json</code></i> with missing example.",
     "The following environment has a missing description: <i><code>production</code></i>.",
     "The following server configuration parameter has a missing description: <i><code>defaultHost</code></i>."
-  ]
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

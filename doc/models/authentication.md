@@ -3,6 +3,8 @@
 
 This Structure encapsulates all details of API authentication.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Authentication`
@@ -18,6 +20,7 @@ This Structure encapsulates all details of API authentication.
 | `authScopes` | `string[]` | Required | Auth Scopes |
 | `authGrantTypes` | `string[]` | Required | Auth Grant Types |
 | `paramFormats` | `unknown` | Required | Paramater Formats |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -29,7 +32,11 @@ This Structure encapsulates all details of API authentication.
   "parameters": [],
   "authScopes": [],
   "authGrantTypes": [],
-  "paramFormats": {}
+  "paramFormats": {},
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -3,6 +3,8 @@
 
 This structure helps update package deployment details.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `UpdateTemplatesPackageDeploymentInformation`
@@ -11,7 +13,8 @@ This structure helps update package deployment details.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cSNETSTANDARDLIB` | [`CSNETSTANDARDLIB`](../../doc/models/csnetstandardlib.md) | Required | This structure contains all details that goes into package deployment. |
+| `csNetStandardLib` | [`Csnetstandardlib`](../../doc/models/csnetstandardlib.md) | Required | This structure contains all details that goes into package deployment. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -23,7 +26,15 @@ This structure helps update package deployment details.
     "packageName": "myPackage",
     "version": "1.1.1",
     "additionalDeploymentInformation": {},
-    "link": "https://www.nuget.org/packages/myPackage/1.1.1"
+    "link": "https://www.nuget.org/packages/myPackage/1.1.1",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

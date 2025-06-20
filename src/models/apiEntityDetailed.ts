@@ -8,10 +8,11 @@ import {
   array,
   boolean,
   lazy,
-  object,
   optional,
   Schema,
   string,
+  typedExpandoObject,
+  unknown,
 } from '../schema';
 import { Authentication, authenticationSchema } from './authentication';
 import { CodeGenSettings, codeGenSettingsSchema } from './codeGenSettings';
@@ -60,39 +61,41 @@ export interface ApiEntityDetailed {
   /** Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. */
   serverConfiguration: ServerConfiguration;
   /** API Endpoint Groups */
-  endpointsGroup?: EndpointsGroup[];
+  endpointsGroup: EndpointsGroup[];
   metaData: MetaData;
   /** API Endpoints */
   endpoints: Endpoint[];
   /** Complex Custom Model Types */
   customTypes: CustomType[];
+  additionalProperties?: Record<string, unknown>;
 }
 
-export const apiEntityDetailedSchema: Schema<ApiEntityDetailed> = object({
-  id: ['id', string()],
-  encryptedId: ['encryptedId', string()],
-  apiKey: ['apiKey', string()],
-  apiGroupId: ['apiGroupId', string()],
-  imageUri: ['imageUri', string()],
-  creationDate: ['creationDate', string()],
-  mPublic: ['public', boolean()],
-  name: ['name', string()],
-  description: ['description', string()],
-  version: ['version', string()],
-  additionalHeaders: ['additionalHeaders', array(string())],
-  authentication: ['authentication', lazy(() => authenticationSchema)],
-  codeGenSettings: ['codeGenSettings', lazy(() => codeGenSettingsSchema)],
-  testGenSettings: ['testGenSettings', lazy(() => testGenSettingsSchema)],
-  errors: ['errors', array(string())],
-  serverConfiguration: [
-    'serverConfiguration',
-    lazy(() => serverConfigurationSchema),
-  ],
-  endpointsGroup: [
-    'endpointsGroup',
-    optional(array(lazy(() => endpointsGroupSchema))),
-  ],
-  metaData: ['metaData', lazy(() => metaDataSchema)],
-  endpoints: ['endpoints', array(lazy(() => endpointSchema))],
-  customTypes: ['customTypes', array(lazy(() => customTypeSchema))],
-});
+export const apiEntityDetailedSchema: Schema<ApiEntityDetailed> = typedExpandoObject(
+  {
+    id: ['id', string()],
+    encryptedId: ['encryptedId', string()],
+    apiKey: ['apiKey', string()],
+    apiGroupId: ['apiGroupId', string()],
+    imageUri: ['imageUri', string()],
+    creationDate: ['creationDate', string()],
+    mPublic: ['public', boolean()],
+    name: ['name', string()],
+    description: ['description', string()],
+    version: ['version', string()],
+    additionalHeaders: ['additionalHeaders', array(string())],
+    authentication: ['authentication', lazy(() => authenticationSchema)],
+    codeGenSettings: ['codeGenSettings', lazy(() => codeGenSettingsSchema)],
+    testGenSettings: ['testGenSettings', lazy(() => testGenSettingsSchema)],
+    errors: ['errors', array(string())],
+    serverConfiguration: [
+      'serverConfiguration',
+      lazy(() => serverConfigurationSchema),
+    ],
+    endpointsGroup: ['endpointsGroup', array(lazy(() => endpointsGroupSchema))],
+    metaData: ['metaData', lazy(() => metaDataSchema)],
+    endpoints: ['endpoints', array(lazy(() => endpointSchema))],
+    customTypes: ['customTypes', array(lazy(() => customTypeSchema))],
+  },
+  'additionalProperties',
+  optional(unknown())
+);

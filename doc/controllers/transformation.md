@@ -45,7 +45,7 @@ async transformViaFile(
 
 ## Response Type
 
-[`Transformation`](../../doc/models/transformation.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation](../../doc/models/transformation.md).
 
 ## Example Usage
 
@@ -54,26 +54,29 @@ const contentType = ContentType.EnumMultipartformdata;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
-const exportFormat = ExportFormats.WSDL;
+const exportFormat = ExportFormats.Wsdl;
 
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.transformViaFile(
-  contentType,
-  file,
-  exportFormat
-);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.transformViaFile(
+    contentType,
+    file,
+    exportFormat
+  );
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 
 
@@ -84,7 +87,7 @@ Transform an API into any of the supported API specification formats by providin
 This endpoint transforms and then uploads the transformed API specification to APIMatic's cloud storage. An ID for the transformation performed is returned as part of the response.
 
 ```ts
-async transformViaURL(
+async transformViaUrl(
   body: TransformViaUrlRequest,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Transformation>>
@@ -99,30 +102,33 @@ async transformViaURL(
 
 ## Response Type
 
-[`Transformation`](../../doc/models/transformation.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation](../../doc/models/transformation.md).
 
 ## Example Usage
 
 ```ts
 const body: TransformViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
-  exportFormat: ExportFormats.APIMATIC,
+  exportFormat: ExportFormats.Apimatic,
 };
 
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.transformViaURL(body);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.transformViaUrl(body);
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 
 
@@ -146,27 +152,30 @@ async downloadTransformedFile(
 
 ## Response Type
 
-`NodeJS.ReadableStream | Blob`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
 
 ## Example Usage
 
 ```ts
 const transformationId = 'transformation_id6';
 
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 
 
@@ -190,27 +199,30 @@ async downloadInputFile(
 
 ## Response Type
 
-`NodeJS.ReadableStream | Blob`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
 
 ## Example Usage
 
 ```ts
 const transformationId = 'transformation_id6';
 
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 
 
@@ -232,25 +244,28 @@ async listAllTransformations(
 
 ## Response Type
 
-[`Transformation[]`](../../doc/models/transformation.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation[]](../../doc/models/transformation.md).
 
 ## Example Usage
 
 ```ts
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.listAllTransformations();
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.listAllTransformations();
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 
 
@@ -274,27 +289,30 @@ async getATransformation(
 
 ## Response Type
 
-[`Transformation`](../../doc/models/transformation.md)
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation](../../doc/models/transformation.md).
 
 ## Example Usage
 
 ```ts
 const transformationId = 'transformation_id6';
 
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 
 
@@ -318,26 +336,29 @@ async deleteTransformation(
 
 ## Response Type
 
-`void`
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
 ## Example Usage
 
 ```ts
 const transformationId = 'transformation_id6';
 
-try {
-  // @ts-expect-error: unused variables
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
-} catch (error) {
-  if (error instanceof ApiError) {
+async function makeApiCall() {
+  try {
     // @ts-expect-error: unused variables
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
+    // Get more response info...
+    // const { statusCode, headers } = httpResponse;
+  } catch (error) {
+    if (error instanceof ApiError) {
+      // @ts-expect-error: unused variables
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const errors = error.result;
+      // const { statusCode, headers } = error;
+    }
   }
-}
+};
+makeApiCall();
 ```
 

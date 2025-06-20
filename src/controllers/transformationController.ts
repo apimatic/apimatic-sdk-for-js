@@ -46,10 +46,8 @@ export class TransformationController extends BaseController {
       exportFormat: [exportFormat, exportFormatsSchema],
     });
     req.header('Content-Type', mapped.contentType);
-    req.formData({
-      file: file,
-      export_format: mapped.exportFormat,
-    });
+    req.formData({ file: file, export_format: mapped.exportFormat });
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(transformationSchema, requestOptions);
   }
 
@@ -63,7 +61,7 @@ export class TransformationController extends BaseController {
    * @param body         Request Body
    * @return Response from the API call
    */
-  async transformViaURL(
+  async transformViaUrl(
     body: TransformViaUrlRequest,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transformation>> {
@@ -74,8 +72,12 @@ export class TransformationController extends BaseController {
     const mapped = req.prepareArgs({
       body: [body, transformViaUrlRequestSchema],
     });
-    req.header('Content-Type', 'application/vnd.apimatic.urlTransformDto.v1+json');
+    req.header(
+      'Content-Type',
+      'application/vnd.apimatic.urlTransformDto.v1+json'
+    );
     req.json(mapped.body);
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(transformationSchema, requestOptions);
   }
 
@@ -100,6 +102,7 @@ export class TransformationController extends BaseController {
       transformationId: [transformationId, string()],
     });
     req.appendTemplatePath`/transformations/${mapped.transformationId}/converted-file`;
+    req.authenticate([{ authorization: true }]);
     return req.callAsStream(requestOptions);
   }
 
@@ -125,6 +128,7 @@ export class TransformationController extends BaseController {
       transformationId: [transformationId, string()],
     });
     req.appendTemplatePath`/transformations/${mapped.transformationId}/input-file`;
+    req.authenticate([{ authorization: true }]);
     return req.callAsStream(requestOptions);
   }
 
@@ -137,6 +141,7 @@ export class TransformationController extends BaseController {
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transformation[]>> {
     const req = this.createRequest('GET', '/transformations');
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(array(transformationSchema), requestOptions);
   }
 
@@ -161,6 +166,7 @@ export class TransformationController extends BaseController {
       transformationId: [transformationId, string()],
     });
     req.appendTemplatePath`/transformations/${mapped.transformationId}`;
+    req.authenticate([{ authorization: true }]);
     return req.callAsJson(transformationSchema, requestOptions);
   }
 
@@ -184,6 +190,7 @@ export class TransformationController extends BaseController {
       transformationId: [transformationId, string()],
     });
     req.appendTemplatePath`/transformations/${mapped.transformationId}`;
+    req.authenticate([{ authorization: true }]);
     return req.call(requestOptions);
   }
 }

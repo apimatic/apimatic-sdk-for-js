@@ -9,9 +9,9 @@
 
 | Name |
 |  --- |
-| `npm` |
-| `pyPI` |
-| `rubyGems` |
+| `Npm` |
+| `PyPi` |
+| `RubyGems` |
 
 ## Example
 

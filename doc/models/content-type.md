@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `enumMultipartformdata` |
+| `EnumMultipartformdata` |
 
 ## Example
 

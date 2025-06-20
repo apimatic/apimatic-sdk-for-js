@@ -3,6 +3,8 @@
 
 The Code Generation structure encapsulates all the  the details of an SDK generation performed by a user.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `UserCodeGeneration`
@@ -12,7 +14,7 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Required | Unique Code Generation Identifier |
-| `template` | [`Platforms`](../../doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br>**Default**: `Platforms.CSNETSTANDARDLIB` |
+| `template` | [`Platforms`](../../doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br><br>**Default**: `Platforms.CsNetStandardLib` |
 | `generatedFile` | `string` | Required | The generated SDK |
 | `generatedOn` | `string` | Required | Generation Date and Time |
 | `hashCode` | `string` | Required | The md5 hash of the API Description |
@@ -21,6 +23,7 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
 | `success` | `boolean` | Required | Generation Status |
 | `userId` | `string` | Required | Unique User Identifier |
 | `inputFile` | `string` | Required | API Specification file in a supported format |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -35,7 +38,11 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
   "codeGenVersion": "1",
   "success": true,
   "userId": "5afc60380b9949253c6b7776",
-  "inputFile": "https://api.apimatic.io/code-generations/5be08d7b83b41d0d8cdb3958/input-file"
+  "inputFile": "https://api.apimatic.io/code-generations/5be08d7b83b41d0d8cdb3958/input-file",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 
