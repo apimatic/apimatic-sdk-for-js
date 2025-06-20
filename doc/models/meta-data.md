@@ -1,6 +1,8 @@
 
 # Meta Data
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `MetaData`
@@ -12,6 +14,7 @@
 | `importValidationSummary` | [`ImportValidationSummary`](../../doc/models/import-validation-summary.md) | Required | - |
 | `apiValidationSummary` | [`ApiValidationSummary`](../../doc/models/api-validation-summary.md) | Required | - |
 | `docsValidationSummary` | [`DocsValidationSummary`](../../doc/models/docs-validation-summary.md) | Required | - |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -23,7 +26,11 @@
     "warnings": [],
     "messages": [
       "One or more elements in the API specification has a missing description field."
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "apiValidationSummary": {
     "success": true,
@@ -61,7 +68,11 @@
     ],
     "messages": [
       "One or more elements in the API specification has a missing description field."
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "docsValidationSummary": {
     "success": true,
@@ -928,7 +939,15 @@
       "Endpoint <i><code>Update Report Rules</code></i> of group <i><code>ReportRules</code></i> contains a response code <i><code>500</code></i> definition of media type <i><code>application/json</code></i> with missing example.",
       "The following environment has a missing description: <i><code>production</code></i>.",
       "The following server configuration parameter has a missing description: <i><code>defaultHost</code></i>."
-    ]
+    ],
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

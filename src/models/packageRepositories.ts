@@ -11,11 +11,13 @@ import { Schema, stringEnum } from '../schema';
  */
 export enum PackageRepositories {
   Npm = 'Npm',
-  PyPI = 'PyPI',
+  PyPi = 'PyPI',
   RubyGems = 'RubyGems',
 }
 
 /**
  * Schema for PackageRepositories
  */
-export const packageRepositoriesSchema: Schema<PackageRepositories> = stringEnum(PackageRepositories);
+export const packageRepositoriesSchema: Schema<PackageRepositories> = stringEnum(
+  PackageRepositories
+);

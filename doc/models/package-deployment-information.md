@@ -3,6 +3,8 @@
 
 The structure contains Package Deployment Information along with Id.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `PackageDeploymentInformation`
@@ -13,6 +15,7 @@ The structure contains Package Deployment Information along with Id.
 |  --- | --- | --- | --- |
 | `id` | `string` | Required | Package Deployment Identifier |
 | `templatesPackageDeploymentInformation` | [`TemplatesPackageDeploymentInformation`](../../doc/models/templates-package-deployment-information.md) | Required | This structure encapsulates all package deployment details. |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -26,8 +29,20 @@ The structure contains Package Deployment Information along with Id.
       "packageName": "myPackage",
       "version": "1.1.1",
       "additionalDeploymentInformation": {},
-      "link": "https://www.nuget.org/packages/myPackage/1.1.1"
+      "link": "https://www.nuget.org/packages/myPackage/1.1.1",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
+    },
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
     }
+  },
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
   }
 }
 ```

@@ -3,6 +3,8 @@
 
 APIMatic’s code generation engine has various code generation configurations to customise the behaviour and outlook across the generated SDKS. This structure encapsulates all settings for CodeGeneration.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `CodeGenSettings`
@@ -29,7 +31,7 @@ APIMatic’s code generation engine has various code generation configurations t
 | `collapseParamsToArray` | `boolean` | Required | Collect Parameters as arrays |
 | `preserveParameterOrder` | `boolean` | Required | Attempts to preserve parameter order for endpoints |
 | `appendContentHeaders` | `boolean` | Required | Append JSON/XML accept and content-type headers |
-| `modelSerializationIsJSON` | `boolean` | Required | - |
+| `modelSerializationIsJson` | `boolean` | Required | - |
 | `nullify404` | `boolean` | Required | Return a null value on HTTP 404 |
 | `validateRequiredParameters` | `boolean` | Required | Validate required parameters to be Not Null |
 | `enableAdditionalModelProperties` | `boolean` | Required | Allow models to have additional runtime properties |
@@ -56,11 +58,12 @@ APIMatic’s code generation engine has various code generation configurations t
 | `underscoreNumbers` | `boolean` | Required | Use underscores before and after numbers for underscore case |
 | `useSingletonPattern` | `boolean` | Required | Allow usage of a Singleton Pattern |
 | `disableLinting` | `boolean` | Required | Files/dependencies used for linting are not generated if this option is enabled |
-| `allowSkippingSSLCertVerification` | `boolean` | Required | Create a configuration option in SDKs to optionally skip certificate verification when establishing HTTPS connections. |
+| `allowSkippingSslCertVerification` | `boolean` | Required | Create a configuration option in SDKs to optionally skip certificate verification when establishing HTTPS connections. |
 | `applyCustomizations` | `string[]` | Required | Apply Customisations |
 | `doNotSplitWords` | `string[]` | Required | Enabling this will stop splitting of words when converting identifiers from API specification to language-specific identifiers. |
 | `sortResources` | `boolean` | Required | Sorts resources such as endpoints, endpoint groups and models in generated documentation |
 | `enableGlobalUserAgent` | `boolean` | Required | Enable a global user agent |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -118,7 +121,11 @@ APIMatic’s code generation engine has various code generation configurations t
   "applyCustomizations": [],
   "doNotSplitWords": [],
   "sortResources": false,
-  "enableGlobalUserAgent": true
+  "enableGlobalUserAgent": true,
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

@@ -9,6 +9,17 @@ module.exports = {
   ],
   plugins: [
     '@semantic-release/commit-analyzer',
+    {
+      preset: 'conventionalcommits',
+      releaseRules: [
+        { type: 'feat', release: 'minor' },
+        { type: 'fix', release: 'patch' },
+        { type: 'chore', release: false },
+      ],
+      parserOpts: {
+        noteKeywords: ['BREAKING CHANGE', 'BREAKING CHANGES'],
+      },
+    },
     '@semantic-release/release-notes-generator',
     [
       '@semantic-release/changelog',

@@ -3,6 +3,8 @@
 
 This structure encapsulates all the attributes of an API Endpoint.
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
 `Endpoint`
@@ -27,6 +29,7 @@ This structure encapsulates all the attributes of an API Endpoint.
 | `parameters` | [`Parameter[]`](../../doc/models/parameter.md) | Required | Endpoint Paramaters |
 | `errors` | `unknown[]` | Required | Errors that Endpoint may output |
 | `testCases` | [`TestCase[]`](../../doc/models/test-case.md) | Required | Test Cases associated with Endpoint |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -48,11 +51,19 @@ This structure encapsulates all the attributes of an API Endpoint.
     "isAttribute": false,
     "isMap": false,
     "attributes": {
-      "id": "5be1603083b41d0b50110551"
+      "id": "5be1603083b41d0b50110551",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     },
     "nullable": false,
     "id": "5a4e8675b724bb198c289f79",
-    "name": "response"
+    "name": "response",
+    "exampleAdditionalProperty": {
+      "key1": "val1",
+      "key2": "val2"
+    }
   },
   "hasOptionalQueryParams": false,
   "hasOptionalFieldParams": false,
@@ -69,14 +80,22 @@ This structure encapsulates all the attributes of an API Endpoint.
       "isAttribute": false,
       "isMap": false,
       "attributes": {
-        "id": "5be1603083b41d0b50110551"
+        "id": "5be1603083b41d0b50110551",
+        "exampleAdditionalProperty": {
+          "key1": "val1",
+          "key2": "val2"
+        }
       },
       "nullable": false,
       "id": "5a4e8675b724bb198c289f7a",
       "name": "body",
       "description": "description4",
       "defaultValue": "defaultValue2",
-      "ParamFormat": "Body"
+      "ParamFormat": "Body",
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
   ],
   "errors": [],
@@ -94,7 +113,11 @@ This structure encapsulates all the attributes of an API Endpoint.
           "endpointInputPrameterId": "5a4e8675b724bb198c289f7a",
           "id": "5a4e8675b724bb198c289f7c",
           "name": "body",
-          "value": "{\"name\":\"farhan\",\"field\":\"QA\"}"
+          "value": "{\"name\":\"farhan\",\"field\":\"QA\"}",
+          "exampleAdditionalProperty": {
+            "key1": "val1",
+            "key2": "val2"
+          }
         }
       ],
       "expectedStatus": "200",
@@ -104,9 +127,17 @@ This structure encapsulates all the attributes of an API Endpoint.
       "expectedBodyMatchMode": "KEYSANDVALUES",
       "expectedArrayOrderedMatching": false,
       "expectedArrayCheckCount": false,
-      "responseMatchSchema": true
+      "responseMatchSchema": true,
+      "exampleAdditionalProperty": {
+        "key1": "val1",
+        "key2": "val2"
+      }
     }
-  ]
+  ],
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 

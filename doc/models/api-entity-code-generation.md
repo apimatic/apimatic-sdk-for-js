@@ -1,18 +1,20 @@
 
-# API Entity Code Generation
+# Api Entity Code Generation
 
 The Code Generation structure encapsulates all the  the details of an SDK generation performed against an API Entity
 
+*This model accepts additional fields of type unknown.*
+
 ## Structure
 
-`APIEntityCodeGeneration`
+`ApiEntityCodeGeneration`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Required | Unique Code Generation Identifier |
-| `template` | [`Platforms`](../../doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br>**Default**: `Platforms.CSNETSTANDARDLIB` |
+| `template` | [`Platforms`](../../doc/models/platforms.md) | Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in.<br><br>**Default**: `Platforms.CsNetStandardLib` |
 | `generatedFile` | `string` | Required | The generated SDK |
 | `generatedOn` | `string` | Required | Generation Date and Time |
 | `hashCode` | `string` | Required | The md5 hash of the API Description |
@@ -20,6 +22,7 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
 | `codeGenVersion` | `string` | Required | Generation Version |
 | `success` | `boolean` | Required | Generation Status |
 | `apiEntityId` | `string` | Required | Unique API Entity Identifier |
+| `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)
 
@@ -33,7 +36,11 @@ The Code Generation structure encapsulates all the  the details of an SDK genera
   "codeGenerationSource": "Api",
   "codeGenVersion": "1",
   "success": true,
-  "apiEntityId": "5be012963270e339f88005d0"
+  "apiEntityId": "5be012963270e339f88005d0",
+  "exampleAdditionalProperty": {
+    "key1": "val1",
+    "key2": "val2"
+  }
 }
 ```
 
