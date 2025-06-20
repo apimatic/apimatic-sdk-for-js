@@ -1,0 +1,1 @@
+{"version":3,"file":"authProvider.js","sourceRoot":"","sources":["../../src/authProvider.ts"],"names":[],"mappings":";AAAA;;;;GAIG;;;AAEH,mDAG0B;AAG1B,SAAgB,4BAA4B,CAAC,MAA8B;IACzE,IAAM,UAAU,GAAG;QACjB,aAAa,EACX,MAAM,CAAC,qCAAqC;YAC5C,IAAA,mDAAkC,EAChC,MAAM,CAAC,qCAAqC,CAC7C;KACJ,CAAC;IAEF,OAAO,IAAA,gDAA+B,EAGpC,UAAU,CAAC,CAAC;AAChB,CAAC;AAbD,oEAaC"}
