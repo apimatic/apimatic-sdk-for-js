@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['18']
+        node: ['20']
     name: Release with Node version ${{ matrix.node }}
     steps:
     
       - name: Checkout CLI
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           repository: apimatic/apimatic-sdk-for-js
-          token: ${{ secrets.ACCESS_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           persist-credentials: false
           fetch-depth: 0
           path: sdk
@@ -37,6 +37,6 @@ jobs:
       - name: Release
         working-directory: sdk
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
