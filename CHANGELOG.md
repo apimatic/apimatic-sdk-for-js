@@ -1,3 +1,10 @@
+# [0.2.0-alpha.1](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.1.0-alpha.2...v0.2.0-alpha.1) (2025-06-23)
+
+
+### Features
+
+* regenerated sdk from latest apimatic platform api ([#6](https://github.com/apimatic/apimatic-sdk-for-js/issues/6)) ([ace54e8](https://github.com/apimatic/apimatic-sdk-for-js/commit/ace54e80f1b229c6fc920809550dede3c98c8318))
+
 # [0.1.0-alpha.2](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2023-09-28)
 
 
