@@ -17,7 +17,7 @@ import {
 import { array, string } from '../schema';
 import { BaseController } from './baseController';
 
-export class CodeGenerationExternalApIsController extends BaseController {
+export class CodeGenerationExternalApisController extends BaseController {
   /**
    * Generate an SDK for an API by by uploading the API specification file.
    *

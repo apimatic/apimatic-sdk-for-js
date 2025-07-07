@@ -56,27 +56,20 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const exportFormat = ExportFormats.Wsdl;
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.transformViaFile(
-    contentType,
-    file,
-    exportFormat
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.transformViaFile(
+  contentType,
+  file,
+  exportFormat
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -112,23 +105,16 @@ const body: TransformViaUrlRequest = {
   exportFormat: ExportFormats.Apimatic,
 };
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.transformViaUrl(body);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.transformViaUrl(body);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -159,23 +145,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const transformationId = 'transformation_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -206,23 +185,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const transformationId = 'transformation_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -249,23 +221,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.listAllTransformations();
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.listAllTransformations();
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -296,23 +261,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const transformationId = 'transformation_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -343,22 +301,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 ```ts
 const transformationId = 'transformation_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 

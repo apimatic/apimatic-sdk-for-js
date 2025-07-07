@@ -1,17 +1,17 @@
-# API Validation-Imported AP Is
+# API Validation-Imported APIs
 
 ```ts
-const apiValidationImportedApIsController = new ApiValidationImportedApIsController(client);
+const apiValidationImportedApisController = new ApiValidationImportedApisController(client);
 ```
 
 ## Class Name
 
-`ApiValidationImportedApIsController`
+`ApiValidationImportedApisController`
 
 ## Methods
 
-* [Validate API](../../doc/controllers/api-validation-imported-ap-is.md#validate-api)
-* [Validate API for Docs](../../doc/controllers/api-validation-imported-ap-is.md#validate-api-for-docs)
+* [Validate API](../../doc/controllers/api-validation-imported-apis.md#validate-api)
+* [Validate API for Docs](../../doc/controllers/api-validation-imported-apis.md#validate-api-for-docs)
 
 
 # Validate API
@@ -41,23 +41,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const apiEntityId = '608fe1dad3131a0fd443ba56';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apiValidationImportedApIsController.validateApi(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apiValidationImportedApisController.validateApi(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Example Response *(as JSON)*
@@ -140,23 +133,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const apiEntityId = '608fe1dad3131a0fd443ba56';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apiValidationImportedApIsController.validateApiForDocs(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apiValidationImportedApisController.validateApiForDocs(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Example Response *(as JSON)*

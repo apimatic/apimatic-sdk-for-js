@@ -1,17 +1,17 @@
-# API Validation-External AP Is
+# API Validation-External APIs
 
 ```ts
-const apiValidationExternalApIsController = new ApiValidationExternalApIsController(client);
+const apiValidationExternalApisController = new ApiValidationExternalApisController(client);
 ```
 
 ## Class Name
 
-`ApiValidationExternalApIsController`
+`ApiValidationExternalApisController`
 
 ## Methods
 
-* [Validate API Via File](../../doc/controllers/api-validation-external-ap-is.md#validate-api-via-file)
-* [Validate API Via URL](../../doc/controllers/api-validation-external-ap-is.md#validate-api-via-url)
+* [Validate API Via File](../../doc/controllers/api-validation-external-apis.md#validate-api-via-file)
+* [Validate API Via URL](../../doc/controllers/api-validation-external-apis.md#validate-api-via-url)
 
 
 # Validate API Via File
@@ -47,26 +47,19 @@ const contentType = ContentType.EnumMultipartformdata;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apiValidationExternalApIsController.validateApiViaFile(
-    contentType,
-    file
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apiValidationExternalApisController.validateApiViaFile(
+  contentType,
+  file
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Example Response *(as JSON)*
@@ -151,23 +144,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const descriptionUrl = 'https://petstore.swagger.io/v2/swagger.json';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apiValidationExternalApIsController.validateApiViaUrl(descriptionUrl);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apiValidationExternalApisController.validateApiViaUrl(descriptionUrl);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Example Response *(as JSON)*

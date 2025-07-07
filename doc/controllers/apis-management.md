@@ -1,23 +1,23 @@
-# AP Is Management
+# APIs Management
 
 ```ts
-const apIsManagementController = new ApIsManagementController(client);
+const apisManagementController = new ApisManagementController(client);
 ```
 
 ## Class Name
 
-`ApIsManagementController`
+`ApisManagementController`
 
 ## Methods
 
-* [Import API Via File](../../doc/controllers/ap-is-management.md#import-api-via-file)
-* [Import API Via URL](../../doc/controllers/ap-is-management.md#import-api-via-url)
-* [Import New API Version Via File](../../doc/controllers/ap-is-management.md#import-new-api-version-via-file)
-* [Import New API Version Via URL](../../doc/controllers/ap-is-management.md#import-new-api-version-via-url)
-* [Inplace API Import Via File](../../doc/controllers/ap-is-management.md#inplace-api-import-via-file)
-* [Inplace API Import Via URL](../../doc/controllers/ap-is-management.md#inplace-api-import-via-url)
-* [Fetch API Entity](../../doc/controllers/ap-is-management.md#fetch-api-entity)
-* [Download API Specification](../../doc/controllers/ap-is-management.md#download-api-specification)
+* [Import API Via File](../../doc/controllers/apis-management.md#import-api-via-file)
+* [Import API Via URL](../../doc/controllers/apis-management.md#import-api-via-url)
+* [Import New API Version Via File](../../doc/controllers/apis-management.md#import-new-api-version-via-file)
+* [Import New API Version Via URL](../../doc/controllers/apis-management.md#import-new-api-version-via-url)
+* [Inplace API Import Via File](../../doc/controllers/apis-management.md#inplace-api-import-via-file)
+* [Inplace API Import Via URL](../../doc/controllers/apis-management.md#inplace-api-import-via-url)
+* [Fetch API Entity](../../doc/controllers/apis-management.md#fetch-api-entity)
+* [Download APIS Pecification](../../doc/controllers/apis-management.md#download-apis-pecification)
 
 
 # Import API Via File
@@ -53,26 +53,19 @@ const contentType = ContentType.EnumMultipartformdata;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.importApiViaFile(
-    contentType,
-    file
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.importApiViaFile(
+  contentType,
+  file
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Errors
@@ -116,23 +109,16 @@ const body: ImportApiViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.importApiViaUrl(body);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.importApiViaUrl(body);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Errors
@@ -186,28 +172,21 @@ const versionOverride = 'version_override2';
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.importNewApiVersionViaFile(
-    apiGroupId,
-    accept,
-    versionOverride,
-    file
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.importNewApiVersionViaFile(
+  apiGroupId,
+  accept,
+  versionOverride,
+  file
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -251,27 +230,20 @@ const body: ImportApiVersionViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.importNewApiVersionViaUrl(
-    apiGroupId,
-    accept,
-    body
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.importNewApiVersionViaUrl(
+  apiGroupId,
+  accept,
+  body
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -312,27 +284,20 @@ const accept = Accept2.EnumApplicationvndapimaticapiEntityfullv1Json;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.inplaceApiImportViaFile(
-    apiEntityId,
-    accept,
-    file
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.inplaceApiImportViaFile(
+  apiEntityId,
+  accept,
+  file
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -371,26 +336,19 @@ const body: InplaceImportApiViaUrlRequest = {
   url: 'https://petstore.swagger.io/v2/swagger.json',
 };
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.inplaceApiImportViaUrl(
-    apiEntityId,
-    body
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.inplaceApiImportViaUrl(
+  apiEntityId,
+  body
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -421,32 +379,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const apiEntityId = 'api_entity_id4';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.fetchApiEntity(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.fetchApiEntity(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
-# Download API Specification
+# Download APIS Pecification
 
 Download the API Specification file for a an API Version in any of the API Specification formats supported by APIMatic.
 
 ```ts
-async downloadApiSpecification(
+async downloadApisPecification(
   apiEntityId: string,
   format: ExportFormats,
   requestOptions?: RequestOptions
@@ -472,25 +423,18 @@ const apiEntityId = 'api_entity_id4';
 
 const format = ExportFormats.Apimatic;
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await apIsManagementController.downloadApiSpecification(
-    apiEntityId,
-    format
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await apisManagementController.downloadApisPecification(
+  apiEntityId,
+  format
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
