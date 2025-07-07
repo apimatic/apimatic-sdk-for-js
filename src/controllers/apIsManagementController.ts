@@ -26,7 +26,7 @@ import { string } from '../schema';
 import { BaseController } from './baseController';
 import { ApiError } from '@apimatic/core';
 
-export class ApIsManagementController extends BaseController {
+export class ApisManagementController extends BaseController {
   /**
    * Import an API into the APIMatic Dashboard by uploading the API specification file.
    *
@@ -259,7 +259,7 @@ export class ApIsManagementController extends BaseController {
    *                                       transformer#supported-input-formats).
    * @return Response from the API call
    */
-  async downloadApiSpecification(
+  async downloadApisPecification(
     apiEntityId: string,
     format: ExportFormats,
     requestOptions?: RequestOptions

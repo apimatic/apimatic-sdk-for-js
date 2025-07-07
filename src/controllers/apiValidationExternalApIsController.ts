@@ -14,7 +14,7 @@ import { string } from '../schema';
 import { BaseController } from './baseController';
 import { ApiError } from '@apimatic/core';
 
-export class ApiValidationExternalApIsController extends BaseController {
+export class ApiValidationExternalApisController extends BaseController {
   /**
    * Validate an API by uploading the API specification file.
    *

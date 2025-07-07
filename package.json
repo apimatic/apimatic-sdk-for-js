@@ -1,11 +1,5 @@
 {
-  "name": "@apimatic/sdk",
-  "description": "This API gives you programmatic access to APIMatic's Code Generation, Transformers Engine and Docs Generation.",
-  "author": {
-    "name": "Team APIMatic",
-    "email": "contactus@apimatic.io"
-  },
-  "version": "0.1.0-alpha.2",
+  "version": "3.0.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/cjs/index.js",
@@ -18,14 +12,6 @@
   "engines": {
     "node": ">=14.17.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "apimatic",
-    "sdk",
-    "api"
-  ],
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json",
     "prepare": "rimraf dist && tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json",
@@ -39,6 +25,12 @@
     "singleQuote": true,
     "trailingComma": "es5",
     "quoteProps": "preserve"
+  },
+  "name": "apimatic-apilib",
+  "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformation Engine",
+  "author": {
+    "name": "Team APIMatic",
+    "email": "contactus@apimatic.io"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",

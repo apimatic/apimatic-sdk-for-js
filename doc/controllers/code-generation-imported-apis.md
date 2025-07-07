@@ -1,20 +1,20 @@
-# Code Generation-Imported AP Is
+# Code Generation-Imported APIs
 
 ```ts
-const codeGenerationImportedApIsController = new CodeGenerationImportedApIsController(client);
+const codeGenerationImportedApisController = new CodeGenerationImportedApisController(client);
 ```
 
 ## Class Name
 
-`CodeGenerationImportedApIsController`
+`CodeGenerationImportedApisController`
 
 ## Methods
 
-* [Generate SDK](../../doc/controllers/code-generation-imported-ap-is.md#generate-sdk)
-* [Download SDK](../../doc/controllers/code-generation-imported-ap-is.md#download-sdk)
-* [List All Code Generations](../../doc/controllers/code-generation-imported-ap-is.md#list-all-code-generations)
-* [Get a Code Generation](../../doc/controllers/code-generation-imported-ap-is.md#get-a-code-generation)
-* [Delete Code Generation](../../doc/controllers/code-generation-imported-ap-is.md#delete-code-generation)
+* [Generate SDK](../../doc/controllers/code-generation-imported-apis.md#generate-sdk)
+* [Download SDK](../../doc/controllers/code-generation-imported-apis.md#download-sdk)
+* [List All Code Generations](../../doc/controllers/code-generation-imported-apis.md#list-all-code-generations)
+* [Get a Code Generation](../../doc/controllers/code-generation-imported-apis.md#get-a-code-generation)
+* [Delete Code Generation](../../doc/controllers/code-generation-imported-apis.md#delete-code-generation)
 
 
 # Generate SDK
@@ -50,26 +50,19 @@ const apiEntityId = 'api_entity_id4';
 
 const template = Platforms.CsNetStandardLib;
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationImportedApIsController.generateSdk(
-    apiEntityId,
-    template
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationImportedApisController.generateSdk(
+  apiEntityId,
+  template
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -104,26 +97,19 @@ const apiEntityId = 'api_entity_id4';
 
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationImportedApIsController.downloadSdk(
-    apiEntityId,
-    codegenId
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationImportedApisController.downloadSdk(
+  apiEntityId,
+  codegenId
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -154,23 +140,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const apiEntityId = 'api_entity_id4';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationImportedApIsController.listAllCodeGenerations(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationImportedApisController.listAllCodeGenerations(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -205,26 +184,19 @@ const apiEntityId = 'api_entity_id4';
 
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationImportedApIsController.getACodeGeneration(
-    apiEntityId,
-    codegenId
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationImportedApisController.getACodeGeneration(
+  apiEntityId,
+  codegenId
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -259,25 +231,18 @@ const apiEntityId = 'api_entity_id4';
 
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationImportedApIsController.deleteCodeGeneration(
-    apiEntityId,
-    codegenId
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationImportedApisController.deleteCodeGeneration(
+  apiEntityId,
+  codegenId
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 

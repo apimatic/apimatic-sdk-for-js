@@ -13,7 +13,7 @@ import { Platforms, platformsSchema } from '../models/platforms';
 import { array, string } from '../schema';
 import { BaseController } from './baseController';
 
-export class CodeGenerationImportedApIsController extends BaseController {
+export class CodeGenerationImportedApisController extends BaseController {
   /**
    * Generate an SDK for an API Version.
    *
