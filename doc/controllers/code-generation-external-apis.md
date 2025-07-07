@@ -1,22 +1,22 @@
-# Code Generation-External AP Is
+# Code Generation-External APIs
 
 ```ts
-const codeGenerationExternalApIsController = new CodeGenerationExternalApIsController(client);
+const codeGenerationExternalApisController = new CodeGenerationExternalApisController(client);
 ```
 
 ## Class Name
 
-`CodeGenerationExternalApIsController`
+`CodeGenerationExternalApisController`
 
 ## Methods
 
-* [Generate SDK Via File](../../doc/controllers/code-generation-external-ap-is.md#generate-sdk-via-file)
-* [Generate SDK Via URL](../../doc/controllers/code-generation-external-ap-is.md#generate-sdk-via-url)
-* [Download SDK](../../doc/controllers/code-generation-external-ap-is.md#download-sdk)
-* [List All Code Generations](../../doc/controllers/code-generation-external-ap-is.md#list-all-code-generations)
-* [Download Input File](../../doc/controllers/code-generation-external-ap-is.md#download-input-file)
-* [Get a Code Generation](../../doc/controllers/code-generation-external-ap-is.md#get-a-code-generation)
-* [Delete Code Generation 1](../../doc/controllers/code-generation-external-ap-is.md#delete-code-generation-1)
+* [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
+* [Generate SDK Via URL](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
+* [Download SDK](../../doc/controllers/code-generation-external-apis.md#download-sdk)
+* [List All Code Generations](../../doc/controllers/code-generation-external-apis.md#list-all-code-generations)
+* [Download Input File](../../doc/controllers/code-generation-external-apis.md#download-input-file)
+* [Get a Code Generation](../../doc/controllers/code-generation-external-apis.md#get-a-code-generation)
+* [Delete Code Generation 1](../../doc/controllers/code-generation-external-apis.md#delete-code-generation-1)
 
 
 # Generate SDK Via File
@@ -54,26 +54,19 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const template = Platforms.CsNetStandardLib;
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.generateSdkViaFile(
-    file,
-    template
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSdkViaFile(
+  file,
+  template
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -111,23 +104,16 @@ const body: GenerateSdkViaUrlRequest = {
   template: Platforms.CsNetStandardLib,
 };
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.generateSdkViaUrl(body);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSdkViaUrl(body);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -158,23 +144,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.downloadSdk(codegenId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.downloadSdk(codegenId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -201,23 +180,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ## Example Usage
 
 ```ts
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.listAllCodeGenerations();
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.listAllCodeGenerations();
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -248,23 +220,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.downloadInputFile(codegenId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.downloadInputFile(codegenId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -295,23 +260,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.getACodeGeneration(codegenId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.getACodeGeneration(codegenId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -342,22 +300,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 ```ts
 const codegenId = 'codegen_id6';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await codeGenerationExternalApIsController.deleteCodeGeneration1(codegenId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.deleteCodeGeneration1(codegenId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 

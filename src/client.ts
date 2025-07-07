@@ -21,7 +21,6 @@ import {
 import { ApiLogger, LoggingOptions, mergeLoggingOptions } from './core';
 import { ApiError } from './core';
 import { setHeader } from './core';
-import { updateUserAgent } from './core';
 import {
   AbortError,
   AuthenticatorInterface,
@@ -37,7 +36,6 @@ export class Client implements ClientInterface {
   private _retryConfig: RetryConfiguration;
   private _loggingOp: LoggingOptions;
   private _requestBuilderFactory: SdkRequestBuilderFactory;
-  private _userAgent: string;
 
   constructor(config?: Partial<Configuration>) {
     this._config = {
@@ -58,9 +56,6 @@ export class Client implements ClientInterface {
       typeof this._config.httpClientOptions?.timeout != 'undefined'
         ? this._config.httpClientOptions.timeout
         : this._config.timeout;
-    this._userAgent = updateUserAgent(
-      'TypeScript-SDK/3.0.0 [OS: {os-info}, Engine: {engine}/{engine-version}]'
-    );
     this._requestBuilderFactory = createRequestHandlerFactory(
       (server) => getBaseUri(server, this._config),
       createAuthProviderFromConfig(this._config),
@@ -72,8 +67,8 @@ export class Client implements ClientInterface {
       }),
       [
         withErrorHandlers,
-        withUserAgent(this._userAgent),
         withAuthenticationByDefault,
+        withUserAgent(this._config),
       ],
       this._retryConfig,
       this._loggingOp
@@ -143,7 +138,7 @@ function withErrorHandlers(rb: SdkRequestBuilder) {
   rb.defaultToError(ApiError);
 }
 
-function withUserAgent(userAgent: string) {
+function withUserAgent({ userAgent }: { userAgent: string }) {
   return (rb: SdkRequestBuilder) => {
     rb.interceptRequest((request) => {
       const headers = request.headers ?? {};

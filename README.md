@@ -77,6 +77,7 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
+| userAgent | `string` |  |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
 | httpClientOptions | [`Partial<HttpClientOptions>`](doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
@@ -90,6 +91,7 @@ const client = new Client({
   customHeaderAuthenticationCredentials: {
     'Authorization': 'Authorization'
   },
+  userAgent: 'user-agent',
   timeout: 30000,
   logging: {
     logLevel: LogLevel.Info,
@@ -111,12 +113,12 @@ This API uses the following authentication schemes.
 
 ## List of APIs
 
-* [AP Is Management](doc/controllers/ap-is-management.md)
-* [Code Generation-Imported AP Is](doc/controllers/code-generation-imported-ap-is.md)
-* [Code Generation-External AP Is](doc/controllers/code-generation-external-ap-is.md)
+* [APIs Management](doc/controllers/apis-management.md)
+* [Code Generation-Imported APIs](doc/controllers/code-generation-imported-apis.md)
+* [Code Generation-External APIs](doc/controllers/code-generation-external-apis.md)
 * [Docs Portal Management](doc/controllers/docs-portal-management.md)
-* [API Validation-Imported AP Is](doc/controllers/api-validation-imported-ap-is.md)
-* [API Validation-External AP Is](doc/controllers/api-validation-external-ap-is.md)
+* [API Validation-Imported APIs](doc/controllers/api-validation-imported-apis.md)
+* [API Validation-External APIs](doc/controllers/api-validation-external-apis.md)
 * [Docs Portal Generation-Async](doc/controllers/docs-portal-generation-async.md)
 * [Transformation](doc/controllers/transformation.md)
 
