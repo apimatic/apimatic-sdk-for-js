@@ -8,7 +8,7 @@ import { ApiResponse, RequestOptions } from '../core';
 import { ApiEntityCodeGeneration } from '../models/apiEntityCodeGeneration';
 import { Platforms } from '../models/platforms';
 import { BaseController } from './baseController';
-export declare class CodeGenerationImportedApIsController extends BaseController {
+export declare class CodeGenerationImportedApisController extends BaseController {
     /**
      * Generate an SDK for an API Version.
      *
@@ -62,4 +62,4 @@ export declare class CodeGenerationImportedApIsController extends BaseController
      */
     deleteCodeGeneration(apiEntityId: string, codegenId: string, requestOptions?: RequestOptions): Promise<ApiResponse<void>>;
 }
-//# sourceMappingURL=codeGenerationImportedApIsController.d.ts.map
+//# sourceMappingURL=codeGenerationImportedApisController.d.ts.map

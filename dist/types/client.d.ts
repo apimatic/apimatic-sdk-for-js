@@ -11,7 +11,6 @@ export declare class Client implements ClientInterface {
     private _retryConfig;
     private _loggingOp;
     private _requestBuilderFactory;
-    private _userAgent;
     constructor(config?: Partial<Configuration>);
     getRequestBuilderFactory(): SdkRequestBuilderFactory;
     /**

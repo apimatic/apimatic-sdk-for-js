@@ -8,7 +8,7 @@ import { docsValidationSummarySchema, } from '../models/docsValidationSummary';
 import { string } from '../schema';
 import { BaseController } from './baseController';
 import { ApiError } from '@apimatic/core';
-export class ApiValidationImportedApIsController extends BaseController {
+export class ApiValidationImportedApisController extends BaseController {
     /**
      * Validate an API using the [APIMatic Validator](https://docs.apimatic.io/generate-sdks/overview-
      * sdks#step-2-api-validation).
@@ -48,4 +48,4 @@ export class ApiValidationImportedApIsController extends BaseController {
         return req.callAsJson(docsValidationSummarySchema, requestOptions);
     }
 }
-//# sourceMappingURL=apiValidationImportedApIsController.js.map
+//# sourceMappingURL=apiValidationImportedApisController.js.map

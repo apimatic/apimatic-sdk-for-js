@@ -11,6 +11,7 @@ var core_1 = require("./core");
 /** Default values for the configuration parameters of the client. */
 exports.DEFAULT_CONFIGURATION = {
     timeout: 30000,
+    userAgent: '',
     environment: configuration_1.Environment.Production
 };
 /** Default values for retry configuration parameters. */

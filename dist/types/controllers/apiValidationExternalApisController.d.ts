@@ -7,7 +7,7 @@ import { ApiResponse, FileWrapper, RequestOptions } from '../core';
 import { ApiValidationSummary } from '../models/apiValidationSummary';
 import { ContentType } from '../models/contentType';
 import { BaseController } from './baseController';
-export declare class ApiValidationExternalApIsController extends BaseController {
+export declare class ApiValidationExternalApisController extends BaseController {
     /**
      * Validate an API by uploading the API specification file.
      *
@@ -35,4 +35,4 @@ export declare class ApiValidationExternalApIsController extends BaseController 
      */
     validateApiViaUrl(descriptionUrl: string, requestOptions?: RequestOptions): Promise<ApiResponse<ApiValidationSummary>>;
 }
-//# sourceMappingURL=apiValidationExternalApIsController.d.ts.map
+//# sourceMappingURL=apiValidationExternalApisController.d.ts.map

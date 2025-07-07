@@ -1,3 +1,10 @@
+# [0.2.0-alpha.2](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.1...v0.2.0-alpha.2) (2025-07-07)
+
+
+### Features
+
+* add user-agent parameter in sdk client ([#10](https://github.com/apimatic/apimatic-sdk-for-js/issues/10)) ([d36fd17](https://github.com/apimatic/apimatic-sdk-for-js/commit/d36fd17ad76ba8c6ba17f0ce160bf462d7310551))
+
 # [0.2.0-alpha.1](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.1.0-alpha.2...v0.2.0-alpha.1) (2025-07-07)
 
 

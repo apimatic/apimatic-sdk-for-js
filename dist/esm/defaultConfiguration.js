@@ -8,6 +8,7 @@ import { mergeLoggingOptions, NullLogger, } from './core';
 /** Default values for the configuration parameters of the client. */
 export const DEFAULT_CONFIGURATION = {
     timeout: 30000,
+    userAgent: '',
     environment: Environment.Production,
 };
 /** Default values for retry configuration parameters. */

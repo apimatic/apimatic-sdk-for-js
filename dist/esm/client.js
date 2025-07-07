@@ -9,7 +9,6 @@ import { DEFAULT_CONFIGURATION, DEFAULT_RETRY_CONFIG, DEFAULT_LOGGING_OPTIONS, }
 import { ApiLogger, mergeLoggingOptions } from './core';
 import { ApiError } from './core';
 import { setHeader } from './core';
-import { updateUserAgent } from './core';
 import { AbortError, createRequestBuilderFactory, } from './core';
 import { HttpClient } from './clientAdapter';
 export class Client {
@@ -24,7 +23,6 @@ export class Client {
             typeof ((_d = this._config.httpClientOptions) === null || _d === void 0 ? void 0 : _d.timeout) != 'undefined'
                 ? this._config.httpClientOptions.timeout
                 : this._config.timeout;
-        this._userAgent = updateUserAgent('TypeScript-SDK/3.0.0 [OS: {os-info}, Engine: {engine}/{engine-version}]');
         this._requestBuilderFactory = createRequestHandlerFactory((server) => getBaseUri(server, this._config), createAuthProviderFromConfig(this._config), new HttpClient(AbortError, {
             timeout: this._timeout,
             clientConfigOverrides: this._config.unstable_httpClientOptions,
@@ -32,8 +30,8 @@ export class Client {
             httpsAgent: (_f = this._config.httpClientOptions) === null || _f === void 0 ? void 0 : _f.httpsAgent,
         }), [
             withErrorHandlers,
-            withUserAgent(this._userAgent),
             withAuthenticationByDefault,
+            withUserAgent(this._config),
         ], this._retryConfig, this._loggingOp);
     }
     getRequestBuilderFactory() {
@@ -73,7 +71,7 @@ function tap(requestBuilderFactory, ...callback) {
 function withErrorHandlers(rb) {
     rb.defaultToError(ApiError);
 }
-function withUserAgent(userAgent) {
+function withUserAgent({ userAgent }) {
     return (rb) => {
         rb.interceptRequest((request) => {
             var _a;

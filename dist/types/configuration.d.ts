@@ -8,6 +8,7 @@ import { PartialLoggingOptions } from './core';
 /** An interface for all configuration parameters required by the SDK. */
 export interface Configuration {
     timeout: number;
+    userAgent: string;
     environment: Environment;
     customHeaderAuthenticationCredentials?: {
         'Authorization': string;

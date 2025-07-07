@@ -7,7 +7,7 @@ import { ApiResponse, RequestOptions } from '../core';
 import { ApiValidationSummary } from '../models/apiValidationSummary';
 import { DocsValidationSummary } from '../models/docsValidationSummary';
 import { BaseController } from './baseController';
-export declare class ApiValidationImportedApIsController extends BaseController {
+export declare class ApiValidationImportedApisController extends BaseController {
     /**
      * Validate an API using the [APIMatic Validator](https://docs.apimatic.io/generate-sdks/overview-
      * sdks#step-2-api-validation).
@@ -25,4 +25,4 @@ export declare class ApiValidationImportedApIsController extends BaseController 
      */
     validateApiForDocs(apiEntityId: string, requestOptions?: RequestOptions): Promise<ApiResponse<DocsValidationSummary>>;
 }
-//# sourceMappingURL=apiValidationImportedApIsController.d.ts.map
+//# sourceMappingURL=apiValidationImportedApisController.d.ts.map

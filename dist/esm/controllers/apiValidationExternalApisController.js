@@ -8,7 +8,7 @@ import { contentTypeSchema } from '../models/contentType';
 import { string } from '../schema';
 import { BaseController } from './baseController';
 import { ApiError } from '@apimatic/core';
-export class ApiValidationExternalApIsController extends BaseController {
+export class ApiValidationExternalApisController extends BaseController {
     /**
      * Validate an API by uploading the API specification file.
      *
@@ -63,4 +63,4 @@ export class ApiValidationExternalApIsController extends BaseController {
         return req.callAsJson(apiValidationSummarySchema, requestOptions);
     }
 }
-//# sourceMappingURL=apiValidationExternalApIsController.js.map
+//# sourceMappingURL=apiValidationExternalApisController.js.map

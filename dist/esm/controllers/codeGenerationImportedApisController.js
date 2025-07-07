@@ -7,7 +7,7 @@ import { apiEntityCodeGenerationSchema, } from '../models/apiEntityCodeGeneratio
 import { platformsSchema } from '../models/platforms';
 import { array, string } from '../schema';
 import { BaseController } from './baseController';
-export class CodeGenerationImportedApIsController extends BaseController {
+export class CodeGenerationImportedApisController extends BaseController {
     /**
      * Generate an SDK for an API Version.
      *
@@ -105,4 +105,4 @@ export class CodeGenerationImportedApIsController extends BaseController {
         return req.call(requestOptions);
     }
 }
-//# sourceMappingURL=codeGenerationImportedApIsController.js.map
+//# sourceMappingURL=codeGenerationImportedApisController.js.map

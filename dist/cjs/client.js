@@ -14,7 +14,6 @@ var core_1 = require("./core");
 var core_2 = require("./core");
 var core_3 = require("./core");
 var core_4 = require("./core");
-var core_5 = require("./core");
 var clientAdapter_1 = require("./clientAdapter");
 var Client = /** @class */ (function () {
     function Client(config) {
@@ -29,16 +28,15 @@ var Client = /** @class */ (function () {
             typeof ((_d = this._config.httpClientOptions) === null || _d === void 0 ? void 0 : _d.timeout) != 'undefined'
                 ? this._config.httpClientOptions.timeout
                 : this._config.timeout;
-        this._userAgent = (0, core_4.updateUserAgent)('TypeScript-SDK/3.0.0 [OS: {os-info}, Engine: {engine}/{engine-version}]');
-        this._requestBuilderFactory = createRequestHandlerFactory(function (server) { return getBaseUri(server, _this._config); }, (0, authProvider_1.createAuthProviderFromConfig)(this._config), new clientAdapter_1.HttpClient(core_5.AbortError, {
+        this._requestBuilderFactory = createRequestHandlerFactory(function (server) { return getBaseUri(server, _this._config); }, (0, authProvider_1.createAuthProviderFromConfig)(this._config), new clientAdapter_1.HttpClient(core_4.AbortError, {
             timeout: this._timeout,
             clientConfigOverrides: this._config.unstable_httpClientOptions,
             httpAgent: (_e = this._config.httpClientOptions) === null || _e === void 0 ? void 0 : _e.httpAgent,
             httpsAgent: (_f = this._config.httpClientOptions) === null || _f === void 0 ? void 0 : _f.httpsAgent
         }), [
             withErrorHandlers,
-            withUserAgent(this._userAgent),
             withAuthenticationByDefault,
+            withUserAgent(this._config),
         ], this._retryConfig, this._loggingOp);
     }
     Client.prototype.getRequestBuilderFactory = function () {
@@ -74,7 +72,7 @@ function getBaseUri(server, config) {
     throw new Error('Could not get Base URL. Invalid environment or server.');
 }
 function createRequestHandlerFactory(baseUrlProvider, authProvider, httpClient, addons, retryConfig, loggingOptions) {
-    var requestBuilderFactory = (0, core_5.createRequestBuilderFactory)(createHttpClientAdapter(httpClient), baseUrlProvider, core_2.ApiError, authProvider, retryConfig, undefined, new core_1.ApiLogger(loggingOptions));
+    var requestBuilderFactory = (0, core_4.createRequestBuilderFactory)(createHttpClientAdapter(httpClient), baseUrlProvider, core_2.ApiError, authProvider, retryConfig, undefined, new core_1.ApiLogger(loggingOptions));
     return tap.apply(void 0, tslib_1.__spreadArray([requestBuilderFactory], addons, false));
 }
 function tap(requestBuilderFactory) {
@@ -95,7 +93,8 @@ function tap(requestBuilderFactory) {
 function withErrorHandlers(rb) {
     rb.defaultToError(core_2.ApiError);
 }
-function withUserAgent(userAgent) {
+function withUserAgent(_a) {
+    var userAgent = _a.userAgent;
     return function (rb) {
         rb.interceptRequest(function (request) {
             var _a;
