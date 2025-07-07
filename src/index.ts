@@ -19,11 +19,11 @@ export {
   ConsoleLogger,
 } from './core';
 export * from './defaultConfiguration';
-export * from './controllers/apiValidationExternalApIsController';
-export * from './controllers/apiValidationImportedApIsController';
-export * from './controllers/apIsManagementController';
-export * from './controllers/codeGenerationExternalApIsController';
-export * from './controllers/codeGenerationImportedApIsController';
+export * from './controllers/apiValidationExternalApisController';
+export * from './controllers/apiValidationImportedApisController';
+export * from './controllers/apisManagementController';
+export * from './controllers/codeGenerationExternalApisController';
+export * from './controllers/codeGenerationImportedApisController';
 export * from './controllers/docsPortalGenerationAsyncController';
 export * from './controllers/docsPortalManagementController';
 export * from './controllers/transformationController';

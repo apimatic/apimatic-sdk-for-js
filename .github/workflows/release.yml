@@ -29,7 +29,7 @@ jobs:
         working-directory: sdk
         run: |
           npm install
-          npm install --save-dev @semantic-release/changelog @semantic-release/git
+          npm install --save-dev @semantic-release/changelog @semantic-release/git @semantic-release/exec
       - name: Check Build
         working-directory: sdk
         run: npm run build

@@ -56,23 +56,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 ```ts
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.publishHostedPortal(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.publishHostedPortal(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -113,23 +106,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 ```ts
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.publishEmbeddedPortal(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.publishEmbeddedPortal(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -170,26 +156,19 @@ const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 const accept = Accept3.EnumApplicationzip;
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaApiEntity(
-    apiEntityId,
-    accept
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaApiEntity(
+  apiEntityId,
+  accept
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -230,26 +209,19 @@ const contentType = ContentType.EnumMultipartformdata;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
-    contentType,
-    file
-  );
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
+  contentType,
+  file
+);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 ## Errors
@@ -293,23 +265,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const apiGroupId = 'apiGroupId8';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForUnpublishedPortal(apiGroupId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForUnpublishedPortal(apiGroupId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -343,23 +308,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const apiGroupId = 'apiGroupId8';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForPublishedPortal(apiGroupId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForPublishedPortal(apiGroupId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 
 
@@ -394,22 +352,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 ```ts
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
-async function makeApiCall() {
-  try {
-    // @ts-expect-error: unused variables
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { result, ...httpResponse } = await docsPortalManagementController.unpublishPortal(apiEntityId);
-    // Get more response info...
-    // const { statusCode, headers } = httpResponse;
-  } catch (error) {
-    if (error instanceof ApiError) {
-      // @ts-expect-error: unused variables
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const errors = error.result;
-      // const { statusCode, headers } = error;
-    }
+try {
+  const { result, ...httpResponse } = await docsPortalManagementController.unpublishPortal(apiEntityId);
+  // Get more response info...
+  // const { statusCode, headers } = httpResponse;
+} catch (error) {
+  if (error instanceof ApiError) {
+    const errors = error.result;
+    // const { statusCode, headers } = error;
   }
-};
-makeApiCall();
+}
 ```
 

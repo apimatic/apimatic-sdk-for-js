@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   branches: [
-    'main',
     {
       name: 'alpha',
       prerelease: true,
     },
   ],
+  tagFormat: 'v${version}',
   plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
