@@ -1,0 +1,1 @@
+{"version":3,"file":"portalGenerationStatusResponse.d.ts","sourceRoot":"","sources":["../../../src/models/portalGenerationStatusResponse.ts"],"names":[],"mappings":"AAAA;;;;GAIG;AAEH,OAAO,EAAU,MAAM,EAAE,MAAM,WAAW,CAAC;AAC3C,OAAO,EAAE,MAAM,EAAgB,MAAM,UAAU,CAAC;AAEhD,MAAM,WAAW,8BAA8B;IAC7C,MAAM,EAAE,MAAM,CAAC;CAChB;AAED,eAAO,MAAM,oCAAoC,EAAE,MAAM,CAAC,8BAA8B,CAEvF,CAAC"}
