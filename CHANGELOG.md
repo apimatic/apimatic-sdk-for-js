@@ -1,3 +1,10 @@
+# [0.2.0-alpha.3](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.2...v0.2.0-alpha.3) (2025-08-06)
+
+
+### Features
+
+* Added responses for generate-via-file endpoint ([#12](https://github.com/apimatic/apimatic-sdk-for-js/issues/12)) ([a53c27c](https://github.com/apimatic/apimatic-sdk-for-js/commit/a53c27cc57bfff3b663264c636634dc0a48c726d))
+
 # [0.2.0-alpha.2](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.1...v0.2.0-alpha.2) (2025-07-07)
 
 
