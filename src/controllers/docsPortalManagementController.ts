@@ -5,7 +5,7 @@
  */
 
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
-import { Accept3, accept3Schema } from '../models/accept3';
+import { Accept4, accept4Schema } from '../models/accept4';
 import { ContentType, contentTypeSchema } from '../models/contentType';
 import { array, optional, string, unknown } from '../schema';
 import { BaseController } from './baseController';
@@ -92,13 +92,13 @@ export class DocsPortalManagementController extends BaseController {
    */
   async generateOnPremPortalViaApiEntity(
     apiEntityId: string,
-    accept: Accept3,
+    accept: Accept4,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<void>> {
     const req = this.createRequest('GET');
     const mapped = req.prepareArgs({
       apiEntityId: [apiEntityId, string()],
-      accept: [accept, accept3Schema],
+      accept: [accept, accept4Schema],
     });
     req.header('Accept', mapped.accept);
     req.appendTemplatePath`/api-entities/${mapped.apiEntityId}/on-prem-portal`;

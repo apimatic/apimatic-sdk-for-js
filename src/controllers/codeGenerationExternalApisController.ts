@@ -5,6 +5,7 @@
  */
 
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
+import { Accept, acceptSchema } from '../models/accept';
 import {
   GenerateSdkViaUrlRequest,
   generateSdkViaUrlRequestSchema,
@@ -16,6 +17,9 @@ import {
 } from '../models/userCodeGeneration';
 import { array, string } from '../schema';
 import { BaseController } from './baseController';
+import { BadRequestResponseSdkError } from '../errors/badRequestResponseSdkError';
+import { ProblemDetailsError } from '../errors/problemDetailsError';
+import { UnauthorizedResponseError } from '../errors/unauthorizedResponseError';
 
 export class CodeGenerationExternalApisController extends BaseController {
   /**
@@ -26,6 +30,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    *
    * This endpoint does not import an API into APIMatic.
    *
+   * @param accept   Must be set to 'application/json' to ensure JSON response format
    * @param file     The API specification file.<br>The type of the specification file should be any of
    *                                the [supported formats](https://docs.apimatic.io/api-transformer/overview-
    *                                transformer#supported-input-formats).
@@ -34,6 +39,7 @@ export class CodeGenerationExternalApisController extends BaseController {
    * @return Response from the API call
    */
   async generateSdkViaFile(
+    accept: Accept,
     file: FileWrapper,
     template: Platforms,
     requestOptions?: RequestOptions
@@ -42,8 +48,15 @@ export class CodeGenerationExternalApisController extends BaseController {
       'POST',
       '/code-generations/generate-via-file'
     );
-    const mapped = req.prepareArgs({ template: [template, platformsSchema] });
+    const mapped = req.prepareArgs({
+      accept: [accept, acceptSchema],
+      template: [template, platformsSchema],
+    });
+    req.header('Accept', mapped.accept);
     req.formData({ file: file, template: mapped.template });
+    req.throwOn(400, BadRequestResponseSdkError, 'Bad Request');
+    req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
+    req.throwOn(403, ProblemDetailsError, 'Subscription Issue');
     req.authenticate([{ authorization: true }]);
     return req.callAsJson(userCodeGenerationSchema, requestOptions);
   }

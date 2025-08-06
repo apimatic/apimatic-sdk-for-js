@@ -1,11 +1,5 @@
 {
-  "name": "@apimatic/sdk",
-  "description": "This API gives you programmatic access to APIMatic's Code Generation, Transformers Engine and Docs Generation.",
-  "author": {
-    "name": "Team APIMatic",
-    "email": "contactus@apimatic.io"
-  },
-  "version": "0.2.0-alpha.2",
+  "version": "3.0.0",
   "license": "MIT",
   "sideEffects": false,
   "main": "dist/cjs/index.js",
@@ -18,26 +12,25 @@
   "engines": {
     "node": ">=14.17.0"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "apimatic",
-    "sdk",
-    "api"
-  ],
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json",
     "prepare": "rimraf dist && tsc -p tsconfig.esm.json & tsc -p tsconfig.cjs.json",
     "lint": "eslint **/*.ts --ignore-path .eslintignore",
     "lint:fix": "eslint **/*.ts --ignore-path .eslintignore --fix"
   },
+  "peerDependencies": {},
   "prettier": {
     "printWidth": 80,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5",
     "quoteProps": "preserve"
+  },
+  "name": "apimatic-apilib",
+  "description": "This API gives you programmatic access to APIMatic's Code Generation, Docs Generation and Transformation Engine",
+  "author": {
+    "name": "Team APIMatic",
+    "email": "contactus@apimatic.io"
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
@@ -51,10 +44,10 @@
     "typescript": "^4.9.5"
   },
   "dependencies": {
-    "@apimatic/authentication-adapters": "^0.5.4",
-    "@apimatic/axios-client-adapter": "^0.3.7",
-    "@apimatic/core": "^0.10.16",
-    "@apimatic/schema": "^0.7.14"
+    "@apimatic/authentication-adapters": "^0.5.10",
+    "@apimatic/axios-client-adapter": "^0.3.14",
+    "@apimatic/core": "^0.10.21",
+    "@apimatic/schema": "^0.7.17"
   },
   "bugs": {
     "email": "contactus@apimatic.io"

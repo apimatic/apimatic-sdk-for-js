@@ -64,6 +64,7 @@ export class Client implements ClientInterface {
         clientConfigOverrides: this._config.unstable_httpClientOptions,
         httpAgent: this._config.httpClientOptions?.httpAgent,
         httpsAgent: this._config.httpClientOptions?.httpsAgent,
+        proxySettings: this._config.httpClientOptions?.proxySettings,
       }),
       [
         withErrorHandlers,
