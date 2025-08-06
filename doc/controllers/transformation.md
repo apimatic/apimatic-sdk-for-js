@@ -45,7 +45,7 @@ async transformViaFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation](../../doc/models/transformation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation`](../../doc/models/transformation.md).
 
 ## Example Usage
 
@@ -58,10 +58,10 @@ const exportFormat = ExportFormats.Wsdl;
 
 try {
   const { result, ...httpResponse } = await transformationController.transformViaFile(
-  contentType,
-  file,
-  exportFormat
-);
+    contentType,
+    file,
+    exportFormat
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -95,7 +95,7 @@ async transformViaUrl(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation](../../doc/models/transformation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation`](../../doc/models/transformation.md).
 
 ## Example Usage
 
@@ -138,7 +138,7 @@ async downloadTransformedFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -178,7 +178,7 @@ async downloadInputFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -216,7 +216,7 @@ async listAllTransformations(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation[]](../../doc/models/transformation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation[]`](../../doc/models/transformation.md).
 
 ## Example Usage
 
@@ -254,7 +254,7 @@ async getATransformation(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [Transformation](../../doc/models/transformation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation`](../../doc/models/transformation.md).
 
 ## Example Usage
 

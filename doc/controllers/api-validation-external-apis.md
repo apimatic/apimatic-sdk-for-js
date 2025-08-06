@@ -38,7 +38,7 @@ async validateApiViaFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiValidationSummary](../../doc/models/api-validation-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiValidationSummary`](../../doc/models/api-validation-summary.md).
 
 ## Example Usage
 
@@ -49,9 +49,9 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
   const { result, ...httpResponse } = await apiValidationExternalApisController.validateApiViaFile(
-  contentType,
-  file
-);
+    contentType,
+    file
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -137,7 +137,7 @@ async validateApiViaUrl(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiValidationSummary](../../doc/models/api-validation-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiValidationSummary`](../../doc/models/api-validation-summary.md).
 
 ## Example Usage
 

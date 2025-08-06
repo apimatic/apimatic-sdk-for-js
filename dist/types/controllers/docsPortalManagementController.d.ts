@@ -5,7 +5,7 @@
  */
 /// <reference types="node" />
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
-import { Accept3 } from '../models/accept3';
+import { Accept4 } from '../models/accept4';
 import { ContentType } from '../models/contentType';
 import { BaseController } from './baseController';
 export declare class DocsPortalManagementController extends BaseController {
@@ -64,7 +64,7 @@ export declare class DocsPortalManagementController extends BaseController {
      * @param accept        Example: application/zip
      * @return Response from the API call
      */
-    generateOnPremPortalViaApiEntity(apiEntityId: string, accept: Accept3, requestOptions?: RequestOptions): Promise<ApiResponse<void>>;
+    generateOnPremPortalViaApiEntity(apiEntityId: string, accept: Accept4, requestOptions?: RequestOptions): Promise<ApiResponse<void>>;
     /**
      * Generate an On-premise Documentation Portal by uploading a Portal Build Input. This endpoint
      * generates all artifacts for the Portal and packages them together into a zip file along with the

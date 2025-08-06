@@ -7,11 +7,15 @@
 exports.__esModule = true;
 exports.CodeGenerationExternalApisController = void 0;
 var tslib_1 = require("tslib");
+var accept_1 = require("../models/accept");
 var generateSdkViaUrlRequest_1 = require("../models/generateSdkViaUrlRequest");
 var platforms_1 = require("../models/platforms");
 var userCodeGeneration_1 = require("../models/userCodeGeneration");
 var schema_1 = require("../schema");
 var baseController_1 = require("./baseController");
+var badRequestResponseSdkError_1 = require("../errors/badRequestResponseSdkError");
+var problemDetailsError_1 = require("../errors/problemDetailsError");
+var unauthorizedResponseError_1 = require("../errors/unauthorizedResponseError");
 var CodeGenerationExternalApisController = /** @class */ (function (_super) {
     tslib_1.__extends(CodeGenerationExternalApisController, _super);
     function CodeGenerationExternalApisController() {
@@ -25,6 +29,7 @@ var CodeGenerationExternalApisController = /** @class */ (function (_super) {
      *
      * This endpoint does not import an API into APIMatic.
      *
+     * @param accept   Must be set to 'application/json' to ensure JSON response format
      * @param file     The API specification file.<br>The type of the specification file should be any of
      *                                the [supported formats](https://docs.apimatic.io/api-transformer/overview-
      *                                transformer#supported-input-formats).
@@ -32,13 +37,20 @@ var CodeGenerationExternalApisController = /** @class */ (function (_super) {
      *                                in.
      * @return Response from the API call
      */
-    CodeGenerationExternalApisController.prototype.generateSdkViaFile = function (file, template, requestOptions) {
+    CodeGenerationExternalApisController.prototype.generateSdkViaFile = function (accept, file, template, requestOptions) {
         return tslib_1.__awaiter(this, void 0, void 0, function () {
             var req, mapped;
             return tslib_1.__generator(this, function (_a) {
                 req = this.createRequest('POST', '/code-generations/generate-via-file');
-                mapped = req.prepareArgs({ template: [template, platforms_1.platformsSchema] });
+                mapped = req.prepareArgs({
+                    accept: [accept, accept_1.acceptSchema],
+                    template: [template, platforms_1.platformsSchema]
+                });
+                req.header('Accept', mapped.accept);
                 req.formData({ file: file, template: mapped.template });
+                req.throwOn(400, badRequestResponseSdkError_1.BadRequestResponseSdkError, 'Bad Request');
+                req.throwOn(401, unauthorizedResponseError_1.UnauthorizedResponseError, 'Unauthorized');
+                req.throwOn(403, problemDetailsError_1.ProblemDetailsError, 'Subscription Issue');
                 req.authenticate([{ authorization: true }]);
                 return [2 /*return*/, req.callAsJson(userCodeGeneration_1.userCodeGenerationSchema, requestOptions)];
             });

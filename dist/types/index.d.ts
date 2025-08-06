@@ -5,7 +5,8 @@
  */
 export * from './client';
 export * from './configuration';
-export type { ApiResponse } from './core';
+export type { HttpClientOptions, ProxySettings } from './clientAdapter';
+export type { ApiResponse, RetryConfiguration } from './core';
 export { AbortError, ArgumentsValidationError, cloneFileWrapper, FileWrapper, isFileWrapper, ResponseValidationError, LoggerInterface, LogLevel, ConsoleLogger, } from './core';
 export * from './defaultConfiguration';
 export * from './controllers/apiValidationExternalApisController';
@@ -17,12 +18,13 @@ export * from './controllers/docsPortalGenerationAsyncController';
 export * from './controllers/docsPortalManagementController';
 export * from './controllers/transformationController';
 export { ApiError } from './core';
+export * from './errors/badRequestResponseSdkError';
 export * from './errors/internalServerErrorResponseError';
 export * from './errors/problemDetailsError';
 export * from './errors/unauthorizedResponseError';
 export { Accept } from './models/accept';
 export { Accept2 } from './models/accept2';
-export { Accept3 } from './models/accept3';
+export { Accept4 } from './models/accept4';
 export type { ApiEntity } from './models/apiEntity';
 export type { ApiEntityCodeGeneration } from './models/apiEntityCodeGeneration';
 export type { ApiEntityDetailed } from './models/apiEntityDetailed';

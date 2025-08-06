@@ -44,7 +44,7 @@ async importApiViaFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntity](../../doc/models/api-entity.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
 ## Example Usage
 
@@ -55,9 +55,9 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
   const { result, ...httpResponse } = await apisManagementController.importApiViaFile(
-  contentType,
-  file
-);
+    contentType,
+    file
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -100,7 +100,7 @@ async importApiViaUrl(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntity](../../doc/models/api-entity.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
 ## Example Usage
 
@@ -159,7 +159,7 @@ async importNewApiVersionViaFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntity](../../doc/models/api-entity.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
 ## Example Usage
 
@@ -174,11 +174,11 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
   const { result, ...httpResponse } = await apisManagementController.importNewApiVersionViaFile(
-  apiGroupId,
-  accept,
-  versionOverride,
-  file
-);
+    apiGroupId,
+    accept,
+    versionOverride,
+    file
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -216,7 +216,7 @@ async importNewApiVersionViaUrl(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntity](../../doc/models/api-entity.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
 ## Example Usage
 
@@ -232,10 +232,10 @@ const body: ImportApiVersionViaUrlRequest = {
 
 try {
   const { result, ...httpResponse } = await apisManagementController.importNewApiVersionViaUrl(
-  apiGroupId,
-  accept,
-  body
-);
+    apiGroupId,
+    accept,
+    body
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -286,10 +286,10 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
   const { result, ...httpResponse } = await apisManagementController.inplaceApiImportViaFile(
-  apiEntityId,
-  accept,
-  file
-);
+    apiEntityId,
+    accept,
+    file
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -338,9 +338,9 @@ const body: InplaceImportApiViaUrlRequest = {
 
 try {
   const { result, ...httpResponse } = await apisManagementController.inplaceApiImportViaUrl(
-  apiEntityId,
-  body
-);
+    apiEntityId,
+    body
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -372,7 +372,7 @@ async fetchApiEntity(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntity](../../doc/models/api-entity.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
 ## Example Usage
 
@@ -414,7 +414,7 @@ async downloadApisPecification(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -425,9 +425,9 @@ const format = ExportFormats.Apimatic;
 
 try {
   const { result, ...httpResponse } = await apisManagementController.downloadApisPecification(
-  apiEntityId,
-  format
-);
+    apiEntityId,
+    format
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {

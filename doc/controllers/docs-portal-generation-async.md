@@ -39,7 +39,7 @@ async generateOnPremPortalViaBuildInputAsync(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [PortalGenerationAsyncResponse](../../doc/models/portal-generation-async-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PortalGenerationAsyncResponse`](../../doc/models/portal-generation-async-response.md).
 
 ## Example Usage
 
@@ -50,9 +50,9 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
   const { result, ...httpResponse } = await docsPortalGenerationAsyncController.generateOnPremPortalViaBuildInputAsync(
-  contentType,
-  file
-);
+    contentType,
+    file
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -104,7 +104,7 @@ async getPortalGenerationStatus(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [PortalGenerationStatusResponse](../../doc/models/portal-generation-status-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PortalGenerationStatusResponse`](../../doc/models/portal-generation-status-response.md).
 
 ## Example Usage
 
@@ -168,7 +168,7 @@ async downloadGeneratedPortal(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 

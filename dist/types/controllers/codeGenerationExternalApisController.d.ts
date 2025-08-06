@@ -5,6 +5,7 @@
  */
 /// <reference types="node" />
 import { ApiResponse, FileWrapper, RequestOptions } from '../core';
+import { Accept } from '../models/accept';
 import { GenerateSdkViaUrlRequest } from '../models/generateSdkViaUrlRequest';
 import { Platforms } from '../models/platforms';
 import { UserCodeGeneration } from '../models/userCodeGeneration';
@@ -18,6 +19,7 @@ export declare class CodeGenerationExternalApisController extends BaseController
      *
      * This endpoint does not import an API into APIMatic.
      *
+     * @param accept   Must be set to 'application/json' to ensure JSON response format
      * @param file     The API specification file.<br>The type of the specification file should be any of
      *                                the [supported formats](https://docs.apimatic.io/api-transformer/overview-
      *                                transformer#supported-input-formats).
@@ -25,7 +27,7 @@ export declare class CodeGenerationExternalApisController extends BaseController
      *                                in.
      * @return Response from the API call
      */
-    generateSdkViaFile(file: FileWrapper, template: Platforms, requestOptions?: RequestOptions): Promise<ApiResponse<UserCodeGeneration>>;
+    generateSdkViaFile(accept: Accept, file: FileWrapper, template: Platforms, requestOptions?: RequestOptions): Promise<ApiResponse<UserCodeGeneration>>;
     /**
      * Generate an SDK for an API by providing the URL of the API specification file.
      *

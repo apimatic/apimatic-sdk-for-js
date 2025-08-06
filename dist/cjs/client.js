@@ -18,7 +18,7 @@ var clientAdapter_1 = require("./clientAdapter");
 var Client = /** @class */ (function () {
     function Client(config) {
         var _this = this;
-        var _a, _b, _c, _d, _e, _f;
+        var _a, _b, _c, _d, _e, _f, _g;
         this._config = tslib_1.__assign(tslib_1.__assign({}, defaultConfiguration_1.DEFAULT_CONFIGURATION), config);
         this._retryConfig = tslib_1.__assign(tslib_1.__assign({}, defaultConfiguration_1.DEFAULT_RETRY_CONFIG), (_a = this._config.httpClientOptions) === null || _a === void 0 ? void 0 : _a.retryConfig);
         this._loggingOp = this._config.logging
@@ -32,7 +32,8 @@ var Client = /** @class */ (function () {
             timeout: this._timeout,
             clientConfigOverrides: this._config.unstable_httpClientOptions,
             httpAgent: (_e = this._config.httpClientOptions) === null || _e === void 0 ? void 0 : _e.httpAgent,
-            httpsAgent: (_f = this._config.httpClientOptions) === null || _f === void 0 ? void 0 : _f.httpsAgent
+            httpsAgent: (_f = this._config.httpClientOptions) === null || _f === void 0 ? void 0 : _f.httpsAgent,
+            proxySettings: (_g = this._config.httpClientOptions) === null || _g === void 0 ? void 0 : _g.proxySettings
         }), [
             withErrorHandlers,
             withAuthenticationByDefault,

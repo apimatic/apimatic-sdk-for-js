@@ -7,7 +7,7 @@
 exports.__esModule = true;
 exports.DocsPortalManagementController = void 0;
 var tslib_1 = require("tslib");
-var accept3_1 = require("../models/accept3");
+var accept4_1 = require("../models/accept4");
 var contentType_1 = require("../models/contentType");
 var schema_1 = require("../schema");
 var baseController_1 = require("./baseController");
@@ -104,7 +104,7 @@ var DocsPortalManagementController = /** @class */ (function (_super) {
                 req = this.createRequest('GET');
                 mapped = req.prepareArgs({
                     apiEntityId: [apiEntityId, (0, schema_1.string)()],
-                    accept: [accept, accept3_1.accept3Schema]
+                    accept: [accept, accept4_1.accept4Schema]
                 });
                 req.header('Accept', mapped.accept);
                 req.appendTemplatePath(templateObject_3 || (templateObject_3 = tslib_1.__makeTemplateObject(["/api-entities/", "/on-prem-portal"], ["/api-entities/", "/on-prem-portal"])), mapped.apiEntityId);

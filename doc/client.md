@@ -15,6 +15,8 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```ts
+import { Client, LogLevel } from 'apimatic-apilib';
+
 const client = new Client({
   customHeaderAuthenticationCredentials: {
     'Authorization': 'Authorization'

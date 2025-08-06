@@ -41,7 +41,7 @@ async generateSdk(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntityCodeGeneration](../../doc/models/api-entity-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntityCodeGeneration`](../../doc/models/api-entity-code-generation.md).
 
 ## Example Usage
 
@@ -52,9 +52,9 @@ const template = Platforms.CsNetStandardLib;
 
 try {
   const { result, ...httpResponse } = await codeGenerationImportedApisController.generateSdk(
-  apiEntityId,
-  template
-);
+    apiEntityId,
+    template
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -88,7 +88,7 @@ async downloadSdk(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -99,9 +99,9 @@ const codegenId = 'codegen_id6';
 
 try {
   const { result, ...httpResponse } = await codeGenerationImportedApisController.downloadSdk(
-  apiEntityId,
-  codegenId
-);
+    apiEntityId,
+    codegenId
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -133,7 +133,7 @@ async listAllCodeGenerations(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntityCodeGeneration[]](../../doc/models/api-entity-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntityCodeGeneration[]`](../../doc/models/api-entity-code-generation.md).
 
 ## Example Usage
 
@@ -175,7 +175,7 @@ async getACodeGeneration(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiEntityCodeGeneration](../../doc/models/api-entity-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntityCodeGeneration`](../../doc/models/api-entity-code-generation.md).
 
 ## Example Usage
 
@@ -186,9 +186,9 @@ const codegenId = 'codegen_id6';
 
 try {
   const { result, ...httpResponse } = await codeGenerationImportedApisController.getACodeGeneration(
-  apiEntityId,
-  codegenId
-);
+    apiEntityId,
+    codegenId
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -233,9 +233,9 @@ const codegenId = 'codegen_id6';
 
 try {
   const { result, ...httpResponse } = await codeGenerationImportedApisController.deleteCodeGeneration(
-  apiEntityId,
-  codegenId
-);
+    apiEntityId,
+    codegenId
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {

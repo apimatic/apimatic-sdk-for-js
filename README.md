@@ -87,6 +87,8 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```ts
+import { Client, LogLevel } from 'apimatic-apilib';
+
 const client = new Client({
   customHeaderAuthenticationCredentials: {
     'Authorization': 'Authorization'
@@ -128,6 +130,7 @@ This API uses the following authentication schemes.
 
 * [HttpClientOptions](doc/http-client-options.md)
 * [RetryConfiguration](doc/retry-configuration.md)
+* [ProxySettings](doc/proxy-settings.md)
 * [PartialLoggingOptions](doc/partial-logging-options.md)
 * [PartialRequestLoggingOptions](doc/partial-request-logging-options.md)
 * [PartialResponseLoggingOptions](doc/partial-response-logging-options.md)

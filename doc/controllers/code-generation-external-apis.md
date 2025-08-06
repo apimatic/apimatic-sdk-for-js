@@ -29,6 +29,7 @@ This endpoint does not import an API into APIMatic.
 
 ```ts
 async generateSdkViaFile(
+  accept: Accept,
   file: FileWrapper,
   template: Platforms,
   requestOptions?: RequestOptions
@@ -39,26 +40,30 @@ async generateSdkViaFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
+| `accept` | [`Accept`](../../doc/models/accept.md) | Header, Required | Must be set to 'application/json' to ensure JSON response format |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `template` | [`Platforms`](../../doc/models/platforms.md) | Form, Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [UserCodeGeneration](../../doc/models/user-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration`](../../doc/models/user-code-generation.md).
 
 ## Example Usage
 
 ```ts
+const accept = Accept.EnumApplicationjson;
+
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const template = Platforms.CsNetStandardLib;
 
 try {
   const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSdkViaFile(
-  file,
-  template
-);
+    accept,
+    file,
+    template
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -68,6 +73,14 @@ try {
   }
 }
 ```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request | [`BadRequestResponseSdkError`](../../doc/models/bad-request-response-sdk-error.md) |
+| 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
+| 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 
 
 # Generate SDK Via URL
@@ -94,7 +107,7 @@ async generateSdkViaUrl(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [UserCodeGeneration](../../doc/models/user-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration`](../../doc/models/user-code-generation.md).
 
 ## Example Usage
 
@@ -137,7 +150,7 @@ async downloadSdk(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -175,7 +188,7 @@ async listAllCodeGenerations(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [UserCodeGeneration[]](../../doc/models/user-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration[]`](../../doc/models/user-code-generation.md).
 
 ## Example Usage
 
@@ -213,7 +226,7 @@ async downloadInputFile(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -253,7 +266,7 @@ async getACodeGeneration(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [UserCodeGeneration](../../doc/models/user-code-generation.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration`](../../doc/models/user-code-generation.md).
 
 ## Example Usage
 

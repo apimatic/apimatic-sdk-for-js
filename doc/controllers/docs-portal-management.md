@@ -132,7 +132,7 @@ The endpoint returns a zip file that contains a static Site and can be hosted on
 ```ts
 async generateOnPremPortalViaApiEntity(
   apiEntityId: string,
-  accept: Accept3,
+  accept: Accept4,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<void>>
 ```
@@ -142,7 +142,7 @@ async generateOnPremPortalViaApiEntity(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity to generate the Portal for. |
-| `accept` | [`Accept3`](../../doc/models/accept-3.md) | Header, Required | - |
+| `accept` | [`Accept4`](../../doc/models/accept-4.md) | Header, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -154,13 +154,13 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 ```ts
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
-const accept = Accept3.EnumApplicationzip;
+const accept = Accept4.EnumApplicationzip;
 
 try {
   const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaApiEntity(
-  apiEntityId,
-  accept
-);
+    apiEntityId,
+    accept
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -200,7 +200,7 @@ async generateOnPremPortalViaBuildInput(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type NodeJS.ReadableStream | Blob.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
@@ -211,9 +211,9 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
   const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
-  contentType,
-  file
-);
+    contentType,
+    file
+  );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {
@@ -245,7 +245,7 @@ async generateBuildInputForUnpublishedPortal(
   apiGroupId: string,
   apiEntities?: string[],
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown>>
+): Promise<ApiResponse<unknown | undefined>>
 ```
 
 ## Parameters
@@ -258,7 +258,7 @@ async generateBuildInputForUnpublishedPortal(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type unknown.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `unknown`.
 
 ## Example Usage
 
@@ -288,7 +288,7 @@ async generateBuildInputForPublishedPortal(
   apiGroupId: string,
   apiEntities?: string[],
   requestOptions?: RequestOptions
-): Promise<ApiResponse<unknown>>
+): Promise<ApiResponse<unknown | undefined>>
 ```
 
 ## Parameters
@@ -301,7 +301,7 @@ async generateBuildInputForPublishedPortal(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type unknown.
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `unknown`.
 
 ## Example Usage
 

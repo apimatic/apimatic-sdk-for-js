@@ -34,7 +34,7 @@ async validateApi(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [ApiValidationSummary](../../doc/models/api-validation-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiValidationSummary`](../../doc/models/api-validation-summary.md).
 
 ## Example Usage
 
@@ -126,7 +126,7 @@ async validateApiForDocs(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [DocsValidationSummary](../../doc/models/docs-validation-summary.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`DocsValidationSummary`](../../doc/models/docs-validation-summary.md).
 
 ## Example Usage
 

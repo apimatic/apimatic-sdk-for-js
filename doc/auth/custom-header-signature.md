@@ -22,6 +22,8 @@ Documentation for accessing and setting credentials for Authorization.
 You must provide credentials in the client as shown in the following code snippet.
 
 ```ts
+import { Client } from 'apimatic-apilib';
+
 const client = new Client({
   customHeaderAuthenticationCredentials: {
     'Authorization': 'Authorization'
