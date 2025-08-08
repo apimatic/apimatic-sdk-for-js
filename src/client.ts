@@ -20,6 +20,7 @@ import {
 } from './defaultConfiguration';
 import { ApiLogger, LoggingOptions, mergeLoggingOptions } from './core';
 import { ApiError } from './core';
+import { pathTemplate, SkipEncode } from './core';
 import { setHeader } from './core';
 import {
   AbortError,
@@ -98,6 +99,11 @@ function getBaseUri(server: Server = 'default', config: Configuration): string {
   if (config.environment === Environment.Production) {
     if (server === 'default') {
       return 'https://api.apimatic.io';
+    }
+  }
+  if (config.environment === Environment.Testing) {
+    if (server === 'default') {
+      return pathTemplate`${new SkipEncode(config.customUrl)}`;
     }
   }
   throw new Error('Could not get Base URL. Invalid environment or server.');
