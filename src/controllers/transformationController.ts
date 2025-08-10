@@ -35,6 +35,7 @@ export class TransformationController extends BaseController {
     contentType: ContentType,
     file: FileWrapper,
     exportFormat: ExportFormats,
+    queryParameters?: Record<string, string>,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<Transformation>> {
     const req = this.createRequest(
@@ -46,6 +47,7 @@ export class TransformationController extends BaseController {
       exportFormat: [exportFormat, exportFormatsSchema],
     });
     req.header('Content-Type', mapped.contentType);
+    req.query(queryParameters);
     req.formData({ file: file, export_format: mapped.exportFormat });
     req.authenticate([{ authorization: true }]);
     return req.callAsJson(transformationSchema, requestOptions);

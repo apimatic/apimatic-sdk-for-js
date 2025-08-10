@@ -124,6 +124,7 @@ export class DocsPortalManagementController extends BaseController {
   async generateOnPremPortalViaBuildInput(
     contentType: ContentType,
     file: FileWrapper,
+    queryParameters?: Record<string, string>,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
     const req = this.createRequest('POST', '/portal');
@@ -131,6 +132,7 @@ export class DocsPortalManagementController extends BaseController {
       contentType: [contentType, contentTypeSchema],
     });
     req.header('Content-Type', mapped.contentType);
+    req.query(queryParameters);
     req.formData({ file: file });
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
