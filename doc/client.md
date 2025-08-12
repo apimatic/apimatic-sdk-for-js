@@ -35,20 +35,3 @@ const client = new Client({
 });
 ```
 
-## Apimatic API Client
-
-The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
-
-## Controllers
-
-| Name | Description |
-|  --- | --- |
-| apisManagement | Gets ApisManagementController |
-| codeGenerationImportedApis | Gets CodeGenerationImportedApisController |
-| codeGenerationExternalApis | Gets CodeGenerationExternalApisController |
-| transformation | Gets TransformationController |
-| docsPortalManagement | Gets DocsPortalManagementController |
-| apiValidationImportedApis | Gets ApiValidationImportedApisController |
-| apiValidationExternalApis | Gets ApiValidationExternalApisController |
-| docsPortalGenerationAsync | Gets DocsPortalGenerationAsyncController |
-

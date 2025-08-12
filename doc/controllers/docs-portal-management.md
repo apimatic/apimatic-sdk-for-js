@@ -186,6 +186,7 @@ The endpoint returns a zip file that contains a static Site and can be hosted on
 async generateOnPremPortalViaBuildInput(
   contentType: ContentType,
   file: FileWrapper,
+  queryParameters?: Record<string, string>,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
@@ -196,6 +197,7 @@ async generateOnPremPortalViaBuildInput(
 |  --- | --- | --- | --- |
 | `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The input file to the Portal Generator. Must contain the build file. |
+| `queryParameters` | `Record<string, string>` | Optional | Pass additional query parameters. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -209,10 +211,15 @@ const contentType = ContentType.EnumMultipartformdata;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
+const queryParameters: Record<string, string> = {
+  'key0': 'additionalQueryParams2'
+};
+
 try {
   const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
     contentType,
-    file
+    file,
+    queryParameters
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
