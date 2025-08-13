@@ -32,6 +32,7 @@ async generateSdkViaFile(
   accept: Accept,
   file: FileWrapper,
   template: Platforms,
+  queryParameters?: Record<string, string>,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<UserCodeGeneration>>
 ```
@@ -43,6 +44,7 @@ async generateSdkViaFile(
 | `accept` | [`Accept`](../../doc/models/accept.md) | Header, Required | Must be set to 'application/json' to ensure JSON response format |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `template` | [`Platforms`](../../doc/models/platforms.md) | Form, Required | The structure contains platforms that APIMatic CodeGen can generate SDKs and Docs in. |
+| `queryParameters` | `Record<string, string>` | Optional | Pass additional query parameters. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -58,11 +60,16 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const template = Platforms.CsNetStandardLib;
 
+const queryParameters: Record<string, string> = {
+  'key0': 'additionalQueryParams2'
+};
+
 try {
   const { result, ...httpResponse } = await codeGenerationExternalApisController.generateSdkViaFile(
     accept,
     file,
-    template
+    template,
+    queryParameters
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;

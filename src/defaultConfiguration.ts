@@ -17,6 +17,7 @@ export const DEFAULT_CONFIGURATION: Configuration = {
   timeout: 30000,
   userAgent: '',
   environment: Environment.Production,
+  customUrl: 'https://localhost:44301/api',
 };
 
 /** Default values for retry configuration parameters. */

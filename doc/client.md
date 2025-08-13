@@ -6,6 +6,8 @@ The following parameters are configurable for the API Client:
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | userAgent | `string` |  |
+| customUrl | `string` | The testing domain for the API<br>*Default*: `'https://localhost:44301/api'` |
+| environment | `Environment` | The API environment. <br> **Default: `Environment.Production`** |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
 | httpClientOptions | [`Partial<HttpClientOptions>`](../doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
@@ -15,7 +17,7 @@ The following parameters are configurable for the API Client:
 The API client can be initialized as follows:
 
 ```ts
-import { Client, LogLevel } from 'apimatic-apilib';
+import { Client, Environment, LogLevel } from 'apimatic-apilib';
 
 const client = new Client({
   customHeaderAuthenticationCredentials: {
@@ -23,6 +25,7 @@ const client = new Client({
   },
   userAgent: 'user-agent',
   timeout: 30000,
+  environment: Environment.Production,
   logging: {
     logLevel: LogLevel.Info,
     logRequest: {
@@ -32,23 +35,7 @@ const client = new Client({
       logHeaders: true
     }
   },
+  customUrl: 'https://localhost:44301/api',
 });
 ```
-
-## Apimatic API Client
-
-The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
-
-## Controllers
-
-| Name | Description |
-|  --- | --- |
-| apisManagement | Gets ApisManagementController |
-| codeGenerationImportedApis | Gets CodeGenerationImportedApisController |
-| codeGenerationExternalApis | Gets CodeGenerationExternalApisController |
-| transformation | Gets TransformationController |
-| docsPortalManagement | Gets DocsPortalManagementController |
-| apiValidationImportedApis | Gets ApiValidationImportedApisController |
-| apiValidationExternalApis | Gets ApiValidationExternalApisController |
-| docsPortalGenerationAsync | Gets DocsPortalGenerationAsyncController |
 
