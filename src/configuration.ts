@@ -12,6 +12,7 @@ export interface Configuration {
   timeout: number;
   userAgent: string;
   environment: Environment;
+  customUrl: string;
   customHeaderAuthenticationCredentials?: {
     'Authorization': string;
   };
@@ -23,4 +24,5 @@ export interface Configuration {
 /** Environments available for API */
 export enum Environment {
   Production = 'production',
+  Testing = 'testing',
 }
