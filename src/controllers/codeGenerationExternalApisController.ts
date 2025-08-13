@@ -42,6 +42,7 @@ export class CodeGenerationExternalApisController extends BaseController {
     accept: Accept,
     file: FileWrapper,
     template: Platforms,
+    queryParameters?: Record<string, string>,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<UserCodeGeneration>> {
     const req = this.createRequest(
@@ -53,6 +54,7 @@ export class CodeGenerationExternalApisController extends BaseController {
       template: [template, platformsSchema],
     });
     req.header('Accept', mapped.accept);
+    req.query(queryParameters);
     req.formData({ file: file, template: mapped.template });
     req.throwOn(400, BadRequestResponseSdkError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');

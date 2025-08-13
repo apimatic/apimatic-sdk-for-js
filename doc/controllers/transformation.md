@@ -30,6 +30,7 @@ async transformViaFile(
   contentType: ContentType,
   file: FileWrapper,
   exportFormat: ExportFormats,
+  queryParameters?: Record<string, string>,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<Transformation>>
 ```
@@ -41,6 +42,7 @@ async transformViaFile(
 | `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The API specification file.<br>The type of the specification file should be any of the [supported formats](https://docs.apimatic.io/api-transformer/overview-transformer#supported-input-formats). |
 | `exportFormat` | [`ExportFormats`](../../doc/models/export-formats.md) | Form, Required | The structure contains API specification formats that Transformer can convert to. |
+| `queryParameters` | `Record<string, string>` | Optional | Pass additional query parameters. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -56,11 +58,16 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const exportFormat = ExportFormats.Wsdl;
 
+const queryParameters: Record<string, string> = {
+  'key0': 'additionalQueryParams2'
+};
+
 try {
   const { result, ...httpResponse } = await transformationController.transformViaFile(
     contentType,
     file,
-    exportFormat
+    exportFormat,
+    queryParameters
   );
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
