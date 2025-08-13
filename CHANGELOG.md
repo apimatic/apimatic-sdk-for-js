@@ -1,3 +1,10 @@
+# [0.2.0-alpha.4](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.3...v0.2.0-alpha.4) (2025-08-13)
+
+
+### Features
+
+* add test environment and origin query parameter ([#17](https://github.com/apimatic/apimatic-sdk-for-js/issues/17)) ([56a1c63](https://github.com/apimatic/apimatic-sdk-for-js/commit/56a1c6345df84b44fd1dee7164a1b623e3e8dd8d))
+
 # [0.2.0-alpha.3](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.2...v0.2.0-alpha.3) (2025-08-06)
 
 
