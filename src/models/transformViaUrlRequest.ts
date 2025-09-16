@@ -10,8 +10,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { ExportFormats, exportFormatsSchema } from './exportFormats';
+} from '../schema.js';
+import { ExportFormats, exportFormatsSchema } from './exportFormats.js';
 
 /** This structure puts together the URL of the file to be transformed, along with the desired export format. */
 export interface TransformViaUrlRequest {

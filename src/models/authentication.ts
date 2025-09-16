@@ -12,8 +12,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { AuthScope, authScopeSchema } from './authScope';
+} from '../schema.js';
+import { AuthScope, authScopeSchema } from './authScope.js';
 
 /** This Structure encapsulates all details of API authentication. */
 export interface Authentication {

@@ -12,8 +12,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Attributes, attributesSchema } from './attributes';
+} from '../schema.js';
+import { Attributes, attributesSchema } from './attributes.js';
 
 /** Parameters are options passed with the endpoint */
 export interface Parameter {

@@ -123,7 +123,7 @@ This structure encapsulates all the attributes of an API Endpoint.
       "expectedStatus": "200",
       "expectedHeaders": [],
       "expectedHeadersAllowExtra": true,
-      "expectedBody": "{\n  \"passed\": true\n}",
+      "expectedBody": "{\r\n  \"passed\": true\r\n}",
       "expectedBodyMatchMode": "KEYSANDVALUES",
       "expectedArrayOrderedMatching": false,
       "expectedArrayCheckCount": false,

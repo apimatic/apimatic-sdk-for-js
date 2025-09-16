@@ -10,7 +10,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** This structure encapsulates all the attributes of an API Endpoints Group. */
 export interface EndpointsGroup {

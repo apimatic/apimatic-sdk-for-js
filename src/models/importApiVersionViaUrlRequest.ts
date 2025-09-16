@@ -10,7 +10,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** This structure contains details of importing a new API Version */
 export interface ImportApiVersionViaUrlRequest {

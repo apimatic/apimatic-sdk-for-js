@@ -10,12 +10,12 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 import {
   PackageRepositories,
   packageRepositoriesSchema,
-} from './packageRepositories';
-import { Platforms, platformsSchema } from './platforms';
+} from './packageRepositories.js';
+import { Platforms, platformsSchema } from './platforms.js';
 
 export interface PublishPackageInput {
   packageRepository: PackageRepositories;

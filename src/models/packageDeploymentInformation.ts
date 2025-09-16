@@ -11,11 +11,11 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 import {
   TemplatesPackageDeploymentInformation,
   templatesPackageDeploymentInformationSchema,
-} from './templatesPackageDeploymentInformation';
+} from './templatesPackageDeploymentInformation.js';
 
 /** The structure contains Package Deployment Information along with Id. */
 export interface PackageDeploymentInformation {

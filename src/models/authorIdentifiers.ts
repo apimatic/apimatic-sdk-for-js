@@ -10,7 +10,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 export interface AuthorIdentifiers {
   email: string;

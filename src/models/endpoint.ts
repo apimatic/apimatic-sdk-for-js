@@ -13,10 +13,10 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Parameter, parameterSchema } from './parameter';
-import { Response, responseSchema } from './response';
-import { TestCase, testCaseSchema } from './testCase';
+} from '../schema.js';
+import { Parameter, parameterSchema } from './parameter.js';
+import { Response, responseSchema } from './response.js';
+import { TestCase, testCaseSchema } from './testCase.js';
 
 /** This structure encapsulates all the attributes of an API Endpoint. */
 export interface Endpoint {

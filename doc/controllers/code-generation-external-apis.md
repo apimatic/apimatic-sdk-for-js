@@ -16,7 +16,7 @@ const codeGenerationExternalApisController = new CodeGenerationExternalApisContr
 * [List All Code Generations](../../doc/controllers/code-generation-external-apis.md#list-all-code-generations)
 * [Download Input File](../../doc/controllers/code-generation-external-apis.md#download-input-file)
 * [Get a Code Generation](../../doc/controllers/code-generation-external-apis.md#get-a-code-generation)
-* [Delete Code Generation 1](../../doc/controllers/code-generation-external-apis.md#delete-code-generation-1)
+* [Delete Code Generation for External APIs](../../doc/controllers/code-generation-external-apis.md#delete-code-generation-for-external-apis)
 
 
 # Generate SDK Via File
@@ -152,7 +152,7 @@ async downloadSdk(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `codegenId` | `string` | Template, Required | The ID of code generation received in the response of the [Generate SDK Via File](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-file) or [Generate SDK Via URL ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-url) calls. |
+| `codegenId` | `string` | Template, Required | The ID of code generation received in the response of the [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file) or [Generate SDK Via URL ](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -228,7 +228,7 @@ async downloadInputFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `codegenId` | `string` | Template, Required | The ID of the code generation to download the API specification for. The code generation ID is received in the response of the [Generate SDK Via File](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-file) or [Generate SDK Via URL ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-url) calls |
+| `codegenId` | `string` | Template, Required | The ID of the code generation to download the API specification for. The code generation ID is received in the response of the [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file) or [Generate SDK Via URL ](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url) calls |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -268,7 +268,7 @@ async getACodeGeneration(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `codegenId` | `string` | Template, Required | The ID of the code generation to fetch. The code generation ID is received in the response of the [Generate SDK Via File](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-file) or [Generate SDK Via URL ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-url) calls. |
+| `codegenId` | `string` | Template, Required | The ID of the code generation to fetch. The code generation ID is received in the response of the [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file) or [Generate SDK Via URL ](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -293,12 +293,12 @@ try {
 ```
 
 
-# Delete Code Generation 1
+# Delete Code Generation for External APIs
 
 Delete an SDK generation performed for an API via the Generate SDK endpoints.
 
 ```ts
-async deleteCodeGeneration1(
+async deleteCodeGenerationForExternalApis(
   codegenId: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<void>>
@@ -308,7 +308,7 @@ async deleteCodeGeneration1(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `codegenId` | `string` | Template, Required | The ID of the code generation to delete. The code generation ID is received in the response of the [Generate SDK Via File](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-file) or [Generate SDK Via URL ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-external-apis/generate-sdk-via-url) calls. |
+| `codegenId` | `string` | Template, Required | The ID of the code generation to delete. The code generation ID is received in the response of the [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file) or [Generate SDK Via URL ](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -321,7 +321,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const codegenId = 'codegen_id6';
 
 try {
-  const { result, ...httpResponse } = await codeGenerationExternalApisController.deleteCodeGeneration1(codegenId);
+  const { result, ...httpResponse } = await codeGenerationExternalApisController.deleteCodeGenerationForExternalApis(codegenId);
   // Get more response info...
   // const { statusCode, headers } = httpResponse;
 } catch (error) {

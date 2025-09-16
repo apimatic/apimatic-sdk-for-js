@@ -134,9 +134,10 @@ This API uses the following authentication schemes.
 * [Code Generation-Imported APIs](doc/controllers/code-generation-imported-apis.md)
 * [Code Generation-External APIs](doc/controllers/code-generation-external-apis.md)
 * [Docs Portal Management](doc/controllers/docs-portal-management.md)
+* [Docs Portal Generation-Async](doc/controllers/docs-portal-generation-async.md)
 * [API Validation-Imported APIs](doc/controllers/api-validation-imported-apis.md)
 * [API Validation-External APIs](doc/controllers/api-validation-external-apis.md)
-* [Docs Portal Generation-Async](doc/controllers/docs-portal-generation-async.md)
+* [API Validation V2 -External APIs](doc/controllers/api-validation-v2-external-apis.md)
 * [Transformation](doc/controllers/transformation.md)
 
 ## SDK Infrastructure

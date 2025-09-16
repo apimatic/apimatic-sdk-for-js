@@ -12,8 +12,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Server, serverSchema } from './server';
+} from '../schema.js';
+import { Server, serverSchema } from './server.js';
 
 /** An environment consists of a set of servers with base URL values. The environment can be changed programatically allowing rapid switching between different environments. For example the user can specify a Production and Testing Environment and switch between them in the generated SDK. */
 export interface MEnvironment {

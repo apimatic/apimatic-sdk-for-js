@@ -10,7 +10,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** The structure contain attribute details of a parameter type. */
 export interface Attributes {

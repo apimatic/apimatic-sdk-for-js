@@ -17,7 +17,7 @@ const apisManagementController = new ApisManagementController(client);
 * [Inplace API Import Via File](../../doc/controllers/apis-management.md#inplace-api-import-via-file)
 * [Inplace API Import Via URL](../../doc/controllers/apis-management.md#inplace-api-import-via-url)
 * [Fetch API Entity](../../doc/controllers/apis-management.md#fetch-api-entity)
-* [Download APIS Pecification](../../doc/controllers/apis-management.md#download-apis-pecification)
+* [Download API Specification](../../doc/controllers/apis-management.md#download-api-specification)
 
 
 # Import API Via File
@@ -392,12 +392,12 @@ try {
 ```
 
 
-# Download APIS Pecification
+# Download API Specification
 
 Download the API Specification file for a an API Version in any of the API Specification formats supported by APIMatic.
 
 ```ts
-async downloadApisPecification(
+async downloadApiSpecification(
   apiEntityId: string,
   format: ExportFormats,
   requestOptions?: RequestOptions
@@ -424,7 +424,7 @@ const apiEntityId = 'api_entity_id4';
 const format = ExportFormats.Apimatic;
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.downloadApisPecification(
+  const { result, ...httpResponse } = await apisManagementController.downloadApiSpecification(
     apiEntityId,
     format
   );

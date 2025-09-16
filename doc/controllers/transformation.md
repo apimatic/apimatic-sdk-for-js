@@ -140,7 +140,7 @@ async downloadTransformedFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transformationId` | `string` | Template, Required | The ID of transformation received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL  ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
+| `transformationId` | `string` | Template, Required | The ID of transformation received in the response of the [Transform Via File ](../../doc/controllers/transformation.md#transform-via-file) or [Transform Via URL  ](../../doc/controllers/transformation.md#transform-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -180,7 +180,7 @@ async downloadInputFile(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transformationId` | `string` | Template, Required | The ID of the transformation to download the API specification for. The transformation ID is received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
+| `transformationId` | `string` | Template, Required | The ID of the transformation to download the API specification for. The transformation ID is received in the response of the [Transform Via File ](../../doc/controllers/transformation.md#transform-via-file) or [Transform Via URL](../../doc/controllers/transformation.md#transform-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -256,7 +256,7 @@ async getATransformation(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transformationId` | `string` | Template, Required | The ID of the transformation to fetch. The transformation ID is received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL  ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
+| `transformationId` | `string` | Template, Required | The ID of the transformation to fetch. The transformation ID is received in the response of the [Transform Via File ](../../doc/controllers/transformation.md#transform-via-file) or [Transform Via URL  ](../../doc/controllers/transformation.md#transform-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -296,7 +296,7 @@ async deleteTransformation(
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transformationId` | `string` | Template, Required | The ID of the transformation to delete. The transformation ID is received in the response of the [Transform Via File ](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-file) or [Transform Via URL](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/transformation/transform-via-url) calls. |
+| `transformationId` | `string` | Template, Required | The ID of the transformation to delete. The transformation ID is received in the response of the [Transform Via File ](../../doc/controllers/transformation.md#transform-via-file) or [Transform Via URL](../../doc/controllers/transformation.md#transform-via-url) calls. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type

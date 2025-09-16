@@ -11,11 +11,11 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 import {
   AuthorIdentifiers,
   authorIdentifiersSchema,
-} from './authorIdentifiers';
+} from './authorIdentifiers.js';
 
 export interface PublishedPackage {
   id: string;

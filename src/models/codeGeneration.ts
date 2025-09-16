@@ -11,8 +11,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Platforms, platformsSchema } from './platforms';
+} from '../schema.js';
+import { Platforms, platformsSchema } from './platforms.js';
 
 /** The Code Generation structure encapsulates all the  the details of an SDK generation performed against an API Entity */
 export interface CodeGeneration {

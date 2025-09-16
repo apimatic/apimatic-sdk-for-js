@@ -13,18 +13,18 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Authentication, authenticationSchema } from './authentication';
-import { CodeGenSettings, codeGenSettingsSchema } from './codeGenSettings';
-import { CustomType, customTypeSchema } from './customType';
-import { Endpoint, endpointSchema } from './endpoint';
-import { EndpointsGroup, endpointsGroupSchema } from './endpointsGroup';
-import { MetaData, metaDataSchema } from './metaData';
+} from '../schema.js';
+import { Authentication, authenticationSchema } from './authentication.js';
+import { CodeGenSettings, codeGenSettingsSchema } from './codeGenSettings.js';
+import { CustomType, customTypeSchema } from './customType.js';
+import { Endpoint, endpointSchema } from './endpoint.js';
+import { EndpointsGroup, endpointsGroupSchema } from './endpointsGroup.js';
+import { MetaData, metaDataSchema } from './metaData.js';
 import {
   ServerConfiguration,
   serverConfigurationSchema,
-} from './serverConfiguration';
-import { TestGenSettings, testGenSettingsSchema } from './testGenSettings';
+} from './serverConfiguration.js';
+import { TestGenSettings, testGenSettingsSchema } from './testGenSettings.js';
 
 /** The structure collects API Endpoints and Custom Types to display detailed information on API Entity. */
 export interface ApiEntityDetailed {
