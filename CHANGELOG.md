@@ -1,3 +1,10 @@
+# [0.2.0-alpha.5](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.4...v0.2.0-alpha.5) (2025-09-16)
+
+
+### Features
+
+* update async api responses ([#18](https://github.com/apimatic/apimatic-sdk-for-js/issues/18)) ([c7311c3](https://github.com/apimatic/apimatic-sdk-for-js/commit/c7311c38ec8bf702a953836278ee1050a23b0fff))
+
 # [0.2.0-alpha.4](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.3...v0.2.0-alpha.4) (2025-08-13)
 
 
