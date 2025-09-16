@@ -10,8 +10,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Platforms, platformsSchema } from './platforms';
+} from '../schema.js';
+import { Platforms, platformsSchema } from './platforms.js';
 
 export interface GenerateSdkViaUrlRequest {
   /** The URL for the API specification file.<br><br>**Note:** This URL should be publicly accessible. */

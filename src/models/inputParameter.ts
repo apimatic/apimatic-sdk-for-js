@@ -11,7 +11,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** This structure helps specify details of an input parameter. */
 export interface InputParameter {

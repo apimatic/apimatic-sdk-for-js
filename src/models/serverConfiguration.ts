@@ -12,9 +12,9 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { MEnvironment, mEnvironmentSchema } from './mEnvironment';
-import { Parameter, parameterSchema } from './parameter';
+} from '../schema.js';
+import { MEnvironment, mEnvironmentSchema } from './mEnvironment.js';
+import { Parameter, parameterSchema } from './parameter.js';
 
 /** Server configurations can be used to create multiple environments, multiple servers that can be used with specific endpoints and server URLs with template paramters. */
 export interface ServerConfiguration {

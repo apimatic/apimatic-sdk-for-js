@@ -5,16 +5,18 @@
  */
 
 import { ApiResponse, FileWrapper, RequestOptions } from '../core.js';
-import {
-  ApiValidationSummary,
-  apiValidationSummarySchema,
-} from '../models/apiValidationSummary.js';
 import { ContentType, contentTypeSchema } from '../models/contentType.js';
+import {
+  ValidateApiResult,
+  validateApiResultSchema,
+} from '../models/validateApiResult.js';
 import { string } from '../schema.js';
 import { BaseController } from './baseController.js';
-import { ApiError } from '@apimatic/core';
+import { InternalServerErrorResponseError } from '../errors/internalServerErrorResponseError.js';
+import { ProblemDetailsError } from '../errors/problemDetailsError.js';
+import { UnauthorizedResponseError } from '../errors/unauthorizedResponseError.js';
 
-export class ApiValidationExternalApisController extends BaseController {
+export class ApiValidationV2ExternalApisController extends BaseController {
   /**
    * Validate an API by uploading the API specification file.
    *
@@ -28,24 +30,24 @@ export class ApiValidationExternalApisController extends BaseController {
    *                                    transformer/overview-transformer#supported-input-formats).
    * @return Response from the API call
    */
-  async validateApiViaFile(
+  async validateApiViaFileV2(
     contentType: ContentType,
     file: FileWrapper,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ApiValidationSummary>> {
-    const req = this.createRequest('POST', '/validation/validate-via-file');
+  ): Promise<ApiResponse<ValidateApiResult>> {
+    const req = this.createRequest('POST', '/validation/v2/validate-via-file');
     req.baseUrl('default');
     const mapped = req.prepareArgs({
       contentType: [contentType, contentTypeSchema],
     });
     req.header('Content-Type', mapped.contentType);
     req.formData({ file: file });
-    req.throwOn(400, ApiError, 'Bad Request');
-    req.throwOn(401, ApiError, 'Unauthenticated');
-    req.throwOn(403, ApiError, 'Forbidden');
-    req.throwOn(500, ApiError, 'Internal Server Error');
+    req.throwOn(400, ProblemDetailsError, 'Bad Request');
+    req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
+    req.throwOn(403, ProblemDetailsError, 'Subscription Issue');
+    req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
-    return req.callAsJson(apiValidationSummarySchema, requestOptions);
+    return req.callAsJson(validateApiResultSchema, requestOptions);
   }
 
   /**
@@ -55,25 +57,23 @@ export class ApiValidationExternalApisController extends BaseController {
    * validating the API using this endpoint. When specifying Metadata, the URL provided will be that of a
    * zip file containing the API specification file and the `APIMATIC-META` json file.
    *
-   * @param descriptionUrl The URL for the API specification file.<br><br>**Note:** This URL should be
-   *                                 publicly accessible.
+   * @param url The URL for the API specification file.<br><br>**Note:** This URL should be publicly
+   *                      accessible.
    * @return Response from the API call
    */
-  async validateApiViaUrl(
-    descriptionUrl: string,
+  async validateApiViaUrlV2(
+    url: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<ApiValidationSummary>> {
-    const req = this.createRequest('GET', '/validation/validate-via-url');
+  ): Promise<ApiResponse<ValidateApiResult>> {
+    const req = this.createRequest('GET', '/validation/v2/validate-via-url');
     req.baseUrl('default');
-    const mapped = req.prepareArgs({
-      descriptionUrl: [descriptionUrl, string()],
-    });
-    req.query('descriptionUrl', mapped.descriptionUrl);
-    req.throwOn(400, ApiError, 'Bad Request');
-    req.throwOn(401, ApiError, 'Unauthenticated');
-    req.throwOn(403, ApiError, 'Forbidden');
-    req.throwOn(500, ApiError, 'Internal Server Error');
+    const mapped = req.prepareArgs({ url: [url, string()] });
+    req.query('url', mapped.url);
+    req.throwOn(400, ProblemDetailsError, 'Bad Request');
+    req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
+    req.throwOn(403, ProblemDetailsError, 'Subscription Issue');
+    req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
-    return req.callAsJson(apiValidationSummarySchema, requestOptions);
+    return req.callAsJson(validateApiResultSchema, requestOptions);
   }
 }

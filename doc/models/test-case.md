@@ -56,7 +56,7 @@ APIMatic lets you define test cases for endpoints using the API Editor. The test
   "expectedStatus": "200",
   "expectedHeaders": [],
   "expectedHeadersAllowExtra": true,
-  "expectedBody": "{\n  \"passed\": true\n}",
+  "expectedBody": "{\r\n  \"passed\": true\r\n}",
   "expectedBodyMatchMode": "KEYSANDVALUES",
   "expectedArrayOrderedMatching": false,
   "expectedArrayCheckCount": false,

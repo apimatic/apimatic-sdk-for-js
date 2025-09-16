@@ -10,9 +10,9 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Id, idSchema } from './id';
-import { Link, linkSchema } from './link';
+} from '../schema.js';
+import { Id, idSchema } from './id.js';
+import { Link, linkSchema } from './link.js';
 
 /** This structure contains all details that goes into package deployment. */
 export interface Csnetstandardlib {

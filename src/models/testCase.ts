@@ -13,8 +13,8 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { InputParameter, inputParameterSchema } from './inputParameter';
+} from '../schema.js';
+import { InputParameter, inputParameterSchema } from './inputParameter.js';
 
 /** APIMatic lets you define test cases for endpoints using the API Editor. The test cases are automatically generated for each language. This structure encapsulates all details of a Test Case.  To find out more about defining Test Cases visit: https://docs.apimatic.io/testing/defining-your-first-test-case/ */
 export interface TestCase {

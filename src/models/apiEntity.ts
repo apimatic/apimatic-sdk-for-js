@@ -13,16 +13,16 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Authentication, authenticationSchema } from './authentication';
-import { CodeGenSettings, codeGenSettingsSchema } from './codeGenSettings';
-import { EndpointsGroup, endpointsGroupSchema } from './endpointsGroup';
-import { MetaData, metaDataSchema } from './metaData';
+} from '../schema.js';
+import { Authentication, authenticationSchema } from './authentication.js';
+import { CodeGenSettings, codeGenSettingsSchema } from './codeGenSettings.js';
+import { EndpointsGroup, endpointsGroupSchema } from './endpointsGroup.js';
+import { MetaData, metaDataSchema } from './metaData.js';
 import {
   ServerConfiguration,
   serverConfigurationSchema,
-} from './serverConfiguration';
-import { TestGenSettings, testGenSettingsSchema } from './testGenSettings';
+} from './serverConfiguration.js';
+import { TestGenSettings, testGenSettingsSchema } from './testGenSettings.js';
 
 /** The API Entity Structure encapsulates all the details of an API Entity. An API entity is a unique API Version. */
 export interface ApiEntity {

@@ -12,7 +12,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 export interface ImportValidationSummary {
   success: boolean;

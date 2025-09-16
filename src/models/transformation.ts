@@ -12,11 +12,11 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 import {
   ApiValidationSummary,
   apiValidationSummarySchema,
-} from './apiValidationSummary';
+} from './apiValidationSummary.js';
 
 /** Transformation structure encapsulates all the details of a Transformation. */
 export interface Transformation {

@@ -10,7 +10,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** Validation exception contains information, warnings, messages and errors. */
 export interface ValidationException {

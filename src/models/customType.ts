@@ -12,12 +12,12 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
-import { Field, fieldSchema } from './field';
+} from '../schema.js';
+import { Field, fieldSchema } from './field.js';
 import {
   ImplementationType,
   implementationTypeSchema,
-} from './implementationType';
+} from './implementationType.js';
 
 /** This structure helps creates a new complex model type. */
 export interface CustomType {

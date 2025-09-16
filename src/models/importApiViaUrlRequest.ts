@@ -10,7 +10,7 @@ import {
   string,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** Contains a url field to allow Apis to be imported via url */
 export interface ImportApiViaUrlRequest {

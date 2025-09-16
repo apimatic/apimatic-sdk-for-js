@@ -83,7 +83,7 @@ async downloadSdk(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity for which the SDK was generated. |
-| `codegenId` | `string` | Template, Required | The ID of code generation received in the response of the [SDK generation call](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-imported-apis/generate-sdk). |
+| `codegenId` | `string` | Template, Required | The ID of code generation received in the response of the [SDK generation call](../../doc/controllers/code-generation-imported-apis.md#generate-sdk). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -170,7 +170,7 @@ async getACodeGeneration(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity to fetch the code generation for. |
-| `codegenId` | `string` | Template, Required | The ID of the code generation to fetch. The code generation ID is received in the response of the [SDK generation call](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-imported-apis/generate-sdk). |
+| `codegenId` | `string` | Template, Required | The ID of the code generation to fetch. The code generation ID is received in the response of the [SDK generation call](../../doc/controllers/code-generation-imported-apis.md#generate-sdk). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -217,7 +217,7 @@ async deleteCodeGeneration(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `apiEntityId` | `string` | Template, Required | The ID of the API Entity to delete the code generation for. |
-| `codegenId` | `string` | Template, Required | The ID of the code generation to delete. The code generation ID is received in the response of the [SDK generation call](https://www.apimatic.io/api-docs-preview/dashboard/60eea3b7a73395c3052d961b/v/3_0#/http/api-endpoints/code-generation-imported-apis/generate-sdk). |
+| `codegenId` | `string` | Template, Required | The ID of the code generation to delete. The code generation ID is received in the response of the [SDK generation call](../../doc/controllers/code-generation-imported-apis.md#generate-sdk). |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type

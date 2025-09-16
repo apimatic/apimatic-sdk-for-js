@@ -10,7 +10,7 @@ import {
   Schema,
   typedExpandoObject,
   unknown,
-} from '../schema';
+} from '../schema.js';
 
 /** This structure helps specify additional test configurations which affects how test cases are generated. */
 export interface TestGenSettings {
