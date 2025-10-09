@@ -20,6 +20,7 @@ export {
   ConsoleLogger,
 } from './core.js';
 export * from './defaultConfiguration.js';
+export * from './controllers/apiPruningController.js';
 export * from './controllers/apiValidationExternalApisController.js';
 export * from './controllers/apiValidationImportedApisController.js';
 export * from './controllers/apiValidationV2ExternalApisController.js';
