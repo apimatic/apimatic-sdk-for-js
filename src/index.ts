@@ -20,6 +20,7 @@ export {
   ConsoleLogger,
 } from './core.js';
 export * from './defaultConfiguration.js';
+export * from './controllers/apiFeaturesController.js';
 export * from './controllers/apiValidationExternalApisController.js';
 export * from './controllers/apiValidationImportedApisController.js';
 export * from './controllers/apiValidationV2ExternalApisController.js';
@@ -54,6 +55,7 @@ export type { DocsValidationSummary } from './models/docsValidationSummary.js';
 export type { Endpoint } from './models/endpoint.js';
 export type { EndpointsGroup } from './models/endpointsGroup.js';
 export { ExportFormats } from './models/exportFormats.js';
+export type { FeaturesToRemove } from './models/featuresToRemove.js';
 export type { Field } from './models/field.js';
 export type { GenerateSdkViaUrlRequest } from './models/generateSdkViaUrlRequest.js';
 export { Id } from './models/id.js';
@@ -76,6 +78,7 @@ export type { PortalGenerationAsyncResponse } from './models/portalGenerationAsy
 export type { PortalGenerationStatusResponse } from './models/portalGenerationStatusResponse.js';
 export type { PublishedPackage } from './models/publishedPackage.js';
 export type { PublishPackageInput } from './models/publishPackageInput.js';
+export { RemovableFeature } from './models/removableFeature.js';
 export type { Response } from './models/response.js';
 export type { Server } from './models/server.js';
 export type { ServerConfiguration } from './models/serverConfiguration.js';
