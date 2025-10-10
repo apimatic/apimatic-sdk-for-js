@@ -138,7 +138,6 @@ This API uses the following authentication schemes.
 * [API Validation-Imported APIs](doc/controllers/api-validation-imported-apis.md)
 * [API Validation-External APIs](doc/controllers/api-validation-external-apis.md)
 * [API Validation V2 -External APIs](doc/controllers/api-validation-v2-external-apis.md)
-* [API Pruning](doc/controllers/api-pruning.md)
 * [Transformation](doc/controllers/transformation.md)
 
 ## SDK Infrastructure

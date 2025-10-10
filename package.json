@@ -53,10 +53,10 @@
     "typescript": "^5.2.0"
   },
   "dependencies": {
-    "@apimatic/authentication-adapters": "^0.5.13",
-    "@apimatic/axios-client-adapter": "^0.3.19",
-    "@apimatic/core": "^0.10.27",
-    "@apimatic/schema": "^0.7.21"
+    "@apimatic/authentication-adapters": "^0.5.10",
+    "@apimatic/axios-client-adapter": "^0.3.16",
+    "@apimatic/core": "^0.10.25",
+    "@apimatic/schema": "^0.7.19"
   },
   "bugs": {
     "email": "contactus@apimatic.io"
