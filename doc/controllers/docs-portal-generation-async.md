@@ -49,16 +49,28 @@ const contentType = ContentType.EnumMultipartformdata;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  const { result, ...httpResponse } = await docsPortalGenerationAsyncController.generateOnPremPortalViaBuildInputAsync(
+  const response = await docsPortalGenerationAsyncController.generateOnPremPortalViaBuildInputAsync(
     contentType,
     file
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -81,7 +93,6 @@ try {
 |  --- | --- | --- |
 | 400 | Bad Request | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
-| 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
@@ -113,13 +124,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const { result, ...httpResponse } = await docsPortalGenerationAsyncController.getPortalGenerationStatus(id);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalGenerationAsyncController.getPortalGenerationStatus(id);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -178,13 +201,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const { result, ...httpResponse } = await docsPortalGenerationAsyncController.downloadGeneratedPortal(id);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalGenerationAsyncController.downloadGeneratedPortal(id);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

@@ -24,14 +24,16 @@ export interface ValidationSummary {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const validationSummarySchema: Schema<ValidationSummary> = typedExpandoObject(
-  {
-    isSuccess: ['isSuccess', boolean()],
-    blocking: ['blocking', array(lazy(() => validationEntrySchema))],
-    errors: ['errors', array(lazy(() => validationEntrySchema))],
-    warnings: ['warnings', array(lazy(() => validationEntrySchema))],
-    information: ['information', array(lazy(() => validationEntrySchema))],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const validationSummarySchema: Schema<ValidationSummary> = lazy(() =>
+  typedExpandoObject(
+    {
+      isSuccess: ['isSuccess', boolean()],
+      blocking: ['blocking', array(validationEntrySchema)],
+      errors: ['errors', array(validationEntrySchema)],
+      warnings: ['warnings', array(validationEntrySchema)],
+      information: ['information', array(validationEntrySchema)],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

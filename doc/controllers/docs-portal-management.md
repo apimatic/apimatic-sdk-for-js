@@ -57,13 +57,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.publishHostedPortal(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalManagementController.publishHostedPortal(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -107,13 +119,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.publishEmbeddedPortal(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalManagementController.publishEmbeddedPortal(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -157,16 +181,28 @@ const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 const accept = Accept4.EnumApplicationzip;
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaApiEntity(
+  const response = await docsPortalManagementController.generateOnPremPortalViaApiEntity(
     apiEntityId,
     accept
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -216,17 +252,29 @@ const queryParameters: Record<string, string> = {
 };
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
+  const response = await docsPortalManagementController.generateOnPremPortalViaBuildInput(
     contentType,
     file,
     queryParameters
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -273,13 +321,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const apiGroupId = 'apiGroupId8';
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForUnpublishedPortal(apiGroupId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalManagementController.generateBuildInputForUnpublishedPortal(apiGroupId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -316,13 +376,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const apiGroupId = 'apiGroupId8';
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.generateBuildInputForPublishedPortal(apiGroupId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalManagementController.generateBuildInputForPublishedPortal(apiGroupId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -360,13 +432,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const apiEntityId = '5f87f8ab9615d38a2eb990ca';
 
 try {
-  const { result, ...httpResponse } = await docsPortalManagementController.unpublishPortal(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await docsPortalManagementController.unpublishPortal(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

@@ -45,23 +45,25 @@ export interface Parameter {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const parameterSchema: Schema<Parameter> = typedExpandoObject(
-  {
-    optional: ['optional', boolean()],
-    type: ['type', string()],
-    constant: ['constant', boolean()],
-    isArray: ['isArray', boolean()],
-    isStream: ['isStream', boolean()],
-    isAttribute: ['isAttribute', boolean()],
-    isMap: ['isMap', boolean()],
-    attributes: ['attributes', lazy(() => attributesSchema)],
-    nullable: ['nullable', boolean()],
-    id: ['id', string()],
-    name: ['name', string()],
-    description: ['description', string()],
-    defaultValue: ['defaultValue', string()],
-    paramFormat: ['ParamFormat', string()],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const parameterSchema: Schema<Parameter> = lazy(() =>
+  typedExpandoObject(
+    {
+      optional: ['optional', boolean()],
+      type: ['type', string()],
+      constant: ['constant', boolean()],
+      isArray: ['isArray', boolean()],
+      isStream: ['isStream', boolean()],
+      isAttribute: ['isAttribute', boolean()],
+      isMap: ['isMap', boolean()],
+      attributes: ['attributes', attributesSchema],
+      nullable: ['nullable', boolean()],
+      id: ['id', string()],
+      name: ['name', string()],
+      description: ['description', string()],
+      defaultValue: ['defaultValue', string()],
+      paramFormat: ['ParamFormat', string()],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

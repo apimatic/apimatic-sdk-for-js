@@ -12,6 +12,8 @@ import { Schema, stringEnum } from '../schema.js';
 export enum Status {
   Completed = 'Completed',
   InProgress = 'InProgress',
+  ValidationFailure = 'ValidationFailure',
+  SubscriptionFailure = 'SubscriptionFailure',
   Failed = 'Failed',
 }
 

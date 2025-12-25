@@ -26,12 +26,14 @@ export interface MEnvironment {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const mEnvironmentSchema: Schema<MEnvironment> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    name: ['name', string()],
-    servers: ['servers', array(lazy(() => serverSchema))],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const mEnvironmentSchema: Schema<MEnvironment> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      name: ['name', string()],
+      servers: ['servers', array(serverSchema)],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

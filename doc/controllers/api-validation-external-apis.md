@@ -48,16 +48,28 @@ const contentType = ContentType.EnumMultipartformdata;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  const { result, ...httpResponse } = await apiValidationExternalApisController.validateApiViaFile(
+  const response = await apiValidationExternalApisController.validateApiViaFile(
     contentType,
     file
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -145,13 +157,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const descriptionUrl = 'https://petstore.swagger.io/v2/swagger.json';
 
 try {
-  const { result, ...httpResponse } = await apiValidationExternalApisController.validateApiViaUrl(descriptionUrl);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await apiValidationExternalApisController.validateApiViaUrl(descriptionUrl);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

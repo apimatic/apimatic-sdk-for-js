@@ -5,6 +5,7 @@
  */
 
 import {
+  array,
   dict,
   lazy,
   optional,
@@ -22,21 +23,25 @@ export interface ValidationEntry {
   fileReference?: string;
   metadata?: Record<string, string>;
   ruleDocumentationReference?: string;
+  additionalReferences?: string[];
   additionalProperties?: Record<string, unknown>;
 }
 
-export const validationEntrySchema: Schema<ValidationEntry> = typedExpandoObject(
-  {
-    message: ['message', string()],
-    lineInfo: ['lineInfo', optional(lazy(() => lineInfoSchema))],
-    jsonReferencePath: ['jsonReferencePath', optional(string())],
-    fileReference: ['fileReference', optional(string())],
-    metadata: ['metadata', optional(dict(string()))],
-    ruleDocumentationReference: [
-      'ruleDocumentationReference',
-      optional(string()),
-    ],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const validationEntrySchema: Schema<ValidationEntry> = lazy(() =>
+  typedExpandoObject(
+    {
+      message: ['message', string()],
+      lineInfo: ['lineInfo', optional(lineInfoSchema)],
+      jsonReferencePath: ['jsonReferencePath', optional(string())],
+      fileReference: ['fileReference', optional(string())],
+      metadata: ['metadata', optional(dict(string()))],
+      ruleDocumentationReference: [
+        'ruleDocumentationReference',
+        optional(string()),
+      ],
+      additionalReferences: ['additionalReferences', optional(array(string()))],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );
