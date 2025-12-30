@@ -74,7 +74,6 @@ export type { Parameter } from './models/parameter.js';
 export { Platforms } from './models/platforms.js';
 export type { PortalGenerationAsyncResponse } from './models/portalGenerationAsyncResponse.js';
 export type { PortalGenerationStatusResponse } from './models/portalGenerationStatusResponse.js';
-export type { ProblemDetails } from './models/problemDetails.js';
 export type { PublishedPackage } from './models/publishedPackage.js';
 export type { PublishPackageInput } from './models/publishPackageInput.js';
 export type { Response } from './models/response.js';

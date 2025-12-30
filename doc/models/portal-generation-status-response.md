@@ -10,20 +10,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `status` | [`Status`](../../doc/models/status.md) | Required | - |
-| `detail` | [`ProblemDetails \| undefined`](../../doc/models/problem-details.md) | Optional | - |
+| `errors` | `Record<string, unknown> \| undefined` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
   "status": "InProgress",
-  "detail": {
-    "type": "type4",
-    "title": "title8",
-    "status": 162,
-    "detail": "detail2",
-    "instance": "instance2",
-    "exampleAdditionalProperty": {
+  "errors": {
+    "key0": {
       "key1": "val1",
       "key2": "val2"
     }
