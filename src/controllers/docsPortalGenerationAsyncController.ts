@@ -48,6 +48,7 @@ export class DocsPortalGenerationAsyncController extends BaseController {
     req.formData({ file: file });
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
+    req.throwOn(403, ProblemDetailsError, 'Subscription Issue');
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
     return req.callAsJson(portalGenerationAsyncResponseSchema, requestOptions);
@@ -68,7 +69,6 @@ export class DocsPortalGenerationAsyncController extends BaseController {
     req.appendTemplatePath`/portal/v2/${mapped.id}/status`;
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
-    req.throwOn(403, ProblemDetailsError, 'Subscription Issue');
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
     return req.callAsJson(portalGenerationStatusResponseSchema, requestOptions);
@@ -99,7 +99,6 @@ export class DocsPortalGenerationAsyncController extends BaseController {
     req.appendTemplatePath`/portal/v2/${mapped.id}/download`;
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
-    req.throwOn(403, ProblemDetailsError, 'Subscription Issue');
     req.throwOn(
       422,
       ApiError,

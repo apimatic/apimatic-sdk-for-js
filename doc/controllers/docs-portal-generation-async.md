@@ -93,6 +93,7 @@ try {
 |  --- | --- | --- |
 | 400 | Bad Request | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
+| 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
@@ -161,7 +162,6 @@ try {
 |  --- | --- | --- |
 | 400 | Bad Request | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
-| 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
@@ -230,7 +230,6 @@ try {
 |  --- | --- | --- |
 | 400 | Bad Request | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
-| 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 422 | Unprocessable Entity - Contains error.zip for build issues | `ApiError` |
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
