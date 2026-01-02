@@ -1,3 +1,10 @@
+# [0.2.0-alpha.6](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.5...v0.2.0-alpha.6) (2026-01-02)
+
+
+### Features
+
+* update status endpoint response ([#21](https://github.com/apimatic/apimatic-sdk-for-js/issues/21)) ([3841225](https://github.com/apimatic/apimatic-sdk-for-js/commit/384122531a24afafd5ca0d5b64c5c36afb9ae729))
+
 # [0.2.0-alpha.5](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.4...v0.2.0-alpha.5) (2025-09-16)
 
 
