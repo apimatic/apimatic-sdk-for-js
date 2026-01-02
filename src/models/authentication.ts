@@ -34,16 +34,18 @@ export interface Authentication {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const authenticationSchema: Schema<Authentication> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    authType: ['authType', string()],
-    scopes: ['scopes', array(lazy(() => authScopeSchema))],
-    parameters: ['parameters', array(string())],
-    authScopes: ['authScopes', array(string())],
-    authGrantTypes: ['authGrantTypes', array(string())],
-    paramFormats: ['paramFormats', optional(unknown())],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const authenticationSchema: Schema<Authentication> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      authType: ['authType', string()],
+      scopes: ['scopes', array(authScopeSchema)],
+      parameters: ['parameters', array(string())],
+      authScopes: ['authScopes', array(string())],
+      authGrantTypes: ['authGrantTypes', array(string())],
+      paramFormats: ['paramFormats', optional(unknown())],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

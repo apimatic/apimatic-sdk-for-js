@@ -87,6 +87,28 @@ export class Client implements ClientInterface {
   public withConfiguration(config: Partial<Configuration>) {
     return new Client({ ...this._config, ...config });
   }
+
+  /**
+   * Create a client instance from a JSON configuration string
+   * @param jsonConfig - JSON string containing the configuration
+   * @returns A new Client instance
+   */
+  public static fromJsonConfig(jsonConfig: string): Client {
+    return new Client(Configuration.fromJsonConfig(jsonConfig));
+  }
+
+  /**
+   * Create a client instance from environment variables
+   * @param envVariables - Optional object containing environment variables
+   * @returns A new Client instance
+   */
+  public static fromEnvironment(
+    envVariables?: Record<string, string | undefined>
+  ): Client {
+    return new Client(
+      Configuration.fromEnvironment(envVariables || process.env)
+    );
+  }
 }
 
 function createHttpClientAdapter(client: HttpClient): HttpClientInterface {

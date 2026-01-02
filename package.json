@@ -40,8 +40,6 @@
     "quoteProps": "preserve"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
@@ -53,10 +51,10 @@
     "typescript": "^5.2.0"
   },
   "dependencies": {
-    "@apimatic/authentication-adapters": "^0.5.10",
-    "@apimatic/axios-client-adapter": "^0.3.16",
-    "@apimatic/core": "^0.10.25",
-    "@apimatic/schema": "^0.7.19"
+    "@apimatic/authentication-adapters": "^0.5.14",
+    "@apimatic/axios-client-adapter": "^0.3.20",
+    "@apimatic/core": "^0.10.28",
+    "@apimatic/schema": "^0.7.21"
   },
   "bugs": {
     "email": "contactus@apimatic.io"

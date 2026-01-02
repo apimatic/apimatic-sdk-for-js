@@ -51,16 +51,28 @@ const apiEntityId = 'api_entity_id4';
 const template = Platforms.CsNetStandardLib;
 
 try {
-  const { result, ...httpResponse } = await codeGenerationImportedApisController.generateSdk(
+  const response = await codeGenerationImportedApisController.generateSdk(
     apiEntityId,
     template
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -98,16 +110,28 @@ const apiEntityId = 'api_entity_id4';
 const codegenId = 'codegen_id6';
 
 try {
-  const { result, ...httpResponse } = await codeGenerationImportedApisController.downloadSdk(
+  const response = await codeGenerationImportedApisController.downloadSdk(
     apiEntityId,
     codegenId
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -141,13 +165,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const apiEntityId = 'api_entity_id4';
 
 try {
-  const { result, ...httpResponse } = await codeGenerationImportedApisController.listAllCodeGenerations(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await codeGenerationImportedApisController.listAllCodeGenerations(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -185,16 +221,28 @@ const apiEntityId = 'api_entity_id4';
 const codegenId = 'codegen_id6';
 
 try {
-  const { result, ...httpResponse } = await codeGenerationImportedApisController.getACodeGeneration(
+  const response = await codeGenerationImportedApisController.getACodeGeneration(
     apiEntityId,
     codegenId
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -232,16 +280,28 @@ const apiEntityId = 'api_entity_id4';
 const codegenId = 'codegen_id6';
 
 try {
-  const { result, ...httpResponse } = await codeGenerationImportedApisController.deleteCodeGeneration(
+  const response = await codeGenerationImportedApisController.deleteCodeGeneration(
     apiEntityId,
     codegenId
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

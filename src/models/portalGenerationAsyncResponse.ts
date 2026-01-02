@@ -12,6 +12,6 @@ export interface PortalGenerationAsyncResponse {
   links: Links;
 }
 
-export const portalGenerationAsyncResponseSchema: Schema<PortalGenerationAsyncResponse> = object(
-  { id: ['id', string()], links: ['links', lazy(() => linksSchema)] }
+export const portalGenerationAsyncResponseSchema: Schema<PortalGenerationAsyncResponse> = lazy(
+  () => object({ id: ['id', string()], links: ['links', linksSchema] })
 );

@@ -36,15 +36,17 @@ export interface CustomType {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const customTypeSchema: Schema<CustomType> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    apiId: ['apiId', string()],
-    name: ['name', string()],
-    baseType: ['baseType', string()],
-    implementationType: ['implementationType', implementationTypeSchema],
-    fields: ['fields', array(lazy(() => fieldSchema))],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const customTypeSchema: Schema<CustomType> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      apiId: ['apiId', string()],
+      name: ['name', string()],
+      baseType: ['baseType', string()],
+      implementationType: ['implementationType', implementationTypeSchema],
+      fields: ['fields', array(fieldSchema)],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

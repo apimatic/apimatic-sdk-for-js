@@ -31,25 +31,24 @@ export interface PublishedPackage {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const publishedPackageSchema: Schema<PublishedPackage> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    createdOn: ['createdOn', string()],
-    apiEntityId: ['apiEntityId', string()],
-    packageRepository: ['packageRepository', string()],
-    template: ['template', string()],
-    packageName: ['packageName', string()],
-    version: ['version', string()],
-    additionalDeploymentInformation: [
-      'additionalDeploymentInformation',
-      optional(unknown()),
-    ],
-    authorIdentifiers: [
-      'authorIdentifiers',
-      lazy(() => authorIdentifiersSchema),
-    ],
-    link: ['link', string()],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const publishedPackageSchema: Schema<PublishedPackage> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      createdOn: ['createdOn', string()],
+      apiEntityId: ['apiEntityId', string()],
+      packageRepository: ['packageRepository', string()],
+      template: ['template', string()],
+      packageName: ['packageName', string()],
+      version: ['version', string()],
+      additionalDeploymentInformation: [
+        'additionalDeploymentInformation',
+        optional(unknown()),
+      ],
+      authorIdentifiers: ['authorIdentifiers', authorIdentifiersSchema],
+      link: ['link', string()],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

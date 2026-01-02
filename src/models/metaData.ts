@@ -31,21 +31,23 @@ export interface MetaData {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const metaDataSchema: Schema<MetaData> = typedExpandoObject(
-  {
-    importValidationSummary: [
-      'importValidationSummary',
-      lazy(() => importValidationSummarySchema),
-    ],
-    apiValidationSummary: [
-      'apiValidationSummary',
-      lazy(() => apiValidationSummarySchema),
-    ],
-    docsValidationSummary: [
-      'docsValidationSummary',
-      lazy(() => docsValidationSummarySchema),
-    ],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const metaDataSchema: Schema<MetaData> = lazy(() =>
+  typedExpandoObject(
+    {
+      importValidationSummary: [
+        'importValidationSummary',
+        importValidationSummarySchema,
+      ],
+      apiValidationSummary: [
+        'apiValidationSummary',
+        apiValidationSummarySchema,
+      ],
+      docsValidationSummary: [
+        'docsValidationSummary',
+        docsValidationSummarySchema,
+      ],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

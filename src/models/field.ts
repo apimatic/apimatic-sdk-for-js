@@ -43,22 +43,24 @@ export interface Field {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const fieldSchema: Schema<Field> = typedExpandoObject(
-  {
-    optional: ['optional', boolean()],
-    type: ['type', string()],
-    constant: ['constant', boolean()],
-    isArray: ['isArray', boolean()],
-    isStream: ['isStream', boolean()],
-    isAttribute: ['isAttribute', boolean()],
-    isMap: ['isMap', boolean()],
-    attributes: ['attributes', lazy(() => attributesSchema)],
-    nullable: ['nullable', boolean()],
-    id: ['id', string()],
-    name: ['name', string()],
-    description: ['description', string()],
-    defaultValue: ['defaultValue', string()],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const fieldSchema: Schema<Field> = lazy(() =>
+  typedExpandoObject(
+    {
+      optional: ['optional', boolean()],
+      type: ['type', string()],
+      constant: ['constant', boolean()],
+      isArray: ['isArray', boolean()],
+      isStream: ['isStream', boolean()],
+      isAttribute: ['isAttribute', boolean()],
+      isMap: ['isMap', boolean()],
+      attributes: ['attributes', attributesSchema],
+      nullable: ['nullable', boolean()],
+      id: ['id', string()],
+      name: ['name', string()],
+      description: ['description', string()],
+      defaultValue: ['defaultValue', string()],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

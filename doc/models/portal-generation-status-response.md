@@ -10,12 +10,19 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `status` | [`Status`](../../doc/models/status.md) | Required | - |
+| `errors` | `Record<string, unknown> \| undefined` | Optional | - |
 
 ## Example (as JSON)
 
 ```json
 {
-  "status": "InProgress"
+  "status": "InProgress",
+  "errors": {
+    "key0": {
+      "key1": "val1",
+      "key2": "val2"
+    }
+  }
 }
 ```
 

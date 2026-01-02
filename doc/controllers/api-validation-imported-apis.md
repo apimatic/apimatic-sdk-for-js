@@ -42,13 +42,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const apiEntityId = '608fe1dad3131a0fd443ba56';
 
 try {
-  const { result, ...httpResponse } = await apiValidationImportedApisController.validateApi(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await apiValidationImportedApisController.validateApi(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -134,13 +146,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const apiEntityId = '608fe1dad3131a0fd443ba56';
 
 try {
-  const { result, ...httpResponse } = await apiValidationImportedApisController.validateApiForDocs(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await apiValidationImportedApisController.validateApiForDocs(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

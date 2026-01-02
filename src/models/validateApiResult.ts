@@ -22,11 +22,13 @@ export interface ValidateApiResult {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const validateApiResultSchema: Schema<ValidateApiResult> = typedExpandoObject(
-  {
-    validation: ['validation', lazy(() => validationSummarySchema)],
-    linting: ['linting', lazy(() => validationSummarySchema)],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const validateApiResultSchema: Schema<ValidateApiResult> = lazy(() =>
+  typedExpandoObject(
+    {
+      validation: ['validation', validationSummarySchema],
+      linting: ['linting', validationSummarySchema],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

@@ -64,30 +64,29 @@ export interface ApiEntity {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const apiEntitySchema: Schema<ApiEntity> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    encryptedId: ['encryptedId', string()],
-    apiKey: ['apiKey', string()],
-    apiGroupId: ['apiGroupId', string()],
-    imageUri: ['imageUri', string()],
-    creationDate: ['creationDate', string()],
-    mPublic: ['public', boolean()],
-    name: ['name', string()],
-    description: ['description', string()],
-    version: ['version', string()],
-    additionalHeaders: ['additionalHeaders', array(string())],
-    authentication: ['authentication', lazy(() => authenticationSchema)],
-    codeGenSettings: ['codeGenSettings', lazy(() => codeGenSettingsSchema)],
-    testGenSettings: ['testGenSettings', lazy(() => testGenSettingsSchema)],
-    errors: ['errors', array(string())],
-    serverConfiguration: [
-      'serverConfiguration',
-      lazy(() => serverConfigurationSchema),
-    ],
-    endpointsGroup: ['endpointsGroup', array(lazy(() => endpointsGroupSchema))],
-    metaData: ['metaData', lazy(() => metaDataSchema)],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const apiEntitySchema: Schema<ApiEntity> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      encryptedId: ['encryptedId', string()],
+      apiKey: ['apiKey', string()],
+      apiGroupId: ['apiGroupId', string()],
+      imageUri: ['imageUri', string()],
+      creationDate: ['creationDate', string()],
+      mPublic: ['public', boolean()],
+      name: ['name', string()],
+      description: ['description', string()],
+      version: ['version', string()],
+      additionalHeaders: ['additionalHeaders', array(string())],
+      authentication: ['authentication', authenticationSchema],
+      codeGenSettings: ['codeGenSettings', codeGenSettingsSchema],
+      testGenSettings: ['testGenSettings', testGenSettingsSchema],
+      errors: ['errors', array(string())],
+      serverConfiguration: ['serverConfiguration', serverConfigurationSchema],
+      endpointsGroup: ['endpointsGroup', array(endpointsGroupSchema)],
+      metaData: ['metaData', metaDataSchema],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );
