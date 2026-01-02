@@ -23,13 +23,11 @@ export interface UpdateTemplatesPackageDeploymentInformation {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const updateTemplatesPackageDeploymentInformationSchema: Schema<UpdateTemplatesPackageDeploymentInformation> = typedExpandoObject(
-  {
-    csNetStandardLib: [
-      'CS_NET_STANDARD_LIB',
-      lazy(() => csnetstandardlibSchema),
-    ],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const updateTemplatesPackageDeploymentInformationSchema: Schema<UpdateTemplatesPackageDeploymentInformation> = lazy(
+  () =>
+    typedExpandoObject(
+      { csNetStandardLib: ['CS_NET_STANDARD_LIB', csnetstandardlibSchema] },
+      'additionalProperties',
+      optional(unknown())
+    )
 );

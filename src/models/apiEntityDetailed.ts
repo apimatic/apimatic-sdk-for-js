@@ -70,32 +70,31 @@ export interface ApiEntityDetailed {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const apiEntityDetailedSchema: Schema<ApiEntityDetailed> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    encryptedId: ['encryptedId', string()],
-    apiKey: ['apiKey', string()],
-    apiGroupId: ['apiGroupId', string()],
-    imageUri: ['imageUri', string()],
-    creationDate: ['creationDate', string()],
-    mPublic: ['public', boolean()],
-    name: ['name', string()],
-    description: ['description', string()],
-    version: ['version', string()],
-    additionalHeaders: ['additionalHeaders', array(string())],
-    authentication: ['authentication', lazy(() => authenticationSchema)],
-    codeGenSettings: ['codeGenSettings', lazy(() => codeGenSettingsSchema)],
-    testGenSettings: ['testGenSettings', lazy(() => testGenSettingsSchema)],
-    errors: ['errors', array(string())],
-    serverConfiguration: [
-      'serverConfiguration',
-      lazy(() => serverConfigurationSchema),
-    ],
-    endpointsGroup: ['endpointsGroup', array(lazy(() => endpointsGroupSchema))],
-    metaData: ['metaData', lazy(() => metaDataSchema)],
-    endpoints: ['endpoints', array(lazy(() => endpointSchema))],
-    customTypes: ['customTypes', array(lazy(() => customTypeSchema))],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const apiEntityDetailedSchema: Schema<ApiEntityDetailed> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      encryptedId: ['encryptedId', string()],
+      apiKey: ['apiKey', string()],
+      apiGroupId: ['apiGroupId', string()],
+      imageUri: ['imageUri', string()],
+      creationDate: ['creationDate', string()],
+      mPublic: ['public', boolean()],
+      name: ['name', string()],
+      description: ['description', string()],
+      version: ['version', string()],
+      additionalHeaders: ['additionalHeaders', array(string())],
+      authentication: ['authentication', authenticationSchema],
+      codeGenSettings: ['codeGenSettings', codeGenSettingsSchema],
+      testGenSettings: ['testGenSettings', testGenSettingsSchema],
+      errors: ['errors', array(string())],
+      serverConfiguration: ['serverConfiguration', serverConfigurationSchema],
+      endpointsGroup: ['endpointsGroup', array(endpointsGroupSchema)],
+      metaData: ['metaData', metaDataSchema],
+      endpoints: ['endpoints', array(endpointSchema)],
+      customTypes: ['customTypes', array(customTypeSchema)],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

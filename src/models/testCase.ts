@@ -49,27 +49,26 @@ export interface TestCase {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const testCaseSchema: Schema<TestCase> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    endpointId: ['endpointId', string()],
-    apiId: ['apiId', string()],
-    name: ['name', string()],
-    enabled: ['enabled', boolean()],
-    shouldPass: ['shouldPass', boolean()],
-    inputParameters: [
-      'inputParameters',
-      array(lazy(() => inputParameterSchema)),
-    ],
-    expectedStatus: ['expectedStatus', string()],
-    expectedHeaders: ['expectedHeaders', array(string())],
-    expectedHeadersAllowExtra: ['expectedHeadersAllowExtra', boolean()],
-    expectedBody: ['expectedBody', string()],
-    expectedBodyMatchMode: ['expectedBodyMatchMode', string()],
-    expectedArrayOrderedMatching: ['expectedArrayOrderedMatching', boolean()],
-    expectedArrayCheckCount: ['expectedArrayCheckCount', boolean()],
-    responseMatchSchema: ['responseMatchSchema', boolean()],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const testCaseSchema: Schema<TestCase> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      endpointId: ['endpointId', string()],
+      apiId: ['apiId', string()],
+      name: ['name', string()],
+      enabled: ['enabled', boolean()],
+      shouldPass: ['shouldPass', boolean()],
+      inputParameters: ['inputParameters', array(inputParameterSchema)],
+      expectedStatus: ['expectedStatus', string()],
+      expectedHeaders: ['expectedHeaders', array(string())],
+      expectedHeadersAllowExtra: ['expectedHeadersAllowExtra', boolean()],
+      expectedBody: ['expectedBody', string()],
+      expectedBodyMatchMode: ['expectedBodyMatchMode', string()],
+      expectedArrayOrderedMatching: ['expectedArrayOrderedMatching', boolean()],
+      expectedArrayCheckCount: ['expectedArrayCheckCount', boolean()],
+      responseMatchSchema: ['responseMatchSchema', boolean()],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

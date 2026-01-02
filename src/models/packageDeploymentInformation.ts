@@ -26,14 +26,17 @@ export interface PackageDeploymentInformation {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const packageDeploymentInformationSchema: Schema<PackageDeploymentInformation> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    templatesPackageDeploymentInformation: [
-      'templatesPackageDeploymentInformation',
-      lazy(() => templatesPackageDeploymentInformationSchema),
-    ],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const packageDeploymentInformationSchema: Schema<PackageDeploymentInformation> = lazy(
+  () =>
+    typedExpandoObject(
+      {
+        id: ['id', string()],
+        templatesPackageDeploymentInformation: [
+          'templatesPackageDeploymentInformation',
+          templatesPackageDeploymentInformationSchema,
+        ],
+      },
+      'additionalProperties',
+      optional(unknown())
+    )
 );

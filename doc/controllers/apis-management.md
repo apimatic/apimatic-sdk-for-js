@@ -54,16 +54,28 @@ const contentType = ContentType.EnumMultipartformdata;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importApiViaFile(
+  const response = await apisManagementController.importApiViaFile(
     contentType,
     file
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -110,13 +122,25 @@ const body: ImportApiViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importApiViaUrl(body);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await apisManagementController.importApiViaUrl(body);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -173,18 +197,30 @@ const versionOverride = 'version_override2';
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importNewApiVersionViaFile(
+  const response = await apisManagementController.importNewApiVersionViaFile(
     apiGroupId,
     accept,
     versionOverride,
     file
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -231,17 +267,29 @@ const body: ImportApiVersionViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.importNewApiVersionViaUrl(
+  const response = await apisManagementController.importNewApiVersionViaUrl(
     apiGroupId,
     accept,
     body
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -285,17 +333,29 @@ const accept = Accept2.EnumApplicationvndapimaticapiEntityfullv1Json;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.inplaceApiImportViaFile(
+  const response = await apisManagementController.inplaceApiImportViaFile(
     apiEntityId,
     accept,
     file
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -337,16 +397,28 @@ const body: InplaceImportApiViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.inplaceApiImportViaUrl(
+  const response = await apisManagementController.inplaceApiImportViaUrl(
     apiEntityId,
     body
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -380,13 +452,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const apiEntityId = 'api_entity_id4';
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.fetchApiEntity(apiEntityId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await apisManagementController.fetchApiEntity(apiEntityId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -424,16 +508,28 @@ const apiEntityId = 'api_entity_id4';
 const format = ExportFormats.Apimatic;
 
 try {
-  const { result, ...httpResponse } = await apisManagementController.downloadApiSpecification(
+  const response = await apisManagementController.downloadApiSpecification(
     apiEntityId,
     format
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

@@ -31,14 +31,16 @@ export interface ServerConfiguration {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const serverConfigurationSchema: Schema<ServerConfiguration> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    defaultEnvironment: ['defaultEnvironment', string()],
-    defaultServer: ['defaultServer', string()],
-    environments: ['environments', array(lazy(() => mEnvironmentSchema))],
-    parameters: ['parameters', array(lazy(() => parameterSchema))],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const serverConfigurationSchema: Schema<ServerConfiguration> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      defaultEnvironment: ['defaultEnvironment', string()],
+      defaultServer: ['defaultServer', string()],
+      environments: ['environments', array(mEnvironmentSchema)],
+      parameters: ['parameters', array(parameterSchema)],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

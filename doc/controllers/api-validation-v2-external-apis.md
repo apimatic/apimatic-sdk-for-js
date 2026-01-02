@@ -48,16 +48,28 @@ const contentType = ContentType.EnumMultipartformdata;
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 try {
-  const { result, ...httpResponse } = await apiValidationV2ExternalApisController.validateApiViaFileV2(
+  const response = await apiValidationV2ExternalApisController.validateApiViaFileV2(
     contentType,
     file
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -123,7 +135,10 @@ try {
         "jsonReferencePath": "#/components/schemas/ProblemResponse/properties/type",
         "fileReference": "openapi.yaml",
         "metadata": {},
-        "ruleDocumentationReference": "https://docs.apimatic.io/rulesets/openapi-v3-docsgen-linting/schema-description-exists/"
+        "ruleDocumentationReference": "https://docs.apimatic.io/rulesets/openapi-v3-docsgen-linting/schema-description-exists/",
+        "additionalReferences": [
+          "https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#specification-extensions"
+        ]
       }
     ]
   }
@@ -170,13 +185,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const url = 'https://petstore.swagger.io/v2/swagger.json';
 
 try {
-  const { result, ...httpResponse } = await apiValidationV2ExternalApisController.validateApiViaUrlV2(url);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await apiValidationV2ExternalApisController.validateApiViaUrlV2(url);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

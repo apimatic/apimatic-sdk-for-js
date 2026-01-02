@@ -45,24 +45,26 @@ export interface Transformation {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const transformationSchema: Schema<Transformation> = typedExpandoObject(
-  {
-    id: ['id', string()],
-    transformedOn: ['transformedOn', string()],
-    userId: ['userId', string()],
-    inputtedFile: ['inputtedFile', string()],
-    generatedFile: ['generatedFile', string()],
-    exportFormat: ['exportFormat', string()],
-    transformationSource: ['transformationSource', string()],
-    transformationInput: ['transformationInput', string()],
-    codeGenVersion: ['codeGenVersion', string()],
-    success: ['success', boolean()],
-    importSummary: ['importSummary', lazy(() => apiValidationSummarySchema)],
-    apiValidationSummary: [
-      'apiValidationSummary',
-      lazy(() => apiValidationSummarySchema),
-    ],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const transformationSchema: Schema<Transformation> = lazy(() =>
+  typedExpandoObject(
+    {
+      id: ['id', string()],
+      transformedOn: ['transformedOn', string()],
+      userId: ['userId', string()],
+      inputtedFile: ['inputtedFile', string()],
+      generatedFile: ['generatedFile', string()],
+      exportFormat: ['exportFormat', string()],
+      transformationSource: ['transformationSource', string()],
+      transformationInput: ['transformationInput', string()],
+      codeGenVersion: ['codeGenVersion', string()],
+      success: ['success', boolean()],
+      importSummary: ['importSummary', apiValidationSummarySchema],
+      apiValidationSummary: [
+        'apiValidationSummary',
+        apiValidationSummarySchema,
+      ],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );

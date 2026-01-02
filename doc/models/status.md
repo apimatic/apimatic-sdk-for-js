@@ -11,5 +11,7 @@
 |  --- |
 | `Completed` |
 | `InProgress` |
+| `ValidationError` |
+| `SubscriptionError` |
 | `Failed` |
 

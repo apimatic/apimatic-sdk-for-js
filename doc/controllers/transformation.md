@@ -63,18 +63,30 @@ const queryParameters: Record<string, string> = {
 };
 
 try {
-  const { result, ...httpResponse } = await transformationController.transformViaFile(
+  const response = await transformationController.transformViaFile(
     contentType,
     file,
     exportFormat,
     queryParameters
   );
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -113,13 +125,25 @@ const body: TransformViaUrlRequest = {
 };
 
 try {
-  const { result, ...httpResponse } = await transformationController.transformViaUrl(body);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await transformationController.transformViaUrl(body);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -153,13 +177,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const transformationId = 'transformation_id6';
 
 try {
-  const { result, ...httpResponse } = await transformationController.downloadTransformedFile(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await transformationController.downloadTransformedFile(transformationId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -193,13 +229,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const transformationId = 'transformation_id6';
 
 try {
-  const { result, ...httpResponse } = await transformationController.downloadInputFile(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await transformationController.downloadInputFile(transformationId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -229,13 +277,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 
 ```ts
 try {
-  const { result, ...httpResponse } = await transformationController.listAllTransformations();
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await transformationController.listAllTransformations();
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -269,13 +329,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const transformationId = 'transformation_id6';
 
 try {
-  const { result, ...httpResponse } = await transformationController.getATransformation(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await transformationController.getATransformation(transformationId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```
@@ -309,13 +381,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 const transformationId = 'transformation_id6';
 
 try {
-  const { result, ...httpResponse } = await transformationController.deleteTransformation(transformationId);
-  // Get more response info...
-  // const { statusCode, headers } = httpResponse;
+  const response = await transformationController.deleteTransformation(transformationId);
+
+  // Extracting fully parsed response body.
+  console.log(response.result);
+
+  // Extracting response status code.
+  console.log(response.statusCode);
+  // Extracting response headers.
+  console.log(response.headers);
+  // Extracting response body of type `string | Stream`
+  console.log(response.body);
 } catch (error) {
   if (error instanceof ApiError) {
-    const errors = error.result;
-    // const { statusCode, headers } = error;
+    // Extracting response error status code.
+    console.log(error.statusCode);
+    // Extracting response error headers.
+    console.log(error.headers);
+    // Extracting response error body of type `string | Stream`.
+    console.log(error.body);
   }
 }
 ```

@@ -17,6 +17,7 @@
 | `fileReference` | `string \| undefined` | Optional | - |
 | `metadata` | `Record<string, string> \| undefined` | Optional | - |
 | `ruleDocumentationReference` | `string \| undefined` | Optional | - |
+| `additionalReferences` | `string[] \| undefined` | Optional | - |
 | `additionalProperties` | `Record<string, unknown>` | Optional | - |
 
 ## Example (as JSON)

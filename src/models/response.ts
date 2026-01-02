@@ -42,20 +42,22 @@ export interface Response {
   additionalProperties?: Record<string, unknown>;
 }
 
-export const responseSchema: Schema<Response> = typedExpandoObject(
-  {
-    optional: ['optional', boolean()],
-    type: ['type', string()],
-    constant: ['constant', boolean()],
-    isArray: ['isArray', boolean()],
-    isStream: ['isStream', boolean()],
-    isAttribute: ['isAttribute', boolean()],
-    isMap: ['isMap', boolean()],
-    attributes: ['attributes', lazy(() => attributesSchema)],
-    nullable: ['nullable', boolean()],
-    id: ['id', string()],
-    name: ['name', string()],
-  },
-  'additionalProperties',
-  optional(unknown())
+export const responseSchema: Schema<Response> = lazy(() =>
+  typedExpandoObject(
+    {
+      optional: ['optional', boolean()],
+      type: ['type', string()],
+      constant: ['constant', boolean()],
+      isArray: ['isArray', boolean()],
+      isStream: ['isStream', boolean()],
+      isAttribute: ['isAttribute', boolean()],
+      isMap: ['isMap', boolean()],
+      attributes: ['attributes', attributesSchema],
+      nullable: ['nullable', boolean()],
+      id: ['id', string()],
+      name: ['name', string()],
+    },
+    'additionalProperties',
+    optional(unknown())
+  )
 );
