@@ -28,6 +28,7 @@ export * from './controllers/codeGenerationExternalApisController.js';
 export * from './controllers/codeGenerationImportedApisController.js';
 export * from './controllers/docsPortalGenerationAsyncController.js';
 export * from './controllers/docsPortalManagementController.js';
+export * from './controllers/sdkGenerationAsyncController.js';
 export * from './controllers/transformationController.js';
 export { ApiError } from './core.js';
 export * from './errors/badRequestResponseSdkError.js';
@@ -77,6 +78,9 @@ export type { PortalGenerationStatusResponse } from './models/portalGenerationSt
 export type { PublishedPackage } from './models/publishedPackage.js';
 export type { PublishPackageInput } from './models/publishPackageInput.js';
 export type { Response } from './models/response.js';
+export type { SdkGenerationAsyncResponse } from './models/sdkGenerationAsyncResponse.js';
+export type { SdkGenerationStatusResponse } from './models/sdkGenerationStatusResponse.js';
+export { SdkLanguages } from './models/sdkLanguages.js';
 export type { Server } from './models/server.js';
 export type { ServerConfiguration } from './models/serverConfiguration.js';
 export { Status } from './models/status.js';

@@ -1,31 +1,32 @@
-# Docs Portal Generation-Async
+# SDK Generation-Async
 
 ```ts
-const docsPortalGenerationAsyncController = new DocsPortalGenerationAsyncController(client);
+const sdkGenerationAsyncController = new SdkGenerationAsyncController(client);
 ```
 
 ## Class Name
 
-`DocsPortalGenerationAsyncController`
+`SdkGenerationAsyncController`
 
 ## Methods
 
-* [Generate On-Prem Portal Via Build Input Async](../../doc/controllers/docs-portal-generation-async.md#generate-on-prem-portal-via-build-input-async)
-* [Get Portal Generation Status](../../doc/controllers/docs-portal-generation-async.md#get-portal-generation-status)
-* [Download Generated Portal](../../doc/controllers/docs-portal-generation-async.md#download-generated-portal)
+* [Generate SDK Via Build Input or API Specification Async](../../doc/controllers/sdk-generation-async.md#generate-sdk-via-build-input-or-api-specification-async)
+* [Get SDK Generation Status](../../doc/controllers/sdk-generation-async.md#get-sdk-generation-status)
+* [Download Generated SDK](../../doc/controllers/sdk-generation-async.md#download-generated-sdk)
 
 
-# Generate On-Prem Portal Via Build Input Async
+# Generate SDK Via Build Input or API Specification Async
 
-Create an async On-premise Documentation Portal Generation request by providing a Portal Build Input
+Create an async SDK Generation request by providing a Build Input or API Specification
 
 ```ts
-async generateOnPremPortalViaBuildInputAsync(
+async generateSdkViaBuildInputOrApiSpecificationAsync(
   contentType: ContentType,
   file: FileWrapper,
+  language: SdkLanguages,
   xApiMaticCallbackUrl?: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<PortalGenerationAsyncResponse>>
+): Promise<ApiResponse<SdkGenerationAsyncResponse>>
 ```
 
 ## Parameters
@@ -33,13 +34,14 @@ async generateOnPremPortalViaBuildInputAsync(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
-| `file` | `FileWrapper` | Form, Required | The input file to the Portal Generator. Must contain the build file. |
-| `xApiMaticCallbackUrl` | `string \| undefined` | Header, Optional | Optional header containing callback url. This url will be called by the server once the portal generation completes |
+| `file` | `FileWrapper` | Form, Required | The input file to the SDK Generator. Must contain the build file or a spec folder containing the API Specification. |
+| `language` | [`SdkLanguages`](../../doc/models/sdk-languages.md) | Form, Required | Languages for which SDKs can be generated. |
+| `xApiMaticCallbackUrl` | `string \| undefined` | Header, Optional | Optional header containing callback url. This url will be called by the server once the SDK generation completes |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PortalGenerationAsyncResponse`](../../doc/models/portal-generation-async-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`SdkGenerationAsyncResponse`](../../doc/models/sdk-generation-async-response.md).
 
 ## Example Usage
 
@@ -48,10 +50,13 @@ const contentType = ContentType.EnumMultipartformdata;
 
 const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
+const language = SdkLanguages.Csharp;
+
 try {
-  const response = await docsPortalGenerationAsyncController.generateOnPremPortalViaBuildInputAsync(
+  const response = await sdkGenerationAsyncController.generateSdkViaBuildInputOrApiSpecificationAsync(
     contentType,
-    file
+    file,
+    language
   );
 
   // Extracting fully parsed response body.
@@ -88,8 +93,8 @@ try {
 {
   "id": "0194d0da-8d75-7c04-b517-6a9342b114e8",
   "links": {
-    "status": "https://api.apimatic.io/portal/v2/0194d0da-8d75-7c04-b517-6a9342b114e8/status",
-    "download": "https://api.apimatic.io/portal/v2/0194d0da-8d75-7c04-b517-6a9342b114e8/download"
+    "status": "https://api.apimatic.io/sdk/0194d0da-8d75-7c04-b517-6a9342b114e8/status",
+    "download": "https://api.apimatic.io/sdk/0194d0da-8d75-7c04-b517-6a9342b114e8/download"
   }
 }
 ```
@@ -103,15 +108,15 @@ try {
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
-# Get Portal Generation Status
+# Get SDK Generation Status
 
-Get the status of a portal generation request
+Get the status of an SDK generation request
 
 ```ts
-async getPortalGenerationStatus(
+async getSdkGenerationStatus(
   id: string,
   requestOptions?: RequestOptions
-): Promise<ApiResponse<PortalGenerationStatusResponse>>
+): Promise<ApiResponse<SdkGenerationStatusResponse>>
 ```
 
 ## Parameters
@@ -123,7 +128,7 @@ async getPortalGenerationStatus(
 
 ## Response Type
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PortalGenerationStatusResponse`](../../doc/models/portal-generation-status-response.md).
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`SdkGenerationStatusResponse`](../../doc/models/sdk-generation-status-response.md).
 
 ## Example Usage
 
@@ -131,7 +136,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const response = await docsPortalGenerationAsyncController.getPortalGenerationStatus(id);
+  const response = await sdkGenerationAsyncController.getSdkGenerationStatus(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -178,20 +183,12 @@ try {
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
-# Download Generated Portal
+# Download Generated SDK
 
-Downloads the portal artifacts. The generated artifacts include:
-
-1. SDKs
-
-2. Docs
-
-3. API Specification files
-
-The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
+Downloads the SDK artifacts. The endpoint returns a zip file containing the generated SDK.
 
 ```ts
-async downloadGeneratedPortal(
+async downloadGeneratedSdk(
   id: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
@@ -214,7 +211,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const response = await docsPortalGenerationAsyncController.downloadGeneratedPortal(id);
+  const response = await sdkGenerationAsyncController.downloadGeneratedSdk(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -250,6 +247,5 @@ try {
 |  --- | --- | --- |
 | 400 | Bad Request | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 | 401 | Unauthorized | [`UnauthorizedResponseError`](../../doc/models/unauthorized-response-error.md) |
-| 422 | Unprocessable Entity - Contains error.zip for build issues | `ApiError` |
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 

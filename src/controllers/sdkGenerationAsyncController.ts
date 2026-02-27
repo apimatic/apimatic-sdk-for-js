@@ -7,102 +7,90 @@
 import { ApiResponse, FileWrapper, RequestOptions } from '../core.js';
 import { ContentType, contentTypeSchema } from '../models/contentType.js';
 import {
-  PortalGenerationAsyncResponse,
-  portalGenerationAsyncResponseSchema,
-} from '../models/portalGenerationAsyncResponse.js';
+  SdkGenerationAsyncResponse,
+  sdkGenerationAsyncResponseSchema,
+} from '../models/sdkGenerationAsyncResponse.js';
 import {
-  PortalGenerationStatusResponse,
-  portalGenerationStatusResponseSchema,
-} from '../models/portalGenerationStatusResponse.js';
+  SdkGenerationStatusResponse,
+  sdkGenerationStatusResponseSchema,
+} from '../models/sdkGenerationStatusResponse.js';
+import { SdkLanguages, sdkLanguagesSchema } from '../models/sdkLanguages.js';
 import { optional, string } from '../schema.js';
 import { BaseController } from './baseController.js';
-import { ApiError } from '@apimatic/core';
 import { InternalServerErrorResponseError } from '../errors/internalServerErrorResponseError.js';
 import { ProblemDetailsError } from '../errors/problemDetailsError.js';
 import { UnauthorizedResponseError } from '../errors/unauthorizedResponseError.js';
 
-export class DocsPortalGenerationAsyncController extends BaseController {
+export class SdkGenerationAsyncController extends BaseController {
   /**
-   * Create an async On-premise Documentation Portal Generation request by providing a Portal Build
-   * Input
+   * Create an async SDK Generation request by providing a Build Input or API Specification
    *
    * @param contentType
-   * @param file                   The input file to the Portal Generator. Must contain the build file.
+   * @param file                   The input file to the SDK Generator. Must contain the build file or
+   *                                               a spec folder containing the API Specification.
+   * @param language               Languages for which SDKs can be generated.
    * @param xApiMaticCallbackUrl   Optional header containing callback url. This url will be called by
-   *                                              the server once the portal generation completes
+   *                                               the server once the SDK generation completes
    * @return Response from the API call
    */
-  async generateOnPremPortalViaBuildInputAsync(
+  async generateSdkViaBuildInputOrApiSpecificationAsync(
     contentType: ContentType,
     file: FileWrapper,
+    language: SdkLanguages,
     xApiMaticCallbackUrl?: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PortalGenerationAsyncResponse>> {
-    const req = this.createRequest('POST', '/portal/v2');
+  ): Promise<ApiResponse<SdkGenerationAsyncResponse>> {
+    const req = this.createRequest('POST', '/sdk');
     const mapped = req.prepareArgs({
       contentType: [contentType, contentTypeSchema],
+      language: [language, sdkLanguagesSchema],
       xApiMaticCallbackUrl: [xApiMaticCallbackUrl, optional(string())],
     });
     req.header('Content-Type', mapped.contentType);
     req.header('X-APIMatic-CallbackUrl', mapped.xApiMaticCallbackUrl);
-    req.formData({ file: file });
+    req.formData({ file: file, language: mapped.language });
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
-    return req.callAsJson(portalGenerationAsyncResponseSchema, requestOptions);
+    return req.callAsJson(sdkGenerationAsyncResponseSchema, requestOptions);
   }
 
   /**
-   * Get the status of a portal generation request
+   * Get the status of an SDK generation request
    *
    * @param id
    * @return Response from the API call
    */
-  async getPortalGenerationStatus(
+  async getSdkGenerationStatus(
     id: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<PortalGenerationStatusResponse>> {
+  ): Promise<ApiResponse<SdkGenerationStatusResponse>> {
     const req = this.createRequest('GET');
     const mapped = req.prepareArgs({ id: [id, string()] });
-    req.appendTemplatePath`/portal/v2/${mapped.id}/status`;
+    req.appendTemplatePath`/sdk/${mapped.id}/status`;
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
-    return req.callAsJson(portalGenerationStatusResponseSchema, requestOptions);
+    return req.callAsJson(sdkGenerationStatusResponseSchema, requestOptions);
   }
 
   /**
-   * Downloads the portal artifacts. The generated artifacts include:
-   *
-   *
-   * 1. SDKs
-   *
-   * 2. Docs
-   *
-   * 3. API Specification files
-   *
-   *
-   * The endpoint returns a zip file that contains a static Site and can be hosted on any Web Server.
+   * Downloads the SDK artifacts. The endpoint returns a zip file containing the generated SDK.
    *
    * @param id
    * @return Response from the API call
    */
-  async downloadGeneratedPortal(
+  async downloadGeneratedSdk(
     id: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
     const req = this.createRequest('GET');
     const mapped = req.prepareArgs({ id: [id, string()] });
-    req.appendTemplatePath`/portal/v2/${mapped.id}/download`;
+    req.appendTemplatePath`/sdk/${mapped.id}/download`;
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
-    req.throwOn(
-      422,
-      ApiError,
-      'Unprocessable Entity - Contains error.zip for build issues'
-    );
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
     req.authenticate([{ authorization: true }]);
     return req.callAsStream(requestOptions);

@@ -275,6 +275,13 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
+    if (error instanceof ProblemDetailsError) {
+      console.log(error.result);
+    } else if (error instanceof UnauthorizedResponseError) {
+      console.log(error.result);
+    } else if (error instanceof InternalServerErrorResponseError) {
+      console.log(error.result);
+    }
   }
 }
 ```
