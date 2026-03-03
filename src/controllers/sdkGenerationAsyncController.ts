@@ -23,7 +23,7 @@ import { UnauthorizedResponseError } from '../errors/unauthorizedResponseError.j
 
 export class SdkGenerationAsyncController extends BaseController {
   /**
-   * Create an async SDK Generation request by providing a Build Input or API Specification
+   * Create an async SDK Generation request by providing a Build Input
    *
    * @param contentType
    * @param file                   The input file to the SDK Generator. Must contain the build file or
@@ -33,7 +33,7 @@ export class SdkGenerationAsyncController extends BaseController {
    *                                               the server once the SDK generation completes
    * @return Response from the API call
    */
-  async generateSdkViaBuildInputOrApiSpecificationAsync(
+  async generateSdkViaBuildInputAsync(
     contentType: ContentType,
     file: FileWrapper,
     language: SdkLanguages,

@@ -10,17 +10,17 @@ const sdkGenerationAsyncController = new SdkGenerationAsyncController(client);
 
 ## Methods
 
-* [Generate SDK Via Build Input or API Specification Async](../../doc/controllers/sdk-generation-async.md#generate-sdk-via-build-input-or-api-specification-async)
+* [Generate SDK Via Build Input Async](../../doc/controllers/sdk-generation-async.md#generate-sdk-via-build-input-async)
 * [Get SDK Generation Status](../../doc/controllers/sdk-generation-async.md#get-sdk-generation-status)
 * [Download Generated SDK](../../doc/controllers/sdk-generation-async.md#download-generated-sdk)
 
 
-# Generate SDK Via Build Input or API Specification Async
+# Generate SDK Via Build Input Async
 
-Create an async SDK Generation request by providing a Build Input or API Specification
+Create an async SDK Generation request by providing a Build Input
 
 ```ts
-async generateSdkViaBuildInputOrApiSpecificationAsync(
+async generateSdkViaBuildInputAsync(
   contentType: ContentType,
   file: FileWrapper,
   language: SdkLanguages,
@@ -53,7 +53,7 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 const language = SdkLanguages.Csharp;
 
 try {
-  const response = await sdkGenerationAsyncController.generateSdkViaBuildInputOrApiSpecificationAsync(
+  const response = await sdkGenerationAsyncController.generateSdkViaBuildInputAsync(
     contentType,
     file,
     language
