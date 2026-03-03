@@ -11,7 +11,6 @@
   "main": "dist/cjs/index.js",
   "typings": "dist/cjs/types/index.d.ts",
   "module": "dist/esm/index.js",
-  "type": "module",
   "files": [
     "dist",
     "src"
