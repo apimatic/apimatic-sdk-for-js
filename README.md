@@ -79,7 +79,7 @@ The following parameters are configurable for the API Client:
 |  --- | --- | --- |
 | userAgent | `string` |  |
 | customUrl | `string` | The testing domain for the API<br>*Default*: `'https://localhost:44301/api'` |
-| environment | `Environment` | The API environment. <br> **Default: `Environment.Production`** |
+| environment | [`Environment`](README.md#environments) | The API environment. <br> **Default: `Environment.Production`** |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
 | httpClientOptions | [`Partial<HttpClientOptions>`](doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
@@ -162,8 +162,8 @@ The SDK can be configured to use a different environment for making API calls. A
 
 | Name | Description |
 |  --- | --- |
-| production | **Default** |
-| testing | - |
+| Production | **Default** |
+| Testing | - |
 
 ## Authorization
 
@@ -181,6 +181,7 @@ This API uses the following authentication schemes.
 * [API Validation-Imported APIs](doc/controllers/api-validation-imported-apis.md)
 * [API Validation-External APIs](doc/controllers/api-validation-external-apis.md)
 * [API Validation V2 -External APIs](doc/controllers/api-validation-v2-external-apis.md)
+* [SDK Generation-Async](doc/controllers/sdk-generation-async.md)
 * [Transformation](doc/controllers/transformation.md)
 
 ## SDK Infrastructure

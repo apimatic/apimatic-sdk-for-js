@@ -7,7 +7,7 @@ The following parameters are configurable for the API Client:
 |  --- | --- | --- |
 | userAgent | `string` |  |
 | customUrl | `string` | The testing domain for the API<br>*Default*: `'https://localhost:44301/api'` |
-| environment | `Environment` | The API environment. <br> **Default: `Environment.Production`** |
+| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.Production`** |
 | timeout | `number` | Timeout for API calls.<br>*Default*: `30000` |
 | httpClientOptions | [`Partial<HttpClientOptions>`](../doc/http-client-options.md) | Stable configurable http client options. |
 | unstableHttpClientOptions | `any` | Unstable configurable http client options. |
