@@ -89,6 +89,13 @@ try {
     console.log(error.headers);
     // Extracting response error body of type `string | Stream`.
     console.log(error.body);
+    if (error instanceof BadRequestResponseSdkError) {
+      console.log(error.result);
+    } else if (error instanceof UnauthorizedResponseError) {
+      console.log(error.result);
+    } else if (error instanceof ProblemDetailsError) {
+      console.log(error.result);
+    }
   }
 }
 ```
