@@ -26,11 +26,13 @@ export class SdkGenerationAsyncController extends BaseController {
    * Create an async SDK Generation request by providing a Build Input
    *
    * @param contentType
-   * @param file                   The input file to the SDK Generator. Must contain the build file or
-   *                                               a spec folder containing the API Specification.
-   * @param language               Languages for which SDKs can be generated.
-   * @param xApiMaticCallbackUrl   Optional header containing callback url. This url will be called by
-   *                                               the server once the SDK generation completes
+   * @param file                      The input file to the SDK Generator. Must contain the build file
+   *                                                  or a spec folder containing the API Specification.
+   * @param language                  Languages for which SDKs can be generated.
+   * @param xApiMaticCallbackUrl      Optional header containing callback url. This url will be called
+   *                                                  by the server once the SDK generation completes
+   * @param xApiMaticPackageVersion   Optional header containing the package version. This version
+   *                                                  will be used by the server during the SDK generation process
    * @return Response from the API call
    */
   async generateSdkViaBuildInputAsync(
@@ -38,6 +40,7 @@ export class SdkGenerationAsyncController extends BaseController {
     file: FileWrapper,
     language: SdkLanguages,
     xApiMaticCallbackUrl?: string,
+    xApiMaticPackageVersion?: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SdkGenerationAsyncResponse>> {
     const req = this.createRequest('POST', '/sdk');
@@ -45,9 +48,11 @@ export class SdkGenerationAsyncController extends BaseController {
       contentType: [contentType, contentTypeSchema],
       language: [language, sdkLanguagesSchema],
       xApiMaticCallbackUrl: [xApiMaticCallbackUrl, optional(string())],
+      xApiMaticPackageVersion: [xApiMaticPackageVersion, optional(string())],
     });
     req.header('Content-Type', mapped.contentType);
     req.header('X-APIMatic-CallbackUrl', mapped.xApiMaticCallbackUrl);
+    req.header('X-APIMatic-PackageVersion', mapped.xApiMaticPackageVersion);
     req.formData({ file: file, language: mapped.language });
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');

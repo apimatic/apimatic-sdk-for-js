@@ -10,8 +10,8 @@ const codeGenerationExternalApisController = new CodeGenerationExternalApisContr
 
 ## Methods
 
-* [Generate SDK Via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
-* [Generate SDK Via URL](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
+* [Generate SDK via File](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-file)
+* [Generate SDK via URL](../../doc/controllers/code-generation-external-apis.md#generate-sdk-via-url)
 * [Download SDK](../../doc/controllers/code-generation-external-apis.md#download-sdk)
 * [List All Code Generations](../../doc/controllers/code-generation-external-apis.md#list-all-code-generations)
 * [Download Input File](../../doc/controllers/code-generation-external-apis.md#download-input-file)
@@ -19,7 +19,7 @@ const codeGenerationExternalApisController = new CodeGenerationExternalApisContr
 * [Delete Code Generation for External APIs](../../doc/controllers/code-generation-external-apis.md#delete-code-generation-for-external-apis)
 
 
-# Generate SDK Via File
+# Generate SDK via File
 
 Generate an SDK for an API by by uploading the API specification file.
 
@@ -109,7 +109,7 @@ try {
 | 403 | Subscription Issue | [`ProblemDetailsError`](../../doc/models/problem-details-error.md) |
 
 
-# Generate SDK Via URL
+# Generate SDK via URL
 
 Generate an SDK for an API by providing the URL of the API specification file.
 
