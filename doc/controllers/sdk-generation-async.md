@@ -25,7 +25,7 @@ async generateSdkViaBuildInputAsync(
   file: FileWrapper,
   language: SdkLanguages,
   xApiMaticCallbackUrl?: string,
-  xApiMaticPackageVersion?: string,
+  packageVersion?: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SdkGenerationAsyncResponse>>
 ```
@@ -38,7 +38,7 @@ async generateSdkViaBuildInputAsync(
 | `file` | `FileWrapper` | Form, Required | The input file to the SDK Generator. Must contain the build file or a spec folder containing the API Specification. |
 | `language` | [`SdkLanguages`](../../doc/models/sdk-languages.md) | Form, Required | Languages for which SDKs can be generated. |
 | `xApiMaticCallbackUrl` | `string \| undefined` | Header, Optional | Optional header containing callback url. This url will be called by the server once the SDK generation completes |
-| `xApiMaticPackageVersion` | `string \| undefined` | Header, Optional | Optional header containing the package version. This version will be used by the server during the SDK generation process |
+| `packageVersion` | `string \| undefined` | Form, Optional | Optional field containing the package version to apply to the generated SDK. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -54,7 +54,7 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const language = SdkLanguages.Csharp;
 
-const xApiMaticPackageVersion = '1.0.0';
+const packageVersion = '1.0.0';
 
 try {
   const response = await sdkGenerationAsyncController.generateSdkViaBuildInputAsync(
@@ -62,7 +62,7 @@ try {
     file,
     language,
     undefined,
-    xApiMaticPackageVersion
+    packageVersion
   );
 
   // Extracting fully parsed response body.
