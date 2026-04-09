@@ -1,4 +1,4 @@
-# API Validation V2 -External APIs
+# API Validation V2-External APIs
 
 ```ts
 const apiValidationV2ExternalApisController = new ApiValidationV2ExternalApisController(client);
@@ -10,11 +10,11 @@ const apiValidationV2ExternalApisController = new ApiValidationV2ExternalApisCon
 
 ## Methods
 
-* [Validate API Via File - V2](../../doc/controllers/api-validation-v2-external-apis.md#validate-api-via-file---v2)
-* [Validate API Via URL - V2](../../doc/controllers/api-validation-v2-external-apis.md#validate-api-via-url---v2)
+* [Validate API via File - V2](../../doc/controllers/api-validation-v2-external-apis.md#validate-api-via-file---v2)
+* [Validate API via URL - V2](../../doc/controllers/api-validation-v2-external-apis.md#validate-api-via-url---v2)
 
 
-# Validate API Via File - V2
+# Validate API via File - V2
 
 Validate an API by uploading the API specification file.
 
@@ -162,7 +162,7 @@ try {
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
-# Validate API Via URL - V2
+# Validate API via URL - V2
 
 Validate an API by providing the URL of the API specification file.
 

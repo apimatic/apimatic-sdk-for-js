@@ -10,12 +10,12 @@ const docsPortalGenerationAsyncController = new DocsPortalGenerationAsyncControl
 
 ## Methods
 
-* [Generate On-Prem Portal Via Build Input Async](../../doc/controllers/docs-portal-generation-async.md#generate-on-prem-portal-via-build-input-async)
+* [Generate on-Prem Portal via Build Input Async](../../doc/controllers/docs-portal-generation-async.md#generate-on-prem-portal-via-build-input-async)
 * [Get Portal Generation Status](../../doc/controllers/docs-portal-generation-async.md#get-portal-generation-status)
 * [Download Generated Portal](../../doc/controllers/docs-portal-generation-async.md#download-generated-portal)
 
 
-# Generate On-Prem Portal Via Build Input Async
+# Generate on-Prem Portal via Build Input Async
 
 Create an async On-premise Documentation Portal Generation request by providing a Portal Build Input
 

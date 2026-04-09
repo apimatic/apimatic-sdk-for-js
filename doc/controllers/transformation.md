@@ -10,8 +10,8 @@ const transformationController = new TransformationController(client);
 
 ## Methods
 
-* [Transform Via File](../../doc/controllers/transformation.md#transform-via-file)
-* [Transform Via URL](../../doc/controllers/transformation.md#transform-via-url)
+* [Transform via File](../../doc/controllers/transformation.md#transform-via-file)
+* [Transform via URL](../../doc/controllers/transformation.md#transform-via-url)
 * [Download Transformed File](../../doc/controllers/transformation.md#download-transformed-file)
 * [Download Input File](../../doc/controllers/transformation.md#download-input-file)
 * [List All Transformations](../../doc/controllers/transformation.md#list-all-transformations)
@@ -19,7 +19,7 @@ const transformationController = new TransformationController(client);
 * [Delete Transformation](../../doc/controllers/transformation.md#delete-transformation)
 
 
-# Transform Via File
+# Transform via File
 
 Transform an API into any of the supported API specification formats by uploading the API specification file.
 
@@ -92,7 +92,7 @@ try {
 ```
 
 
-# Transform Via URL
+# Transform via URL
 
 Transform an API into any of the supported API specification formats by providing the URL of the API specification file.
 

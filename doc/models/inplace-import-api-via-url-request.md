@@ -1,5 +1,5 @@
 
-# Inplace Import Api Via Url Request
+# Inplace Import Api via Url Request
 
 Contains a url field to allow Apis to be imported via url
 

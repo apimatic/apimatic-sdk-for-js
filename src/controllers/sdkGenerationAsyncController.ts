@@ -31,6 +31,8 @@ export class SdkGenerationAsyncController extends BaseController {
    * @param language               Languages for which SDKs can be generated.
    * @param xApiMaticCallbackUrl   Optional header containing callback url. This url will be called by
    *                                               the server once the SDK generation completes
+   * @param packageVersion         Optional field containing the package version to apply to the
+   *                                               generated SDK.
    * @return Response from the API call
    */
   async generateSdkViaBuildInputAsync(
@@ -38,6 +40,7 @@ export class SdkGenerationAsyncController extends BaseController {
     file: FileWrapper,
     language: SdkLanguages,
     xApiMaticCallbackUrl?: string,
+    packageVersion?: string,
     requestOptions?: RequestOptions
   ): Promise<ApiResponse<SdkGenerationAsyncResponse>> {
     const req = this.createRequest('POST', '/sdk');
@@ -45,10 +48,15 @@ export class SdkGenerationAsyncController extends BaseController {
       contentType: [contentType, contentTypeSchema],
       language: [language, sdkLanguagesSchema],
       xApiMaticCallbackUrl: [xApiMaticCallbackUrl, optional(string())],
+      packageVersion: [packageVersion, optional(string())],
     });
     req.header('Content-Type', mapped.contentType);
     req.header('X-APIMatic-CallbackUrl', mapped.xApiMaticCallbackUrl);
-    req.formData({ file: file, language: mapped.language });
+    req.formData({
+      file: file,
+      language: mapped.language,
+      packageVersion: mapped.packageVersion,
+    });
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');

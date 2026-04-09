@@ -12,8 +12,8 @@ const docsPortalManagementController = new DocsPortalManagementController(client
 
 * [Publish Hosted Portal](../../doc/controllers/docs-portal-management.md#publish-hosted-portal)
 * [Publish Embedded Portal](../../doc/controllers/docs-portal-management.md#publish-embedded-portal)
-* [Generate On-Prem Portal Via API Entity](../../doc/controllers/docs-portal-management.md#generate-on-prem-portal-via-api-entity)
-* [Generate On-Prem Portal Via Build Input](../../doc/controllers/docs-portal-management.md#generate-on-prem-portal-via-build-input)
+* [Generate on-Prem Portal via API Entity](../../doc/controllers/docs-portal-management.md#generate-on-prem-portal-via-api-entity)
+* [Generate on-Prem Portal via Build Input](../../doc/controllers/docs-portal-management.md#generate-on-prem-portal-via-build-input)
 * [Generate Build Input for Unpublished Portal](../../doc/controllers/docs-portal-management.md#generate-build-input-for-unpublished-portal)
 * [Generate Build Input for Published Portal](../../doc/controllers/docs-portal-management.md#generate-build-input-for-published-portal)
 * [Unpublish Portal](../../doc/controllers/docs-portal-management.md#unpublish-portal)
@@ -143,7 +143,7 @@ try {
 ```
 
 
-# Generate On-Prem Portal Via API Entity
+# Generate on-Prem Portal via API Entity
 
 Generate an On-premise Documentation Portal for an API Entity. This endpoint generates all artifacts for the Portal and packages them together into a zip file along with the required HTML, CSS and JS files. The generated artifacts include:
 
@@ -208,7 +208,7 @@ try {
 ```
 
 
-# Generate On-Prem Portal Via Build Input
+# Generate on-Prem Portal via Build Input
 
 Generate an On-premise Documentation Portal by uploading a Portal Build Input. This endpoint generates all artifacts for the Portal and packages them together into a zip file along with the required HTML, CSS and JS files. The generated artifacts include:
 
