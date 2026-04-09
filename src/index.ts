@@ -29,6 +29,7 @@ export * from './controllers/codeGenerationImportedApisController.js';
 export * from './controllers/docsPortalGenerationAsyncController.js';
 export * from './controllers/docsPortalManagementController.js';
 export * from './controllers/sdkGenerationAsyncController.js';
+export * from './controllers/sdkSourceTreeGenerationAsyncController.js';
 export * from './controllers/transformationController.js';
 export { ApiError } from './core.js';
 export * from './errors/badRequestResponseSdkError.js';
