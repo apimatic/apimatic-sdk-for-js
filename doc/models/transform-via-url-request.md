@@ -1,5 +1,5 @@
 
-# Transform Via Url Request
+# Transform via Url Request
 
 This structure puts together the URL of the file to be transformed, along with the desired export format.
 

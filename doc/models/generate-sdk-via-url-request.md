@@ -1,5 +1,5 @@
 
-# Generate Sdk Via Url Request
+# Generate Sdk via Url Request
 
 *This model accepts additional fields of type unknown.*
 

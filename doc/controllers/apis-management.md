@@ -10,17 +10,17 @@ const apisManagementController = new ApisManagementController(client);
 
 ## Methods
 
-* [Import API Via File](../../doc/controllers/apis-management.md#import-api-via-file)
-* [Import API Via URL](../../doc/controllers/apis-management.md#import-api-via-url)
-* [Import New API Version Via File](../../doc/controllers/apis-management.md#import-new-api-version-via-file)
-* [Import New API Version Via URL](../../doc/controllers/apis-management.md#import-new-api-version-via-url)
-* [Inplace API Import Via File](../../doc/controllers/apis-management.md#inplace-api-import-via-file)
-* [Inplace API Import Via URL](../../doc/controllers/apis-management.md#inplace-api-import-via-url)
+* [Import API via File](../../doc/controllers/apis-management.md#import-api-via-file)
+* [Import API via URL](../../doc/controllers/apis-management.md#import-api-via-url)
+* [Import New API Version via File](../../doc/controllers/apis-management.md#import-new-api-version-via-file)
+* [Import New API Version via URL](../../doc/controllers/apis-management.md#import-new-api-version-via-url)
+* [Inplace API Import via File](../../doc/controllers/apis-management.md#inplace-api-import-via-file)
+* [Inplace API Import via URL](../../doc/controllers/apis-management.md#inplace-api-import-via-url)
 * [Fetch API Entity](../../doc/controllers/apis-management.md#fetch-api-entity)
 * [Download API Specification](../../doc/controllers/apis-management.md#download-api-specification)
 
 
-# Import API Via File
+# Import API via File
 
 Import an API into the APIMatic Dashboard by uploading the API specification file.
 
@@ -90,7 +90,7 @@ try {
 | 500 | Internal Server Error | `ApiError` |
 
 
-# Import API Via URL
+# Import API via URL
 
 Import an API into the APIMatic Dashboard by providing the URL of the API specification file.
 
@@ -155,7 +155,7 @@ try {
 | 500 | Internal Server Error | `ApiError` |
 
 
-# Import New API Version Via File
+# Import New API Version via File
 
 Import a new version for an API, against an existing API Group, by uploading the API specification file.
 
@@ -226,7 +226,7 @@ try {
 ```
 
 
-# Import New API Version Via URL
+# Import New API Version via URL
 
 Import a new version for an API, against an existing API Group, by providing the URL of the API specification file.
 
@@ -295,7 +295,7 @@ try {
 ```
 
 
-# Inplace API Import Via File
+# Inplace API Import via File
 
 Replace an API version of an API Group, by uploading the API specification file that will replace the current version.
 
@@ -361,7 +361,7 @@ try {
 ```
 
 
-# Inplace API Import Via URL
+# Inplace API Import via URL
 
 Replace an API version of an API Group, by providing the URL of the API specification file that will replace the current version.
 

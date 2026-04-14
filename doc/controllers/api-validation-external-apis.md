@@ -10,11 +10,11 @@ const apiValidationExternalApisController = new ApiValidationExternalApisControl
 
 ## Methods
 
-* [Validate API Via File](../../doc/controllers/api-validation-external-apis.md#validate-api-via-file)
-* [Validate API Via URL](../../doc/controllers/api-validation-external-apis.md#validate-api-via-url)
+* [Validate API via File](../../doc/controllers/api-validation-external-apis.md#validate-api-via-file)
+* [Validate API via URL](../../doc/controllers/api-validation-external-apis.md#validate-api-via-url)
 
 
-# Validate API Via File
+# Validate API via File
 
 Validate an API by uploading the API specification file.
 
@@ -127,7 +127,7 @@ try {
 | 500 | Internal Server Error | `ApiError` |
 
 
-# Validate API Via URL
+# Validate API via URL
 
 Validate an API by providing the URL of the API specification file.
 
