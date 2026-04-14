@@ -1,3 +1,10 @@
+# [0.2.0-alpha.8](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.7...v0.2.0-alpha.8) (2026-04-14)
+
+
+### Features
+
+* add sdk source tree download endpoint and package version form parameter ([#26](https://github.com/apimatic/apimatic-sdk-for-js/issues/26)) ([7dc569b](https://github.com/apimatic/apimatic-sdk-for-js/commit/7dc569bcc2a47a74df8c729d5b16e7a0dedb18ca))
+
 # [0.2.0-alpha.7](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.6...v0.2.0-alpha.7) (2026-03-05)
 
 
