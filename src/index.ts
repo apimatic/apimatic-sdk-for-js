@@ -31,6 +31,7 @@ export * from './controllers/docsPortalManagementController.js';
 export * from './controllers/sdkGenerationAsyncController.js';
 export * from './controllers/sdkSourceTreeGenerationAsyncController.js';
 export * from './controllers/transformationController.js';
+export * from './controllers/v2SdkGenerationController.js';
 export { ApiError } from './core.js';
 export * from './errors/badRequestResponseSdkError.js';
 export * from './errors/internalServerErrorResponseError.js';

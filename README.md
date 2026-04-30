@@ -183,6 +183,7 @@ This API uses the following authentication schemes.
 * [API Validation V2-External APIs](doc/controllers/api-validation-v2-external-apis.md)
 * [SDK Generation-Async](doc/controllers/sdk-generation-async.md)
 * [SDK Source Tree Generation-Async](doc/controllers/sdk-source-tree-generation-async.md)
+* [V2 SDK Generation](doc/controllers/v2-sdk-generation.md)
 * [Transformation](doc/controllers/transformation.md)
 
 ## SDK Infrastructure
