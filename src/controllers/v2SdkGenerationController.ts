@@ -5,8 +5,25 @@
  */
 
 import { ApiResponse, FileWrapper, RequestOptions } from '../core.js';
+import {
+  CodeGenerationVersion,
+  codeGenerationVersionSchema,
+} from '../models/codeGenerationVersion.js';
 import { ContentType, contentTypeSchema } from '../models/contentType.js';
+import {
+  SdkGenerationAsyncResponse,
+  sdkGenerationAsyncResponseSchema,
+} from '../models/sdkGenerationAsyncResponse.js';
+import {
+  SdkGenerationStatusResponse,
+  sdkGenerationStatusResponseSchema,
+} from '../models/sdkGenerationStatusResponse.js';
 import { SdkLanguages, sdkLanguagesSchema } from '../models/sdkLanguages.js';
+import {
+  StabilityLevelTag,
+  stabilityLevelTagSchema,
+} from '../models/stabilityLevelTag.js';
+import { optional, string } from '../schema.js';
 import { BaseController } from './baseController.js';
 import { InternalServerErrorResponseError } from '../errors/internalServerErrorResponseError.js';
 import { ProblemDetailsError } from '../errors/problemDetailsError.js';
@@ -14,27 +31,97 @@ import { UnauthorizedResponseError } from '../errors/unauthorizedResponseError.j
 
 export class V2SdkGenerationController extends BaseController {
   /**
-   * Create a V2 SDK Generation request by providing a Build Input
+   * Create an async V2 SDK Generation request by providing a Build Input
    *
    * @param contentType
-   * @param file         The input file to the SDK Generator. Must contain the build file or a spec
-   *                                     folder containing the API Specification.
-   * @param language     Languages for which SDKs can be generated.
+   * @param file                   The input file to the SDK Generator. Must contain the
+   *                                                        build file or a spec folder containing the API
+   *                                                        Specification.
+   * @param language               Languages for which SDKs can be generated.
+   * @param codegenVersion         The code generation engine version to use for SDK
+   *                                                        generation.
+   * @param stability              The stability level of the generated SDK.
+   * @param xApiMaticCallbackUrl   Optional header containing callback url. This url will be
+   *                                                        called by the server once the SDK generation completes
    * @return Response from the API call
    */
-  async generateV2SdkViaBuildInput(
+  async generateV2SdkViaBuildInputAsync(
     contentType: ContentType,
     file: FileWrapper,
     language: SdkLanguages,
+    codegenVersion: CodeGenerationVersion,
+    stability: StabilityLevelTag,
+    xApiMaticCallbackUrl?: string,
     requestOptions?: RequestOptions
-  ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
+  ): Promise<ApiResponse<SdkGenerationAsyncResponse>> {
     const req = this.createRequest('POST', '/sdk/v2');
     const mapped = req.prepareArgs({
       contentType: [contentType, contentTypeSchema],
       language: [language, sdkLanguagesSchema],
+      codegenVersion: [codegenVersion, codeGenerationVersionSchema],
+      stability: [stability, stabilityLevelTagSchema],
+      xApiMaticCallbackUrl: [xApiMaticCallbackUrl, optional(string())],
     });
     req.header('Content-Type', mapped.contentType);
-    req.formData({ file: file, language: mapped.language });
+    req.header('X-APIMatic-CallbackUrl', mapped.xApiMaticCallbackUrl);
+    req.formData({
+      file: file,
+      language: mapped.language,
+      codegenVersion: mapped.codegenVersion,
+      stability: mapped.stability,
+    });
+    req.throwOn(400, ProblemDetailsError, 'Bad Request');
+    req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
+    req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
+    req.authenticate([{ authorization: true }]);
+    return req.callAsJson(sdkGenerationAsyncResponseSchema, requestOptions);
+  }
+
+  /**
+   * Get the status of a V2 SDK generation request
+   *
+   * @param id
+   * @param codegenVersion Example: v3
+   * @return Response from the API call
+   */
+  async getV2SdkGenerationStatus(
+    id: string,
+    codegenVersion: CodeGenerationVersion,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<SdkGenerationStatusResponse>> {
+    const req = this.createRequest('GET');
+    const mapped = req.prepareArgs({
+      id: [id, string()],
+      codegenVersion: [codegenVersion, codeGenerationVersionSchema],
+    });
+    req.query('codegenVersion', mapped.codegenVersion);
+    req.appendTemplatePath`/sdk/v2/${mapped.id}/status`;
+    req.throwOn(400, ProblemDetailsError, 'Bad Request');
+    req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
+    req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');
+    req.authenticate([{ authorization: true }]);
+    return req.callAsJson(sdkGenerationStatusResponseSchema, requestOptions);
+  }
+
+  /**
+   * Downloads the V2 SDK artifacts. The endpoint returns a zip file containing the generated SDK.
+   *
+   * @param id
+   * @param codegenVersion Example: v3
+   * @return Response from the API call
+   */
+  async downloadGeneratedV2Sdk(
+    id: string,
+    codegenVersion: CodeGenerationVersion,
+    requestOptions?: RequestOptions
+  ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>> {
+    const req = this.createRequest('GET');
+    const mapped = req.prepareArgs({
+      id: [id, string()],
+      codegenVersion: [codegenVersion, codeGenerationVersionSchema],
+    });
+    req.query('codegenVersion', mapped.codegenVersion);
+    req.appendTemplatePath`/sdk/v2/${mapped.id}/download`;
     req.throwOn(400, ProblemDetailsError, 'Bad Request');
     req.throwOn(401, UnauthorizedResponseError, 'Unauthorized');
     req.throwOn(500, InternalServerErrorResponseError, 'Internal Server Error');

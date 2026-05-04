@@ -49,6 +49,7 @@ export type { Authentication } from './models/authentication.js';
 export type { AuthorIdentifiers } from './models/authorIdentifiers.js';
 export type { AuthScope } from './models/authScope.js';
 export type { CodeGeneration } from './models/codeGeneration.js';
+export { CodeGenerationVersion } from './models/codeGenerationVersion.js';
 export type { CodeGenSettings } from './models/codeGenSettings.js';
 export { ContentType } from './models/contentType.js';
 export type { Csnetstandardlib } from './models/csnetstandardlib.js';
@@ -85,6 +86,7 @@ export type { SdkGenerationStatusResponse } from './models/sdkGenerationStatusRe
 export { SdkLanguages } from './models/sdkLanguages.js';
 export type { Server } from './models/server.js';
 export type { ServerConfiguration } from './models/serverConfiguration.js';
+export { StabilityLevelTag } from './models/stabilityLevelTag.js';
 export { Status } from './models/status.js';
 export type { TemplatesPackageDeploymentInformation } from './models/templatesPackageDeploymentInformation.js';
 export type { TestCase } from './models/testCase.js';
