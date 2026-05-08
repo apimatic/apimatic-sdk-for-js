@@ -1,3 +1,10 @@
+# [0.2.0-alpha.9](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.8...v0.2.0-alpha.9) (2026-05-08)
+
+
+### Features
+
+* add new generate toc data endpoint ([#28](https://github.com/apimatic/apimatic-sdk-for-js/issues/28)) ([2ae3cc7](https://github.com/apimatic/apimatic-sdk-for-js/commit/2ae3cc7382142700be60ea424829e724f910553a))
+
 # [0.2.0-alpha.8](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.7...v0.2.0-alpha.8) (2026-04-14)
 
 
