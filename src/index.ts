@@ -30,6 +30,7 @@ export * from './controllers/docsPortalGenerationAsyncController.js';
 export * from './controllers/docsPortalManagementController.js';
 export * from './controllers/sdkGenerationAsyncController.js';
 export * from './controllers/sdkSourceTreeGenerationAsyncController.js';
+export * from './controllers/tableOfContentsController.js';
 export * from './controllers/transformationController.js';
 export * from './controllers/v2SdkGenerationController.js';
 export { ApiError } from './core.js';
