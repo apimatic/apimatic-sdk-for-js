@@ -24,7 +24,6 @@ async generateV2SdkViaBuildInputAsync(
   contentType: ContentType,
   file: FileWrapper,
   language: SdkLanguages,
-  codegenVersion: CodeGenerationVersion,
   stability: StabilityLevelTag,
   xApiMaticCallbackUrl?: string,
   requestOptions?: RequestOptions
@@ -38,7 +37,6 @@ async generateV2SdkViaBuildInputAsync(
 | `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The input file to the SDK Generator. Must contain the build file or a spec folder containing the API Specification. |
 | `language` | [`SdkLanguages`](../../doc/models/sdk-languages.md) | Form, Required | Languages for which SDKs can be generated. |
-| `codegenVersion` | [`CodeGenerationVersion`](../../doc/models/code-generation-version.md) | Form, Required | The code generation engine version to use for SDK generation. |
 | `stability` | [`StabilityLevelTag`](../../doc/models/stability-level-tag.md) | Form, Required | The stability level of the generated SDK. |
 | `xApiMaticCallbackUrl` | `string \| undefined` | Header, Optional | Optional header containing callback url. This url will be called by the server once the SDK generation completes |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
@@ -56,8 +54,6 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const language = SdkLanguages.Csharp;
 
-const codegenVersion = CodeGenerationVersion.V3;
-
 const stability = StabilityLevelTag.Stable;
 
 try {
@@ -65,7 +61,6 @@ try {
     contentType,
     file,
     language,
-    codegenVersion,
     stability
   );
 
@@ -125,7 +120,6 @@ Get the status of a V2 SDK generation request
 ```ts
 async getV2SdkGenerationStatus(
   id: string,
-  codegenVersion: CodeGenerationVersion,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SdkGenerationStatusResponse>>
 ```
@@ -135,7 +129,6 @@ async getV2SdkGenerationStatus(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `codegenVersion` | [`CodeGenerationVersion`](../../doc/models/code-generation-version.md) | Query, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -147,13 +140,8 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const id = 'id0';
 
-const codegenVersion = CodeGenerationVersion.V3;
-
 try {
-  const response = await v2SdkGenerationController.getV2SdkGenerationStatus(
-    id,
-    codegenVersion
-  );
+  const response = await v2SdkGenerationController.getV2SdkGenerationStatus(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -207,7 +195,6 @@ Downloads the V2 SDK artifacts. The endpoint returns a zip file containing the g
 ```ts
 async downloadGeneratedV2Sdk(
   id: string,
-  codegenVersion: CodeGenerationVersion,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
@@ -217,7 +204,6 @@ async downloadGeneratedV2Sdk(
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `string` | Template, Required | - |
-| `codegenVersion` | [`CodeGenerationVersion`](../../doc/models/code-generation-version.md) | Query, Required | - |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -229,13 +215,8 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 ```ts
 const id = 'id0';
 
-const codegenVersion = CodeGenerationVersion.V3;
-
 try {
-  const response = await v2SdkGenerationController.downloadGeneratedV2Sdk(
-    id,
-    codegenVersion
-  );
+  const response = await v2SdkGenerationController.downloadGeneratedV2Sdk(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);

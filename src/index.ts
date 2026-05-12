@@ -50,7 +50,6 @@ export type { Authentication } from './models/authentication.js';
 export type { AuthorIdentifiers } from './models/authorIdentifiers.js';
 export type { AuthScope } from './models/authScope.js';
 export type { CodeGeneration } from './models/codeGeneration.js';
-export { CodeGenerationVersion } from './models/codeGenerationVersion.js';
 export type { CodeGenSettings } from './models/codeGenSettings.js';
 export { ContentType } from './models/contentType.js';
 export type { Csnetstandardlib } from './models/csnetstandardlib.js';
