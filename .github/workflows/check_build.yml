@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ '20', '22', '24' ]
+        node: [ '22', '24' ]
     name: Node ${{ matrix.node }} sample
     steps:
       - name: checkout sdk
