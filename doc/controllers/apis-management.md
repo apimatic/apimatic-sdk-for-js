@@ -34,6 +34,10 @@ async importApiViaFile(
 ): Promise<ApiResponse<ApiEntity>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -43,6 +47,8 @@ async importApiViaFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**201**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
@@ -103,6 +109,10 @@ async importApiViaUrl(
 ): Promise<ApiResponse<ApiEntity>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -111,6 +121,8 @@ async importApiViaUrl(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**201**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
@@ -171,6 +183,10 @@ async importNewApiVersionViaFile(
 ): Promise<ApiResponse<ApiEntity>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -182,6 +198,8 @@ async importNewApiVersionViaFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
@@ -241,6 +259,10 @@ async importNewApiVersionViaUrl(
 ): Promise<ApiResponse<ApiEntity>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -251,6 +273,8 @@ async importNewApiVersionViaUrl(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
@@ -310,6 +334,10 @@ async inplaceApiImportViaFile(
 ): Promise<ApiResponse<void>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -320,6 +348,8 @@ async inplaceApiImportViaFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
@@ -375,6 +405,10 @@ async inplaceApiImportViaUrl(
 ): Promise<ApiResponse<void>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -384,6 +418,8 @@ async inplaceApiImportViaUrl(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
@@ -435,6 +471,10 @@ async fetchApiEntity(
 ): Promise<ApiResponse<ApiEntity>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -443,6 +483,8 @@ async fetchApiEntity(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiEntity`](../../doc/models/api-entity.md).
 
@@ -488,6 +530,10 @@ async downloadApiSpecification(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -497,6 +543,8 @@ async downloadApiSpecification(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 

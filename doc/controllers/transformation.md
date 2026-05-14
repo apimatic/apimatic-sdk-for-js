@@ -35,6 +35,10 @@ async transformViaFile(
 ): Promise<ApiResponse<Transformation>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -46,6 +50,8 @@ async transformViaFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation`](../../doc/models/transformation.md).
 
@@ -105,6 +111,10 @@ async transformViaUrl(
 ): Promise<ApiResponse<Transformation>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -113,6 +123,8 @@ async transformViaUrl(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation`](../../doc/models/transformation.md).
 
@@ -160,6 +172,10 @@ async downloadTransformedFile(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -168,6 +184,8 @@ async downloadTransformedFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
@@ -212,6 +230,10 @@ async downloadInputFile(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -220,6 +242,8 @@ async downloadInputFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
@@ -263,6 +287,10 @@ async listAllTransformations(
 ): Promise<ApiResponse<Transformation[]>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -270,6 +298,8 @@ async listAllTransformations(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation[]`](../../doc/models/transformation.md).
 
@@ -312,6 +342,10 @@ async getATransformation(
 ): Promise<ApiResponse<Transformation>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -320,6 +354,8 @@ async getATransformation(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`Transformation`](../../doc/models/transformation.md).
 
@@ -364,6 +400,10 @@ async deleteTransformation(
 ): Promise<ApiResponse<void>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -372,6 +412,8 @@ async deleteTransformation(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
