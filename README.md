@@ -184,6 +184,7 @@ This API uses the following authentication schemes.
 * [Table of Contents](doc/controllers/table-of-contents.md)
 * [SDK Source Tree Generation-Async](doc/controllers/sdk-source-tree-generation-async.md)
 * [SDK Generation-Async](doc/controllers/sdk-generation-async.md)
+* [V2 SDK Generation](doc/controllers/v2-sdk-generation.md)
 * [Transformation](doc/controllers/transformation.md)
 
 ## SDK Infrastructure
