@@ -1,31 +1,31 @@
-# SDK Generation-Async
+# V2 SDK Generation
 
 ```ts
-const sdkGenerationAsyncController = new SdkGenerationAsyncController(client);
+const v2SdkGenerationController = new V2SdkGenerationController(client);
 ```
 
 ## Class Name
 
-`SdkGenerationAsyncController`
+`V2SdkGenerationController`
 
 ## Methods
 
-* [Generate SDK via Build Input Async](../../doc/controllers/sdk-generation-async.md#generate-sdk-via-build-input-async)
-* [Get SDK Generation Status](../../doc/controllers/sdk-generation-async.md#get-sdk-generation-status)
-* [Download Generated SDK](../../doc/controllers/sdk-generation-async.md#download-generated-sdk)
+* [Generate V2 SDK via Build Input Async](../../doc/controllers/v2-sdk-generation.md#generate-v2-sdk-via-build-input-async)
+* [Get V2 SDK Generation Status](../../doc/controllers/v2-sdk-generation.md#get-v2-sdk-generation-status)
+* [Download Generated V2 SDK](../../doc/controllers/v2-sdk-generation.md#download-generated-v2-sdk)
 
 
-# Generate SDK via Build Input Async
+# Generate V2 SDK via Build Input Async
 
-Create an async SDK Generation request by providing a Build Input
+Create an async V2 SDK Generation request by providing a Build Input
 
 ```ts
-async generateSdkViaBuildInputAsync(
+async generateV2SdkViaBuildInputAsync(
   contentType: ContentType,
   file: FileWrapper,
   language: SdkLanguages,
+  stability: StabilityLevelTag,
   xApiMaticCallbackUrl?: string,
-  packageVersion?: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SdkGenerationAsyncResponse>>
 ```
@@ -41,8 +41,8 @@ This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md
 | `contentType` | [`ContentType`](../../doc/models/content-type.md) | Header, Required | - |
 | `file` | `FileWrapper` | Form, Required | The input file to the SDK Generator. Must contain the build file or a spec folder containing the API Specification. |
 | `language` | [`SdkLanguages`](../../doc/models/sdk-languages.md) | Form, Required | Languages for which SDKs can be generated. |
+| `stability` | [`StabilityLevelTag`](../../doc/models/stability-level-tag.md) | Form, Required | The stability level of the generated SDK. |
 | `xApiMaticCallbackUrl` | `string \| undefined` | Header, Optional | Optional header containing callback url. This url will be called by the server once the SDK generation completes |
-| `packageVersion` | `string \| undefined` | Form, Optional | Optional field containing the package version to apply to the generated SDK. |
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
@@ -60,15 +60,14 @@ const file = new FileWrapper(fs.createReadStream('dummy_file'));
 
 const language = SdkLanguages.Csharp;
 
-const packageVersion = '1.0.0';
+const stability = StabilityLevelTag.Stable;
 
 try {
-  const response = await sdkGenerationAsyncController.generateSdkViaBuildInputAsync(
+  const response = await v2SdkGenerationController.generateV2SdkViaBuildInputAsync(
     contentType,
     file,
     language,
-    undefined,
-    packageVersion
+    stability
   );
 
   // Extracting fully parsed response body.
@@ -105,8 +104,8 @@ try {
 {
   "id": "0194d0da-8d75-7c04-b517-6a9342b114e8",
   "links": {
-    "status": "https://api.apimatic.io/sdk/0194d0da-8d75-7c04-b517-6a9342b114e8/status",
-    "download": "https://api.apimatic.io/sdk/0194d0da-8d75-7c04-b517-6a9342b114e8/download"
+    "status": "https://api.apimatic.io/sdk/v2/0194d0da-8d75-7c04-b517-6a9342b114e8/status",
+    "download": "https://api.apimatic.io/sdk/v2/0194d0da-8d75-7c04-b517-6a9342b114e8/download"
   }
 }
 ```
@@ -120,12 +119,12 @@ try {
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
-# Get SDK Generation Status
+# Get V2 SDK Generation Status
 
-Get the status of an SDK generation request
+Get the status of a V2 SDK generation request
 
 ```ts
-async getSdkGenerationStatus(
+async getV2SdkGenerationStatus(
   id: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<SdkGenerationStatusResponse>>
@@ -154,7 +153,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const response = await sdkGenerationAsyncController.getSdkGenerationStatus(id);
+  const response = await v2SdkGenerationController.getV2SdkGenerationStatus(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);
@@ -201,12 +200,12 @@ try {
 | 500 | Internal Server Error | [`InternalServerErrorResponseError`](../../doc/models/internal-server-error-response-error.md) |
 
 
-# Download Generated SDK
+# Download Generated V2 SDK
 
-Downloads the SDK artifacts. The endpoint returns a zip file containing the generated SDK.
+Downloads the V2 SDK artifacts. The endpoint returns a zip file containing the generated SDK.
 
 ```ts
-async downloadGeneratedSdk(
+async downloadGeneratedV2Sdk(
   id: string,
   requestOptions?: RequestOptions
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
@@ -235,7 +234,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 const id = 'id0';
 
 try {
-  const response = await sdkGenerationAsyncController.downloadGeneratedSdk(id);
+  const response = await v2SdkGenerationController.downloadGeneratedV2Sdk(id);
 
   // Extracting fully parsed response body.
   console.log(response.result);

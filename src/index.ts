@@ -32,6 +32,7 @@ export * from './controllers/sdkGenerationAsyncController.js';
 export * from './controllers/sdkSourceTreeGenerationAsyncController.js';
 export * from './controllers/tableOfContentsController.js';
 export * from './controllers/transformationController.js';
+export * from './controllers/v2SdkGenerationController.js';
 export { ApiError } from './core.js';
 export * from './errors/badRequestResponseSdkError.js';
 export * from './errors/internalServerErrorResponseError.js';
@@ -85,6 +86,7 @@ export type { SdkGenerationStatusResponse } from './models/sdkGenerationStatusRe
 export { SdkLanguages } from './models/sdkLanguages.js';
 export type { Server } from './models/server.js';
 export type { ServerConfiguration } from './models/serverConfiguration.js';
+export { StabilityLevelTag } from './models/stabilityLevelTag.js';
 export { Status } from './models/status.js';
 export type { TemplatesPackageDeploymentInformation } from './models/templatesPackageDeploymentInformation.js';
 export type { TestCase } from './models/testCase.js';

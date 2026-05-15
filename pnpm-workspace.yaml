@@ -1,0 +1,7 @@
+allowBuilds:
+  esbuild: true
+enablePrePostScripts: true
+minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - '@apimatic/*'
+blockExoticSubdeps: true

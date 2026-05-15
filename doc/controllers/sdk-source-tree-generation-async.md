@@ -20,6 +20,10 @@ async downloadGeneratedSdkSourceTree(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -29,12 +33,14 @@ async downloadGeneratedSdkSourceTree(
 
 ## Response Type
 
+**200**
+
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
 ## Example Usage
 
 ```ts
-const id = 'id0';
+const id = '00001770-0000-0000-0000-000000000000';
 
 try {
   const response = await sdkSourceTreeGenerationAsyncController.downloadGeneratedSdkSourceTree(id);

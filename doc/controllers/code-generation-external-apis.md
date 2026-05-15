@@ -37,6 +37,10 @@ async generateSdkViaFile(
 ): Promise<ApiResponse<UserCodeGeneration>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -48,6 +52,8 @@ async generateSdkViaFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration`](../../doc/models/user-code-generation.md).
 
@@ -124,6 +130,10 @@ async generateSdkViaUrl(
 ): Promise<ApiResponse<UserCodeGeneration>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -132,6 +142,8 @@ async generateSdkViaUrl(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration`](../../doc/models/user-code-generation.md).
 
@@ -179,6 +191,10 @@ async downloadSdk(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -187,6 +203,8 @@ async downloadSdk(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
@@ -230,6 +248,10 @@ async listAllCodeGenerations(
 ): Promise<ApiResponse<UserCodeGeneration[]>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -237,6 +259,8 @@ async listAllCodeGenerations(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration[]`](../../doc/models/user-code-generation.md).
 
@@ -279,6 +303,10 @@ async downloadInputFile(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -287,6 +315,8 @@ async downloadInputFile(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 
@@ -331,6 +361,10 @@ async getACodeGeneration(
 ): Promise<ApiResponse<UserCodeGeneration>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -339,6 +373,8 @@ async getACodeGeneration(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`UserCodeGeneration`](../../doc/models/user-code-generation.md).
 
@@ -383,6 +419,10 @@ async deleteCodeGenerationForExternalApis(
 ): Promise<ApiResponse<void>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -391,6 +431,8 @@ async deleteCodeGenerationForExternalApis(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
 
