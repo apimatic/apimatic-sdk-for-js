@@ -1,3 +1,10 @@
+# [0.2.0-alpha.10](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.9...v0.2.0-alpha.10) (2026-05-15)
+
+
+### Features
+
+* add v4 sdk generation endpoint ([#31](https://github.com/apimatic/apimatic-sdk-for-js/issues/31)) ([0213eff](https://github.com/apimatic/apimatic-sdk-for-js/commit/0213eff362973f19cd78717fa011fa89458f9e76))
+
 # [0.2.0-alpha.9](https://github.com/apimatic/apimatic-sdk-for-js/compare/v0.2.0-alpha.8...v0.2.0-alpha.9) (2026-05-08)
 
 
