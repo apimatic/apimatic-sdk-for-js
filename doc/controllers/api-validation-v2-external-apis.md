@@ -28,6 +28,10 @@ async validateApiViaFileV2(
 ): Promise<ApiResponse<ValidateApiResult>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -37,6 +41,8 @@ async validateApiViaFileV2(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ValidateApiResult`](../../doc/models/validate-api-result.md).
 
@@ -175,6 +181,10 @@ async validateApiViaUrlV2(
 ): Promise<ApiResponse<ValidateApiResult>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -183,6 +193,8 @@ async validateApiViaUrlV2(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ValidateApiResult`](../../doc/models/validate-api-result.md).
 

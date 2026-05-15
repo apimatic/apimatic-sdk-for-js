@@ -28,6 +28,10 @@ async generateOnPremPortalViaBuildInputAsync(
 ): Promise<ApiResponse<PortalGenerationAsyncResponse>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -38,6 +42,8 @@ async generateOnPremPortalViaBuildInputAsync(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**202**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PortalGenerationAsyncResponse`](../../doc/models/portal-generation-async-response.md).
 
@@ -114,6 +120,10 @@ async getPortalGenerationStatus(
 ): Promise<ApiResponse<PortalGenerationStatusResponse>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -122,6 +132,8 @@ async getPortalGenerationStatus(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`PortalGenerationStatusResponse`](../../doc/models/portal-generation-status-response.md).
 
@@ -197,6 +209,10 @@ async downloadGeneratedPortal(
 ): Promise<ApiResponse<NodeJS.ReadableStream | Blob>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -205,6 +221,8 @@ async downloadGeneratedPortal(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type `NodeJS.ReadableStream | Blob`.
 

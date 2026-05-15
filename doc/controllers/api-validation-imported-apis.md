@@ -25,6 +25,10 @@ async validateApi(
 ): Promise<ApiResponse<ApiValidationSummary>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -33,6 +37,8 @@ async validateApi(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`ApiValidationSummary`](../../doc/models/api-validation-summary.md).
 
@@ -129,6 +135,10 @@ async validateApiForDocs(
 ): Promise<ApiResponse<DocsValidationSummary>>
 ```
 
+## Authentication
+
+This endpoint requires [Authorization](../../doc/auth/custom-header-signature.md)
+
 ## Parameters
 
 | Parameter | Type | Tags | Description |
@@ -137,6 +147,8 @@ async validateApiForDocs(
 | `requestOptions` | `RequestOptions \| undefined` | Optional | Pass additional request options. |
 
 ## Response Type
+
+**200**
 
 This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `result` property of this instance returns the response data which is of type [`DocsValidationSummary`](../../doc/models/docs-validation-summary.md).
 
